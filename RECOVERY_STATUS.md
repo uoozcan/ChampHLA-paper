@@ -1,5 +1,12 @@
 # ChampHLA publication recovery status
 
+## Current status — 27 October 2026
+
+V7 was adopted and committed in `1ed1f94`; the repository rename and snapshot publisher followed. The earlier dated entries below are historical and are not the current operating instructions. The v3.5.0 development gate passes; submission still requires author and controlled-cohort governance inputs, pending extension/NCI-60 results and release/archive metadata. D2 transfer classification is complete; no further classify/control action is pending. NCI-60 has priority. Never relaunch the extension: report NCI-60 roster completion to Umut and ask for instructions.
+
+The old PanelHLA workflow repository was deleted on 27 October 2026; no Support purge request remains. New repositories remain private pending the release decisions. The paper development history must never be pushed. Build the scanned snapshot and obtain approval before pushing it. See `reports/public_release_readiness_20261027.md` and `reports/presubmission_gap_closure_20261027.md`. The vault is left for Claude to reconcile.
+
+
 ## Completed locally and on Roihu
 
 - Immutable source DOCX copied and checksummed.

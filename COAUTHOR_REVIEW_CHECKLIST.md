@@ -1,8 +1,8 @@
 # ChampHLA coauthor review checklist
 
 This package is for scientific and authorship review, not submission. FIMM and
-VenEx are exploratory applications without independent HLA truth. Highlighted
-fields in the combined DOCX remain unresolved.
+VenEx are exploratory applications without independent HLA truth. Provisional values and unresolved
+declarations are retained in AUTHOR_FIELDS_TO_COMPLETE.md, outside the reader manuscript.
 
 ## FIMM data custodian
 
@@ -15,8 +15,8 @@ fields in the combined DOCX remain unresolved.
 ## Analysis lead
 
 - [ ] Confirm the coequal all-callable and contested-both specimen definitions.
-- [ ] Confirm the six specimen numerators, denominators, Wilson intervals, and
-  registry IDs shown in the main text and Supplementary Figure S5.
+- [ ] Review the current aggregate specimen results and uncertainty intervals in
+  Supplementary S9 and Figures S6–S8 against their source artifacts; do not treat agreement as accuracy.
 - [ ] Confirm that donor collapse remains sensitivity-only and that contested donor
   calls require every contributing callable specimen to have at least two callers.
 - [ ] Confirm BB7.2 linkage: 16/53 flow records linked, with informative counts of

@@ -26,6 +26,8 @@ SRC=$(git rev-parse HEAD)
 # (AUTHOR_FIELDS_TO_COMPLETE.md). Mixed files such as result_registry.tsv and the
 # manuscript sources keep the aggregate values the paper reports.
 HOLD_BACK=(
+  # internal AI working instructions, not paper material
+  ':(glob)*_PROMPT.md'
   artifacts/fimm
   artifacts/fimm_consensus
   artifacts/venex

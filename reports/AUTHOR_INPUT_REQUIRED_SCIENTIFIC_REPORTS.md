@@ -36,7 +36,10 @@ This checklist contains information that cannot be inferred from the repository 
 - [x] Review the complete old-versus-new registry delta. (25 October 2026, `decisions/20261025_rerun_registry_delta_approved_corrected.json`)
 - [x] If triggered, approve the revised headline before any rerun-dependent prose is finalized. (same signed record)
 - [x] Revalidate every conditional headline sentence against the final registry. (claim audit, 0 scientific failures, 25 October 2026)
-- [ ] Sign the amended extension pre-registration (`decisions/20261013_extension_v350_preregistration_amendment.json`) before the frozen confirmatory extension runs.
+- [x] Sign the amended extension pre-registration (`decisions/20261013_extension_v350_preregistration_amendment.json`): signed in `04cc6d1`.
+- [ ] Publish the extension pre-registration on Zenodo (reserved DOI 10.5281/zenodo.23251288). Umut will deposit it; the reserved identifier is not evidence of publication.
+- [ ] Complete the extension and NCI-60 runs, then collect their results under the applicable plans. The D2 transfer classification is already complete. Only Umut may approve an extension relaunch; no new truth join is authorized.
+- [ ] Approve the built paper snapshot before any push, and decide whether mixed files containing cohort aggregates may become public before governance is confirmed.
 - [ ] Cut the final paper-repository tag and record its commit.
 - [ ] Archive both repositories and supply persistent DOIs.
 - [ ] Confirm the workflow release to cite.

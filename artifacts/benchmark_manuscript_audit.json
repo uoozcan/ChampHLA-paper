@@ -8,7 +8,7 @@
     "author gate has 6 unresolved item(s)"
   ],
   "manuscript": "manuscripts/benchmark/manuscript.md",
-  "manuscript_sha256": "139fc77498794a6af96a979e68c91d0a0cdbe0fe1fe605f8e267d82b1b0ee950",
+  "manuscript_sha256": "b28188e50b2a8253b5813814000143bddbc37b32d07bb4480fd00fb8fde9610e",
   "missing_submission_elements": [
     "author list",
     "author contributions",
@@ -120,5 +120,5 @@
     "missing submission element: competing interests",
     "missing submission element: funding statement"
   ],
-  "word_count": 10116
+  "word_count": 10131
 }

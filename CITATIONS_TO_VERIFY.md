@@ -53,9 +53,31 @@ list.
 | Ensemble prediction can improve accuracy | Larjo 2017 (abstract) | Confirmed. |
 | Cluster-robust t is anti-conservative with few clusters | Cameron and Miller 2015 | Crossref record confirmed. |
 
-## Still to check against full text before submission
+## Claims checked — v7 follow-up, 27 October 2026
 
-- Mallal 2008 and Chung 2004: the pharmacogenomic examples.
-- Matzaraki 2017 and Schumacher and Schreiber 2015: the introductory motivation.
-- Trowsdale and Knight 2013: the general MHC complexity statement.
-- Aguiar 2019 and Lappalainen 2013: where cited for Geuvadis data and HLA expression.
+The following inventory covers every occurrence of these seven references in the current main text and supplement, outside the reference list. The exact cited sentences are retained below. Source quotations are deliberately short. Abstract support is distinguished from a full-text check; no inaccessible source is marked verified. No manuscript sentence or reference entry was changed for this check.
+
+| Cited claim and location | Source and accessible evidence | Assessment |
+|---|---|---|
+| Main Introduction: HLA on chromosome 6p21.3 is among the most polymorphic regions; Supplementary S13.1: class I and II antigen presentation to T cells | Trowsdale & Knight (2013), [full text, MHC organization and polymorphism](https://pmc.ncbi.nlm.nih.gov/articles/PMC4426292/). “Remarkably high levels of polymorphism are seen, notably in classical HLA genes”. The review describes the chromosomal organization and antigen presentation by class I and II. | Full text checked; supports the general statements. |
+| Main Introduction: HLA-B\*57:01 predicts abacavir hypersensitivity | Mallal et al. (2008), [primary NEJM article, article-text reproduction, Discussion](https://www.natap.org/2008/CROI/croi_56.htm), [DOI](https://doi.org/10.1056/NEJMoa0706135). “necessary, but not sufficient by itself”; screening can “identify patients at greatest risk”. | Full-text Discussion checked. Supports prediction of susceptibility, not certainty of reaction. Suggested clarification for the authors only: “HLA-B\*57:01 identifies increased risk of abacavir hypersensitivity”. Prose left unchanged. |
+| Main Introduction: HLA-B\*15:02 association with carbamazepine-induced Stevens–Johnson syndrome in Han Chinese patients | Chung et al. (2004), [publisher abstract](https://www.nature.com/articles/428486a): “strong association in Han Chinese”, with Stevens–Johnson syndrome induced by carbamazepine. The publisher page identifies the rest as subscription content; the complete article was not available. | **unverified: no full-text access**. The abstract supports the stated association. Obtain the full article for the requested full-text sign-off; no prose change proposed. |
+| Main Introduction: HLA genotype constrains tumour neoantigen presentation and typing errors propagate into vaccine and T-cell receptor therapy design | Schumacher & Schreiber (2015), [PubMed abstract and bibliographic record](https://pubmed.ncbi.nlm.nih.gov/25838375/): “development of novel therapeutic approaches that selectively enhance T cell reactivity against this class of antigens”. Publisher full text and a located reproduction were not readable through the available routes. | **unverified: no full-text access**. The abstract supports neoantigen-directed therapy, but does not directly establish the claimed consequences of typing errors. Proposed author revision, not applied: “HLA genotype constrains tumour neoantigen presentation, making correct typing relevant to neoantigen-directed therapy design.” Verify the source or add direct primary evidence before adopting this wording. |
+| Main Introduction: the MHC carries many of the strongest autoimmune-disease associations | Matzaraki et al. (2017), [full text, Role of MHC variants in human diseases](https://link.springer.com/article/10.1186/s13059-017-1207-1): “they remain the strongest risk factors for autoimmune diseases”. | Full text checked; supports the statement. |
+| Main Introduction: expression estimation is sensitive to polymorphism-aware mapping | Aguiar et al. (2019), [full text, Introduction and simulation analyses](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1008091): “many short reads originating from genes with extreme polymorphism fail to map to the reference genome”. | Full text checked; supports the mapping-bias statement. |
+| Main Methods, Study design and data: Geuvadis RNA-seq source | Lappalainen et al. (2013), [PMC summary and bibliographic record](https://pmc.ncbi.nlm.nih.gov/articles/PMC3918453/): “mRNA and miRNA from lymphoblastoid cell lines of 462 individuals from the 1000 Genomes Project”. The complete body could not be retrieved from PMC, Europe PMC or the publisher through the available routes. | **unverified: no full-text access**. The source summary supports the dataset attribution; a full-text sign-off remains open. |
+
+### Exact cited sentences in v7
+
+- `manuscript.md:15`: The human leukocyte antigen (HLA) genes of the major histocompatibility complex (MHC) on chromosome 6p21.3 form one of the most polymorphic regions of the human genome [1].
+- `manuscript.md:21`: HLA-B\*57:01 predicts abacavir hypersensitivity [4], and HLA-B\*15:02 is associated with carbamazepine-induced Stevens–Johnson syndrome in Han Chinese patients [5].
+- `manuscript.md:22`: HLA genotype determines which tumour neoantigens can be presented, so typing errors propagate into vaccine and T-cell receptor therapy design [6]. The region also carries many of the strongest known associations with autoimmune disease [7].
+- `manuscript.md:27`: RNA-seq samples expressed rather than genomic copies, so a weakly expressed allele can be missed. Expression estimation is itself sensitive to polymorphism-aware mapping [10].
+- `manuscript.md:63`: We ran callers on 1000 Genomes WES and Geuvadis RNA-seq data [20, 31] with ChampHLA workflow release 3.5.0 in October 2026. This retrospective benchmark evaluates the caller outputs produced by that run. The prediction tables contain no reference genotypes; reference typing is used only for evaluation.
+- `supplementary.md:1674`: and HLA-DP present extracellular peptides to CD4-positive helper T cells [1].
+
+### Remaining full-text checks
+
+- Chung 2004; Schumacher & Schreiber 2015; Lappalainen 2013: **unverified: no full-text access**. Ask an author with lawful full-text access to complete these checks; a Scite subscription is not required.
+- Treat the typing-error/therapy-design clause attributed to Schumacher & Schreiber as unverified, with the proposed narrower wording above. No reference or prose change was made.
+- The earlier Vancouver/BMC formatting note is historical. V7 targets Scientific Reports and uses one sequential main reference list shared with the supplement; the existing reference tests enforce that scheme.

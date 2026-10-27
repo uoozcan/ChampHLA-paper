@@ -1,0 +1,50 @@
+{
+  "preservation": {
+    "registry_sha256": "6fd741d6e4427ef84268cd6b114df098ac982370262ba448e0bd185ca0be9f2a",
+    "sources": [
+      {
+        "file": "manuscripts/benchmark/manuscript.md",
+        "numeric_tokens_unchanged": true,
+        "generated_blocks_unchanged": true
+      },
+      {
+        "file": "manuscripts/benchmark/supplementary.md",
+        "numeric_tokens_unchanged": true,
+        "generated_blocks_unchanged": true
+      }
+    ],
+    "result_tags": 175,
+    "result_tag_multiset_unchanged": true,
+    "main_words_excluding_methods": 4011,
+    "abstract_words": 180
+  },
+  "focused_tests": "95 passed",
+  "full_tests": "545 passed, 3 skipped, 14 warnings in 94.14s (0:01:34)",
+  "lint_passed": true,
+  "gate_status": "author_input_required",
+  "scientific_failures": [],
+  "bootstrap_iterations": 100000,
+  "power_iterations": 2000,
+  "qa": {
+    "pages": 79,
+    "unchanged_body_pages": 73,
+    "changed_body_pages": [
+      "page-01.png",
+      "page-08.png",
+      "page-19.png",
+      "page-20.png",
+      "page-23.png",
+      "page-73.png"
+    ],
+    "geometry_issues": []
+  },
+  "word_sha256": "d6b8628dd8444c8fc21a42245d33c74fe9586b773276f260cc8bcab51c7b85f8",
+  "pdf_sha256": "5b4db351fc35c697ac984280f56da0899f48e89c5845d52844013510c60cf90f",
+  "citation_fulltext_unverified": [
+    "Chung 2004",
+    "Schumacher and Schreiber 2015",
+    "Lappalainen 2013"
+  ],
+  "snapshot_push_requires_author_approval": true,
+  "vault_unchanged_for_claude": true
+}

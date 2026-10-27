@@ -179,7 +179,7 @@ A row with one resolved allele and no second, a *singleton call*, is partial and
 HLA-HD writes a hyphen for the second allele of a homozygous call and "Not typed" for a failed call [41]. arcasHLA releases before 0.4.0 report homozygotes as a single allele [42].
 These rows are completed into homozygous pairs.
 The historical arcasHLA executable was not preserved, so the stored-output convention rested on its representation. The v3.5.0 rerun container holds arcasHLA 0.2.0, which reports homozygotes this way.
-The rerun T1K parser records `num_diff_alleles` and quality fields distinguishing native homozygotes from missing alleles. We complete T1K's declared homozygotes; other single-allele rows abstain.
+The rerun T1K parser records `num_diff_alleles` and quality fields distinguishing native homozygotes from missing alleles. It ignores alleles with non-positive quality and does not promote secondary alleles into the genotype. We complete T1K's declared homozygotes; other single-allele rows abstain.
 At exact-endpoint loci, 27 of 30 single-allele WES rows and 30 of 34 RNA-seq rows lay at homozygous reference genotypes. Exceptions were three T1K WES rows (one declaration, two partial) and four arcasHLA RNA-seq declarations.
 We finalized this handling after inspecting development results and report abstain-all singleton scoring alongside it (Supplementary S2).
 [RESULT:DEV_SINGLE_ALLELE_WES_REFERENCE_HOMOZYGOUS]

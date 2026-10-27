@@ -61,11 +61,14 @@ until their governance is confirmed.
   singleton-to-homozygote completion is prohibited.
 - The active analysis is retrospective development evidence. It contains no
   independent external validation and no quantitative WGS result.
-- A version-2 protocol freezes a subject-disjoint extension of 89 WES and 99
-  RNA-seq subjects. Its readiness gate is closed pending the exact clean paper
-  commit, public immutable v3.5.0 release/DOI bundle, Umut's signature on the
-  v3.5.0 amendment and a post-signature readiness audit; no extension input has
-  been staged and no extension performance is reported.
+- The subject-disjoint extension uses the signed v3.5.0 amendment (`04cc6d1`).
+  Processing has started but is stopped while the exploratory NCI-60 full-roster
+  run takes priority. The failed WES transfer has been classified on author
+  instruction; no classification remains pending. Only Umut may approve an
+  extension relaunch after the NCI-60 controller reports roster completion.
+  No extension performance is reported. The public pre-registration deposit,
+  prediction freeze and separately authorized comparison with reference typing
+  remain outstanding; no truth join is authorized here.
 
 ## Public-input v3.5.0 development rerun
 
@@ -196,8 +199,10 @@ What needs more than a laptop:
 - The exploratory FIMM and VenEx aggregates are regenerated only inside the
   controlled environment that holds the patient data; the repository carries
   the aggregates and their checksums, never row-level data.
-- The NCI-60 estimates were withdrawn (Supplementary S9) and are not
-  regenerated.
+- Earlier NCI-60 estimates were withdrawn (Supplementary S9). The pilot has
+  completed and the full-roster workflow run is in progress; its results are
+  awaited for this submission. This local gate does not run the NCI-60 workflow
+  or compare that roster with reference typing.
 
 For a quick developer pass, reduce resampling and optionally skip tests:
 
