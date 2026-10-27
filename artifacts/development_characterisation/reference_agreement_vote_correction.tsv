@@ -1,0 +1,15 @@
+modality	caller	loci	caller_errors	vote_correct_at_caller_errors	vote_errors	caller_correct_at_vote_errors
+rnaseq	ArcasHLA	112	54	54	0	0
+rnaseq	HLA-HD	112	0	0	0	0
+rnaseq	OptiType	112	1	1	0	0
+rnaseq	T1K	112	12	12	0	0
+wes	HLA-HD	143	12	12	0	0
+wes	OptiType	143	2	2	0	0
+wes	POLYSOLVER	143	6	6	0	0
+wes	SpecHLA	143	12	12	0	0
+wes	T1K	143	19	19	0	0
+wgs	HLA-HD	0	0	0	0	0
+wgs	Kourami	0	0	0	0	0
+wgs	OptiType	0	0	0	0	0
+wgs	SpecHLA	0	0	0	0	0
+wgs	T1K	0	0	0	0	0

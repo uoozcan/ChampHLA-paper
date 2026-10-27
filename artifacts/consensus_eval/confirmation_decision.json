@@ -1,0 +1,59 @@
+{
+  "claim_boundary": "equal-weight consensus matches the modality-best caller without prior caller selection and is not exceeded by any tested integration method",
+  "cohort_subjects": {
+    "rnaseq": 107,
+    "wes": 130,
+    "wgs": 137
+  },
+  "comparators_significantly_exceeding_consensus": [
+    {
+      "comparator": "BestSingleTool_nestedCV",
+      "delta_points": -9.489051094890511,
+      "holm_adjusted_p": 3.551778291046269e-05,
+      "modality": "wgs"
+    },
+    {
+      "comparator": "Caller:OptiType",
+      "delta_points": -9.489051094890511,
+      "holm_adjusted_p": 3.551778291046269e-05,
+      "modality": "wgs"
+    },
+    {
+      "comparator": "ChampionChallenger",
+      "delta_points": -10.46228710462287,
+      "holm_adjusted_p": 2.093184981385998e-06,
+      "modality": "wgs"
+    },
+    {
+      "comparator": "MVFlooredCC",
+      "delta_points": -8.51581508515815,
+      "holm_adjusted_p": 5.938924097037557e-05,
+      "modality": "wgs"
+    },
+    {
+      "comparator": "TwoThirdsGuardedCC",
+      "delta_points": -9.975669099756692,
+      "holm_adjusted_p": 2.093184981385998e-06,
+      "modality": "wgs"
+    }
+  ],
+  "consensus_not_exceeded_pass": false,
+  "external_prerequisites_pass": false,
+  "guarded_cc_ablation_pass": true,
+  "headline_retained": false,
+  "input_sha256": "2fb9a5fdd7d36c1426a4064da8630f8ff5ca1bf36a7a19faefb57f4a183e7e54",
+  "minimum_subjects": {
+    "rnaseq": 130,
+    "wes": 89,
+    "wgs": 120
+  },
+  "mode": "discovery",
+  "per_gene_harm_pass": true,
+  "plurality_retention_pass": true,
+  "primary_method": "SimplePluralityLex",
+  "primary_pass": false,
+  "sample_size_pass": false,
+  "schema_version": "three-modality-confirmation-evaluation-2",
+  "status": "discovery_only",
+  "wgs_audit_pass": false
+}

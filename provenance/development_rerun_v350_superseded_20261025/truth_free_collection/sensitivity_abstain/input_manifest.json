@@ -1,0 +1,11 @@
+{
+  "output_sha256": {
+    "normalized_caller_calls": "9724a049f0c1916082da59df4438732d309415e590a66f65d0a181f1abb47aca"
+  },
+  "schema_version": "champhla-development-rerun-inputs-1",
+  "singleton_policy": "abstain",
+  "source_sha256": {
+    "collected_calls": "5b571ef9bf52218fa4d059a61948e3872791f041c3bbfd58817b74e11ff87465"
+  },
+  "truth_free": true
+}

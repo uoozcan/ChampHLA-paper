@@ -1,0 +1,5 @@
+modality	stratum	loci	subjects	ceu_ceph_or_yri_loci	ceu_ceph_or_yri_share	caller_unanimous_loci	caller_unanimous_share	median_candidate_pairs	unanimity_definition
+rnaseq	resolved	118	51	105	0.8898305084745762	53	0.4491525423728814	1.0	at least two panel callers callable and all agree
+rnaseq	ambiguous	145	59	14	0.09655172413793103	49	0.33793103448275863	8	at least two panel callers callable and all agree
+wes	resolved	153	63	125	0.8169934640522876	104	0.6797385620915033	1	at least two panel callers callable and all agree
+wes	ambiguous	182	72	15	0.08241758241758242	111	0.6098901098901099	7.5	at least two panel callers callable and all agree

@@ -1,0 +1,8 @@
+org.label-schema.build-arch: amd64
+org.label-schema.build-date: Friday_31_October_2025_15:44:52_EET
+org.label-schema.schema-version: 1.0
+org.label-schema.usage.apptainer.version: 1.3.6-1.el8
+org.label-schema.usage.singularity.deffile.bootstrap: docker
+org.label-schema.usage.singularity.deffile.from: sfurlan/spec-hla:latest
+org.opencontainers.image.ref.name: ubuntu
+org.opencontainers.image.version: 20.04

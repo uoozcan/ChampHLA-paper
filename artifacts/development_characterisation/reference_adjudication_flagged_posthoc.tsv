@@ -1,0 +1,3 @@
+modality	exact_loci	flagged_loci	flagged_loci_consensus_discordant	consensus_discordant_loci	flagged_typing_equals_consensus	flagged_typing_equals_reference	analysis_status
+rnaseq	118	6	5	5	5	0	post_hoc_after_results
+wes	153	10	10	10	10	0	post_hoc_after_results

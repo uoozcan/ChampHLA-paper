@@ -1,0 +1,40 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261009_nestedcv_refit",
+  "date": "2026-10-09",
+  "status": "SIGNED",
+  "addresses": "reports/pre_submission_review_20261008.tsv PSR-008 (MAJOR), PSR-041 (MINOR, in part)",
+  "problem": "The best-single-caller comparator (BestSingleTool_nestedCV) is a frozen prediction recovered from the earlier analysis. It was fitted on the superseded 390/321-locus denominators and earlier call-state rules, so it cannot benefit from the current rules while the plurality vote does. Its large RNA-seq deficit (11.86 points, Holm p=0.007) is therefore not interpretable, and the review called it a straw man.",
+  "original_design_recovered_from_outputs": {
+    "folds": "10 subject-level outer folds per assay; the assignment is preserved in the outer_fold column of the recovered predictions and is reused unchanged.",
+    "granularity": "One caller per assay per fold, applied to all three genes. Verified: in every fold the frozen predictions match a single caller at all genes.",
+    "historical_picks": "WES: OptiType in all 10 folds. RNA-seq: OptiType in folds 4, 8, 9; HLA-HD in 0, 2, 7; arcasHLA in 5; HLA-HD and arcasHLA indistinguishable in 1, 3, 6.",
+    "unrecoverable": "The original fitting code and its tie-break are not in the repository."
+  },
+  "rule": {
+    "procedure": "For each assay and each outer fold k: among the assay's panel callers, select the caller with the highest number of exact two-field correct calls (fixed denominator, non-calls incorrect) over the truth-retained loci of the subjects in the other nine folds, using the current call-state rules and current truth. Apply that caller's calls to every locus of fold k. Ties are broken by caller name in alphabetical order.",
+    "leakage_control": "A held-out subject's truth is never used for its own prediction; only training-fold truth informs a fold's pick.",
+    "freeze_structure": "Truth-free predictions keep their pre-truth freeze. The refit predictions are written after truth is built, in a separate stage frozen as fitted_predictions with truth_values_used_for_prediction='training_folds_only'. The evaluated file is the concatenation, frozen with both stages pinned as named inputs.",
+    "scorings": "Refitted separately under each scoring: the primary (native_declaration) and the abstain-all sensitivity, so each is internally consistent.",
+    "frozen_predictions": "Removed from the fitted comparison family (the refit replaces them, so family size is unchanged). Their historical score on the current loci is reported once, descriptively, from a separate artifact."
+  },
+  "out_of_scope": "The vote-stratum-gated champion-challenger and logistic meta-consensus predictions remain frozen; their fitted status and superseded training are disclosed (PSR-041).",
+  "expected_impact_known_before_signature": {
+    "statement": "Not blind: a scratch preview (D:/panelhla_work/phase1a/preview_nestedcv_refit.py) ran the procedure before this record was written. The regenerated registry is authoritative.",
+    "preview": {
+      "native_declaration": {"wes": "143/153, POLYSOLVER in all folds (frozen: 140/153)", "rnaseq": "106/118, HLA-HD in 7 folds and arcasHLA in 3 (frozen: 99/118)"},
+      "abstain_all": {"wes": "143/153, POLYSOLVER in all folds", "rnaseq": "109/118, OptiType in all folds"}
+    },
+    "direction": "Narrows the RNA-seq gap to the plurality vote (113/118) from 14 to 7 loci, and ties the vote in WES. The paired test decides whether the RNA-seq difference remains significant."
+  },
+  "reporting_commitments": [
+    "Methods and S7 describe the refit procedure, the recovered folds, the tie-break, and that the frozen predictions were replaced.",
+    "The frozen selector's historical score on the current loci is reported once.",
+    "The refit is labelled exploratory_fitted and is never eligible for the Abstract."
+  ],
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-09 00:38 EEST by Umut Onur Özcan (session confirmation, option 'Sign as proposed')",
+    "signature_mechanism": "Author confirms in the Claude Code session; recorded with date and time in its own commit before regeneration."
+  }
+}

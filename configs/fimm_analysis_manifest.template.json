@@ -1,0 +1,76 @@
+{
+  "schema_version": "panelhla-fimm-analysis-manifest-1",
+  "cohort_id": "FIMM_AML_MDS",
+  "tier": "REPLACE_WITH_TIER",
+  "tier_vocabulary": [
+    "A_specimen_level_full_cohort",
+    "B_matched_complete_case",
+    "C_flow_linked_subset"
+  ],
+  "analysis_role": "exploratory",
+  "abstract_eligible": false,
+  "accuracy_eligible": false,
+  "external_validation_eligible": false,
+  "secure_environment": "Roihu project_2008084",
+  "ipd_imgt_hla_release": "3.65.0",
+  "primary_method": "SimplePluralityLex",
+  "notes": [
+    "FIMM carries no independent laboratory HLA typing. Every concordance endpoint is",
+    "caller-versus-caller agreement and must never be reported as accuracy, as",
+    "correctness, or as external validation of the PanelHLA consensus rule.",
+    "Each sha256 below must be replaced with the real digest computed inside the secure",
+    "environment. The REPLACE_ON_ROIHU placeholder deliberately fails the frozen-checksum",
+    "gate so an unfrozen run cannot emit numbers."
+  ],
+  "inputs": {
+    "calls": {
+      "path": "/scratch/project_2008084/FIMM_SECURE_PATH/standardized_hla_calls.tsv",
+      "sha256": "REPLACE_ON_ROIHU",
+      "columns": ["specimen_id", "modality", "locus", "caller", "allele1", "allele2"]
+    },
+    "crosswalk": {
+      "path": "/scratch/project_2008084/FIMM_SECURE_PATH/specimen_donor_crosswalk.tsv",
+      "sha256": "REPLACE_ON_ROIHU",
+      "columns": [
+        "specimen_id", "donor_id", "export_id", "export_sample_id", "collection_order"
+      ]
+    },
+    "flow": {
+      "path": "/scratch/project_2008084/FIMM_SECURE_PATH/bb72_flow.tsv",
+      "sha256": "REPLACE_ON_ROIHU",
+      "columns": ["donor_id", "flow_positive"]
+    },
+    "imbalance": {
+      "path": "/scratch/project_2008084/FIMM_SECURE_PATH/spechla_wes_frequency.tsv",
+      "sha256": "REPLACE_ON_ROIHU",
+      "columns": [
+        "specimen_id", "locus", "major_fraction", "informative_heterozygous_sites"
+      ]
+    }
+  },
+  "legacy_inputs": {
+    "calls": {
+      "path": "/scratch/project_2008084/FIMM_SECURE_PATH/frozen_legacy_donor_calls.tsv",
+      "sha256": "REPLACE_ON_ROIHU"
+    },
+    "expected": {
+      "path": "/scratch/project_2008084/FIMM_SECURE_PATH/frozen_legacy_expected_summary.tsv",
+      "sha256": "REPLACE_ON_ROIHU"
+    }
+  },
+  "required_governance": {
+    "fhrb_or_ethics_identifier": "REQUIRED_BEFORE_SUBMISSION",
+    "collection_period": "REQUIRED_BEFORE_SUBMISSION",
+    "cohort_demographics": "REQUIRED_BEFORE_SUBMISSION",
+    "inclusion_exclusion_rules": "REQUIRED_BEFORE_SUBMISSION",
+    "consent_or_biobank_basis": "REQUIRED_BEFORE_SUBMISSION"
+  },
+  "export_policy": {
+    "real_donor_ids": false,
+    "specimen_ids": false,
+    "calendar_dates": false,
+    "mapping_tables": false,
+    "secure_absolute_paths": false,
+    "allowed_identifiers": "FIMM- pseudonyms only"
+  }
+}

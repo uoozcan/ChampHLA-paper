@@ -1,0 +1,74 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261008_singleton_native_homozygosity",
+  "date": "2026-10-08",
+  "status": "SIGNED",
+  "addresses": "reports/pre_submission_review_20261008.tsv PSR-005 (FATAL)",
+  "relationship_to_earlier_records": {
+    "20260918_harmonisation_correction_result.json": "Pre-registered test of abstention. Abstaining on single-allele caller output LOWERED consensus accuracy, because on WES and RNA-seq a placeholder second allele marked genuine homozygosity (reference typing homozygous at 92.1% WES / 97.0% RNA-seq of affected loci vs ~13% baseline). Adoption was declined at the time.",
+    "20260924_publication_remediation.json": "Adopted singleton_policy=abstain with the stated definition: 'Homozygosity is accepted only when two matching alleles or an explicit caller-native homozygous declaration are present.' The second clause was never implemented: src/champhla_confirmation/schema.py never passes explicit_homozygous=True to io.normalize_diploid_call, so every single-allele row was scored as a non-call, including rows where the caller's own documented format declares homozygosity.",
+    "this_record": "Implements the 2026-09-24 policy as written. It does not reverse it. Abstention for callers whose format does NOT declare homozygosity is unchanged."
+  },
+  "problem": "Methods (manuscript.md:356-357) states that duplication is allowed only when a caller-native format explicitly declares homozygosity, but the implementation never recognised any native declaration. In the development data all 64 single-allele rows at exact-endpoint loci are reference-homozygous, so the implemented rule converted correct native homozygous calls into errors. That depressed HLA-HD and arcasHLA, and it produced most of the consensus's Holm-significant wins over them.",
+  "evidence_per_caller": {
+    "HLA-HD": {
+      "native_convention": "In *_final.result.txt a hyphen in the second allele column declares a homozygous call; failures are written 'Not typed' in both columns.",
+      "primary_source": "HLA-HD demo manual, https://w3.genome.med.kyoto-u.ac.jp/HLA-HD/demo/hlahd-demo.v1.pdf, text beside the final.result.txt example: 'Hyphen means that the gene is considered as homozygous if copy number of the gene is two.' Retrieved 2026-10-08, SHA-256 77c0d33ea7d02e09ac9c58f12699adce9d0b34085cdd157d437fdf105715366b.",
+      "pipeline_pass_through": "The parser on the caller-run branch (uoozcan/PanelHLA roihu-migration-locityper-docs, modules/hlahd.nf, 'Parse results with per-gene read counts') copies columns 2 and 3 of final.result.txt verbatim, so allele2_raw='-' is HLA-HD's own hyphen and 'Not typed' would have been preserved as 'Not typed'.",
+      "development_rows_affected": "32 RNA-seq + 33 WES rows with a resolved allele1 and allele2_raw='-'; no row carries 'Not typed' beside a resolved allele.",
+      "rule": "complete as homozygous"
+    },
+    "ArcasHLA": {
+      "native_convention": "arcasHLA up to v0.2.0 writes a homozygous genotype as a ONE-element list in <sample>.genotype.json; from v0.5.0 it writes a duplicated pair. Every one-element assignment in v0.2.0 is in a homozygous branch.",
+      "primary_source": "https://raw.githubusercontent.com/RabadanLab/arcasHLA/v0.2.0/scripts/genotype.py lines 367, 371, 377, 379 and 395 ('genotype = [a2]', 'genotype = [a1]', ..., 'genotype = [process_allele(alleles[0], 3),]'); compare v0.5.0 and v0.6.0 lines 369-395, which write '[a1, a1]'. Checked 2026-10-08.",
+      "pipeline_pass_through": "modules/arcashla.nf lines 84-85 on the caller-run branch write a2='-' only when the genotype list has exactly one element.",
+      "development_rows_affected": "32 RNA-seq rows. Their presence also dates the executed arcasHLA version to before v0.5.0 (previously 'historical executable version unavailable').",
+      "rule": "complete as homozygous"
+    },
+    "T1K": {
+      "native_convention": "The README states: 'In the case of missing alleles or homozygous alleles, the triple (allele, abundance, quality) will be \". 0 -1\" as place holders.' The placeholder does not distinguish homozygosity from a missing allele.",
+      "primary_source": "https://github.com/mourisl/T1K README, output format section, checked 2026-10-08.",
+      "development_rows_affected": "28 RNA-seq + 28 WES rows.",
+      "rule": "abstain (unchanged): no unambiguous native declaration"
+    },
+    "OptiType, POLYSOLVER, SpecHLA": {
+      "observation": "No single-allele rows in the development panels.",
+      "rule": "unchanged"
+    }
+  },
+  "rule": {
+    "primary_singleton_policy": "native_declaration",
+    "definition": "A caller output with exactly one resolved allele is completed into a homozygous pair only when the caller's documented native format declares homozygosity: HLA-HD and ArcasHLA with second-allele token '-' exactly. All other single-allele outputs, including T1K, abstain (call_status=partial, no vote, scored incorrect at the fixed denominator).",
+    "provenance_column": "normalized_caller_calls.tsv gains homozygosity_basis = 'two_alleles' | 'caller_native_declaration' | '' so every completed pair is traceable.",
+    "implementation": "io.declares_native_homozygosity(caller, raw1, raw2) -> schema.normalize_caller_row(..., singleton_policy) -> development.prepare_development_inputs(..., singleton_policy). Inputs regenerated from the checksum-pinned recovered sources (caller rows 3fe5176e..., method rows 9032108f...)."
+  },
+  "sensitivity_analysis": {
+    "name": "abstain_all_singletons",
+    "definition": "The 2026-09-24 implementation as executed: every single-allele row abstains. It is reported beside the primary for the consensus and every caller (Table 2 / Supplementary S2-S3), so readers can see both scorings."
+  },
+  "expected_impact_known_before_signature": {
+    "statement": "The development results under completion were already computed by the 2026-10-08 review (scratch computations, not registry values). This decision is therefore NOT blind to its consequences, and the manuscript must say so. The regenerated registry values, not these, are what the paper reports.",
+    "review_computations": "Honouring HLA-HD '-' and arcasHLA single alleles: RNA-seq consensus 113/120 (previously 110), RNA-seq HLA-HD 110/120 (previously 97), WES HLA-HD 126/153 (previously 110). The WES consensus is expected to be unchanged at 143/153. Wins/losses of the vote fall from 13/0 to 3/0 vs HLA-HD (RNA-seq), 15/0 to 4/0 vs arcasHLA (RNA-seq) and 33/0 to 17/0 vs HLA-HD (WES).",
+    "direction": "Raises the vote and the two affected callers, and removes most of the vote's significant wins over them. This is consistent with the paper's 'matches, does not exceed' framing.",
+    "verified_preview_2026_10_08": {
+      "method": "Package code end to end (prepare_development_inputs -> build_development_predictions -> freeze_bundle -> join_truth -> evaluation._evaluate_rows) on scratch copies; script D:/panelhla_work/phase1a/preview_policy_impact.py. The abstain run reproduces the published 143/153 and 110/120 exactly, which validates the comparison. Scratch values; the regenerated registry is authoritative.",
+      "normalized_rows_changed": "97 (ArcasHLA RNA-seq 32, HLA-HD RNA-seq 32, HLA-HD WES 33); T1K 56 rows still abstain; no other row differs.",
+      "exact_endpoint_abstain_to_native": {
+        "wes": {"ChampHLA-Consensus": "143 -> 143 /153", "HLA-HD": "110 -> 126", "POLYSOLVER": "143 (unchanged)", "OptiType": "140 (unchanged)", "SpecHLA": "123 (unchanged)", "T1K": "113 (unchanged)"},
+        "rnaseq": {"ChampHLA-Consensus": "110 -> 113 /120", "HLA-HD": "97 -> 110", "ArcasHLA": "95 -> 109", "OptiType": "109 (unchanged)", "T1K": "91 (unchanged)"},
+        "note": "BestSingleTool_nestedCV is a frozen legacy prediction and does not move (99/120 RNA-seq); its refit is PSR-008. HLA-HD, T1K and OptiType carry 117 joined RNA-seq rows against 120 loci; the fixed-denominator accounting is checked when the gate regenerates."
+      }
+    }
+  },
+  "reporting_commitments": [
+    "Methods states the rule, the per-caller evidence and the T1K exception, citing the three primary sources.",
+    "Methods 'Protocol history' (PSR-007) records the sequence: 2026-09-18 pre-registered abstention test (lowered accuracy) -> 2026-09-24 policy adopted with a native-declaration clause -> clause found unimplemented in the 2026-10-08 review -> implemented here, with consequences known.",
+    "Both scorings are reported for the consensus and every caller. Neither scoring is suppressed.",
+    "The confirmatory extension pre-registration (Phase 3) locks this rule before any extension input is staged."
+  ],
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-08 21:42 EEST by Umut Onur Özcan (session confirmation, option 'Sign as proposed'; T1K completion explicitly not chosen)",
+    "signature_mechanism": "Author confirms in the Claude Code session and this field is set to '<date> by Umut Onur Özcan (session confirmation)', committed in its own commit before the regenerated artifacts."
+  }
+}

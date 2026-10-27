@@ -1,0 +1,34 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261009_reference_adjudication",
+  "date": "2026-10-09",
+  "status": "SIGNED",
+  "addresses": "reports/pre_submission_review_20261008.tsv PSR-054 (MAJOR); also informs PSR-053",
+  "problem": "Review R1 observed that at most consensus-discordant development loci the callers, and where available both assays, agree on the same alternative genotype, a pattern that may reflect error in the 2014 reference typing. The manuscript interprets caller error correlation (phi), the oracle ceiling and 'unanimous and wrong' loci as caller behaviour without any check of the reference. The attribution is plausible but unadjudicated.",
+  "second_typing": {
+    "source": "IGSR data collection HLA_types: 20181129_HLA_types_full_1000_Genomes_Project_panel.txt (Abi-Rached et al. 2018, PLoS ONE 13:e0206512, doi:10.1371/journal.pone.0206512; also the paper's S2 Table)",
+    "url": "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HLA_types/20181129_HLA_types_full_1000_Genomes_Project_panel.txt",
+    "sha256": "570b5cc5523273826a5695452f18b77f8742e568e1e35a34aed5d2a313472e8e",
+    "md5_matches_igsr_manifest": "7256686c53f6e118c6f0969ca3dac03c (20181129_HLA_manifest.txt), 202701 bytes",
+    "method": "PolyPheMe v1.2 on 1000 Genomes exome sequences, IMGT/HLA 3.28 (IGSR README).",
+    "independence": "Not independent of this benchmark. It is computed from the same 1000 Genomes exome data as the WES assay, by a further in silico caller. It is therefore used only to adjudicate discordant loci and for a sensitivity analysis; it never replaces the reference typing, and no locus's primary score changes."
+  },
+  "rule": {
+    "fixed_before_comparison": "This rule is written before any comparison between the second typing and development predictions or reference genotypes is computed. The review's observations on caller agreement are known; the second-typing comparison is not.",
+    "firewall": "Rows for subjects without development predictions are discarded at load time, before any genotype field is parsed. Confirmatory-extension subjects are never compared, counted or written. The pre-registration firewall (truth join for extension subjects) is unaffected.",
+    "parsing": "A value of two or more colon-separated numeric fields is prefixed with its gene and reduced to two fields, as in the paper's normalizer. Any other value (blank, ambiguous or non-numeric) makes the second typing unavailable at that locus. Genotypes are compared unordered at two fields.",
+    "adjudication_classes": "For every callable ChampHLA-Consensus (SimplePluralityLex) call that disagrees with the reference at the exact endpoint, in each assay: 'second typing matches consensus', 'second typing matches reference', 'second typing matches neither', or 'second typing unavailable'. Each locus also carries a G-equivalence flag: the consensus and reference genotypes are G-equivalent when the alleles can be paired so that each pair shares an official IPD-IMGT/HLA 3.65.0 G group (the semantics of the existing G-group compatibility sensitivity).",
+    "sensitivity": "Method-independent subset: the exact-endpoint loci at which the second typing equals the reference genotype. Every method in the joined development table is rescored on that subset with the fixed-denominator convention (a missing call scores incorrect). The oracle headroom and pairwise caller error phi are recomputed on the subset. Descriptive only: no hypothesis test, no multiplicity family, and no substitution for any primary or secondary result. The subset is chosen by reference agreement, never by agreement with the consensus, so that it cannot favour any method by construction.",
+    "concordance_of_typings": "The two typings' genotype agreement over all exact-endpoint loci is reported per assay and gene, descriptively."
+  },
+  "reporting_commitments": [
+    "Results reports the adjudication class counts for every consensus-discordant locus in both assays, with the G-equivalence counts, and states that the second typing derives from the same exomes.",
+    "The reference-agreement sensitivity (per-method concordance, oracle, phi) is reported in the supplement with one Results sentence, whatever its direction.",
+    "Wording that attributes discordance to reference error is used only for loci in the 'second typing matches consensus' class, and only as 'may reflect reference-typing error'."
+  ],
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-09 21:10 EEST by Umut Onur Özcan (session confirmation, option 'Sign as proposed')",
+    "signature_mechanism": "Author confirms in the Claude Code session; recorded as '<date time> by Umut Onur Özcan (session confirmation)' in its own commit before any result is cited."
+  }
+}

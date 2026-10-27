@@ -1,0 +1,46 @@
+import hashlib
+import json
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_roihu_preflight_enables_nounset_after_csc_environment():
+    text = (ROOT / "scripts/roihu_preflight.sh").read_text(encoding="utf-8")
+    assert text.index("source /etc/profile.d/zz-csc-env.sh") < text.index("set -u")
+
+
+def test_wgs_scripts_fail_closed():
+    run = (ROOT / "scripts/roihu_run_full_cram_wgs_pilot.sbatch").read_text(encoding="utf-8")
+    repair = (ROOT / "scripts/roihu_repair_kourami_full_bam.sbatch").read_text(encoding="utf-8")
+    assert "set -eo pipefail" in run
+    assert "Expected exactly one nonempty" in run
+    assert "set -eo pipefail" in repair
+    assert "Kourami produced no nonempty result" in repair
+
+
+def test_roihu_environment_loads_samtools_before_creating_venv():
+    text = (ROOT / "scripts/setup_roihu_test_env.sh").read_text(encoding="utf-8")
+    assert text.index("module load samtools/1.21") < text.index("python3 -m venv")
+    assert "EXPECTED_PYTHON=3.11.15" in text
+    assert "record_environment.py" in text
+    assert '"${ROOT}/.venv/bin/python" -m pytest' not in text
+
+
+def test_release_runner_regenerates_before_running_tests():
+    text = (ROOT / "scripts/reproduce_development_benchmark.py").read_text(
+        encoding="utf-8"
+    )
+    main_start = text.index("def main(")
+    regenerate = text.index("generate_compute_provenance.main()", main_start)
+    checks = text.index("    run_checks()", main_start)
+    assert regenerate < checks
+
+
+def test_imported_wgs_pilot_artifact_hashes():
+    root = ROOT / "artifacts" / "wgs_pilot_review"
+    manifest = json.loads((root / "import_manifest.json").read_text(encoding="utf-8"))
+    for relative, expected in manifest["files"].items():
+        observed = hashlib.sha256((root / relative).read_bytes()).hexdigest()
+        assert observed == expected

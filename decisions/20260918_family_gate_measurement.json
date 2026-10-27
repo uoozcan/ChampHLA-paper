@@ -1,0 +1,81 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20260918_family_gate_measurement",
+  "date": "2026-09-18",
+  "status": "SIGNED",
+  "decision": "Measure the algorithm-family (correlation-aware) challenger diversity gate as a comparator, and report the result whatever it is.",
+
+  "written_before_the_run": true,
+  "why_this_exists": "Supplementary S2 states that algorithm-family and correlation-aware gates produce 'no material change in held-out accuracy (<= ~0.5 points)' and reports them as a sensitivity analysis. No artifact anywhere in the evidence chain supports that figure. The claim is currently an assertion. This record fixes how it will be measured before it is measured, so the number replaces the assertion rather than decorating it.",
+
+  "what_the_gate_is": {
+    "description": "A diversity gate on the Champion-Challenger override decision. The existing policy permits a challenger to override the champion only when the number of supporting callers reaches a threshold. The family gate replaces that count of callers with a count of distinct algorithmic families, on the reasoning that callers within a family share alignment strategy and reference representation and therefore correlated blind spots, so a raw tool count overstates independent support.",
+    "implementation_source": "bin/hla_benchmark.py and conf/tool_families.yaml in the pipeline repository, currently uncommitted on branch roihu-migration-locityper-docs.",
+    "families": {
+      "alignment": ["OptiType", "HLA-HD", "POLYSOLVER"],
+      "assembly_graph": ["Kourami", "SpecHLA", "T1K"],
+      "kmer": ["ArcasHLA", "Seq2HLA"]
+    },
+    "fail_open": "A caller absent from the map forms its own singleton family, so the gate never silently merges voters.",
+    "it_does_not_change_the_primary_method": "The gate applies to Champion-Challenger, which is a retained ablation. Equal-weight plurality is unaffected and remains the primary method under decisions/20260908_consensus_primary_amendment.json."
+  },
+
+  "rule_being_measured": {
+    "name": "FamilyGatedCC",
+    "definition": "Identical to ChampionChallenger except that a challenger override additionally requires the supporting callers to span at least two distinct algorithmic families. An override that fails this test is rejected and the champion call is retained, exactly as the existing policy does when its own gate fails.",
+    "min_supporting_families": 2,
+    "rationale_for_two": "It is the default in the pipeline implementation (champion_challenger.override_policy.min_supporting_families). It is not tuned here and will not be tuned in response to the result."
+  },
+
+  "how_it_will_be_computed": {
+    "method": "Re-gate the existing ChampionChallenger calls rather than rebuilding the policy. Each CC row records decision_reason, champion_pair, challenger_pair and supporting_callers, so an override can be reverted to its champion exactly and without re-running any caller.",
+    "input": "artifacts/consensus_eval_wes_rna/joined_wes_rna.tsv",
+    "scope": "WES and RNA-seq. Whole-genome data is excluded because its inputs are invalid.",
+    "override_rows_available": {"wes": 19, "rnaseq": 6, "total": 25}
+  },
+
+  "endpoint": {
+    "primary": "Change in the number of correct exact unordered two-field calls for FamilyGatedCC relative to ChampionChallenger, at the fixed denominators of 390 WES and 321 RNA-seq loci, reported per assay.",
+    "secondary": [
+      "The number of overrides the family gate reverts, per assay.",
+      "FamilyGatedCC against PanelHLA-Consensus, entered into the existing comparator family with Holm correction within each modality, so it is judged on the same terms as every other comparator."
+    ],
+    "pre_measurement_values": {
+      "champion_challenger_wes": "369 / 390",
+      "champion_challenger_rnaseq": "306 / 321",
+      "panelhla_consensus_wes": "365 / 390",
+      "panelhla_consensus_rnaseq": "306 / 321"
+    }
+  },
+
+  "disclosure_about_what_was_already_seen": "While establishing that the re-gating was possible at all, the supporting-caller sets of five of the twenty-five override rows were displayed. Those show which callers supported a challenger; they do not show whether any call is correct, and no accuracy figure was computed before this record was written. It is disclosed rather than omitted.",
+
+  "reporting_commitments": [
+    "The measurement is run once and the result is reported whatever it shows, including a result that makes the gate look pointless, and including one that makes it look better than the vote.",
+    "If the gate reverts no overrides, that is the result: the gate is inert on this cohort, and S2 will say so with a number instead of an estimate.",
+    "min_supporting_families is not adjusted in response to the result. A different threshold would be a new pre-registration.",
+    "The gate is not promoted to primary method on the strength of this measurement. The primary method is fixed by a signed amendment, and changing it on the basis of a result seen afterwards would be selection."
+  ],
+
+  "author_signoff": {
+    "required": true,
+    "signed_by": "Umut Onur Özcan",
+    "signed_date": "2026-09-18",
+    "signature_mechanism": "Authorisation given by the author in an interactive working session on 2026-09-18, after the record was presented for review. Recorded by the assistant at the author's explicit instruction; the decision is the author's.",
+    "scope_of_authorisation": "Authorises measuring the algorithm-family diversity gate under the rule fixed above, entering FamilyGatedCC into each modality's Holm-corrected comparator family, and replacing the unsupported S2 assertion with whatever the measurement returns.",
+    "note": "Required because the result replaces a claim currently in the supplementary, and because the comparator enters the paper's Holm-corrected family."
+  },
+  "result": {
+    "run_once_on": "2026-09-18",
+    "champion_challenger_wes": "369 / 390",
+    "family_gated_wes": "370 / 390",
+    "delta_wes": 1,
+    "champion_challenger_rnaseq": "306 / 321",
+    "family_gated_rnaseq": "306 / 321",
+    "delta_rnaseq": 0,
+    "overrides_reverted": "4 of 25, every one supported by two callers from a single family; three of the four overrides were wrong and one was right",
+    "against_the_vote": "FamilyGatedCC reaches 370/390 WES (Holm-adjusted p = 0.875) and 306/321 RNA-seq (Holm-adjusted p = 1.0); it does not significantly exceed the vote in either assay, and no verdict elsewhere in the paper flipped.",
+    "artifacts": "artifacts/family_gate/family_gate_results.tsv and artifacts/family_gate/family_gate_reverted_overrides.tsv",
+    "reported_in": "Supplementary S2 and S2a; Table 1 of the main text."
+  }
+}

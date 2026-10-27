@@ -1,0 +1,13 @@
+sample	tool	modality	gene	allele1	allele2	is_callable
+HG00096	arcashla	rnaseq	A	A*01:01:108	A*29:02:01	1
+HG00096	arcashla	rnaseq	B	B*44:03:32	B*08:01:01	1
+HG00096	arcashla	rnaseq	C	C*07:01:45	C*16:148	1
+HG00096	hlahd	rnaseq	A	HLA-A*29:02:01	HLA-A*01:01:01	1
+HG00096	hlahd	rnaseq	B	HLA-B*08:01:01	HLA-B*44:03:01	1
+HG00096	hlahd	rnaseq	C	HLA-C*07:01:01	HLA-C*16:01:01	1
+HG00096	optitype	rnaseq	A	A*29:02	A*01:01	1
+HG00096	optitype	rnaseq	B	B*08:01	B*44:03	1
+HG00096	optitype	rnaseq	C	C*07:01	C*16:01	1
+HG00096	t1k	rnaseq	A	HLA-A*29:02:01	HLA-A*01:01:01	1
+HG00096	t1k	rnaseq	B	HLA-B*08:01:01	HLA-B*44:03:01	1
+HG00096	t1k	rnaseq	C	HLA-C*16:01:01	HLA-C*07:01:01	1

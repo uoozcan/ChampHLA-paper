@@ -1,0 +1,45 @@
+issue_id	status	work_package	implementation_or_evidence	remaining_gate
+ACT-MAJ-001	implemented_local	positioning	configs/benchmark_resource_protocol_v2.json locks development selection as post_hoc	Extension results unavailable; retain post-hoc disclosure
+ACT-MAJ-002	partial	truth	set-valued truth builder and existing exclusion manifest	Generate extension and development cohort-flow displays
+ACT-MAJ-003	implemented_local	result_generation	100000-resample artifacts tables figures registry and numerical prose regenerated from one authoritative run	External extension results remain unavailable
+ACT-MAJ-004	implemented_local	statistics	subject-cluster intervals regenerated for genotype allele callability and called-only endpoints under Python 3.11.15	None for development analysis
+ACT-MAJ-005	implemented_local	normalization	IPD 3.65.0 parser and resources added; manuscript now labels development normalization syntax-only	Apply release-backed normalization when extension inputs exist
+ACT-MAJ-006	partial	representability	representability evaluator and fail-closed caller-resource manifest	Recover each caller-native allele database
+ACT-MAJ-007	blocked_external	benchmarking	modern comparator matrix locked in protocol	Acquire containers and run subject-disjoint public data
+ACT-MAJ-008	partial_with_scoped_closure	reproducibility	renewed CSC access recovered two current HG00096 workflow smoke runs, task commands, SIF hashes, Nextflow traces and Slurm accounting; the development analysis is reproduced under Python 3.11.15	Historical development execution provenance remains unavailable; the extension gate stays fail-closed pending exact native databases and missing comparator resources
+ACT-MAJ-009	blocked_release	release	clean-release requirements retained	Resolve metadata commit tag DOI and clean tree
+ACT-MAJ-010	partial	generalizability	roster is population stratified and subgroup inference is restricted	Add AFND snapshot or explicitly document licensing barrier
+ACT-MAJ-011	implemented_local	positioning	active manuscript title abstract discussion and conclusion use benchmark/resource framing	None
+ACT-MAJ-012	implemented_local	study_design	protocol and manuscript distinguish post-hoc fitted development analyses from the locked extension	None
+ACT-MIN-001	blocked_author	submission_metadata	AUTHOR_FIELDS_TO_COMPLETE.md	Authors must provide controlled metadata
+ACT-MIN-002	implemented_local	writing	resource title and reproducibility boundary applied throughout active manuscript and supplement	None
+ACT-MIN-003	implemented_local	writing	recovered-output boundary documented and raw workflow explicitly external	None
+ACT-MIN-004	implemented_local	terminology	active prose legends and tables use exact genotype or allele concordance	Internal artifact field names remain backward compatible
+ACT-MIN-005	implemented_local	statistics	called-only concordance and subject-clustered intervals regenerated in main and supplementary tables	None
+ACT-MIN-006	implemented_local	nomenclature	P/G groups separated from expression suffixes in code tests methods and supplement	None
+ACT-MIN-007	implemented_local	statistics	Bonferroni-adjusted percentile subject-cluster intervals named explicitly in protocol Methods legends and tables	None
+ACT-MIN-008	implemented_local	statistics	exact-or-Monte-Carlo subject sign-flip policy implemented tested and reported with method field	None
+ACT-MIN-009	implemented_local	figures	comparative figure panels regenerated with common axes and visually inspected	None
+ACT-MIN-010	implemented_local	figures	paired forest display marks exploratory fitted policies with triangles and labels and passed visual inspection	None
+ACT-MIN-011	implemented_local	figures	common scale and truncation disclosures added to figure legends	None
+ACT-MIN-012	implemented_local	figures	no-evidence 0/0 support is described as undefined and displayed separately	None
+ACT-MIN-013	blocked_external	methods	assay manifest contains accessions/builds	Recover capture read-length depth and preprocessing metadata
+ACT-MIN-014	partial	citations	primary sources cited at point of methodological description	Apply target-journal reference formatting after journal selection
+ACT-MIN-015	implemented_local	claims	complete-audit wording removed and post-normalization boundary stated consistently	None
+ACT-MIN-016	partial	data_presentation	detailed exclusion TSV exists	Generate reason-by-gene/population table
+ACT-MIN-017	implemented_local	figures	figures regenerated from authoritative TSVs captions revised and all five displays visually inspected	None
+SRC-MAJ-001	closed_by_quarantine	source_draft	manuscripts/source_original/README_SUPERSEDED.md	None; do not reuse WGS
+SRC-MAJ-002	closed_by_quarantine	source_draft	active route is benchmark resource	None; do not reactivate ChampHLA methods draft
+SRC-MAJ-003	closed_by_quarantine	source_draft	truth-selected RNA analyses excluded	None
+SRC-MAJ-004	closed_by_quarantine	source_draft	tiny external arms excluded	None
+SRC-MAJ-005	closed_by_quarantine	source_draft	FIMM analyses excluded	None
+SRC-MAJ-006	closed_by_quarantine	source_draft	pangenome silver-label analyses excluded	None
+SRC-MAJ-007	closed_by_quarantine	source_draft	source draft excluded from submission archive	None
+SRC-MAJ-008	closed_by_quarantine	source_draft	adaptive exploratory analyses excluded	None
+SRC-MAJ-009	closed_by_quarantine	source_draft	unverified citations and placeholders excluded	None
+SRC-MAJ-010	closed_by_quarantine	source_draft	clinical interpretation excluded	None
+SRC-MIN-001	closed_by_quarantine	source_draft	promotional legacy prose excluded	None
+SRC-MIN-002	closed_by_quarantine	source_draft	tutorials remain documentation only	None
+SRC-MIN-003	closed_by_quarantine	source_draft	legacy displays excluded	None
+SRC-MIN-004	closed_by_quarantine	source_draft	legacy reference list excluded	None
+SRC-MIN-005	closed_by_quarantine	source_draft	retired ChampHLA identity quarantined	None

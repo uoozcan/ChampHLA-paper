@@ -1,0 +1,13 @@
+modality	gene	loci	second_typing_available	typings_agree
+rnaseq	A	38	37	37
+rnaseq	B	40	38	38
+rnaseq	C	40	37	37
+rnaseq	all	118	112	112
+wes	A	50	48	48
+wes	B	52	50	50
+wes	C	51	45	45
+wes	all	153	143	143
+wgs	A	0	0	0
+wgs	B	0	0	0
+wgs	C	0	0	0
+wgs	all	0	0	0

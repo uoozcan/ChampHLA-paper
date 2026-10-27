@@ -1,0 +1,18 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261009_reference_adjudication_posthoc",
+  "date": "2026-10-09",
+  "status": "RECORDED - post hoc analysis added after the signed analysis was run; no change to the signed rule",
+  "addresses": "reports/pre_submission_review_20261008.tsv PSR-054",
+  "relates_to": "decisions/20261009_reference_adjudication.json (signed 2026-10-09 21:10 EEST)",
+  "what_was_observed": "Under the signed parsing rule the second typing was unavailable at 14 of the 15 ChampHLA-Consensus error loci (5 RNA-seq, 9 WES) and matched the reference at the remaining one. Inspection of the raw IGSR values showed that the unavailable values carry a trailing asterisk (for example '07:01*'), which the IGSR README and the paper's S2 Table do not describe. The signed rule classes such values as non-numeric and therefore unavailable; that classification stands as the primary result.",
+  "post_hoc_analysis": {
+    "rule": "Strip a trailing asterisk and parse the value as in the signed rule. Report, per assay: exact-endpoint loci carrying an asterisk, how many are consensus-discordant, and at how many the asterisk-stripped typing equals the consensus call or the reference.",
+    "implementation": "scripts/adjudicate_reference_discordance.py load_flagged_typing; output artifacts/development_characterisation/reference_adjudication_flagged_posthoc.tsv",
+    "status": "Post hoc and descriptive. Chosen after the signed results and the raw values were seen. The meaning of the asterisk is undocumented, so attribution of a discordance to reference error is reported only as 'may reflect'."
+  },
+  "unchanged": [
+    "The signed parsing rule, the adjudication classes and the reference-agreement sensitivity are reported exactly as specified.",
+    "No primary or secondary result changes."
+  ]
+}

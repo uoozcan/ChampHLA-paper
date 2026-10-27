@@ -1,0 +1,33 @@
+{
+  "calibration_refresh": "preserved_checksum_pinned_historical_estimates_with_denominator_note",
+  "cross_assay": {
+    "shared_loci": 116,
+    "shared_subjects": 50
+  },
+  "exploratory": [
+    "caller_calibration.tsv"
+  ],
+  "gap_review": "reports/champhla_gap_review_20261007.md",
+  "inputs": {
+    "caller_source": {
+      "identifier": "recovered harmonized_population_enriched.tsv",
+      "sha256": "3fe5176e8e42ae03489097959066bffd42ff23e75726f93d0165a843347ae38c",
+      "supplied_for_this_run": false
+    },
+    "joined_development": {
+      "path": "runtime_data/joined_development.tsv",
+      "sha256": "9c6013f316e373d36b82079ecf4a0fefb748116b7b2be4a7f5062ccca68dc68e"
+    }
+  },
+  "loci": {
+    "rnaseq": 118,
+    "wes": 153
+  },
+  "outputs": {
+    "caller_calibration.tsv": "05a56b2860f6e968f6202940555bd250a0a5bc1af0280c944e1aef4fbc9f744a",
+    "cross_assay_agreement.tsv": "7c160b359a36a6d226a4dd0ee5e9ef9c547da93d462348337e2d59602e6f53c4",
+    "discordance_taxonomy.tsv": "a89f98f39d34404a0cce03d8b9bd114a9bd6788ff9a6ababcb977f0f46795bd9",
+    "per_gene_caller_concordance.tsv": "62705fd9c233d91c2cad9ed3f3f4b562831808e3e385a7555cb85ed431601aa6"
+  },
+  "schema_version": "champhla-restored-analyses-1"
+}

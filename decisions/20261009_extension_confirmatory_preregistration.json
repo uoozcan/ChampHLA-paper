@@ -1,0 +1,148 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261009_extension_confirmatory_preregistration",
+  "date": "2026-10-09",
+  "status": "PROPOSED - DOI reserved; caller-run provenance established; awaiting author signature",
+  "purpose": "Pre-register the single confirmatory test of the paper: ChampHLA-Consensus, locked before any extension input is staged, applied unchanged to the frozen, subject-disjoint extension roster, and reported regardless of direction.",
+  "locked_inputs": {
+    "protocol": {
+      "path": "configs/benchmark_resource_protocol_v2.json",
+      "sha256": "0981d6b61985d5d9169e601f76aea0c27f00ca9ee740b4ee9ded6c8cef6e0234"
+    },
+    "protocol_amendment": {
+      "path": "decisions/20261009_extension_voting_panels_only.json",
+      "sha256": "ac999cb0b5b9c5d92480f97d35c9de62820281124a56f1203c5a046c9893495e"
+    },
+    "protocol_audit": {
+      "path": "artifacts/benchmark_resource_protocol_audit.json",
+      "sha256": "e5ffb5bdbebdc705863a58a141265cc3f0d4ff0be0b5d489010a95a5d7eaca7c",
+      "result": "valid; zero development-extension overlap"
+    },
+    "roster": {
+      "path": "cohorts/frozen_initial_rosters.tsv",
+      "sha256": "c54a2edaf7225f2bee886ab6e55569878e00fd0040a6e1598da7016a4d399c34",
+      "selection_seed": "ChampHLA-CC-expansion-20260901",
+      "subjects": "89 WES and 99 RNA-seq (164 unique; 24 in both)"
+    },
+    "exposure_ledger": {
+      "path": "cohorts/subject_exposure_ledger.tsv",
+      "sha256": "3535775181969bf5095862123c89093824b12e6c3f4bc3243de75f9db575a263"
+    },
+    "singleton_rule": {
+      "path": "decisions/20261008_singleton_native_homozygosity.json",
+      "sha256": "81023c2fbad778d8371dc089b3a009c4c48fbdbd69146acf238fa14db377ec60"
+    },
+    "caller_resources": {
+      "path": "configs/caller_resources_v2.json",
+      "sha256": "300fe05b70e86ac22235864fa418eb54d9d5df1ddddb8f4851a165622457e5ef",
+      "native_allele_list_manifest": "resources/caller_native/MANIFEST.json",
+      "native_allele_list_manifest_sha256": "10cc798443bb78d806c8357cd7a32f002ebce1fe0d1899437ec28ea4ec281e79"
+    },
+    "analysis_driver": {
+      "path": "scripts/run_extension.py",
+      "sha256": "38c6def31bea073cbbe729346a409452c0d4f2822d6aada0b923cff1134ae7e8",
+      "validated_by": "reports/extension_dry_run_20261009.md (reproduces every development result)"
+    },
+    "frozen_fitted_policy": {
+      "path": "data/development/frozen_raw_cc_policy.json",
+      "sha256": "2e4091488921c7ccf6b94c6fc47686397b15662ca9d52048a87f56b86f576a5d",
+      "role": "applied truth-free for exploratory fitted comparators only"
+    }
+  },
+  "release": {
+    "workflow": "uoozcan/PanelHLA tag v3.4.0, commit 2a72a4bb0767212491ac1cbe62c9effc89a4b392",
+    "workflow_archive": "PanelHLA-3.4.0.tar.gz, SHA-256 e206179f3e36d05025178376a795401a812202c022aeb565f49d4d42f50c9b0a",
+    "workflow_profile": "-profile paper combined with the Roihu execution profile",
+    "caller_images": "the digest-pinned images in configs/caller_resources_v2.json; any other image is a protocol deviation",
+    "analysis_commit": "the paper-repository commit that adds the signed version of this record; every stage's freeze manifest also pins src/, scripts/ and configs/ by hash",
+    "doi": "10.5281/zenodo.23251288",
+    "doi_status": "reserved by Umut Onur Özcan on Zenodo on 2026-10-09; the deposit is published after signing",
+    "doi_mechanism": "Zenodo 'Reserve DOI' on the draft deposit. The DOI is written here before signing; the published deposit contains this signed record, the workflow archive and the analysis snapshot, with SHA-256 sums.",
+    "hla_rescue_reference": "Primary chr6 of GRCh38_full_analysis_set_plus_decoy_hla.fa with a bwa 0.7.19 index at /scratch/project_2008084/hla_references/genomes/hla_rescue_GRCh38_chr6/chr6.fa, SHA-256 7df3cc5e44e7004313cab52fc96ad7da5036ff71705a3034138ea61b44609c3e (index checksums in SHA256SUMS alongside)"
+  },
+  "method": {
+    "primary": "SimplePluralityLex (ChampHLA-Consensus): one equal-weight vote per callable caller of the assay's voting panel, the most-voted unordered two-field genotype, exact ties to the lexicographically first pair (flagged).",
+    "panels": {
+      "wes": [
+        "HLA-HD",
+        "OptiType",
+        "POLYSOLVER",
+        "SpecHLA",
+        "T1K"
+      ],
+      "rnaseq": [
+        "ArcasHLA",
+        "HLA-HD",
+        "OptiType",
+        "T1K"
+      ]
+    },
+    "call_states": "native_declaration singleton rule; ambiguous and P/G-group alleles do not vote; alleles validated against IPD-IMGT/HLA 3.65.0.",
+    "no_reselection": "The primary rule is fixed. Nothing observed in the extension may change it."
+  },
+  "endpoints": {
+    "primary": "Per assay: fixed-denominator exact unordered two-field genotype concordance of ChampHLA-Consensus over the truth-retained extension loci (missing predictions count as incorrect), with a subject-cluster percentile bootstrap 95% CI (100,000 iterations, seed 20260925).",
+    "confirmatory_comparisons": "Per assay: ChampHLA-Consensus minus each panel caller, strict majority and two-thirds consensus, as locus-weighted paired differences. The governing test is the subject aggregate sign-flip (exact up to 20 discordant subjects, otherwise 1,000,000 Monte Carlo draws, base seed 20260926), with Holm correction within the assay's descriptive family. Bonferroni-adjusted subject-cluster intervals are reported beside it.",
+    "secondary": [
+      "callability",
+      "called-only exact concordance",
+      "allele concordance clustered by subject",
+      "ambiguity-compatible genotype concordance"
+    ],
+    "exploratory_only": [
+      "frozen champion-challenger family applied truth-free",
+      "the locked post hoc non-inferiority sensitivity (protocol: post_hoc_supplementary_sensitivity_only)"
+    ],
+    "truth_audit": "The same fail-closed truth audit as the development set: loci whose 2014 reference typing is ambiguous, invalid, conflicting or absent are excluded before scoring, and every exclusion is reported."
+  },
+  "interpretation_rules": [
+    "The result is reported whatever its direction, including a vote below the best caller.",
+    "No claim of independent clinical validation (protocol retention rule); the extension shares the reference resource and ecosystem with the development set.",
+    "No equivalence or non-inferiority claim: non-inferiority is a post hoc sensitivity only.",
+    "Subjects are not replaced; a failed caller or input stays in the denominator as a non-call and is listed."
+  ],
+  "staging_plan": {
+    "inputs": "Roster URLs (1000 Genomes exome CRAMs, GRCh38; Geuvadis RNA-seq BAMs, GRCh37). md5 is checked wherever a whole file is fetched.",
+    "region_access": "HLA-region reads streamed by index where the host allows it, so no whole-file download is needed.",
+    "assembly": "Read from every input header and never taken from the manifest (2026-08-31 lesson).",
+    "compute": "CSC Roihu, Slurm. WES runs a few samples at a time, with each sample's work directory pruned after it completes, because one WES sample's transient peak (exome BAM about 10 GB, POLYSOLVER work about 35 GB) approaches the 250 GiB allocation (Umut, 2026-10-09: run sequentially; no quota increase). RNA-seq likewise in small batches. Traces are kept.",
+    "aggregation": "The workflow's aggregated_calls.tsv per run, read by scripts/run_extension.py prepare."
+  },
+  "order_of_operations": [
+    "1. DONE 2026-10-09: Umut reserved Zenodo DOI 10.5281/zenodo.23251288; entered above.",
+    "2. DONE 2026-10-09: clean Python 3.11.15 full-suite run on analysis commit 8a37c01 (362 passed, ruff clean; environment D:/panelhla_work/venv311 with the pinned dependencies).",
+    "3. Umut signs this record; it is committed alone.",
+    "4. The bundle (this record, workflow archive, analysis snapshot, SHA256SUMS) is built; Umut publishes the deposit.",
+    "5. Staging and caller runs on Roihu; run_extension.py prepare and predict (truth-free; freeze written).",
+    "6. run_extension.py unblind, permitted only by the readiness audit with this signed record and DOI: truth joined once, results reported."
+  ],
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": null,
+    "signature_mechanism": "Author confirmation in the Claude Code session after the DOI is entered; committed alone before any extension input is staged."
+  },
+  "caller_execution": {
+    "images": "HLA-HD, OptiType, POLYSOLVER, T1K and ArcasHLA run from the Singularity images in /scratch/project_2008084/hla_references/singularity_cache/containers/, re-verified on 2026-10-09 to match the digests in configs/caller_resources_v2.json (hlahd.sif 8fb9fa5e..., optitype.sif 7f3f3290..., polysolver.sif b4f39a6d..., t1k.sif e34c4433..., arcashla.sif 60c42737...). The release's containers/sif/ entries are linked to these files before the run, and the link targets are hashed in the run record.",
+    "spechla": "SpecHLA runs as the native checkout /projappl/project_2008084/SpecHLAx at commit 6165bff8404ea6f74dae34a99339df22bd14dadf (wrapper script/whole/SpecHLA.sh SHA-256 77c7b6ef...). Its tracked code is content-identical to that commit; the only working-tree differences are file modes, deleted example data and local helper scripts. On CSC systems SpecHLA cannot run inside a container, because its wrapper launches Singularity itself (conf/spechla_native.config). The image digest recorded for SpecHLA is not its execution artifact on Roihu.",
+    "workflow_environment": "PanelHLA 3.4.0 deployed from the verified archive at /scratch/project_2008084/panelhla_release_3.4.0 (archive SHA-256 e206179f... re-checked on Roihu); bin/roihu_env.sh (bio-apps v202603, Nextflow 25.10.2, samtools 1.21, bwa 0.7.19); `nextflow config -profile roihu,singularity,paper` resolves equal weights, voting on, HLA-A/B/C, paper call states, the reference panel and hla_alt_rescue=true; conf/roihu_params.yaml supplies hla_rescue_reference.",
+    "input_routing": "WES exome CRAMs (GRCh38DH) pass through RESCUE_HLA_READS: one streaming samtools filter pass collects the chr6:28,000,000-34,000,000 window, every HLA-* and chr6 alt contig and the unplaced reads, keeps complete pairs and realigns them to primary chr6 with bwa mem; every WES caller receives that BAM (POLYSOLVER and SpecHLA directly, HLA-HD, OptiType and T1K as FASTQ). Geuvadis RNA-seq BAMs (GRCh37, no alt contigs) are not rescued: HLA-HD and arcasHLA extract their own reads from the BAM, and OptiType and T1K receive FASTQ from the chr6 window.",
+    "acceptance_on_development_subject": "HG00096 (development subject, never an extension subject), in the extension's own input formats: WES whole-exome CRAM, Slurm job 2128858 (tree 15f45cf, identical to v3.4.0 except version strings): all five callers agree at all three genes, 11/15 caller-gene calls match the stored development calls; RNA-seq Geuvadis BAM, job 2129989 (v3.4.0): 11/12 match, the difference being an arcasHLA HLA-C allele. Records: paper repository provenance/hg00096_wes_release and provenance/hg00096_rna_release."
+  },
+  "known_differences_from_development_caller_run": {
+    "statement": "The extension evaluates the released workflow and the locked rule on unseen subjects. It is not a byte-identical replay of the development caller run, whose execution records were not preserved: the batch directories (hla_calibration/{wes,rna}_batches) no longer exist, and no trace, Nextflow log or launch command survives.",
+    "recoverable_facts": "The batch plan is dated 2026-04-13. At the workflow revision of that date (2026-04-07, 'Update README.md'), POLYSOLVER and SpecHLA received the whole input BAM, as in 3.3.0 (3.4.0 instead gives every DNA caller the rescued chr6 BAM), while FASTQ callers received region-extracted reads only when --extract_hla_region was set.",
+    "unrecoverable": [
+      "whether --extract_hla_region was set for the development batches (3.3.0 and 3.4.0 extract automatically; 3.4.0 also rescues HLA-contig and alt-contig reads for DNA input)",
+      "the caller executables and images used in development; the arcasHLA output format shows a release before 0.5, while the current image is a later build",
+      "the exact SpecHLA deployment used in development"
+    ],
+    "consequence": "Differences in caller inputs or versions could shift individual caller accuracy between development and extension. The locked rule, endpoint and inference are identical. The manuscript reports this as a limitation and does not present the extension as a replay of the development run."
+  },
+  "amendments_before_signature": [
+    {
+      "date": "2026-10-09",
+      "change": "Workflow pinned to release 3.4.0 (was 3.3.0); hla_rescue_reference added; caller_execution routing and acceptance updated.",
+      "reason": "Release 3.3.0 read only chr6:28-34 Mb. On the 1000 Genomes GRCh38DH exome CRAMs that the WES arm stages, reads of non-reference HLA alleles sit on HLA-* and chr6 alt contigs, so four of five WES callers lost the second haplotype (HG00096: 5/15 calls matched the development run). 3.4.0 realigns those reads to chr6 (11/15). Found with a development subject only; no extension input has been staged or read."
+    }
+  ]
+}

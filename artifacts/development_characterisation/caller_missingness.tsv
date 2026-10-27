@@ -1,0 +1,10 @@
+modality	caller	loci	rows_present	callable	partial	missing	absent	invalid
+wes	HLA-HD	153	153	153	0	0	0	0
+wes	OptiType	153	153	153	0	0	0	0
+wes	POLYSOLVER	153	153	153	0	0	0	0
+wes	SpecHLA	153	153	153	0	0	0	0
+wes	T1K	153	153	150	2	1	0	0
+rnaseq	ArcasHLA	118	118	118	0	0	0	0
+rnaseq	HLA-HD	118	118	118	0	0	0	0
+rnaseq	OptiType	118	118	118	0	0	0	0
+rnaseq	T1K	118	118	118	0	0	0	0

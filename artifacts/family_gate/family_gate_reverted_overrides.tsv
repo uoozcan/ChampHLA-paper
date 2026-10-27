@@ -1,0 +1,5 @@
+modality	subject	gene	supporting_callers	families	family_count	override_was_correct	champion_is_correct
+wes	NA18498	A	HLA-HD,POLYSOLVER	alignment	1	0	1
+wes	NA19129	C	SpecHLA,T1K	assembly_graph	1	0	0
+rnaseq	NA18499	C	HLA-HD,OptiType	alignment	1	0	1
+rnaseq	NA19099	C	HLA-HD,OptiType	alignment	1	1	0

@@ -1,0 +1,89 @@
+{
+  "schema_version": "champhla-caller-native-allele-lists-1",
+  "callers": {
+    "HLA-HD": {
+      "database_release": "3.15.0",
+      "allele_list": "resources/caller_native/hlahd_Allelelist.csv",
+      "alleles": 10700,
+      "sha256": "cfd49fe9d320a2d999acd7777b3da866b47d043580efa65531dd6f9707b651d6",
+      "sources": [
+        {
+          "component": "hlahd__dictionary_allele.list",
+          "sha256": "ae48e1fccefb629cdde9be8b7715850d133928d0acbfcec9fb704dbf1a4bda6c"
+        }
+      ]
+    },
+    "OptiType": {
+      "database_release": "3.13.1",
+      "allele_list": "resources/caller_native/optitype_Allelelist.csv",
+      "alleles": 7332,
+      "sha256": "c71ce1e63a9ba2124638e584ad132f87912836d2e489241a73adc516348d4d0d",
+      "sources": [
+        {
+          "component": "optitype__hla_reference_dna.headers",
+          "sha256": "af7e47e1ad31472cf951a4d12ba792ecb6423cb7b45d27f309aa0fe259a2f01a"
+        },
+        {
+          "component": "optitype__hla_reference_rna.headers",
+          "sha256": "22aaa5150bfeaf0a26c91668b22a0f3ec4de3df58ea8c702a9cb786fe268d998"
+        }
+      ]
+    },
+    "POLYSOLVER": {
+      "database_release": "3.11.0",
+      "allele_list": "resources/caller_native/polysolver_Allelelist.csv",
+      "alleles": 6597,
+      "sha256": "d038f2c3b83531c0f66dde24bba2590a32dd506761fe69778b476f08e49a1f25",
+      "sources": [
+        {
+          "component": "polysolver__a_complete.headers",
+          "sha256": "e0c09816190ca9a3fdb0e5e787cc68931fe9bebd80cd0e8b7e4de8c55c3a0e53"
+        },
+        {
+          "component": "polysolver__b_complete.headers",
+          "sha256": "96ca501cef0f2c6fa963f596c0f5aec09fa19e6f40189062d64a474f8a234591"
+        },
+        {
+          "component": "polysolver__c_complete.headers",
+          "sha256": "9e9ccb9e7fa164b0a2b3ff7a6d81bff424881d7899b4e328cab9175f2ebebd86"
+        }
+      ]
+    },
+    "SpecHLA": {
+      "database_release": "3.38.0",
+      "allele_list": "resources/caller_native/spechla_Allelelist.csv",
+      "alleles": 25958,
+      "sha256": "022ce301e88e997656527717f6be91ff4643b682fb96d27bbfa292350282f3c1",
+      "sources": [
+        {
+          "component": "spechla__Allelelist.txt",
+          "sha256": "e688976b0a96e5db414f68cbe791fb96d1ae0f178cb9e65081303dc4fe0bbc13"
+        }
+      ]
+    },
+    "T1K": {
+      "database_release": "3.63.0",
+      "allele_list": "resources/caller_native/t1k_Allelelist.csv",
+      "alleles": 27764,
+      "sha256": "01c7091c1050c9206835f735e6867acae1f1418f117751a80cc806e51e1267f6",
+      "sources": [
+        {
+          "component": "t1k__dna_seq.headers",
+          "sha256": "d3c39182a343f1e1b9cb742049fcabd934aece6c2e401cbb139badde5fd66ef6"
+        }
+      ]
+    },
+    "ArcasHLA": {
+      "database_release": "3.40.0",
+      "allele_list": "resources/caller_native/arcashla_Allelelist.csv",
+      "alleles": 27273,
+      "sha256": "59cf251cd66ea71d191e91ffdd317d2856126bf997cf67156ea218e060e98cea",
+      "sources": [
+        {
+          "component": "arcashla__Allelelist.txt",
+          "sha256": "5150f3b3436328f769d38fbdb5d7a751cbff233089d9417202e6b4a9407a9cb7"
+        }
+      ]
+    }
+  }
+}

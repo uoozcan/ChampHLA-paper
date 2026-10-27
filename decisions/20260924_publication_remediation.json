@@ -1,0 +1,51 @@
+{
+  "schema_version": "panelhla-publication-remediation-1",
+  "decision_id": "20260924_publication_remediation",
+  "date": "2026-09-24",
+  "status": "AUTHORIZED",
+  "supersedes_for_publication": [
+    "decisions/20260918_harmonisation_correction_result.json",
+    "decisions/20260921_integration_scope_split.json"
+  ],
+  "historical_records_retained": true,
+  "publication_scope": {
+    "study_type": "retrospective development benchmark and integration audit",
+    "modalities": ["wes", "rnaseq"],
+    "external_validation_complete": false,
+    "wgs_accuracy_evidence_allowed": false
+  },
+  "primary_method": {
+    "name": "PanelHLA-Consensus",
+    "internal_identifier": "SimplePluralityLex",
+    "selection_status": "previously selected on development evidence and disclosed as post hoc",
+    "singleton_policy": "abstain",
+    "singleton_definition": "A caller output with only one resolved allele is not a callable diploid genotype and casts no vote. Homozygosity is accepted only when two matching alleles or an explicit caller-native homozygous declaration are present.",
+    "commitment": "The corrected result is retained regardless of direction; the primary method will not be reselected after regeneration."
+  },
+  "inference": {
+    "primary": "descriptive fixed-denominator accuracy with uncertainty and subject-clustered paired tests",
+    "multiplicity": "Holm correction within each modality",
+    "noninferiority_margin_points": 2.0,
+    "noninferiority_status": "post_hoc_exploratory_sensitivity_only",
+    "fitted_policy_status": "exploratory"
+  },
+  "reproducibility_boundary": {
+    "starts_at": "truth-free normalized caller outputs",
+    "ends_at": "manuscript, supplement, figures, DOCX, and release manifest",
+    "upstream_raw_read_workflow": "external dependency outside the verified paper repository",
+    "development_truth": "reconstructed from the checksum-pinned public 2014 1000 Genomes HLA resource"
+  },
+  "authorization": {
+    "mechanism": "Explicit user instruction to implement the publication-readiness remediation plan in the interactive session dated 2026-09-24.",
+    "signed_by": "project owner via explicit interactive authorization",
+    "signature_scope": "scientific and software remediation; author-controlled metadata excluded",
+    "recorded_at": "2026-09-24T00:00:00+03:00",
+    "author_controlled_fields_excluded": [
+      "author order and affiliations",
+      "ORCIDs and corresponding-author details",
+      "ethics determination",
+      "funding and conflicts",
+      "release tag, DOI, and externally controlled container identifiers"
+    ]
+  }
+}

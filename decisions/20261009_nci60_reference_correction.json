@@ -1,0 +1,21 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261009_nci60_reference_correction",
+  "date": "2026-10-09",
+  "status": "CORRECTION - factual, no method change",
+  "addresses": "reports/pre_submission_review_20261008.tsv PSR-004 (FATAL)",
+  "supersedes_fields_of": "decisions/20261001_nci60_reactivation.json (truth_source, reference_to_add)",
+  "finding": "The reference cited for the NCI-60 HLA typing, 'Reinhold et al. (2019), A Land of Diversity and Heterogeneity: The NCI-60 in Light of Recent Re-Annotations and Current Genomic Data, Cancer Research 79:3519-3531', could not be found. The 2026-10-01 record itself noted that the truth source used was Adams et al. 2005; only the citation was wrong, so no NCI-60 number changes.",
+  "verified_reference": {
+    "citation": "Adams S, Robbins FM, Chen D, Wagage D, Holbeck SL, Morse HC 3rd, Stroncek D, Marincola FM. HLA class I and II genotype of the NCI-60 cell lines. Journal of Translational Medicine. 2005;3:11.",
+    "doi": "10.1186/1479-5876-3-11",
+    "pmcid": "PMC555742",
+    "method_in_source": "Sequence-based typing of HLA class I exons 2 and 3 (alleleSEQR kits), HLA-A, -B, -C, plus class II.",
+    "verified": "2026-10-09 against the PMC full text"
+  },
+  "changes": [
+    "manuscript.md: in-text citation and reference-list entry replaced (Adams et al., 2005).",
+    "supplementary.md S9.6: source sentence replaced and the SBT exon coverage stated."
+  ],
+  "out_of_scope": "Whether the NCI-60 results stay in the main text, and their regeneration under current rules, is PSR-014."
+}

@@ -1,0 +1,305 @@
+{
+  "preservation": {
+    "registry_sha256": "6fd741d6e4427ef84268cd6b114df098ac982370262ba448e0bd185ca0be9f2a",
+    "result_tags": 175,
+    "result_tag_multiset_unchanged": true,
+    "table_checks": [
+      {
+        "source": "manuscript.md",
+        "table": 1,
+        "rows": 8,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "manuscript.md",
+        "table": 2,
+        "rows": 16,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 1,
+        "rows": 2,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 2,
+        "rows": 8,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 3,
+        "rows": 42,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 4,
+        "rows": 81,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 5,
+        "rows": 25,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 6,
+        "rows": 27,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 7,
+        "rows": 4,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 8,
+        "rows": 27,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 9,
+        "rows": 27,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 10,
+        "rows": 25,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 11,
+        "rows": 25,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 12,
+        "rows": 20,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 13,
+        "rows": 28,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 14,
+        "rows": 9,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 15,
+        "rows": 9,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 16,
+        "rows": 8,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 17,
+        "rows": 6,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 18,
+        "rows": 9,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 19,
+        "rows": 16,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 20,
+        "rows": 2,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 21,
+        "rows": 15,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 22,
+        "rows": 27,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 23,
+        "rows": 16,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 24,
+        "rows": 9,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 25,
+        "rows": 25,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 26,
+        "rows": 11,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 27,
+        "rows": 7,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 28,
+        "rows": 3,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 29,
+        "rows": 12,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 30,
+        "rows": 6,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 31,
+        "rows": 5,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 32,
+        "rows": 9,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 33,
+        "rows": 23,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 34,
+        "rows": 8,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 35,
+        "rows": 11,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 36,
+        "rows": 3,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 37,
+        "rows": 4,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 38,
+        "rows": 10,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 39,
+        "rows": 6,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 40,
+        "rows": 11,
+        "numeric_content_unchanged": true
+      },
+      {
+        "source": "supplementary.md",
+        "table": 41,
+        "rows": 9,
+        "numeric_content_unchanged": true
+      }
+    ],
+    "all_43_tables_numeric_content_unchanged": true
+  },
+  "figures": {
+    "all_figure_source_hashes_unchanged": true,
+    "all_figure_data_and_statistical_contracts_unchanged": true,
+    "unchanged_pngs": [
+      "figure4_caller_error_dependence.png",
+      "supplementary_figure_s1_call_states.png",
+      "supplementary_figure_s2_threshold_tradeoff.png",
+      "supplementary_figure_s3_support_profiles.png",
+      "supplementary_figure_s7_fimm_bb72.png",
+      "supplementary_figure_s8_venex_diagnostics.png",
+      "supplementary_figure_s9_rerun_cell_changes.png"
+    ],
+    "presentation_changes": [
+      "figure1_study_design_truth_flow.png",
+      "figure2_primary_performance.png",
+      "figure3_paired_differences.png",
+      "supplementary_figure_s4_truth_sensitivity.png",
+      "supplementary_figure_s5_champion_challenger.png",
+      "supplementary_figure_s6_fimm_concordance.png"
+    ]
+  },
+  "pdf_qa": {
+    "pages": 79,
+    "changed_pages": [
+      "page-70.png",
+      "page-71.png"
+    ],
+    "unchanged_pages": 77,
+    "geometry_issues": []
+  },
+  "final_focused_tests": "146 passed in 50.86s",
+  "full_gate_tests": "545 passed, 3 skipped",
+  "post_proof_full_tests": "545 passed, 3 skipped",
+  "full_gate_status": "author_input_required",
+  "docx_sha256": "4b50c2907cdb380f2c212cf1efbdddf112c1d43efb53adf62434308a9f2785a4",
+  "pdf_sha256": "a8ce00c86e1b149b99a49290067353679b9ea24e5ec4048089541dd539c7d93c",
+  "final_word_matches_worktree_combined": true
+}

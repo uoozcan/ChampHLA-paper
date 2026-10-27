@@ -1,0 +1,15 @@
+issue_id	severity	status	old_location	new_location	correction	validation
+FIG-MAJ-01	major	closed	figure set overall	Figure 1	Added artifact-generated study design, truth firewall and assay-specific cohort flow	test_figure1_flow_counts_are_generated_from_truth_flow; visual inspection
+FIG-MAJ-02	major	closed	old Figure 1	Figure 2	Displayed fixed-denominator concordance and callability with subject-cluster intervals and separate count columns	test_figure2_has_both_metrics_counts_and_fixed_role_order; visual inspection
+FIG-MAJ-03	major	closed	old Figure 4	Supplementary Figure S2	Represented coincident RNA-seq strict-majority and two-thirds results with overlaid shapes and one shared label	test_s2_coincident_rnaseq_thresholds_are_explicit_and_not_jittered; visual inspection
+FIG-MAJ-04	major	closed	old Figure 5	Supplementary Figure S3	Suppressed estimates and intervals for n<5 while retaining profile names and sample sizes	test_s3_suppresses_every_sparse_profile_and_keeps_zero_support_off_scale; visual inspection
+FIG-MAJ-05	major	closed	Results without figure	Figure 4	Added complete fixed-denominator and mutually callable caller-error phi matrices	test_figure4_reproduces_both_error_correlation_definitions; visual inspection
+FIG-MIN-01	minor	closed	old Figure 1	Figure 2	Moved counts outside data axes and capped percentage axes at 100%	test_style_contract_and_all_percentage_axes_stop_at_100
+FIG-MIN-02	minor	closed	old Figure 1	Figure 2	Replaced assay-specific performance ranking with fixed role-based order	test_figure2_has_both_metrics_counts_and_fixed_role_order
+FIG-MIN-03	minor	closed	old Figures 1, 2 and 4	Figures 2-4 and Supplementary Figure S2	Reserved magenta for Holm significance and used shape redundantly for fitted status	test_magenta_is_reserved_for_significance; visual inspection
+FIG-MIN-04	minor	closed	old Figure 2	Figure 3	Omitted non-applicable methods and retained source-backed within-family order	test_figure3_contains_only_applicable_source_rows_in_family_order
+FIG-MIN-05	minor	closed	old Figure 2	Figure 3	Added descriptive-comparator and exploratory-fitted headers and separators	test_figure3_contains_only_applicable_source_rows_in_family_order; visual inspection
+FIG-MIN-06	minor	closed	old Figure 3	Supplementary Figure S1	Replaced singleton rows with complete available call-state composition	test_s1_call_state_counts_partition_each_denominator
+FIG-MIN-07	minor	closed	old Figure 4	Supplementary Figure S2	Used direct labels, both clustered intervals and standard 180-mm width	visual inspection; figure manifest
+FIG-MIN-08	minor	closed	old Figure 5	Supplementary Figure S3	Placed 0/0 in a labelled non-call strip outside the concordance scale	test_s3_suppresses_every_sparse_profile_and_keeps_zero_support_off_scale
+FIG-MIN-09	minor	closed	all old figures	all active figures	Applied one style contract, panel lettering, final-size typography and deterministic formats	test_manifest_is_complete_and_hashes_every_source_and_output; PDF font tests; visual inspection

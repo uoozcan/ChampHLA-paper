@@ -1,0 +1,8 @@
+modality	caller	single_allele_rows	reference_homozygous	reference_heterozygous
+rnaseq	ArcasHLA	9	5	4
+rnaseq	HLA-HD	14	14	0
+rnaseq	T1K	11	11	0
+rnaseq	all	34	30	4
+wes	HLA-HD	16	16	0
+wes	T1K	14	11	3
+wes	all	30	27	3

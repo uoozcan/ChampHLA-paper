@@ -1,0 +1,3 @@
+modality	loci	baseline_callable	baseline_callability	baseline_called_only_accuracy	guarded_accuracy_at_baseline_coverage	candidate_oracle_correct	candidate_oracle_accuracy	protected_loci	challenged_loci
+rnaseq	321	308	0.9595015576323987	0.961038961038961	0.961038961038961	308	0.9595015576323987	308	13
+wes	390	339	0.8692307692307693	0.967551622418879	0.967551622418879	375	0.9615384615384616	339	51

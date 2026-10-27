@@ -1,0 +1,12 @@
+{
+  "schema_version": "champhla-development-rerun-operational-status-1",
+  "observed_utc": "2026-10-25T01:38:48Z",
+  "controller_stopped_record": "2026-10-25T01:12:19Z job=2520484 exit=10 every roster entry is complete or terminally classified",
+  "controller_finished_normally": true,
+  "running_jobs": {
+    "champhla_ctl": 0,
+    "champhla_dev": 0,
+    "champhla_prefetch": 0
+  },
+  "truth_inspected": false
+}

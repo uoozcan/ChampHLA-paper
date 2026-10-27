@@ -1,0 +1,41 @@
+{
+  "schema_version": "prereg-amendment-1",
+  "amendment_id": "20260908_consensus_primary",
+  "date": "2026-09-08",
+  "status": "SIGNED",
+  "supersedes": "decisions/20260901_publication_recovery.json",
+  "superseded_record_retained": true,
+  "change": {
+    "previous_primary_method": "TwoThirdsGuardedCC",
+    "previous_primary_comparator": "SimpleTwoThirdsConsensus",
+    "previous_claim_boundary": "resolution of two-thirds consensus failures at fixed denominator",
+    "new_primary_method": "ChampHLA-Consensus (SimplePluralityLex)",
+    "new_primary_comparators": [
+      "intended-use individual callers",
+      "BestSingleTool_nestedCV",
+      "TwoThirdsGuardedCC",
+      "ChampionChallenger",
+      "MVFlooredCC",
+      "MetaConsensus"
+    ],
+    "new_claim_boundary": "equal-weight consensus matches the modality-best caller without prior caller selection and is not improved upon by any tested ensemble method in WES or RNA-seq"
+  },
+  "discovery_path": "Amendment, not a plain re-scoping. The decision to promote plurality was made after inspecting truth-derived per-method accuracy in artifacts/source_results/primary_modality_results.tsv and champhla_baseline_ladder outputs. Under CLAUDE.md this is disclosed as an amendment to the pre-registration.",
+  "reporting_denominator": {
+    "declared": "all development subjects",
+    "wes": 390,
+    "rnaseq": 321,
+    "wgs": 411,
+    "rationale": "Matches the frozen primary_modality_results.tsv artifact. Declared before the head-to-head table was regenerated; the 276/231/275 subject-separated subset is retained as a sensitivity analysis only.",
+    "note": "Selecting this denominator after per-method scores were visible is disclosed here rather than presented as prespecified."
+  },
+  "multiplicity": "Holm correction within each modality's comparator family, as emitted by champhla_confirmation.statistics.holm_adjust.",
+  "wgs_scope": "No WGS accuracy claim. Legacy WGS inputs lost mates and HLA ALT-contig mappings and remain validity=invalid in result_registry.tsv. WGS appears only as a diagnostic section.",
+  "author_signoff": {
+    "required": true,
+    "signed_by": "Umut Onur Özcan",
+    "signed_date": "2026-09-18",
+    "signature_mechanism": "Authorisation given by the author in an interactive working session on 2026-09-18, after the record was presented for review. Recorded by the assistant at the author's explicit instruction; the decision is the author's.",
+    "scope_of_authorisation": "Authorises equal-weight consensus as the primary method and the 390/321 reporting denominator, both selected after development scores were visible and disclosed as amendments rather than presented as prespecified."
+  }
+}

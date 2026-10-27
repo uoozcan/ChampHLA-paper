@@ -1,0 +1,860 @@
+subject	modality	gene	method	truth_pair	predicted_pair	call_status	truth_membership_3_65	prediction_membership_3_65	caller_database_release	native_truth_representability	nomenclature_only_error	attribution
+HG00101	rnaseq	C	Caller:Kourami	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00101	rnaseq	C	Caller:POLYSOLVER	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00101	rnaseq	C	Caller:SpecHLA	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00101	wes	C	Caller:ArcasHLA	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00101	wes	C	Caller:Kourami	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00104	rnaseq	B	Caller:Kourami	B*37:01+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00104	rnaseq	B	Caller:POLYSOLVER	B*37:01+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00104	rnaseq	B	Caller:SpecHLA	B*37:01+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00104	rnaseq	C	Caller:ArcasHLA	C*06:02+C*16:01	C*06:234+C*16:135	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00104	rnaseq	C	Caller:Kourami	C*06:02+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00104	rnaseq	C	Caller:POLYSOLVER	C*06:02+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00104	rnaseq	C	Caller:SpecHLA	C*06:02+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00112	rnaseq	C	Caller:Kourami	C*08:02+C*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00112	rnaseq	C	Caller:POLYSOLVER	C*08:02+C*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00112	rnaseq	C	Caller:SpecHLA	C*08:02+C*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00112	wes	C	Caller:ArcasHLA	C*08:02+C*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00112	wes	C	Caller:Kourami	C*08:02+C*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00177	rnaseq	C	Caller:ArcasHLA	C*03:04+C*06:02	C*03:344+C*06:16	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00177	rnaseq	C	Caller:Kourami	C*03:04+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00177	rnaseq	C	Caller:POLYSOLVER	C*03:04+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00177	rnaseq	C	Caller:SpecHLA	C*03:04+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00177	wes	C	Caller:ArcasHLA	C*03:04+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00177	wes	C	Caller:Kourami	C*03:04+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00177	wes	C	Caller:SpecHLA	C*03:04+C*06:02	C*03:06+C*06:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00177	wes	C	Caller:T1K	C*03:04+C*06:02	C*03:263+C*03:662	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00188	rnaseq	C	Caller:ArcasHLA	C*12:03+C*16:01	C*12:295+C*16:148	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00188	rnaseq	C	Caller:Kourami	C*12:03+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00188	rnaseq	C	Caller:POLYSOLVER	C*12:03+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00188	rnaseq	C	Caller:SpecHLA	C*12:03+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00188	wes	C	Caller:ArcasHLA	C*12:03+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00188	wes	C	Caller:Kourami	C*12:03+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00551	wes	B	Caller:ArcasHLA	B*44:03+B*50:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00551	wes	B	Caller:Kourami	B*44:03+B*50:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00551	wes	C	Caller:ArcasHLA	C*06:02+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00551	wes	C	Caller:Kourami	C*06:02+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+HG00551	wes	C	Caller:T1K	C*06:02+C*16:01	C*06:02+C*06:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	A	Caller:ArcasHLA	A*02:01+A*03:01	A*02:857+A*03:355	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	A	Caller:Kourami	A*02:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	A	Caller:SpecHLA	A*02:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	B	Caller:Kourami	B*07:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	B	Caller:POLYSOLVER	B*07:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	B	Caller:SpecHLA	B*07:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	C	Caller:ArcasHLA	C*06:02+C*07:02	C*06:02+C*07:616	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	C	Caller:Kourami	C*06:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	C	Caller:POLYSOLVER	C*06:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	rnaseq	C	Caller:SpecHLA	C*06:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	wes	A	Caller:ArcasHLA	A*02:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	wes	A	Caller:Kourami	A*02:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	wes	B	Caller:ArcasHLA	B*07:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	wes	B	Caller:Kourami	B*07:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	wes	B	Caller:SpecHLA	B*07:02+B*57:01	B*07:02+B*15:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	wes	C	Caller:ArcasHLA	C*06:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06985	wes	C	Caller:Kourami	C*06:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	A	Caller:Kourami	A*03:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	A	Caller:POLYSOLVER	A*03:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	A	Caller:SpecHLA	A*03:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	B	Caller:Kourami	B*44:03+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	B	Caller:POLYSOLVER	B*44:03+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	B	Caller:SpecHLA	B*44:03+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	B	Caller:T1K	B*44:03+B*44:03	B*44:02+B*44:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	C	Caller:ArcasHLA	C*04:01+C*16:01	C*04:14+C*16:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	C	Caller:Kourami	C*04:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	C	Caller:POLYSOLVER	C*04:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	rnaseq	C	Caller:SpecHLA	C*04:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	wes	A	Caller:ArcasHLA	A*03:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	wes	A	Caller:Kourami	A*03:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	wes	B	Caller:ArcasHLA	B*44:03+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	wes	B	Caller:Kourami	B*44:03+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	wes	B	Caller:T1K	B*44:03+B*44:03	B*07:359+B*44:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	wes	C	Caller:ArcasHLA	C*04:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06986	wes	C	Caller:Kourami	C*04:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	rnaseq	A	Caller:ArcasHLA	A*02:01+A*32:01	A*02:857+A*32:124	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	rnaseq	A	Caller:Kourami	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	rnaseq	A	Caller:SpecHLA	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	rnaseq	B	Caller:Kourami	B*08:01+B*40:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	rnaseq	B	Caller:POLYSOLVER	B*08:01+B*40:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	rnaseq	B	Caller:SpecHLA	B*08:01+B*40:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	wes	A	Caller:ArcasHLA	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	wes	A	Caller:Kourami	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	wes	B	Caller:ArcasHLA	B*08:01+B*40:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA06994	wes	B	Caller:Kourami	B*08:01+B*40:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07000	wes	A	Caller:ArcasHLA	A*02:01+A*68:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07000	wes	A	Caller:Kourami	A*02:01+A*68:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07000	wes	B	Caller:ArcasHLA	B*40:01+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07000	wes	B	Caller:Kourami	B*40:01+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	A	Caller:ArcasHLA	A*30:01+A*31:01	A*30:114+A*31:46	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	A	Caller:Kourami	A*30:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	A	Caller:POLYSOLVER	A*30:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	A	Caller:SpecHLA	A*30:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	B	Caller:Kourami	B*15:10+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	B	Caller:POLYSOLVER	B*15:10+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	B	Caller:SpecHLA	B*15:10+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	C	Caller:Kourami	C*03:04+C*03:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	C	Caller:POLYSOLVER	C*03:04+C*03:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	C	Caller:SpecHLA	C*03:04+C*03:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	rnaseq	C	Caller:T1K	C*03:04+C*03:04	C*03:03+C*03:04	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	wes	A	Caller:ArcasHLA	A*30:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	wes	A	Caller:Kourami	A*30:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	wes	B	Caller:ArcasHLA	B*15:10+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	wes	B	Caller:Kourami	B*15:10+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	wes	C	Caller:ArcasHLA	C*03:04+C*03:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	wes	C	Caller:Kourami	C*03:04+C*03:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07037	wes	C	Caller:T1K	C*03:04+C*03:04	C*03:03+C*03:04	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	A	Caller:ArcasHLA	A*02:01+A*02:01	A*02:844+A*02:857	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	A	Caller:SpecHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	B	Caller:Kourami	B*07:02+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	B	Caller:POLYSOLVER	B*07:02+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	B	Caller:SpecHLA	B*07:02+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	C	Caller:Kourami	C*05:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	C	Caller:POLYSOLVER	C*05:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	rnaseq	C	Caller:SpecHLA	C*05:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	wes	A	Caller:ArcasHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	wes	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	wes	A	Caller:T1K	A*02:01+A*02:01	A*02:01+A*02:1061	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	wes	B	Caller:ArcasHLA	B*07:02+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	wes	B	Caller:Kourami	B*07:02+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	wes	C	Caller:ArcasHLA	C*05:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07048	wes	C	Caller:Kourami	C*05:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	rnaseq	A	Caller:ArcasHLA	A*02:01+A*68:01	A*02:844+A*68:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	rnaseq	A	Caller:Kourami	A*02:01+A*68:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*68:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	rnaseq	A	Caller:SpecHLA	A*02:01+A*68:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	rnaseq	C	Caller:Kourami	C*03:03+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	rnaseq	C	Caller:POLYSOLVER	C*03:03+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	rnaseq	C	Caller:SpecHLA	C*03:03+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	wes	A	Caller:ArcasHLA	A*02:01+A*68:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	wes	A	Caller:HLA-HD	A*02:01+A*68:01	A*02:22+A*02:384	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	wes	A	Caller:Kourami	A*02:01+A*68:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	wes	A	Caller:T1K	A*02:01+A*68:01		partial	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	wes	C	Caller:ArcasHLA	C*03:03+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	wes	C	Caller:Kourami	C*03:03+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07051	wes	C	Caller:T1K	C*03:03+C*07:02	C*03:286+C*07:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	rnaseq	A	Caller:ArcasHLA	A*01:01+A*02:01	A*01:01+A*02:844	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	rnaseq	A	Caller:Kourami	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	rnaseq	A	Caller:POLYSOLVER	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	rnaseq	A	Caller:SpecHLA	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	rnaseq	B	Caller:Kourami	B*08:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	rnaseq	B	Caller:POLYSOLVER	B*08:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	rnaseq	B	Caller:SpecHLA	B*08:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	wes	A	Caller:ArcasHLA	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	wes	A	Caller:Kourami	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	wes	B	Caller:ArcasHLA	B*08:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07056	wes	B	Caller:Kourami	B*08:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	A	Caller:Kourami	A*26:01+A*30:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	A	Caller:POLYSOLVER	A*26:01+A*30:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	A	Caller:SpecHLA	A*26:01+A*30:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	B	Caller:ArcasHLA	B*18:01+B*44:02	B*18:01+B*44:315	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	B	Caller:Kourami	B*18:01+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	B	Caller:POLYSOLVER	B*18:01+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	B	Caller:SpecHLA	B*18:01+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	C	Caller:ArcasHLA	C*05:01+C*05:01	C*05:01+C*05:179	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	C	Caller:Kourami	C*05:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	C	Caller:POLYSOLVER	C*05:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	rnaseq	C	Caller:SpecHLA	C*05:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	wes	A	Caller:ArcasHLA	A*26:01+A*30:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	wes	A	Caller:Kourami	A*26:01+A*30:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	wes	A	Caller:SpecHLA	A*26:01+A*30:02	A*26:01+A*30:04	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	wes	B	Caller:ArcasHLA	B*18:01+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	wes	B	Caller:Kourami	B*18:01+B*44:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	wes	C	Caller:ArcasHLA	C*05:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	wes	C	Caller:Kourami	C*05:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07347	wes	C	Caller:T1K	C*05:01+C*05:01	C*05:01+C*05:176	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	rnaseq	A	Caller:Kourami	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	rnaseq	A	Caller:POLYSOLVER	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	rnaseq	A	Caller:SpecHLA	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	rnaseq	B	Caller:Kourami	B*08:01+B*39:06		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	rnaseq	B	Caller:POLYSOLVER	B*08:01+B*39:06		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	rnaseq	B	Caller:SpecHLA	B*08:01+B*39:06		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	rnaseq	B	Caller:T1K	B*08:01+B*39:06	B*08:01+B*14:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	wes	A	Caller:ArcasHLA	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	wes	A	Caller:Kourami	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	wes	B	Caller:ArcasHLA	B*08:01+B*39:06		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA07357	wes	B	Caller:Kourami	B*08:01+B*39:06		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	A	Caller:Kourami	A*03:01+A*25:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	A	Caller:POLYSOLVER	A*03:01+A*25:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	A	Caller:SpecHLA	A*03:01+A*25:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	B	Caller:Kourami	B*08:01+B*18:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	B	Caller:POLYSOLVER	B*08:01+B*18:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	B	Caller:SpecHLA	B*08:01+B*18:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	C	Caller:ArcasHLA	C*07:02+C*12:03	C*07:30+C*12:201	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	C	Caller:HLA-HD	C*07:02+C*12:03	C*07:01+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	C	Caller:Kourami	C*07:02+C*12:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	C	Caller:OptiType	C*07:02+C*12:03	C*07:01+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	C	Caller:POLYSOLVER	C*07:02+C*12:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	C	Caller:SpecHLA	C*07:02+C*12:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	C	Caller:T1K	C*07:02+C*12:03	C*07:01+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	rnaseq	C	SimplePluralityLex	C*07:02+C*12:03	C*07:01+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	A	Caller:ArcasHLA	A*03:01+A*25:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	A	Caller:Kourami	A*03:01+A*25:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	A	Caller:POLYSOLVER	A*03:01+A*25:01	A*03:01+A*26:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	B	Caller:ArcasHLA	B*08:01+B*18:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	B	Caller:Kourami	B*08:01+B*18:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	C	Caller:ArcasHLA	C*07:02+C*12:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	C	Caller:HLA-HD	C*07:02+C*12:03	C*07:296+C*12:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	C	Caller:Kourami	C*07:02+C*12:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	C	Caller:OptiType	C*07:02+C*12:03	C*07:01+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	C	Caller:POLYSOLVER	C*07:02+C*12:03	C*07:01+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	C	Caller:SpecHLA	C*07:02+C*12:03	C*07:01+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	C	Caller:T1K	C*07:02+C*12:03	C*07:01+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10847	wes	C	SimplePluralityLex	C*07:02+C*12:03	C*07:01+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	A	Caller:Kourami	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	A	Caller:POLYSOLVER	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	A	Caller:SpecHLA	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	B	Caller:Kourami	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	B	Caller:POLYSOLVER	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	B	Caller:SpecHLA	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	C	Caller:ArcasHLA	C*03:04+C*07:01	C*03:392+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	C	Caller:Kourami	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	C	Caller:POLYSOLVER	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	C	Caller:SpecHLA	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	rnaseq	C	Caller:T1K	C*03:04+C*07:01	C*03:03+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	wes	A	Caller:ArcasHLA	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	wes	A	Caller:Kourami	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	wes	B	Caller:ArcasHLA	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	wes	B	Caller:Kourami	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	wes	C	Caller:ArcasHLA	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA10851	wes	C	Caller:Kourami	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	rnaseq	A	Caller:ArcasHLA	A*02:01+A*02:01	A*02:844+A*02:857	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	rnaseq	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	rnaseq	A	Caller:SpecHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	rnaseq	C	Caller:ArcasHLA	C*03:04+C*05:01	C*03:392+C*05:179	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	rnaseq	C	Caller:Kourami	C*03:04+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	rnaseq	C	Caller:POLYSOLVER	C*03:04+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	rnaseq	C	Caller:SpecHLA	C*03:04+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	wes	A	Caller:ArcasHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	wes	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	wes	C	Caller:ArcasHLA	C*03:04+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11829	wes	C	Caller:Kourami	C*03:04+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	A	Caller:ArcasHLA	A*02:01+A*02:01	A*02:844+A*02:857	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	A	Caller:SpecHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	B	Caller:Kourami	B*14:01+B*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	B	Caller:OptiType	B*14:01+B*14:02	B*14:01+B*14:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	B	Caller:POLYSOLVER	B*14:01+B*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	B	Caller:SpecHLA	B*14:01+B*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	C	Caller:Kourami	C*08:02+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	C	Caller:POLYSOLVER	C*08:02+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	C	Caller:SpecHLA	C*08:02+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	rnaseq	C	Caller:T1K	C*08:02+C*08:02	C*05:01+C*08:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	wes	A	Caller:ArcasHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	wes	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	wes	B	Caller:ArcasHLA	B*14:01+B*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	wes	B	Caller:Kourami	B*14:01+B*14:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	wes	B	Caller:OptiType	B*14:01+B*14:02	B*14:02+B*14:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	wes	C	Caller:ArcasHLA	C*08:02+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	wes	C	Caller:Kourami	C*08:02+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11830	wes	C	Caller:OptiType	C*08:02+C*08:02	C*08:02+C*08:04	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	rnaseq	A	Caller:Kourami	A*01:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	rnaseq	A	Caller:POLYSOLVER	A*01:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	rnaseq	A	Caller:SpecHLA	A*01:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	rnaseq	B	Caller:Kourami	B*07:02+B*08:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	rnaseq	B	Caller:POLYSOLVER	B*07:02+B*08:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	rnaseq	B	Caller:SpecHLA	B*07:02+B*08:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	wes	A	Caller:ArcasHLA	A*01:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	wes	A	Caller:Kourami	A*01:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	wes	B	Caller:ArcasHLA	B*07:02+B*08:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	wes	B	Caller:Kourami	B*07:02+B*08:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11831	wes	B	Caller:SpecHLA	B*07:02+B*08:01	B*07:02+B*42:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	rnaseq	A	Caller:ArcasHLA	A*02:01+A*32:01	A*02:844+A*32:124	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	rnaseq	A	Caller:Kourami	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	rnaseq	A	Caller:SpecHLA	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	rnaseq	C	Caller:Kourami	C*02:02+C*07:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	rnaseq	C	Caller:POLYSOLVER	C*02:02+C*07:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	rnaseq	C	Caller:SpecHLA	C*02:02+C*07:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	wes	A	Caller:ArcasHLA	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	wes	A	Caller:Kourami	A*02:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	wes	C	Caller:ArcasHLA	C*02:02+C*07:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11832	wes	C	Caller:Kourami	C*02:02+C*07:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	A	Caller:ArcasHLA	A*02:01+A*02:01	A*02:844+A*02:857	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	A	Caller:SpecHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	B	Caller:ArcasHLA	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	B	Caller:HLA-HD	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	B	Caller:Kourami	B*27:03+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	B	Caller:OptiType	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	B	Caller:POLYSOLVER	B*27:03+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	B	Caller:SpecHLA	B*27:03+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	B	Caller:T1K	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	B	SimplePluralityLex	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	C	Caller:Kourami	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	C	Caller:POLYSOLVER	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	rnaseq	C	Caller:SpecHLA	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	A	Caller:ArcasHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	A	Caller:HLA-HD	A*02:01+A*02:01	A*02:01+A*02:31	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	A	Caller:T1K	A*02:01+A*02:01	A*02:01+A*02:816	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	B	Caller:ArcasHLA	B*27:03+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	B	Caller:HLA-HD	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	B	Caller:Kourami	B*27:03+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	B	Caller:OptiType	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	B	Caller:SpecHLA	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	B	Caller:T1K	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	B	SimplePluralityLex	B*27:03+B*57:01	B*27:05+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	C	Caller:ArcasHLA	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11840	wes	C	Caller:Kourami	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	A	Caller:ArcasHLA	A*02:01+A*11:01	A*02:844+A*11:303	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	A	Caller:Kourami	A*02:01+A*11:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*11:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	A	Caller:SpecHLA	A*02:01+A*11:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	A	Caller:T1K	A*02:01+A*11:01	A*02:01+A*11:347	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	B	Caller:Kourami	B*15:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	B	Caller:POLYSOLVER	B*15:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	B	Caller:SpecHLA	B*15:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	C	Caller:Kourami	C*03:04+C*15:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	C	Caller:POLYSOLVER	C*03:04+C*15:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	rnaseq	C	Caller:SpecHLA	C*03:04+C*15:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	wes	A	Caller:ArcasHLA	A*02:01+A*11:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	wes	A	Caller:HLA-HD	A*02:01+A*11:01	A*02:346+A*11:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	wes	A	Caller:Kourami	A*02:01+A*11:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	wes	B	Caller:ArcasHLA	B*15:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	wes	B	Caller:Kourami	B*15:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	wes	C	Caller:ArcasHLA	C*03:04+C*15:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11843	wes	C	Caller:Kourami	C*03:04+C*15:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	rnaseq	A	Caller:ArcasHLA	A*01:01+A*24:02	A*01:37+A*24:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	rnaseq	A	Caller:Kourami	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	rnaseq	A	Caller:POLYSOLVER	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	rnaseq	A	Caller:SpecHLA	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	rnaseq	B	Caller:Kourami	B*08:01+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	rnaseq	B	Caller:POLYSOLVER	B*08:01+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	rnaseq	B	Caller:SpecHLA	B*08:01+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	wes	A	Caller:ArcasHLA	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	wes	A	Caller:HLA-HD	A*01:01+A*24:02	A*01:01+A*24:243	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	wes	A	Caller:Kourami	A*01:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	wes	A	Caller:T1K	A*01:01+A*24:02	A*01:01+A*24:362	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	wes	B	Caller:ArcasHLA	B*08:01+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11894	wes	B	Caller:Kourami	B*08:01+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	rnaseq	A	Caller:ArcasHLA	A*02:01+A*02:01	A*02:844+A*02:857	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	rnaseq	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	rnaseq	A	Caller:SpecHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	rnaseq	C	Caller:ArcasHLA	C*03:03+C*05:01	C*03:389+C*05:179	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	rnaseq	C	Caller:Kourami	C*03:03+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	rnaseq	C	Caller:POLYSOLVER	C*03:03+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	rnaseq	C	Caller:SpecHLA	C*03:03+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	wes	A	Caller:ArcasHLA	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	wes	A	Caller:Kourami	A*02:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	wes	A	Caller:T1K	A*02:01+A*02:01	A*02:01+A*02:1061	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	wes	C	Caller:ArcasHLA	C*03:03+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA11920	wes	C	Caller:Kourami	C*03:03+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	A	Caller:ArcasHLA	A*02:01+A*24:02	A*02:844+A*24:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	A	Caller:Kourami	A*02:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	A	Caller:POLYSOLVER	A*02:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	A	Caller:SpecHLA	A*02:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	B	Caller:ArcasHLA	B*07:02+B*07:02	B*07:384+B*07:384	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	B	Caller:Kourami	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	B	Caller:POLYSOLVER	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	B	Caller:SpecHLA	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	C	Caller:ArcasHLA	C*07:02+C*07:02	C*07:584+C*07:616	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	C	Caller:Kourami	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	C	Caller:POLYSOLVER	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	rnaseq	C	Caller:SpecHLA	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	wes	A	Caller:ArcasHLA	A*02:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	wes	A	Caller:Kourami	A*02:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	wes	B	Caller:ArcasHLA	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	wes	B	Caller:Kourami	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	wes	C	Caller:ArcasHLA	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	wes	C	Caller:Kourami	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12004	wes	C	Caller:SpecHLA	C*07:02+C*07:02	C*07:02+C*07:17	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	A	Caller:ArcasHLA	A*01:01+A*02:01	A*01:01+A*02:844	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	A	Caller:Kourami	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	A	Caller:POLYSOLVER	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	A	Caller:SpecHLA	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	B	Caller:ArcasHLA	B*07:02+B*07:02	B*07:384+B*07:384	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	B	Caller:Kourami	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	B	Caller:POLYSOLVER	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	B	Caller:SpecHLA	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	C	Caller:ArcasHLA	C*07:02+C*07:02	C*07:584+C*07:616	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	C	Caller:Kourami	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	C	Caller:POLYSOLVER	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	rnaseq	C	Caller:SpecHLA	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	wes	A	Caller:ArcasHLA	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	wes	A	Caller:Kourami	A*01:01+A*02:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	wes	B	Caller:ArcasHLA	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	wes	B	Caller:Kourami	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	wes	C	Caller:ArcasHLA	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12044	wes	C	Caller:Kourami	C*07:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	A	Caller:ArcasHLA	A*01:01+A*31:01	A*01:01+A*31:46	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	A	Caller:Kourami	A*01:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	A	Caller:POLYSOLVER	A*01:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	A	Caller:SpecHLA	A*01:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	B	Caller:ArcasHLA	B*08:01+B*40:01	B*08:01+B*40:346	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	B	Caller:Kourami	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	B	Caller:POLYSOLVER	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	B	Caller:SpecHLA	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	C	Caller:ArcasHLA	C*03:04+C*07:01	C*03:08+C*07:652	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	C	Caller:Kourami	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	C	Caller:POLYSOLVER	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	rnaseq	C	Caller:SpecHLA	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	wes	A	Caller:ArcasHLA	A*01:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	wes	A	Caller:Kourami	A*01:01+A*31:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	wes	B	Caller:ArcasHLA	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	wes	B	Caller:Kourami	B*08:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	wes	C	Caller:ArcasHLA	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12154	wes	C	Caller:Kourami	C*03:04+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	rnaseq	A	Caller:ArcasHLA	A*11:01+A*32:01	A*11:303+A*32:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	rnaseq	A	Caller:Kourami	A*11:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	rnaseq	A	Caller:POLYSOLVER	A*11:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	rnaseq	A	Caller:SpecHLA	A*11:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	rnaseq	A	Caller:T1K	A*11:01+A*32:01	A*11:347+A*32:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	rnaseq	B	Caller:Kourami	B*40:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	rnaseq	B	Caller:POLYSOLVER	B*40:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	rnaseq	B	Caller:SpecHLA	B*40:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	wes	A	Caller:ArcasHLA	A*11:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	wes	A	Caller:Kourami	A*11:01+A*32:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	wes	B	Caller:ArcasHLA	B*40:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	wes	B	Caller:HLA-HD	B*40:02+B*44:03	B*40:02+B*40:157	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	wes	B	Caller:Kourami	B*40:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	wes	B	Caller:POLYSOLVER	B*40:02+B*44:03	B*40:06+B*44:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA12234	wes	B	Caller:SpecHLA	B*40:02+B*44:03	B*40:01+B*44:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18501	wes	A	Caller:ArcasHLA	A*33:01+A*66:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18501	wes	A	Caller:Kourami	A*33:01+A*66:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18501	wes	B	Caller:ArcasHLA	B*14:01+B*78:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18501	wes	B	Caller:Kourami	B*14:01+B*78:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18501	wes	C	Caller:ArcasHLA	C*08:02+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18501	wes	C	Caller:Kourami	C*08:02+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	A	Caller:ArcasHLA	A*24:24+A*74:01	A*23:13+A*74:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	A	Caller:Kourami	A*24:24+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	A	Caller:POLYSOLVER	A*24:24+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	A	Caller:SpecHLA	A*24:24+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	B	Caller:Kourami	B*14:03+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	B	Caller:POLYSOLVER	B*14:03+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	B	Caller:SpecHLA	B*14:03+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	C	Caller:ArcasHLA	C*07:01+C*08:02	C*07:647+C*08:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	C	Caller:Kourami	C*07:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	C	Caller:POLYSOLVER	C*07:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	rnaseq	C	Caller:SpecHLA	C*07:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	wes	A	Caller:ArcasHLA	A*24:24+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	wes	A	Caller:Kourami	A*24:24+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	wes	A	Caller:POLYSOLVER	A*24:24+A*74:01	A*23:01+A*74:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	wes	A	Caller:SpecHLA	A*24:24+A*74:01	A*23:01+A*74:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	wes	B	Caller:ArcasHLA	B*14:03+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	wes	B	Caller:Kourami	B*14:03+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	wes	C	Caller:ArcasHLA	C*07:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18502	wes	C	Caller:Kourami	C*07:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	A	Caller:ArcasHLA	A*36:01+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	A	Caller:Kourami	A*36:01+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	A	Caller:T1K	A*36:01+A*36:01	A*01:01+A*01:218	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	B	Caller:ArcasHLA	B*15:03+B*39:10		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	B	Caller:Kourami	B*15:03+B*39:10		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	C	Caller:ArcasHLA	C*02:02+C*12:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	C	Caller:HLA-HD	C*02:02+C*12:03	C*02:10+C*12:05	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	C	Caller:Kourami	C*02:02+C*12:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	C	Caller:OptiType	C*02:02+C*12:03	C*02:10+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	C	Caller:POLYSOLVER	C*02:02+C*12:03	C*02:10+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	C	Caller:SpecHLA	C*02:02+C*12:03	C*02:10+C*12:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18504	wes	C	SimplePluralityLex	C*02:02+C*12:03	C*02:10+C*12:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	A	Caller:Kourami	A*26:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	A	Caller:POLYSOLVER	A*26:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	A	Caller:SpecHLA	A*26:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	B	Caller:Kourami	B*15:03+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	B	Caller:POLYSOLVER	B*15:03+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	B	Caller:SpecHLA	B*15:03+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	C	Caller:ArcasHLA	C*02:02+C*07:01	C*02:10+C*07:527	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	C	Caller:HLA-HD	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	C	Caller:Kourami	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	C	Caller:OptiType	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	C	Caller:POLYSOLVER	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	C	Caller:SpecHLA	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	C	Caller:T1K	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	rnaseq	C	SimplePluralityLex	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	A	Caller:ArcasHLA	A*26:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	A	Caller:Kourami	A*26:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	B	Caller:ArcasHLA	B*15:03+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	B	Caller:Kourami	B*15:03+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	C	Caller:ArcasHLA	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	C	Caller:HLA-HD	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	C	Caller:Kourami	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	C	Caller:OptiType	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	C	Caller:POLYSOLVER	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	C	Caller:T1K	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18505	wes	C	SimplePluralityLex	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	A	Caller:ArcasHLA	A*23:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	A	Caller:Kourami	A*23:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	B	Caller:ArcasHLA	B*15:03+B*42:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	B	Caller:Kourami	B*15:03+B*42:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	C	Caller:ArcasHLA	C*02:02+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	C	Caller:HLA-HD	C*02:02+C*17:01	C*02:10+C*17:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	C	Caller:Kourami	C*02:02+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	C	Caller:OptiType	C*02:02+C*17:01	C*02:10+C*17:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	C	Caller:POLYSOLVER	C*02:02+C*17:01	C*02:10+C*17:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	C	Caller:T1K	C*02:02+C*17:01	C*02:10+C*17:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18507	wes	C	SimplePluralityLex	C*02:02+C*17:01	C*02:10+C*17:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	A	Caller:Kourami	A*33:03+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	A	Caller:POLYSOLVER	A*33:03+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	A	Caller:SpecHLA	A*33:03+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	B	Caller:ArcasHLA	B*42:01+B*53:01	B*42:01+B*42:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	B	Caller:Kourami	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	B	Caller:POLYSOLVER	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	B	Caller:SpecHLA	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	C	Caller:ArcasHLA	C*04:01+C*17:01	C*04:14+C*17:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	C	Caller:Kourami	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	C	Caller:POLYSOLVER	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	rnaseq	C	Caller:SpecHLA	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	wes	A	Caller:ArcasHLA	A*33:03+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	wes	A	Caller:Kourami	A*33:03+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	wes	B	Caller:ArcasHLA	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	wes	B	Caller:Kourami	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	wes	C	Caller:ArcasHLA	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18508	wes	C	Caller:Kourami	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18516	wes	A	Caller:ArcasHLA	A*03:01+A*29:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18516	wes	A	Caller:Kourami	A*03:01+A*29:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18516	wes	B	Caller:ArcasHLA	B*15:10+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18516	wes	B	Caller:Kourami	B*15:10+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18516	wes	C	Caller:ArcasHLA	C*04:01+C*04:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18516	wes	C	Caller:Kourami	C*04:01+C*04:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	rnaseq	A	Caller:Kourami	A*03:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	rnaseq	A	Caller:POLYSOLVER	A*03:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	rnaseq	A	Caller:SpecHLA	A*03:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	rnaseq	B	Caller:Kourami	B*49:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	rnaseq	B	Caller:POLYSOLVER	B*49:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	rnaseq	B	Caller:SpecHLA	B*49:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	rnaseq	C	Caller:Kourami	C*07:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	rnaseq	C	Caller:POLYSOLVER	C*07:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	rnaseq	C	Caller:SpecHLA	C*07:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	wes	A	Caller:ArcasHLA	A*03:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	wes	A	Caller:Kourami	A*03:01+A*74:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	wes	B	Caller:ArcasHLA	B*49:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	wes	B	Caller:Kourami	B*49:01+B*51:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	wes	C	Caller:ArcasHLA	C*07:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18517	wes	C	Caller:Kourami	C*07:01+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	A	Caller:ArcasHLA	A*03:01+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	A	Caller:Kourami	A*03:01+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	A	Caller:T1K	A*03:01+A*36:01	A*01:01+A*03:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	B	Caller:ArcasHLA	B*15:03+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	B	Caller:HLA-HD	B*15:03+B*49:01	B*15:47+B*49:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	B	Caller:Kourami	B*15:03+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	C	Caller:ArcasHLA	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	C	Caller:HLA-HD	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	C	Caller:Kourami	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	C	Caller:OptiType	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	C	Caller:POLYSOLVER	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	C	Caller:SpecHLA	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	C	Caller:T1K	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18522	wes	C	SimplePluralityLex	C*02:02+C*07:01	C*02:10+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18523	wes	A	Caller:ArcasHLA	A*01:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18523	wes	A	Caller:Kourami	A*01:01+A*03:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18523	wes	B	Caller:ArcasHLA	B*07:02+B*35:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18523	wes	B	Caller:Kourami	B*07:02+B*35:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18523	wes	C	Caller:ArcasHLA	C*04:01+C*15:05		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18523	wes	C	Caller:Kourami	C*04:01+C*15:05		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18526	wes	A	Caller:ArcasHLA	A*24:02+A*33:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18526	wes	A	Caller:Kourami	A*24:02+A*33:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18526	wes	B	Caller:ArcasHLA	B*40:01+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18526	wes	B	Caller:Kourami	B*40:01+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18526	wes	C	Caller:ArcasHLA	C*03:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18526	wes	C	Caller:HLA-HD	C*03:02+C*07:02	C*03:02+C*07:50	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18526	wes	C	Caller:Kourami	C*03:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	A	Caller:ArcasHLA	A*30:01+A*68:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	A	Caller:HLA-HD	A*30:01+A*68:01	A*30:01+A*68:06	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	A	Caller:Kourami	A*30:01+A*68:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	A	Caller:SpecHLA	A*30:01+A*68:01	A*30:01+A*30:18	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	A	Caller:T1K	A*30:01+A*68:01	A*30:01+A*68:235	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	B	Caller:ArcasHLA	B*13:02+B*15:18		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	B	Caller:Kourami	B*13:02+B*15:18		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	B	Caller:SpecHLA	B*13:02+B*15:18	B*13:02+B*15:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	B	Caller:T1K	B*13:02+B*15:18		partial	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	C	Caller:ArcasHLA	C*06:02+C*07:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18532	wes	C	Caller:Kourami	C*06:02+C*07:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	A	Caller:ArcasHLA	A*02:01+A*11:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	A	Caller:HLA-HD	A*02:01+A*11:01	A*02:07+A*11:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	A	Caller:Kourami	A*02:01+A*11:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	A	Caller:OptiType	A*02:01+A*11:01	A*02:07+A*11:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	A	Caller:POLYSOLVER	A*02:01+A*11:01	A*02:07+A*11:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	A	Caller:SpecHLA	A*02:01+A*11:01	A*02:07+A*11:04	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	A	Caller:T1K	A*02:01+A*11:01		missing	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	A	SimplePluralityLex	A*02:01+A*11:01	A*02:07+A*11:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	B	Caller:ArcasHLA	B*38:02+B*46:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	B	Caller:Kourami	B*38:02+B*46:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	B	Caller:SpecHLA	B*38:02+B*46:01	B*38:01+B*46:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	C	Caller:ArcasHLA	C*01:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	C	Caller:HLA-HD	C*01:02+C*07:02	C*01:02+C*07:17	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18537	wes	C	Caller:Kourami	C*01:02+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18542	wes	A	Caller:ArcasHLA	A*11:01+A*33:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18542	wes	A	Caller:Kourami	A*11:01+A*33:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18542	wes	B	Caller:ArcasHLA	B*46:01+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18542	wes	B	Caller:Kourami	B*46:01+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18542	wes	C	Caller:ArcasHLA	C*01:02+C*03:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18542	wes	C	Caller:Kourami	C*01:02+C*03:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18545	wes	A	Caller:ArcasHLA	A*11:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18545	wes	A	Caller:Kourami	A*11:01+A*24:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18545	wes	B	Caller:ArcasHLA	B*40:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18545	wes	B	Caller:Kourami	B*40:01+B*40:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18545	wes	C	Caller:ArcasHLA	C*04:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18545	wes	C	Caller:Kourami	C*04:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18545	wes	C	Caller:T1K	C*04:01+C*07:02	C*04:82+C*07:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	A	Caller:ArcasHLA	A*29:02+A*30:01	A*29:02+A*30:142	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	A	Caller:Kourami	A*29:02+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	A	Caller:POLYSOLVER	A*29:02+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	A	Caller:SpecHLA	A*29:02+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	B	Caller:Kourami	B*18:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	B	Caller:POLYSOLVER	B*18:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	B	Caller:SpecHLA	B*18:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	C	Caller:Kourami	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	C	Caller:POLYSOLVER	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	rnaseq	C	Caller:SpecHLA	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	wes	A	Caller:ArcasHLA	A*29:02+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	wes	A	Caller:HLA-HD	A*29:02+A*30:01	A*29:37+A*30:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	wes	A	Caller:Kourami	A*29:02+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	wes	B	Caller:ArcasHLA	B*18:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	wes	B	Caller:Kourami	B*18:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	wes	C	Caller:ArcasHLA	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18858	wes	C	Caller:Kourami	C*02:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	A	Caller:Kourami	A*03:01+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	A	Caller:POLYSOLVER	A*03:01+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	A	Caller:SpecHLA	A*03:01+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	B	Caller:Kourami	B*13:02+B*57:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	B	Caller:POLYSOLVER	B*13:02+B*57:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	B	Caller:SpecHLA	B*13:02+B*57:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	C	Caller:ArcasHLA	C*03:02+C*07:01	C*03:84+C*07:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	C	Caller:Kourami	C*03:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	C	Caller:POLYSOLVER	C*03:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	rnaseq	C	Caller:SpecHLA	C*03:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	wes	A	Caller:ArcasHLA	A*03:01+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	wes	A	Caller:Kourami	A*03:01+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	wes	B	Caller:ArcasHLA	B*13:02+B*57:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	wes	B	Caller:Kourami	B*13:02+B*57:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	wes	B	Caller:POLYSOLVER	B*13:02+B*57:03	B*13:01+B*57:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	wes	C	Caller:ArcasHLA	C*03:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA18861	wes	C	Caller:Kourami	C*03:02+C*07:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	A	Caller:ArcasHLA	A*23:01+A*30:01	A*23:01+A*30:142	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	A	Caller:Kourami	A*23:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	A	Caller:POLYSOLVER	A*23:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	A	Caller:SpecHLA	A*23:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	B	Caller:ArcasHLA	B*35:01+B*53:01	B*53:01+B*53:53	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	B	Caller:Kourami	B*35:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	B	Caller:POLYSOLVER	B*35:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	B	Caller:SpecHLA	B*35:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	C	Caller:ArcasHLA	C*04:01+C*08:02	C*04:14+C*05:46	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	C	Caller:Kourami	C*04:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	C	Caller:POLYSOLVER	C*04:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	rnaseq	C	Caller:SpecHLA	C*04:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	wes	A	Caller:ArcasHLA	A*23:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	wes	A	Caller:Kourami	A*23:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	wes	B	Caller:ArcasHLA	B*35:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	wes	B	Caller:Kourami	B*35:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	wes	C	Caller:ArcasHLA	C*04:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19093	wes	C	Caller:Kourami	C*04:01+C*08:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	A	Caller:Kourami	A*23:01+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	A	Caller:POLYSOLVER	A*23:01+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	A	Caller:SpecHLA	A*23:01+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	B	Caller:Kourami	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	B	Caller:POLYSOLVER	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	B	Caller:SpecHLA	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	B	Caller:T1K	B*07:02+B*07:02	B*07:02+B*44:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	C	Caller:ArcasHLA	C*07:02+C*15:05	C*07:629+C*15:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	C	Caller:Kourami	C*07:02+C*15:05		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	C	Caller:POLYSOLVER	C*07:02+C*15:05		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	C	Caller:SpecHLA	C*07:02+C*15:05		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	rnaseq	C	Caller:T1K	C*07:02+C*15:05	C*07:629+C*15:05	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	wes	A	Caller:ArcasHLA	A*23:01+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	wes	A	Caller:Kourami	A*23:01+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	wes	B	Caller:ArcasHLA	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	wes	B	Caller:Kourami	B*07:02+B*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	wes	C	Caller:ArcasHLA	C*07:02+C*15:05		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	wes	C	Caller:Kourami	C*07:02+C*15:05		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19099	wes	C	Caller:T1K	C*07:02+C*15:05	C*07:629+C*15:05	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	A	Caller:Kourami	A*23:01+A*33:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	A	Caller:POLYSOLVER	A*23:01+A*33:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	A	Caller:SpecHLA	A*23:01+A*33:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	B	Caller:ArcasHLA	B*07:02+B*39:03	B*39:24+B*39:24	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	B	Caller:HLA-HD	B*07:02+B*39:03	B*07:02+B*39:24	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	B	Caller:Kourami	B*07:02+B*39:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	B	Caller:OptiType	B*07:02+B*39:03	B*07:02+B*39:24	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	B	Caller:POLYSOLVER	B*07:02+B*39:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	B	Caller:SpecHLA	B*07:02+B*39:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	B	Caller:T1K	B*07:02+B*39:03	B*07:02+B*07:386	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	B	SimplePluralityLex	B*07:02+B*39:03	B*07:02+B*39:24	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	C	Caller:Kourami	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	C	Caller:POLYSOLVER	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	rnaseq	C	Caller:SpecHLA	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	A	Caller:ArcasHLA	A*23:01+A*33:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	A	Caller:HLA-HD	A*23:01+A*33:03	A*23:01+A*33:51	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	A	Caller:Kourami	A*23:01+A*33:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	B	Caller:ArcasHLA	B*07:02+B*39:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	B	Caller:HLA-HD	B*07:02+B*39:03	B*07:02+B*39:24	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	B	Caller:Kourami	B*07:02+B*39:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	B	Caller:OptiType	B*07:02+B*39:03	B*07:02+B*39:24	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	B	Caller:POLYSOLVER	B*07:02+B*39:03	B*07:02+B*39:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	B	Caller:SpecHLA	B*07:02+B*39:03	B*07:02+B*39:24	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	B	Caller:T1K	B*07:02+B*39:03	B*07:02+B*39:24	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	B	SimplePluralityLex	B*07:02+B*39:03	B*07:02+B*39:24	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	C	Caller:ArcasHLA	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	C	Caller:HLA-HD	C*07:01+C*07:02	C*07:02+C*07:19	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19116	wes	C	Caller:Kourami	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	A	Caller:Kourami	A*02:02+A*23:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	A	Caller:POLYSOLVER	A*02:02+A*23:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	A	Caller:SpecHLA	A*02:02+A*23:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	B	Caller:ArcasHLA	B*07:02+B*58:01	B*07:285+B*58:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	B	Caller:Kourami	B*07:02+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	B	Caller:POLYSOLVER	B*07:02+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	B	Caller:SpecHLA	B*07:02+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	C	Caller:ArcasHLA	C*07:01+C*07:02	C*07:18+C*07:616	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	C	Caller:HLA-HD	C*07:01+C*07:02	C*07:02+C*07:18	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	C	Caller:Kourami	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	C	Caller:POLYSOLVER	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	rnaseq	C	Caller:SpecHLA	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	A	Caller:ArcasHLA	A*02:02+A*23:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	A	Caller:Kourami	A*02:02+A*23:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	B	Caller:ArcasHLA	B*07:02+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	B	Caller:Kourami	B*07:02+B*58:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	C	Caller:ArcasHLA	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	C	Caller:HLA-HD	C*07:01+C*07:02	C*07:02+C*07:19	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	C	Caller:Kourami	C*07:01+C*07:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	C	Caller:POLYSOLVER	C*07:01+C*07:02	C*07:02+C*07:18	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	C	Caller:SpecHLA	C*07:01+C*07:02	C*07:02+C*07:18	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	C	Caller:T1K	C*07:01+C*07:02	C*07:02+C*07:18	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19129	wes	C	SimplePluralityLex	C*07:01+C*07:02	C*07:02+C*07:18	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	A	Caller:Kourami	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	A	Caller:POLYSOLVER	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	A	Caller:SpecHLA	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	B	Caller:ArcasHLA	B*13:02+B*35:01	B*13:02+B*55:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	B	Caller:Kourami	B*13:02+B*35:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	B	Caller:POLYSOLVER	B*13:02+B*35:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	B	Caller:SpecHLA	B*13:02+B*35:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	C	Caller:ArcasHLA	C*04:01+C*04:01	C*04:01+C*04:334	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	C	Caller:Kourami	C*04:01+C*04:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	C	Caller:POLYSOLVER	C*04:01+C*04:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	rnaseq	C	Caller:SpecHLA	C*04:01+C*04:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	wes	A	Caller:ArcasHLA	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	wes	A	Caller:Kourami	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	wes	A	Caller:T1K	A*33:03+A*36:01	A*01:01+A*33:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	wes	B	Caller:ArcasHLA	B*13:02+B*35:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	wes	B	Caller:Kourami	B*13:02+B*35:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	wes	B	Caller:POLYSOLVER	B*13:02+B*35:01	B*13:01+B*35:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	wes	B	Caller:SpecHLA	B*13:02+B*35:01	B*13:01+B*35:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	wes	C	Caller:ArcasHLA	C*04:01+C*04:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19130	wes	C	Caller:Kourami	C*04:01+C*04:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	A	Caller:ArcasHLA	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	A	Caller:HLA-HD	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	A	Caller:Kourami	A*66:02+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	A	Caller:OptiType	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	A	Caller:POLYSOLVER	A*66:02+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	A	Caller:SpecHLA	A*66:02+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	A	Caller:T1K	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	A	SimplePluralityLex	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	B	Caller:ArcasHLA	B*42:01+B*53:01	B*42:01+B*42:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	B	Caller:Kourami	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	B	Caller:POLYSOLVER	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	B	Caller:SpecHLA	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	B	Caller:T1K	B*42:01+B*53:01	B*42:01+B*44:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	C	Caller:Kourami	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	C	Caller:POLYSOLVER	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	rnaseq	C	Caller:SpecHLA	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	A	Caller:ArcasHLA	A*66:02+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	A	Caller:HLA-HD	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	A	Caller:Kourami	A*66:02+A*68:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	A	Caller:OptiType	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	A	Caller:POLYSOLVER	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	A	Caller:T1K	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	A	SimplePluralityLex	A*66:02+A*68:02	A*66:03+A*68:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	B	Caller:ArcasHLA	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	B	Caller:Kourami	B*42:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	B	Caller:SpecHLA	B*42:01+B*53:01	B*08:01+B*56:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	C	Caller:ArcasHLA	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19131	wes	C	Caller:Kourami	C*04:01+C*17:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	A	Caller:Kourami	A*03:01+A*26:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	A	Caller:POLYSOLVER	A*03:01+A*26:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	A	Caller:SpecHLA	A*03:01+A*26:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	B	Caller:Kourami	B*15:10+B*56:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	B	Caller:POLYSOLVER	B*15:10+B*56:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	B	Caller:SpecHLA	B*15:10+B*56:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	C	Caller:ArcasHLA	C*01:02+C*08:04	C*01:163+C*08:04	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	C	Caller:Kourami	C*01:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	C	Caller:POLYSOLVER	C*01:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	rnaseq	C	Caller:SpecHLA	C*01:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	wes	A	Caller:ArcasHLA	A*03:01+A*26:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	wes	A	Caller:Kourami	A*03:01+A*26:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	wes	B	Caller:ArcasHLA	B*15:10+B*56:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	wes	B	Caller:Kourami	B*15:10+B*56:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	wes	B	Caller:POLYSOLVER	B*15:10+B*56:01	B*15:10+B*56:04	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	wes	C	Caller:ArcasHLA	C*01:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19152	wes	C	Caller:Kourami	C*01:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	A	Caller:Kourami	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	A	Caller:POLYSOLVER	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	A	Caller:SpecHLA	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	B	Caller:Kourami	B*18:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	B	Caller:POLYSOLVER	B*18:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	B	Caller:SpecHLA	B*18:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	C	Caller:ArcasHLA	C*04:01+C*05:01	C*04:334+C*05:179	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	C	Caller:Kourami	C*04:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	C	Caller:POLYSOLVER	C*04:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	rnaseq	C	Caller:SpecHLA	C*04:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	wes	A	Caller:ArcasHLA	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	wes	A	Caller:Kourami	A*33:03+A*36:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	wes	B	Caller:ArcasHLA	B*18:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	wes	B	Caller:Kourami	B*18:01+B*53:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	wes	C	Caller:ArcasHLA	C*04:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19153	wes	C	Caller:Kourami	C*04:01+C*05:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	A	Caller:Kourami	A*03:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	A	Caller:POLYSOLVER	A*03:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	A	Caller:SpecHLA	A*03:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	B	Caller:Kourami	B*15:10+B*52:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	B	Caller:POLYSOLVER	B*15:10+B*52:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	B	Caller:SpecHLA	B*15:10+B*52:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	C	Caller:ArcasHLA	C*08:04+C*16:01	C*08:04+C*08:13	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	C	Caller:Kourami	C*08:04+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	C	Caller:POLYSOLVER	C*08:04+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	rnaseq	C	Caller:SpecHLA	C*08:04+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	wes	A	Caller:ArcasHLA	A*03:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	wes	A	Caller:Kourami	A*03:01+A*30:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	wes	A	Caller:T1K	A*03:01+A*30:01	A*03:01+A*30:207	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	wes	B	Caller:ArcasHLA	B*15:10+B*52:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	wes	B	Caller:Kourami	B*15:10+B*52:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	wes	C	Caller:ArcasHLA	C*08:04+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19209	wes	C	Caller:Kourami	C*08:04+C*16:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19210	rnaseq	C	Caller:Kourami	C*03:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19210	rnaseq	C	Caller:POLYSOLVER	C*03:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19210	rnaseq	C	Caller:SpecHLA	C*03:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19210	wes	C	Caller:ArcasHLA	C*03:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA19210	wes	C	Caller:Kourami	C*03:02+C*08:04		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20504	rnaseq	B	Caller:Kourami	B*55:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20504	rnaseq	B	Caller:POLYSOLVER	B*55:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20504	rnaseq	B	Caller:SpecHLA	B*55:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20504	wes	B	Caller:ArcasHLA	B*55:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20504	wes	B	Caller:Kourami	B*55:01+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20508	rnaseq	B	Caller:ArcasHLA	B*41:02+B*57:01	B*41:41+B*57:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20508	rnaseq	B	Caller:Kourami	B*41:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20508	rnaseq	B	Caller:POLYSOLVER	B*41:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20508	rnaseq	B	Caller:SpecHLA	B*41:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20508	wes	B	Caller:ArcasHLA	B*41:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20508	wes	B	Caller:Kourami	B*41:02+B*57:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20509	rnaseq	C	Caller:ArcasHLA	C*06:02+C*16:02	C*16:90+C*16:90	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20509	rnaseq	C	Caller:Kourami	C*06:02+C*16:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20509	rnaseq	C	Caller:POLYSOLVER	C*06:02+C*16:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20509	rnaseq	C	Caller:SpecHLA	C*06:02+C*16:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20509	wes	C	Caller:ArcasHLA	C*06:02+C*16:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20509	wes	C	Caller:Kourami	C*06:02+C*16:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20510	rnaseq	B	Caller:Kourami	B*15:17+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20510	rnaseq	B	Caller:POLYSOLVER	B*15:17+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20510	rnaseq	B	Caller:SpecHLA	B*15:17+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20510	rnaseq	B	Caller:T1K	B*15:17+B*55:01	B*15:17+B*56:01	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20510	wes	B	Caller:ArcasHLA	B*15:17+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20510	wes	B	Caller:Kourami	B*15:17+B*55:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20519	rnaseq	C	Caller:ArcasHLA	C*02:02+C*06:02	C*02:02+C*06:234	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20519	rnaseq	C	Caller:Kourami	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20519	rnaseq	C	Caller:POLYSOLVER	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20519	rnaseq	C	Caller:SpecHLA	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20519	wes	C	Caller:ArcasHLA	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20519	wes	C	Caller:Kourami	C*02:02+C*06:02		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20521	rnaseq	B	Caller:Kourami	B*14:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20521	rnaseq	B	Caller:POLYSOLVER	B*14:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20521	rnaseq	B	Caller:SpecHLA	B*14:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20521	wes	B	Caller:ArcasHLA	B*14:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20521	wes	B	Caller:Kourami	B*14:01+B*49:01		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20528	rnaseq	B	Caller:ArcasHLA	B*41:02+B*44:03	B*41:42+B*44:03	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20528	rnaseq	B	Caller:Kourami	B*41:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20528	rnaseq	B	Caller:POLYSOLVER	B*41:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20528	rnaseq	B	Caller:SpecHLA	B*41:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20528	rnaseq	B	Caller:T1K	B*41:02+B*44:03	B*41:02+B*44:02	callable	current_release;current_release	current_release;current_release		unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20528	wes	B	Caller:ArcasHLA	B*41:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable
+NA20528	wes	B	Caller:Kourami	B*41:02+B*44:03		absent	current_release;current_release			unknown_exact_database_unavailable	0	algorithm_database_and_deployment_effects_not_separable

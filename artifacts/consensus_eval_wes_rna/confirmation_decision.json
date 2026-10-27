@@ -1,0 +1,57 @@
+{
+  "absent_comparator_scoring": "a comparator with no row at a locus is scored incorrect there; comparator_coverage reports how often this occurs",
+  "all_modalities_present": false,
+  "claim_boundary": "equal-weight consensus matches the modality-best caller without prior caller selection and is not exceeded by any tested integration method",
+  "cohort_subjects": {
+    "rnaseq": 107,
+    "wes": 130
+  },
+  "comparators_failing_noninferiority": [
+    {
+      "comparator": "ChampionChallenger",
+      "delta_points": -1.0256410256410255,
+      "modality": "wes",
+      "simultaneous_ci_lo_points": -3.076923076923077
+    },
+    {
+      "comparator": "FamilyGatedCC",
+      "delta_points": -1.2820512820512822,
+      "modality": "wes",
+      "simultaneous_ci_lo_points": -3.3333333333333335
+    },
+    {
+      "comparator": "TwoThirdsGuardedCC",
+      "delta_points": -1.0256410256410255,
+      "modality": "wes",
+      "simultaneous_ci_lo_points": -3.076923076923077
+    }
+  ],
+  "comparators_significantly_exceeding_consensus": [],
+  "consensus_noninferior_2pp_pass": false,
+  "consensus_not_exceeded_is_advisory": "absence of a significant exceedance passes automatically under low power and does not decide the headline",
+  "consensus_not_exceeded_pass": true,
+  "external_prerequisites_pass": false,
+  "guarded_cc_ablation_pass": false,
+  "guarded_cc_per_gene_harm": [],
+  "headline_retained": false,
+  "input_sha256": "60e4084766a3e6cb183d7ad4beb8188a040d93cbc08f8e65633726f1b3bae5b8",
+  "minimum_subjects": {
+    "rnaseq": 130,
+    "wes": 89,
+    "wgs": 120
+  },
+  "modalities_evaluated": [
+    "rnaseq",
+    "wes"
+  ],
+  "mode": "discovery",
+  "noninferiority_margin_points": 2.0,
+  "per_gene_harm_pass": true,
+  "plurality_retention_pass": true,
+  "primary_method": "SimplePluralityLex",
+  "primary_pass": false,
+  "sample_size_pass": false,
+  "schema_version": "three-modality-confirmation-evaluation-2",
+  "status": "discovery_only",
+  "wgs_audit_pass": false
+}

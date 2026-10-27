@@ -1,0 +1,16 @@
+sample	tool	modality	gene	allele1	allele2	is_callable
+HG00096	hlahd	wes	A	HLA-A*01:01:01	HLA-A*29:02:01	1
+HG00096	hlahd	wes	B	HLA-B*08:01:01	-	0
+HG00096	hlahd	wes	C	HLA-C*07:01:01	HLA-C*16:21	1
+HG00096	optitype	wes	A	A*29:02	A*01:01	1
+HG00096	optitype	wes	B	B*44:03	B*08:01	1
+HG00096	optitype	wes	C	C*16:01	C*07:01	1
+HG00096	polysolver	wes	A	A*01:01:01:01	A*01:01:01:01	1
+HG00096	polysolver	wes	B	B*08:01:01	B*08:01:01	1
+HG00096	polysolver	wes	C	C*07:01:01:01	C*07:01:01:01	1
+HG00096	spechla	wes	A	A*29:02:04	A*01:01:46	1
+HG00096	spechla	wes	B	B*08:01:01:01	B*08:01:01:01	1
+HG00096	spechla	wes	C	C*07:01:49	C*07:01:01:01	1
+HG00096	t1k	wes	A	HLA-A*01:01:01	-	0
+HG00096	t1k	wes	B	HLA-B*08:01:01	-	0
+HG00096	t1k	wes	C	HLA-C*07:01:01	-	0

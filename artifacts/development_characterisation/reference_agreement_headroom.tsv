@@ -1,0 +1,3 @@
+modality	loci	consensus_correct	oracle_correct	consensus_errors	recoverable_by_any_caller	unreachable_by_any_caller	consensus_subset_of_oracle
+rnaseq	112	112	112	0	0	0	1
+wes	143	143	143	0	0	0	1

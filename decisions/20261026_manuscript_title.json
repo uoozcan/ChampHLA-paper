@@ -1,0 +1,17 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261026_manuscript_title",
+  "date": "2026-10-26",
+  "status": "SIGNED - title chosen by Claude under explicit author delegation",
+  "decision": {
+    "final_title": "ChampHLA: a fail-closed, pre-registered benchmark of plurality voting across short-read HLA class I callers",
+    "running_title": "Fail-closed benchmark of HLA caller voting",
+    "condition": "'pre-registered' is used only once the frozen confirmatory extension, made under the publicly deposited amended pre-registration, is reported. Until then the current title 'ChampHLA: a fail-closed benchmark of plurality voting across short-read HLA class I callers' is kept.",
+    "rationale": "Names the method (ChampHLA), the design property that distinguishes the study (fail-closed reporting and, after the extension, pre-registration), the question (plurality voting across callers) and the scope (short-read data, HLA class I). It makes no superiority, equivalence or clinical claim, and is within the 20-word venue limit."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-26, explicit author statement: 'you can decide the manuscript title for now'",
+    "mechanism": "Claude Code session"
+  }
+}

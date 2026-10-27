@@ -1,0 +1,49 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261007_name_restore_champhla",
+  "date": "2026-10-07",
+  "decision": "The project name ChampHLA is restored. The primary method keeps its definition and is published as ChampHLA-Consensus.",
+  "rationale": [
+    "The lead author prefers to continue under the established project name, under which the earlier analyses, drafts and co-author communication were carried out.",
+    "The change is label-only. No caller was re-run and no denominator, endpoint, statistic, figure datum or result registry value changes.",
+    "The method concern recorded in 20260917_project_rename is addressed in the manuscript text: the Introduction states that the name derives from the earlier champion-challenger design and that the primary method is the equal-weight plurality vote, with champion-challenger retained only as an exploratory comparator."
+  ],
+  "supersedes": "decisions/20260917_project_rename.json (display name only; its rename rule and its list of identifiers that must never be renamed remain in force)",
+  "superseded_record_retained": true,
+  "rename_rule": "Unchanged from 20260917_project_rename: rename labels, never identifiers that live inside data.",
+  "renamed": {
+    "display_method_name": "PanelHLA-Consensus -> ChampHLA-Consensus (manuscripts, figure and table labels, result registry method descriptions, claim_audit.tsv claim text)",
+    "prose": "manuscripts/benchmark/manuscript.md, manuscripts/benchmark/supplementary.md, manuscripts/shared/shared_methods.md, README.md, RECOVERY_STATUS.md, THIRD_PARTY_NOTICES.md, COAUTHOR_REVIEW_CHECKLIST.md, CITATION.cff, LICENSE copyright-holder phrase, pyproject.toml description",
+    "code_labels": "docstrings, CLI titles and descriptions, docx titles and author metadata, figure axis labels and metadata, the ENA User-Agent string",
+    "build_outputs": "PanelHLA_{manuscript,supplementary}_REVIEW_DRAFT.docx and PanelHLA_manuscript_COMBINED_DRIVE.docx renamed to ChampHLA_*",
+    "live_decision_exception": "decisions/publication_route.json is renamed, following the precedent set in 20260917_project_rename."
+  },
+  "deliberately_not_renamed": [
+    {
+      "item": "checksum-pinned protocol configuration",
+      "examples": [
+        "configs/confirmation_protocol_amended.json primary_method_published_name = PanelHLA-Consensus",
+        "configs/benchmark_resource_protocol_v2.json display_name = PanelHLA plurality baseline"
+      ],
+      "reason": "Both files are pinned by SHA-256 in signed decision records (20260928_truth_and_inference_amendment.json) and in artifacts/release_freeze.json. They record the display name in force when they were frozen; editing them would break the provenance chain. The method keys they define are unchanged."
+    },
+    {
+      "item": "lower-case schema_version strings and the SVG hash salt",
+      "examples": ["panelhla-result-registry-4", "panelhla-figure-manifest-1", "panelhla-development-20260928-figure-restructure"],
+      "reason": "Version identifiers inside checksummed artifacts; the hash salt determines SVG element ids."
+    },
+    {
+      "item": "GitHub repository URLs",
+      "examples": ["https://github.com/uoozcan/panelhla", "https://github.com/uoozcan/PanelHLA-paper"],
+      "reason": "Renaming the repositories is deferred to a separate decision by the lead author. The URLs remain valid."
+    },
+    {
+      "item": "Python distribution name panelhla-paper, CSC paths, Slurm job names and the RefFormer ablation's method key",
+      "reason": "Identifiers, not labels."
+    },
+    {
+      "item": "records under decisions/, provenance/, cohorts/, reports/, manuscripts/historical/, the archived integration and method_conditional manuscripts, SUPERSEDED.md files, PanelHLA_Manuscript_v2.docx and scripts/build_review_response_docx.py",
+      "reason": "Historical records. PanelHLA_Manuscript_v2.docx is the copy returned to the supervisor and stays as sent."
+    }
+  ]
+}

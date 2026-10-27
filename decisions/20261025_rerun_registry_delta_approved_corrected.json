@@ -1,0 +1,63 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261025_rerun_registry_delta_approved_corrected",
+  "date": "2026-10-25",
+  "status": "SIGNED - author approved the corrected v3.5.0 rerun registry delta in the Claude Code session of 2026-10-25",
+  "supersedes": [
+    "decisions/20261025_rerun_registry_delta_approved.json",
+    "decisions/20261025_rerun_registry_delta_approved_identity_rows.json"
+  ],
+  "relates_to": [
+    "decisions/20261013_workflow_rerun_primary.json",
+    "decisions/20261025_rerun_native_homozygote_collection.json",
+    "decisions/20261025_rerun_arcashla_release_from_container.json"
+  ],
+  "decision": {
+    "approval": "The corrected complete-roster v3.5.0 rerun results in result_registry.tsv are the primary development evidence, with every stop condition listed below accepted. Prose, tables and figures are revised to these results only through [RESULT:] tags; nothing is reported selectively. S12 and the NA07000 identity rows remain labelled historical provenance.",
+    "approved_registry_sha256": "6fd741d6e4427ef84268cd6b114df098ac982370262ba448e0bd185ca0be9f2a",
+    "approved_delta_summary": {
+      "old_rows": 631,
+      "new_rows": 630,
+      "status_counts": {
+        "added": 0,
+        "changed": 421,
+        "removed": 1,
+        "unchanged": 209
+      }
+    },
+    "approved_reasons": [
+      "fitted-policy conclusion changed",
+      "fitted-policy ranking changed",
+      "headline direction changed: DEV_PAIRED_RNASEQ_METACONSENSUS",
+      "headline direction changed: DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_WES_CALLER_POLYSOLVER",
+      "headline direction changed: DEV_PAIRED_WES_METACONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_WES_CALLER_POLYSOLVER",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "strongest-caller identity changed"
+    ],
+    "binding": "Holds only while result_registry.tsv has exactly this SHA-256 and the delta reports exactly these reasons.",
+    "arcashla": "The arcasHLA RNA-seq result remains far below its historical value under the v3.5.0 deployment (arcasHLA 0.2.0 container). Its cause is diagnosed truth-free and reported descriptively; no deployment, panel, rule or input changes in response unless a separate amendment is signed."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-25, explicit author choice: 'Approve, continue'",
+    "mechanism": "Claude Code session answering the registry-delta author gate"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "active_sha256": {
+    "frozen_raw_cc_policy.json": "2e4091488921c7ccf6b94c6fc47686397b15662ca9d52048a87f56b86f576a5d",
+    "input_manifest.json": "9874ea3699310db8f023f5a0b4de8809b332a84b6d9fd5f5cc9ae5ff5086dadb",
+    "normalized_caller_calls.tsv": "6ce65d19ea6bc92a6422d8883de927250bbccea4833dd951ad0a6382d284bd90",
+    "normalized_secondary_calls.tsv": "a1b3dcbd70bc70a0c1a51dadbfc3829a4db6716c6c8d03ac062f034474eb39c5",
+    "sensitivity_abstain/input_manifest.json": "8f3542d9b3077bf21efeee7406c6ff9676c48c4fd8a7254b697f86715b27336a",
+    "sensitivity_abstain/normalized_caller_calls.tsv": "548d64252321337c3b4f813400d88e26cf882d7677801b44e1f46afdec0f0516"
+  },
+  "assay_counts": {
+    "rnaseq": 106,
+    "wes": 130
+  },
+  "caller_cells": 3222,
+  "caller_tasks": 1074,
+  "collection_manifest_sha256": "39190c3476427dde586b6f4a2ee2f602fa41f1505c784364925872f1018b8c10",
+  "historical_archived_sha256": {
+    "excluded_caller_calls.tsv": "7a0b0fd68d297d5f87675f30d9a35349e1d87054bb946959c3cd477d807e0399",
+    "input_manifest.json": "469deace6c3dbb1242e60ae65c091c212b209904d7f3ea24f6130974d113b4a3",
+    "normalized_caller_calls.tsv": "6d386681444601c143b725b783e4212a95dc7d9c48066505eedaa12fee3d2c20",
+    "result_registry.tsv": "a5747655c20f0828ee17fb05ddda8b1e1510d8cc9389e2f9ba902340a50ea221",
+    "sensitivity_abstain/excluded_caller_calls.tsv": "7a0b0fd68d297d5f87675f30d9a35349e1d87054bb946959c3cd477d807e0399",
+    "sensitivity_abstain/input_manifest.json": "89a15b67a5e853bf6c1ad1b959581d7304cf572c2159024f9b818c4ccb6520c2",
+    "sensitivity_abstain/normalized_caller_calls.tsv": "b6c38622dcaf264574a6ba948db1d3bd1aead5f19d08b5b166000d0464afb565"
+  },
+  "release_commit": "66d949da90861da6cf60cf1d4bee2f094f2518bd",
+  "sample_assays": 236,
+  "schema_version": "champhla-development-rerun-activation-1",
+  "secondary_use": "fixed outer-fold assignments only; fitted predictions must be regenerated",
+  "status": "activated",
+  "truth_free": true
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261013_publication_remediation_scope",
+  "date": "2026-10-13",
+  "status": "SIGNED - author approved the complete remediation plan in the Codex session before implementation",
+  "supersedes_or_clarifies": [
+    "decisions/20261009_extension_confirmatory_preregistration.json (workflow release pin only)",
+    "decisions/publication_route.json (abstract numeric-result restriction)",
+    "decisions/20260929_fimm_panel_deviation.json (publication prominence only)"
+  ],
+  "decisions": {
+    "cluster_scope": {
+      "choice": "fix T1K, release v3.5.0, rerun all 130 WES and 106 RNA-seq development subjects, then run the frozen extension",
+      "unchanged": "the consensus rule, panels, exact endpoint, frozen extension roster, no-replacement rule and report-regardless-of-direction commitment"
+    },
+    "development_evidence": {
+      "choice": "the corrected reproducible v3.5.0 rerun becomes the primary development analysis",
+      "historical_outputs": "retained only as a labelled cell-by-cell provenance comparison"
+    },
+    "reference_presentation": {
+      "choice": "the registered exact endpoint stays primary; corrected-reference sensitivity is printed beside every headline and for every method",
+      "historical_checksum": "142/143 WES and 112/112 RNA-seq are the vote results for the historical stored outputs, not frozen future headline values",
+      "rerun_rule": "all corrected-reference values are recomputed after the v3.5.0 rerun"
+    },
+    "patient_cohorts": {
+      "choice": "reduce FIMM and VenEx to one main-text paragraph and one consolidated supplementary section",
+      "submission_gate": "block submission, rather than remove the cohorts, until every ethics and governance field is verified"
+    },
+    "abstract": {
+      "choice": "the final structured abstract reports concise numerical main findings after the rerun and extension are frozen",
+      "reason": "BMC Bioinformatics asks the Results subsection for the main findings; provisional numbers must not be inserted before rerun"
+    }
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-13, explicit user instruction: PLEASE IMPLEMENT THIS PLAN",
+    "mechanism": "Codex conversation containing the full plan and its locked decisions"
+  }
+}

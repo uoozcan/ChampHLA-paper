@@ -1,0 +1,15 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261026_extension_amendment_author_statement",
+  "date": "2026-10-26",
+  "status": "RECORDED - author statement; the signature is entered in the amendment only after its own preconditions hold",
+  "relates_to": "decisions/20261013_extension_v350_preregistration_amendment.json",
+  "statement": "i sign extension amendment",
+  "public_timestamp_route": "Zenodo hash bundle under the reserved DOI 10.5281/zenodo.23251288, uploaded and published by the author; the repositories stay private (author choice 'Zenodo hash bundle (Recommended)')",
+  "procedure": "Per the amendment's signature_rule: (1) commit the final extension analysis code and freeze configuration; (2) fill release_pin.analysis_commit with that commit; (3) build the hash bundle (both pre-registration records, the frozen roster, SHA-256 of PanelHLA-3.5.0.tar.gz and of a git archive of the analysis commit, SHA256SUMS); (4) the author publishes it on Zenodo; (5) enter this statement as authorization.signed, set status SIGNED and the gates, and commit the amendment alone; (6) revalidate extension readiness. No extension input is staged before step 5.",
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-26, explicit author statement in the Claude Code session",
+    "mechanism": "Claude Code session"
+  }
+}

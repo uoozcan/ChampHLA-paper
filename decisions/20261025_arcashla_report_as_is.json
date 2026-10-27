@@ -1,0 +1,21 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261025_arcashla_report_as_is",
+  "date": "2026-10-25",
+  "status": "SIGNED - author accepted the arcasHLA deployment diagnosis and chose to report as is in the Claude Code session of 2026-10-25",
+  "relates_to": [
+    "decisions/20261025_rerun_registry_delta_approved_corrected.json",
+    "decisions/20261025_rerun_arcashla_release_from_container.json",
+    "reports/arcashla_v350_deployment_diagnosis_20261025.md"
+  ],
+  "decision": {
+    "choice": "No amendment. The v3.5.0 arcasHLA deployment (single-end extraction of paired-end RNA-seq, arcasHLA 0.2.0 container with a runtime align.py patch) is reported as is: its rerun result stays in the primary registry and the manuscript describes the defect, the truth-free comparison with the stored calls, and the discovery path in Limitations.",
+    "not_done": "No --paired fix, no new release and no arcasHLA sensitivity rerun is made for this paper. Any later change to the arcasHLA deployment needs a new signed amendment and is reported as a labelled sensitivity, never as a replacement of the primary result.",
+    "discovery_path": "The deployment was diagnosed only after the truth-derived registry delta had been seen; the diagnosis itself uses container contents, module code and caller outputs only. Choosing not to amend keeps the primary result independent of that score."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-25, explicit author statement: 'I accept the report for arcashla'",
+    "mechanism": "Claude Code session"
+  }
+}

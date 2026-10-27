@@ -1,0 +1,10 @@
+assay	caller	callable_loci	scored_loci	mean_probability	observed_concordance	brier	ece	note
+wes	HLA-HD	153	153	0.796	0.824	0.150	0.082	
+wes	OptiType	153	153	0.922	0.915	0.079	0.007	
+wes	POLYSOLVER	153	0					153 callable loci lacked a preserved calibrated probability
+wes	SpecHLA	153	0					153 callable loci lacked a preserved calibrated probability
+wes	T1K	142	142	0.858	0.796	0.158	0.077	
+rnaseq	ArcasHLA	118	118	0.913	0.924	0.070	0.011	
+rnaseq	HLA-HD	115	109	0.948	0.954	0.044	0.007	6 callable loci lacked a preserved calibrated probability
+rnaseq	OptiType	115	115	0.937	0.948	0.050	0.011	
+rnaseq	T1K	105	105	0.880	0.867	0.117	0.014	

@@ -1,0 +1,15 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261025_rerun_cohort_label_acknowledged",
+  "date": "2026-10-25",
+  "status": "SIGNED - author acknowledged the rerun cohort-label correction in the Claude Code session of 2026-10-25",
+  "acknowledges": "decisions/20261025_rerun_cohort_label.json",
+  "decision": {
+    "acknowledgement": "The operational relabelling of the activated v3.5.0 rerun inputs to cohort '1000G-development' (archived collection keeps '1000G-development-rerun-v3.5.0'), made after the truth join stopped on disjoint locus keys and before any score was computed, is accepted as recorded. The acknowledged record itself is not edited; this file supplies its missing signature."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-25, explicit author statement: 'Yes, I approve cohort label decision'",
+    "mechanism": "Claude Code session"
+  }
+}

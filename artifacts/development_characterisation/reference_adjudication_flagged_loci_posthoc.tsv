@@ -1,0 +1,17 @@
+modality	subject	gene	flagged_second_typing	equals_consensus	equals_reference	analysis_status
+rnaseq	NA10847	C	C*07:01+C*12:03	1	0	post_hoc_after_results
+wes	NA10847	C	C*07:01+C*12:03	1	0	post_hoc_after_results
+rnaseq	NA11840	B	B*27:05+B*57:01	1	0	post_hoc_after_results
+wes	NA11840	B	B*27:05+B*57:01	1	0	post_hoc_after_results
+wes	NA18504	C	C*02:10+C*12:03	1	0	post_hoc_after_results
+rnaseq	NA18505	C	C*02:10+C*07:01	1	0	post_hoc_after_results
+wes	NA18505	C	C*02:10+C*07:01	1	0	post_hoc_after_results
+wes	NA18507	C	C*02:10+C*17:01	1	0	post_hoc_after_results
+wes	NA18522	C	C*02:10+C*07:01	1	0	post_hoc_after_results
+wes	NA18537	A	A*02:07+A*11:01	1	0	post_hoc_after_results
+rnaseq	NA19116	B	B*07:02+B*39:24	1	0	post_hoc_after_results
+wes	NA19116	B	B*07:02+B*39:24	1	0	post_hoc_after_results
+rnaseq	NA19129	C	C*07:02+C*07:18	0	0	post_hoc_after_results
+wes	NA19129	C	C*07:02+C*07:18	1	0	post_hoc_after_results
+rnaseq	NA19131	A	A*66:03+A*68:02	1	0	post_hoc_after_results
+wes	NA19131	A	A*66:03+A*68:02	1	0	post_hoc_after_results

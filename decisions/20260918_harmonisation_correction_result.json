@@ -1,0 +1,117 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20260918_harmonisation_correction_result",
+  "date": "2026-09-18",
+  "status": "REPORTED",
+  "pre_registration": "decisions/20260918_harmonisation_correction.json",
+  "pre_registration_signed": "2026-09-18 by Umut Onur Özcan",
+  "summary": "The correction was run once under the signed rule. It reduces consensus accuracy, and the measurements show why: on WES and RNA-seq the behaviour being corrected was usually right. A placeholder second allele on these assays signals genuine homozygosity, not a lost allele.",
+  "reproduction_check": {
+    "statement": "The uncorrected variant reproduces the published values exactly, which is what makes the deltas trustworthy.",
+    "wes": "365 / 390, matching the published figure",
+    "rnaseq": "306 / 321, matching the published figure"
+  },
+  "result": {
+    "primary_rule_abstain": {
+      "wes": {
+        "correct": 364,
+        "loci": 390,
+        "delta": -1
+      },
+      "rnaseq": {
+        "correct": 303,
+        "loci": 321,
+        "delta": -3
+      }
+    },
+    "sensitivity_rule_vote_determined_allele": {
+      "wes": {
+        "correct": 365,
+        "loci": 390,
+        "delta": 0
+      },
+      "rnaseq": {
+        "correct": 303,
+        "loci": 321,
+        "delta": -3
+      }
+    },
+    "individual_callers_under_the_primary_rule": {
+      "note": "An abstention counts as incorrect at the fixed denominator, so a caller loses every locus where its call was previously correct.",
+      "wes": {
+        "HLA-HD": -32,
+        "T1K": -25,
+        "OptiType": 0,
+        "POLYSOLVER": 0,
+        "SpecHLA": 0
+      },
+      "rnaseq": {
+        "ArcasHLA": -32,
+        "HLA-HD": -30,
+        "T1K": -28,
+        "OptiType": 0
+      }
+    },
+    "artifact": "artifacts/harmonisation_correction/harmonisation_correction_results.tsv"
+  },
+  "why_the_correction_costs_accuracy": {
+    "measurement": "At loci where a panel caller emitted a placeholder second allele, the reference typing is homozygous in 92.1% of WES loci and 97.0% of RNA-seq loci, against a baseline homozygosity of 13.3% and 13.1% across all eligible loci. That is a 6.9-fold and 7.4-fold enrichment.",
+    "consequence": "The manufactured genotype was actually correct in 93.4% of affected WES rows and 97.8% of affected RNA-seq rows. Abstaining discards correct calls.",
+    "interpretation": "On these assays a caller reports one allele because the subject carries one. Duplicating it is the correct inference rather than a fabrication. The behaviour is not a defect here.",
+    "where_it_IS_a_defect": "Whole-genome data. There the reference typing at affected loci is heterozygous 80.4% of the time and the manufactured genotype is correct only 17.0% of the time, because the invalid legacy extraction caused genuine allele dropout: the placeholder meant a lost allele, not a homozygote. Those are the figures supplementary S4 previously applied to all three assays."
+  },
+  "what_this_changes": [
+    "The published WES and RNA-seq results stand. They are not contaminated by this behaviour; correcting it would make them slightly worse.",
+    "Supplementary S4 must stop presenting the whole-genome interpretation as if it described WES and RNA-seq. The 80.4% and 17.0% figures are whole-genome figures measured on invalid inputs.",
+    "The claim that harmonisation was wrong about what the callers did not know is a whole-genome statement. On WES and RNA-seq harmonisation was right about it."
+  ],
+  "reporting_commitments_honoured": {
+    "run_once": true,
+    "reported_whatever_it_gave": "Yes. The result is a loss for the primary rule and it is reported as such.",
+    "both_rules_reported": true,
+    "pre_correction_values_retained": true,
+    "no_tuning_in_response": "No threshold, panel, guard or tie-break was changed after seeing this result. The interpretation below is a measurement of why the result came out as it did, not an adjustment to the rule."
+  },
+  "author_decision_required": {
+    "question": "How to frame this in the manuscript. The factual corrections to supplementary S4 are unambiguous and are being made. Whether the paper keeps the whole-genome defect narrative as a separate diagnostic finding, or reframes it as an assay-dependent property of placeholder handling, is a judgement about emphasis.",
+    "recommendation": "Keep it, but scope it explicitly to whole-genome data and state the WES and RNA-seq measurement beside it. The contrast is more informative than either half alone: the same harmonisation rule is correct on valid inputs and harmful on invalid ones.",
+    "resolved": "Resolved 2026-09-18: the whole-genome defect narrative is kept but scoped explicitly to whole-genome data, with the WES and RNA-seq measurement stated beside it in supplementary S4c. See adoption_decision."
+  },
+  "adoption_decision": {
+    "decision": "Not adopted. The published values 365/390 (WES) and 306/321 (RNA-seq) remain primary. The correction is reported as a robustness result.",
+    "decided_by": "Umut Onur Özcan",
+    "decided_date": "2026-09-18",
+    "deviation_from_pre_registration": "The pre-registration is titled 'Correct the harmonisation defect ... and re-derive', which reads as an intent to adopt the corrected values. It is recorded here that we are not adopting them, so the deviation is disclosed rather than left implicit.",
+    "reason": "The premise of the correction was that duplicating an undetermined second allele fabricates information. On WES and RNA-seq that premise is false. At loci where a panel caller emitted a placeholder, the reference typing is homozygous in 92.1% (WES) and 97.0% (RNA-seq) of cases against a baseline of 13.3% and 13.1% across all eligible loci, a 6.9-fold and 7.4-fold enrichment. The caller emitted one allele because the subject carries one, so duplicating it is the correct inference. Adopting the correction would discard correct calls.",
+    "why_this_is_not_selection_on_the_score": "The justification is the homozygosity enrichment, which is a property of the data and the callers' behaviour, not a property of any accuracy score. It would hold identically if the corrected numbers had been higher. The accuracy delta is a consequence of the enrichment, not the argument for the decision.",
+    "the_alternative_reading_and_what_would_support_it": {
+      "reading": "A reader may reasonably observe that a rule was pre-registered, produced a lower number, and was then set aside, and conclude that the higher number was chosen after the fact. That reading deserves an answer rather than dismissal.",
+      "what_would_support_it": "It would be supported if the only evidence offered were the accuracy delta, or if the enrichment had been measured after the decision rather than as part of the same single run.",
+      "what_a_reader_can_check": [
+        "artifacts/harmonisation_correction/placeholder_homozygosity_evidence.tsv carries the enrichment, computed in the same pass as the accuracy result.",
+        "artifacts/harmonisation_correction/harmonisation_correction_results.tsv carries both number sets, uncorrected and corrected, for consensus and for every individual caller.",
+        "The uncorrected variant reproduces the published values exactly, so the re-derivation is verifiable rather than asserted.",
+        "A principled argument for adopting it anyway remains available: a caller arguably should never assert an allele it did not determine, whatever the accuracy cost. That argument is not refuted by this evidence, and the corrected numbers are reported so it can be made."
+      ]
+    },
+    "both_number_sets_retained": {
+      "published_primary": {
+        "wes": "365 / 390",
+        "rnaseq": "306 / 321"
+      },
+      "corrected_abstain": {
+        "wes": "364 / 390",
+        "rnaseq": "303 / 321"
+      },
+      "corrected_partial_vote": {
+        "wes": "365 / 390",
+        "rnaseq": "303 / 321"
+      }
+    },
+    "what_is_reported_in_the_paper": "Supplementary S4c reports the enrichment, both corrected rules, and the per-caller deltas. The main text states that whether the behaviour is an error depends on the assay. No number in the paper changed as a result of this analysis."
+  },
+  "secondary_finding": {
+    "observation": "Under the corrected rule individual callers lose far more than the vote does: HLA-HD -32 and T1K -25 on WES; ArcasHLA -32, HLA-HD -30 and T1K -28 on RNA-seq, against -1 and -3 for the vote.",
+    "why_it_matters": "This is the paper's protection thesis measured against a perturbation none of the methods was designed for, and nothing was tuned to produce it. An abstention counts as incorrect at the fixed denominator, so each caller forfeits every locus where its call had been correct, while the vote absorbs the loss through its remaining members."
+  }
+}

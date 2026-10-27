@@ -1,0 +1,27 @@
+{
+  "schema_version": "three-modality-confirmation-evaluation-2",
+  "mode": "discovery",
+  "primary_method": "SimplePluralityLex",
+  "status": "discovery_only",
+  "primary_pass": true,
+  "consensus_not_exceeded_pass": true,
+  "comparators_significantly_exceeding_consensus": [],
+  "guarded_cc_ablation_pass": false,
+  "plurality_retention_pass": true,
+  "per_gene_harm_pass": true,
+  "wgs_audit_pass": false,
+  "sample_size_pass": false,
+  "cohort_subjects": {
+    "wes": 130,
+    "rnaseq": 107
+  },
+  "minimum_subjects": {
+    "wgs": 120,
+    "wes": 89,
+    "rnaseq": 130
+  },
+  "external_prerequisites_pass": false,
+  "headline_retained": false,
+  "claim_boundary": "equal-weight consensus matches the modality-best caller without prior caller selection and is not exceeded by any tested integration method",
+  "input_sha256": "f64127408f3064b0da44de1799471cbc58ddf0e532f43d63a83c58d336c8475a"
+}

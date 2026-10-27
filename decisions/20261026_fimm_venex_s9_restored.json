@@ -1,0 +1,21 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261026_fimm_venex_s9_restored",
+  "date": "2026-10-26",
+  "status": "SIGNED",
+  "supersedes_fields_of": [
+    "decisions/20261013_fimm_venex_scope_and_gate.json (decision.supplement and decision.remove only)"
+  ],
+  "decision": {
+    "main_text": "unchanged: one aggregate-only paragraph establishing only that agreement is not accuracy",
+    "supplement": "Supplementary S9 again carries the registered aggregate material of the 12 October 2026 version (commit e80a38f): FIMM scope and import rules, valid-caller composition, coequal specimen-level and donor-sensitivity cross-modality agreement, within-panel dissent, BB7.2 serogroup agreement (tier C, every-caller panel, always with its 16-of-53 linkage and informative-donor counts), VenEx WES diagnostics, and the number-free legacy NCI-60 disclosure",
+    "figures": "the three aggregate-only exploratory figures (FIMM cross-modality, BB7.2, VenEx) are regenerated from the committed aggregate artifacts",
+    "numbers": "every restored number is an existing result_registry.tsv row; no registry row is added or changed",
+    "unchanged": "no accuracy, external-validation, clinical-utility or abstract claim; the withdrawn fingerprint-paired FIMM analysis, the empty WES imbalance screen, HED and survival stay excluded; the submission gate and privacy rules of 20261013_fimm_venex_scope_and_gate.json stay in force"
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-26, explicit author choice 'Restore full S9 (Recommended)' after the instruction 'We can still keep nci60 results, fimm and venex cohorts, not trimodal'",
+    "mechanism": "Claude Code session"
+  }
+}

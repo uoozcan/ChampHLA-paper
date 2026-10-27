@@ -1,0 +1,27 @@
+{
+  "accuracy_eligible": false,
+  "analysis_role": "exploratory",
+  "cohort_id": "FIMM_AML_MDS",
+  "external_validation_eligible": false,
+  "inputs": {
+    "calls": {
+      "path": "calls.tsv",
+      "sha256": "36daefcca1a7b93717a1685a9f4f84c2b59765d54afc828795116ef774ab682c"
+    },
+    "crosswalk": {
+      "path": "crosswalk.tsv",
+      "sha256": "5659245445f4d5301c138faa273e54c92d5dea85c2267d86afa1878415cc41d1"
+    },
+    "flow": {
+      "path": "flow.tsv",
+      "sha256": "246d38cd32fc8bacc9fa7d1680dbac69630213820b752381a9202f2444c3714d"
+    },
+    "imbalance": {
+      "path": "imbalance.tsv",
+      "sha256": "b559b9f8852cfe5562597a2933bd7c4e8790bc0440a7e57768c60fad2e347475"
+    }
+  },
+  "ipd_imgt_hla_release": "3.65.0",
+  "schema_version": "panelhla-fimm-analysis-manifest-1",
+  "tier": "synthetic_fixture"
+}

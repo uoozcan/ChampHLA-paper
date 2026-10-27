@@ -1,0 +1,39 @@
+# Line endings are a provenance problem here, not a cosmetic one.
+#
+# Freeze manifests checksum file contents. If git rewrites LF to CRLF on
+# checkout, the same commit yields different checksums on Windows and Linux and
+# every freeze validation fails on one of them. Normalise to LF everywhere, in
+# the repository and in the working tree.
+* text=auto eol=lf
+
+# Binary formats must never be line-ending converted. The figures are the
+# obvious case: CRLF translation corrupts a PDF.
+*.pdf   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.docx  binary
+*.xlsx  binary
+*.pptx  binary
+*.zip   binary
+*.gz    binary
+*.sif   binary
+*.pyc   binary
+
+# Data tables are text and must stay LF so their checksums are stable.
+*.tsv   text eol=lf
+*.csv   text eol=lf
+*.json  text eol=lf
+
+# Shell scripts run on Linux compute nodes; a CR would break the shebang.
+*.sh      text eol=lf
+*.sbatch  text eol=lf
+*.nf      text eol=lf
+
+# This recovered module is immutable execution evidence. Its source checkout
+# used CRLF, and the raw-artifact manifest authenticates those exact bytes.
+provenance/compute_smoke/raw/rna/workflow/modules/seq2hla.nf binary
+provenance/hg00096_rerun/*.tsv -text
+provenance/hg00096_wes_release/* -text
+provenance/hg00096_rna_release/* -text

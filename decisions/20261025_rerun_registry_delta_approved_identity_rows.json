@@ -1,0 +1,58 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261025_rerun_registry_delta_approved_identity_rows",
+  "date": "2026-10-25",
+  "status": "SIGNED - author chose to restore the NA07000 identity rows as historical provenance in the Claude Code session of 2026-10-25",
+  "amends": "decisions/20261025_rerun_registry_delta_approved.json",
+  "decision": {
+    "change": "The registry carries DEV_IDENTITY_SHARED_1_OF_6, DEV_IDENTITY_WITHHELD_RNASEQ and DEV_IDENTITY_WITH_WITHHELD_RNASEQ_SIMPLEPLURALITYLEX verbatim from the archived pre-rerun registry, against archived copies of their historical artifacts (provenance/development_rerun_v350/historical_artifacts/, identical SHA-256), labelled as historical stored-output provenance. Every other row is byte-identical to the registry approved in decisions/20261025_rerun_registry_delta_approved.json (a21e9316...).",
+    "approved_registry_sha256": "e8abc8a4fc0a138de96d7733092908a7e26d5d68abf6f3d46079d5b27b29c4a2",
+    "approved_delta_summary": {
+      "old_rows": 631,
+      "new_rows": 631,
+      "status_counts": {
+        "unchanged": 209,
+        "changed": 422,
+        "added": 0,
+        "removed": 0
+      }
+    },
+    "approved_reasons": [
+      "fitted-policy conclusion changed",
+      "fitted-policy ranking changed",
+      "headline direction changed: DEV_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_RNASEQ_CALLER_OPTITYPE",
+      "headline direction changed: DEV_PAIRED_RNASEQ_CHAMPIONCHALLENGER",
+      "headline direction changed: DEV_PAIRED_RNASEQ_METACONSENSUS",
+      "headline direction changed: DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_WES_CALLER_POLYSOLVER",
+      "headline direction changed: DEV_PAIRED_WES_METACONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_CALLER_HLA_HD",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_WES_CALLER_POLYSOLVER",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_HLA_HD",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_HLA_HD",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "strongest-caller identity changed"
+    ],
+    "binding": "Holds only while result_registry.tsv has exactly this SHA-256 and the delta reports exactly these reasons.",
+    "s12": "Supplementary S12 remains an analysis of the historical stored outputs, reconciled with the archived pre-rerun registry and never recomputed from rerun calls (author choice 'Label S12 historical')."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-25, explicit author choices: 'Restore as historical rows' and 'Label S12 historical'",
+    "mechanism": "Claude Code session"
+  }
+}

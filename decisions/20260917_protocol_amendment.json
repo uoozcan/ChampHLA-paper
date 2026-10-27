@@ -1,0 +1,69 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20260917_protocol_amendment",
+  "date": "2026-09-17",
+  "decision": "Record, in machine-readable form, that the executed confirmation protocol diverges from the frozen pre-registration, and correct three defects in the executed protocol.",
+  "supersedes": "configs/confirmation_protocol.json",
+  "superseded_record_retained": true,
+  "superseded_record_note": "configs/confirmation_protocol.json is deliberately left unedited. It is the pre-registration as frozen on 2026-08-31 and remains the record of what was promised. configs/confirmation_protocol_amended.json records what the code executes.",
+  "why_this_record_exists": "The frozen protocol declares primary_method TwoThirdsGuardedCC and Holm across three modalities. Since the 2026-09-08 amendment, evaluation.py has executed neither. The divergence was real but discoverable only by reading the source, which is not an acceptable state for a checksummed protocol.",
+  "divergences_from_the_frozen_protocol": [
+    {
+      "field": "primary_method",
+      "frozen": "TwoThirdsGuardedCC",
+      "executed": "SimplePluralityLex (published as PanelHLA-Consensus)",
+      "authorised_by": "decisions/20260908_consensus_primary_amendment.json",
+      "signed": true,
+      "signed_note": "decisions/20260908_consensus_primary_amendment.json was signed on 2026-09-18."
+    },
+    {
+      "field": "primary_multiplicity",
+      "frozen": "Holm across WGS, WES, RNA-seq",
+      "executed": "Holm within each modality comparator family",
+      "note": "A consequence of moving from a single three-modality primary endpoint to a per-modality comparator family. Smaller families mean more power, so this is disclosed rather than presented as prespecified."
+    },
+    {
+      "field": "retention",
+      "frozen": "all_primary_holm_significant, all_primary_delta_positive, all_primary_cluster_ci_lower_above_zero",
+      "executed": "consensus_not_exceeded: no comparator significantly exceeds the primary method",
+      "note": "The frozen retention rule required the primary method to WIN. The executed gate requires only that it not LOSE. This is a materially weaker gate and the manuscript states it as protection rather than superiority."
+    },
+    {
+      "field": "modalities",
+      "frozen": "wgs, wes, rnaseq",
+      "executed": "wes, rnaseq",
+      "note": "WGS legacy inputs are invalid. The gate outcome depends on this scope: it passes on WES+RNA and fails with WGS included. The evaluation artifact now records modalities_evaluated so the scope of any run is auditable rather than inferred."
+    }
+  ],
+  "defects_corrected_in_the_executed_protocol": [
+    {
+      "defect": "The primary method was present twice under two names and therefore appeared in its own comparator family, comparing consensus against itself at delta 0 and p = 1.0.",
+      "effect": "Each Holm family was one comparator too large, so every adjusted p value in the paper was inflated.",
+      "correction": "panels.REFERENCE_ALIASES excludes both names from every comparator family.",
+      "verification": "MajorityVote and SimplePluralityLex were confirmed identical at all 711 loci, in both correctness and emitted allele pair, before the alias was removed. Every adjusted p was regenerated and no significance verdict changed.",
+      "discovery_path": "Code inspection, not truth-derived output. This is a plain defect fix, not a pre-registration amendment."
+    },
+    {
+      "defect": "The per-gene harm gate tested TwoThirdsGuardedCC against the two-thirds baseline while being ANDed into the consensus headline.",
+      "effect": "The headline was gated on a per-gene property of a method that is no longer primary.",
+      "correction": "Re-anchored on the primary method; the guarded version is retained as guarded_cc_per_gene_harm.",
+      "discovery_path": "Code inspection."
+    },
+    {
+      "defect": "Bootstrap intervals were seeded per modality, so every comparator within a modality resampled on an identical sequence.",
+      "effect": "Intervals within each modality block were perfectly correlated.",
+      "correction": "Seeded per (modality, comparator).",
+      "discovery_path": "Code inspection."
+    }
+  ],
+  "author_signoff": {
+    "required": true,
+    "signed_by": "Umut Onur Özcan",
+    "signed_date": "2026-09-18",
+    "note": "Required because the divergences change the endpoint, the multiplicity structure and the retention rule. The three defect corrections are truth-independent and test-covered, and would not on their own require sign-off.",
+    "signature_mechanism": "Authorisation given by the author in an interactive working session on 2026-09-18. Recorded by the assistant at the author's explicit instruction; the decision is the author's.",
+    "provenance": "This record was offered for signature earlier on 2026-09-18 and the author deliberately withheld it at that point, signing the two other pending records instead. It was authorised later the same day. The sequence is recorded because this record carries the disclosure that the executed retention rule is weaker than the frozen one, and the trail should show that the disclosure was considered rather than signed by default.",
+    "what_is_being_authorised": "That the executed confirmation protocol diverges from the frozen pre-registration in four respects -- primary method, multiplicity structure, retention rule and modality scope -- and that those divergences are disclosed rather than presented as prespecified. The retention change is material: the frozen rule required the primary method to be significantly better than the baseline in every modality; the executed gate requires only that no comparator be significantly better than it."
+  },
+  "status": "SIGNED"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261013_corrected_reference_presentation",
+  "date": "2026-10-13",
+  "status": "SIGNED",
+  "supersedes_fields_of": [
+    "decisions/20261009_reference_adjudication.json (headline presentation only)",
+    "decisions/20261009_reference_adjudication_posthoc.json (headline presentation only)"
+  ],
+  "decision": {
+    "primary_endpoint": "registered exact two-field concordance against the 2014 typing",
+    "sensitivity_endpoint": "concordance on loci where the 2014 and corrected published typings agree",
+    "presentation": "put exact and corrected-reference results beside one another everywhere a headline appears and report both for every method",
+    "conditioning_caveat": "the corrected-reference subset is conditioned on another exome-derived typing and remains sensitivity-only",
+    "historical_checksums": "142/143 WES and 112/112 RNA-seq are checksums of the historical stored-output vote, not values to carry into the rerun",
+    "rerun_rule": "recalculate every corrected-reference result from the reproducible v3.5.0 rerun"
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-13, explicit user instruction to implement the complete publication-remediation plan",
+    "mechanism": "Codex conversation containing the locked decisions"
+  }
+}

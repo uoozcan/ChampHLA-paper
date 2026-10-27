@@ -1,0 +1,33 @@
+{
+  "archive_lines_without_adams_typing": {
+    "rnaseq": [
+      "MALME-3M",
+      "MDA-N"
+    ],
+    "wes": [
+      "MALME-3M",
+      "MDA-N"
+    ]
+  },
+  "counts": {
+    "rnaseq": 58,
+    "wes": 57
+  },
+  "decision": "decisions/20261026_nci60_v350_regeneration.json",
+  "excluded_without_paired_reads": {
+    "rnaseq": {},
+    "wes": {
+      "UO-31": "SRR7366637: no paired FASTQ in the ENA report"
+    }
+  },
+  "map_sha256": "aaeb1125e20f2d037887ef4bdf360d2ea7cda62b6a1f2eba2604b6d41f6e8af2",
+  "purpose": "truth-free public-input manifest for the NCI-60 v3.5.0 regeneration",
+  "schema_version": 1,
+  "source_files": {
+    "ena_PRJNA433861_md5.tsv": "8b1669a25e6f05605ebe52ab9414a264026c921bf6ca52a6fe0dd7eab4aee4e1",
+    "ena_SRP150855_md5.tsv": "c724d06dc9bbf746381bb02057c90bd92f104d0542221c69088b500fbcba080d",
+    "nci60_classI_raw.tsv": "8a676ad5df81c114f58b0d25d062d41e8c8af8b31e1af4534667a0eb7b7c58e9"
+  },
+  "truth_firewall": "identifiers, URLs and checksums only; no reference typing",
+  "tsv_sha256": "7355d42c828b506c075a706ff6362a845ee4466d0df07d7a64b7638732fd7b1d"
+}

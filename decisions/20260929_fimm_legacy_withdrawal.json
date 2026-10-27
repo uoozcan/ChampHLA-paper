@@ -1,0 +1,53 @@
+{
+  "schema_version": "panelhla-protocol-amendment-1",
+  "date": "2026-09-29",
+  "status": "active_for_fimm_exploratory_application",
+  "superseded_protocol_modified": false,
+  "superseded_protocol": "configs/fimm_submission_gate.json",
+  "trigger": {
+    "review": "First execution of build-fimm-exploratory-results against the real Roihu sources, 2026-09-29",
+    "defect": "The legacy FIMM cross-modality analysis predates PanelHLA and pairs specimens by allele fingerprint, so it cannot estimate cross-modality agreement.",
+    "legacy_analysis": "SECURE_PROJECT_ROOT/pihla-publish_v4/bin/analyze_fimm_hla.py",
+    "legacy_source_table": "hla_typing_results_combined_v7_chatgpt.xlsx, sheet all_results_merged"
+  },
+  "withdrawn": {
+    "cross_modality_caller_agreement": {
+      "finding": "circular_pairing",
+      "detail": "The merged workbook has 2642 data rows and exactly eight columns: Method, Seq_type, HLA_A_1, HLA_A_2, HLA_B_1, HLA_B_2, HLA_C_1, HLA_C_2. There is no sample identifier column, so analyze_fimm_hla.py matched scRNA specimens to bulk RNA and WES specimens by allele fingerprint and then scored those pairs for HLA concordance.",
+      "observed_consequences": [
+        "arcasHLA on scRNA versus arcasHLA on bulk RNA and on WES both reported 35 of 35, a trivial self-agreement",
+        "tier A scRNA versus bulk RNA, split by the scRNA caller panel: arcashla 21 of 21, arcashla plus optitype 75 of 84, optitype-only 0 of 33",
+        "the optitype-only stratum disagreeing at every locus dragged the pooled tier A estimate from 0.893 to 0.696"
+      ],
+      "withdrawn_artifacts": [
+        "artifacts/fimm/tierA/cross_modality_concordance.tsv",
+        "artifacts/fimm/tierB/cross_modality_concordance.tsv",
+        "artifacts/fimm/tierC/cross_modality_concordance.tsv",
+        "artifacts/fimm/tier*/donor_plurality.tsv",
+        "artifacts/fimm/tier*/sample_plurality.tsv",
+        "artifacts/fimm/tier*/caller_panels.tsv",
+        "artifacts/fimm/tier*/fimm_result_registry.tsv"
+      ]
+    },
+    "wes_allele_imbalance_category": {
+      "finding": "empty_input",
+      "detail": "All 225 rows of fimm_spechla_freq_wes_deident.tsv carry het_variant_count 0 and major_allele_fraction 1.0, so every donor-locus record classified as excluded_nonheterozygous (207) or insufficient (18) and no informative category existed. The RNA counterpart carries real frequencies but its own modality_caveat column excludes it from loss-of-heterozygosity classification because it measures differential expression rather than copy number.",
+      "withdrawn_artifacts": [
+        "artifacts/fimm/tier*/wes_allele_imbalance.tsv"
+      ]
+    }
+  },
+  "retained": {
+    "bb72_serogroup_agreement": {
+      "reason": "Linkage is by specimen identity, not by allele similarity. validate_hla_a2_flow.py derives a donor key from the sample identifier and joins flow records to sequenced specimens on that key, so the endpoint is not circular.",
+      "artifact": "artifacts/fimm/tierC/bb72_metrics.tsv",
+      "mandatory_reporting": "Every estimate must be reported with its linkage fraction and unlinked counts: 16 of 53 flow donors linked, informative counts 8 scRNA, 14 bulk RNA, 13 WES, linkage fractions 0.151 to 0.264."
+    }
+  },
+  "additional_finding_not_a_defect": {
+    "no_disjoint_caller_contrast": "Caller panels in the legacy FIMM tables are scRNA {arcashla, optitype} and bulk RNA equal to WES {arcashla, optitype, spechla}. Every panel intersection equals the smaller panel, so no caller is unique to any assay and no caller-disjoint contrast exists. Recorded because it constrains what any future FIMM cross-modality endpoint can mean, independently of the circularity above."
+  },
+  "replacement_analysis": "Per-caller HLA predictions carrying an explicit per-sample identifier are run through the PanelHLA consensus path (champhla_confirmation.consensus.build_consensus) over the declared panels. Specimen and donor linkage come from the sample registry or from the donor_key resolver, never from allele content.",
+  "retention_rule": "This withdrawal stands regardless of whether a corrected analysis would be more or less favourable to the manuscript.",
+  "classification": "post_hoc_defect_withdrawal_not_prespecified"
+}

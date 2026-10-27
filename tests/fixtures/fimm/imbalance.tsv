@@ -1,0 +1,13 @@
+specimen_id	locus	major_fraction	informative_heterozygous_sites
+SEC-S1	A	0.80	20
+SEC-S1	B	0.65	20
+SEC-S1	C	0.70	20
+SEC-S2	A	0.79	20
+SEC-S2	B	0.35	20
+SEC-S2	C		
+SEC-S3A	A	0.50	30
+SEC-S3A	B	0.50	19
+SEC-S3A	C	0.50	20
+SEC-S4	A	0.90	25
+SEC-S4	B	0.50	20
+SEC-S4	C	0.20	22

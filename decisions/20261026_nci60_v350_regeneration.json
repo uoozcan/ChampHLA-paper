@@ -1,0 +1,71 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261026_nci60_v350_regeneration",
+  "date": "2026-10-26",
+  "status": "SIGNED - NCI-60 inputs may be staged; nothing in this record changes after signature",
+  "relates_to": [
+    "decisions/20261001_nci60_reactivation.json",
+    "decisions/20261009_nci60_reference_correction.json",
+    "decisions/20261009_nci60_estimates_withdrawn.json"
+  ],
+  "purpose": "Regenerate the NCI-60 cell-line application under the current rules, as the withdrawal decision requires, so that it can be reported (author instruction of 2026-10-26: keep the NCI-60 results).",
+  "scope": {
+    "classification": "exploratory, descriptive application; post hoc; not external validation",
+    "never_in": [
+      "abstract",
+      "conclusions",
+      "Table 1 or 2",
+      "any validation or accuracy-transfer claim"
+    ],
+    "placement": "Supplementary S9.6 only, with registry rows and binomial intervals",
+    "retention": "reported regardless of direction"
+  },
+  "inputs": {
+    "cell_lines": "the NCI-60 lines with class I sequence-based typing in Adams et al. 2005 and public reads",
+    "wes": "SRA study SRP150855 paired FASTQ (index resources/nci60/wes_fastq_urls.tsv)",
+    "rnaseq": "BioProject PRJNA433861 paired FASTQ, subsampled to 50 million pairs with seed 100 as in the earlier run (index resources/nci60/rnaseq_fastq_urls.tsv)",
+    "name_mapping": "an explicit, checksummed cell-line name table joining the Adams names to the read accessions; an unmatched line is listed and excluded, never guessed"
+  },
+  "workflow": {
+    "release": "PanelHLA v3.5.0, commit 66d949da90861da6cf60cf1d4bee2f094f2518bd, archive SHA-256 22d9ed3bd808aec7364fbe869ad048c561be38bd02479dff530fe13fee4da7ed",
+    "panels": {
+      "wes": [
+        "HLA-HD",
+        "OptiType",
+        "POLYSOLVER",
+        "SpecHLA",
+        "T1K"
+      ],
+      "rnaseq": [
+        "ArcasHLA",
+        "HLA-HD",
+        "OptiType",
+        "T1K"
+      ]
+    },
+    "caller_failure": "a caller that cannot run from FASTQ input (POLYSOLVER is to be checked at a one-line pilot) is a declared non-call for every locus, recorded, never dropped from the panel"
+  },
+  "method": {
+    "primary": "SimplePluralityLex (ChampHLA-Consensus) with the native-declaration singleton rule, exactly as in the development analysis",
+    "endpoint": "exact unordered two-field genotype concordance over truth-retained loci, fixed denominator (missing predictions count as incorrect), Wilson 95% intervals; callers reported as descriptive comparators"
+  },
+  "reference_typing": {
+    "source": "Adams S et al. J Transl Med 2005;3:11 (doi:10.1186/1479-5876-3-11), class I table, read from the archived PMC XML (SHA-256 6c1937aac0d1a0f2c2e08cae332745860108a68ed522301c7002e50af93c1f4f) and its tabulation nci60_classI_raw.tsv (SHA-256 8a676ad5df81c114f58b0d25d062d41e8c8af8b31e1af4534667a0eb7b7c58e9), cross-checked against each other",
+    "fail_closed_parser": {
+      "four_digit": "XXYY is two-field XX:YY",
+      "six_digit": "XXYYZZ is three-field XX:YY:ZZ, reduced to XX:YY",
+      "five_digit": "XXYYZ follows the 2005 nomenclature (four digits plus one synonymous digit) and is reduced to XX:YY",
+      "two_digit_with_a": "an unresolved ambiguity (source footnote: 'two digit denominations with a superscript a'); the locus is excluded from the exact endpoint and listed",
+      "new_suffix_or_NR": "a new allele or an unresolved typing; the locus is excluded and listed",
+      "nomenclature_check": "every two-field allele must exist in the pinned IPD-IMGT/HLA 3.65.0 allele list; otherwise the locus is invalid and excluded",
+      "single_token_cell": "one listed allele is read as a homozygous genotype in the primary analysis, because the source reports the highest-resolution typing per cell line; a sensitivity analysis excludes every single-allele locus",
+      "anything_else": "any other token shape fails the parse for that locus (excluded and listed); no token is guessed or truncated"
+    },
+    "truth_firewall": "predictions are generated and frozen before the reference typing is joined; the join runs once"
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-26, explicit author statement in the Claude Code session: 'I signed the nci60 plan'",
+    "signature_rule": "sign in the Claude Code session before any NCI-60 input is staged; nothing in this record changes after signature"
+  }
+}

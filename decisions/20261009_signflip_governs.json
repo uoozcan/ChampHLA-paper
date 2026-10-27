@@ -1,0 +1,29 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261009_signflip_governs",
+  "date": "2026-10-09",
+  "status": "SIGNED",
+  "addresses": "reports/pre_submission_review_20261008.tsv PSR-010 (MAJOR)",
+  "supersedes_in_part": "The 28 September 2026 adoption of the CR1 subject-clustered t test as the primary paired test (manuscript Methods, Protocol history).",
+  "problem": "The governing paired test is a cluster-robust t test with a CR1 standard error and G-1 degrees of freedom. With few discordant subjects it is anti-conservative: a comparison with one discordant subject (1 win, 0 losses) gives cluster-t raw p=0.32, where no exact test can give less than 1 (Cameron and Miller 2015, J Hum Resour 50:317-372; MacKinnon and Webb 2018, Econometrics J 21:114-135). The manuscript also labels CR1 'bias-reduced', which describes CR2 (Bell and McCaffrey 2002, Survey Methodology 28:169-181).",
+  "rule": {
+    "governing_test": "The exact two-sided subject sign-flip test of the locus-weighted difference (all 2^d assignments for d<=20 nonzero subject aggregates; otherwise 1,000,000 seeded assignments with the plus-one correction; seeds as now) governs every paired development comparison. Holm correction, families and the exclusion of zero-discordance rows from multiplicity are unchanged. A comparison is reported as significant when its sign-flip Holm p < 0.05.",
+    "descriptive": "The CR1 cluster-t pointwise and Bonferroni-adjusted intervals and p values are kept as descriptive interval estimates of the difference, labelled 'CR1 (finite-cluster-corrected cluster-robust)'. They do not decide significance.",
+    "alignment": "The confirmatory extension pre-registration already names the exact subject sign-flip test; this makes the development and confirmatory inference use the same test.",
+    "label_correction": "Every 'CR1 (bias-reduced cluster-robust)' becomes 'CR1 (finite-cluster-corrected cluster-robust)'. This is a factual correction and stands whether or not the governing-test change is signed."
+  },
+  "expected_impact_known_before_signature": {
+    "statement": "Not blind. Both tests are already computed for every row (supplementary S3, generated comparison table). The set of comparisons with Holm p < 0.05 is identical under both: RNA-seq ChampHLA-Consensus vs T1K; WES vs HLA-HD, SpecHLA and T1K. No significance conclusion changes; reported p values and the 'Significant' column's basis change. The decision rests on the test's validity with few clusters, not on this effect, and the manuscript must say both.",
+    "regenerated_registry_is_authoritative": true
+  },
+  "reporting_commitments": [
+    "Methods (Endpoints and statistical analysis) names the sign-flip test as governing and the cluster-t as descriptive, with the CR1 label corrected.",
+    "Protocol history records this change (9 October 2026) and that it changed no significance conclusion.",
+    "S3 and Figure 3 label which test governs; the detectability limits of the discrete sign-flip test are reported in the main text (PSR-013)."
+  ],
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-09 by Umut Onur Özcan (session confirmation, option 'Sign as proposed')",
+    "signature_mechanism": "Author confirms in the Claude Code session; recorded as '<date time> by Umut Onur Özcan (session confirmation)' in its own commit before regeneration."
+  }
+}

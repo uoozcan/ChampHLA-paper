@@ -1,0 +1,119 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# Renamed from "champhla-publication-candidate", then "panelhla-paper" (2026-09-17 to
+# 2026-10-27). The distribution name is a label, not an identifier that lives in data:
+# it is not a path and is not hashed into any freeze manifest, so
+# decisions/20260917_project_rename.json's deliberately_not_renamed entry (which covers
+# the import packages champhla_confirmation and champhla_recovery, because their paths
+# ARE hashed) does not apply to it.
+name = "champhla-paper"
+version = "0.1.0"
+description = "Analysis, audit and manuscript code for the ChampHLA HLA class-I consensus benchmark"
+readme = "README.md"
+license = { text = "MIT" }
+# Pinned to the Roihu runtime (bio-apps/v202603). configs/runtime_versions.json
+# and scripts/setup_roihu_test_env.sh declare the same 3.11 series.
+requires-python = ">=3.11,<3.14"
+dependencies = []
+# TO CONFIRM - author order is not agreed for submission; this mirrors the order and
+# the caveat already carried by CITATION.cff and adds no new assertion. Affiliations,
+# ORCIDs and the corresponding author are tracked in AUTHOR_FIELDS_TO_COMPLETE.md.
+authors = [
+  { name = "Umut Onur Özcan" },
+  { name = "Nemo Ikonen" },
+  { name = "Philipp Sergeev" },
+  { name = "Ella Sinervuori" },
+  { name = "Khalid Saeed" },
+  { name = "Ziaurrehman Tanoli" },
+  { name = "Markus Vähä-Koskela" },
+]
+
+[project.urls]
+Repository = "https://github.com/uoozcan/ChampHLA-paper"
+Workflow = "https://github.com/uoozcan/ChampHLA"
+
+[project.optional-dependencies]
+test = ["pytest==8.3.5", "ruff==0.13.2"]
+analysis = ["numpy==1.26.4", "scipy==1.14.1"]
+refformer-cpu = ["numpy==1.26.4", "torch==2.6.0"]
+# Figure generation only. Kept optional so the analysis and audit paths stay
+# dependency-free; figure files are not part of the checksummed freeze because
+# matplotlib embeds version metadata in its output.
+figures = ["matplotlib==3.9.2"]
+documents = ["python-docx==1.2.0"]
+
+[project.scripts]
+build_subject_exposure_ledger = "champhla_recovery.cli:build_subject_exposure_ledger_main"
+validate_benchmark_resource_protocol = "champhla_confirmation.cli:validate_benchmark_resource_protocol_main"
+evaluate_hla_representability = "champhla_confirmation.cli:evaluate_representability_main"
+audit_extension_readiness = "champhla_confirmation.cli:audit_extension_readiness_main"
+prepare_locked_1000g_truth = "champhla_recovery.cli:prepare_locked_1000g_truth_main"
+prepare_ambiguity_aware_1000g_truth = "champhla_recovery.cli:prepare_ambiguity_aware_1000g_truth_main"
+freeze_extension_rosters = "champhla_recovery.cli:freeze_extension_rosters_main"
+audit_native_caller_outputs = "champhla_confirmation.cli:audit_wgs_inputs_main"
+run_truth_blind_predictions = "champhla_confirmation.cli:run_truth_blind_predictions_main"
+prepare_development_inputs = "champhla_confirmation.cli:prepare_development_inputs_main"
+fetch_public_1000g_truth = "champhla_confirmation.cli:fetch_public_truth_main"
+prepare_development_truth = "champhla_confirmation.cli:prepare_development_truth_main"
+build_development_predictions = "champhla_confirmation.cli:build_development_predictions_main"
+characterise_development = "champhla_confirmation.cli:characterise_development_main"
+freeze_release_bundle = "champhla_recovery.cli:freeze_release_bundle_main"
+validate_release_freeze = "champhla_recovery.cli:validate_release_freeze_main"
+join_truth_once = "champhla_confirmation.cli:join_external_truth_main"
+evaluate_confirmation = "champhla_confirmation.cli:evaluate_confirmation_main"
+evaluate_ambiguity_compatibility = "champhla_confirmation.cli:evaluate_ambiguity_compatibility_main"
+render_manuscript_tables = "champhla_recovery.cli:render_manuscript_tables_main"
+audit_manuscript_claims = "champhla_recovery.cli:audit_manuscript_claims_main"
+build_originals_manifest = "champhla_recovery.cli:build_originals_manifest_main"
+extract_source_manuscript = "champhla_recovery.cli:extract_source_manuscript_main"
+build_1000g_assay_manifest = "champhla_recovery.cli:build_1000g_assay_manifest_main"
+# Present in the cli.py dispatch but never exported, so the command that produces the
+# tracked, parity-checked review DOCX worked only via python -m. Every manuscript edit
+# needs it: tests/test_submission_docx.py compares the committed draft against
+# manuscript.md. See scripts/build_review_draft.sh for the notice lines it expects.
+build_review_docx = "champhla_recovery.cli:build_review_docx_main"
+# The shareable combined rendering (paper + supplement as an appendix). Needs the
+# "documents" extra; the review-draft path above stays dependency-free.
+build_drive_docx = "champhla_recovery.cli:build_drive_docx_main"
+# Exploratory FIMM AML/MDS cohort. Runs inside the Roihu secure environment against a
+# checksum-frozen manifest and emits only de-identified aggregates; it fails closed with
+# BLOCKED_EVIDENCE if any input checksum is unfrozen or drifted.
+build_fimm_exploratory_results = "champhla_recovery.cli:build_fimm_exploratory_results_main"
+# Truth-firewall gates. These are defined in champhla_confirmation.cli but were
+# never exported, so the freeze, freeze-validation and capacity checks the
+# provenance model depends on had no installed command.
+freeze_confirmation_bundle = "champhla_confirmation.cli:freeze_confirmation_bundle_main"
+validate_prediction_freeze = "champhla_confirmation.cli:validate_prediction_freeze_main"
+check_confirmation_capacity = "champhla_confirmation.cli:check_confirmation_capacity_main"
+simulate_confirmation_power = "champhla_confirmation.cli:simulate_confirmation_power_main"
+build_frozen_raw_cc_policy = "champhla_confirmation.cli:build_frozen_raw_cc_policy_main"
+build_overlap_crosswalk = "champhla_confirmation.cli:build_overlap_crosswalk_main"
+collect_full_cram_wgs_pilot = "champhla_confirmation.cli:collect_full_cram_wgs_pilot_main"
+select_hprc_confirmation_roster = "champhla_confirmation.cli:select_hprc_confirmation_roster_main"
+scout_ihwg_public_reads = "champhla_confirmation.cli:scout_ihwg_public_reads_main"
+sanitize_ihwg_registry = "champhla_confirmation.cli:sanitize_ihwg_registry_main"
+build_ihwg_provenance_review_packet = "champhla_confirmation.cli:build_ihwg_provenance_review_packet_main"
+finalize_ihwg_read_roster = "champhla_confirmation.cli:finalize_ihwg_read_roster_main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+exclude = ["manuscripts/historical", "originals", ".venv"]
+
+[tool.ruff.lint]
+# Correctness-oriented release gate. Legacy formatting is intentionally not
+# rewritten wholesale in this remediation; Black/import-order adoption can be a
+# separate, reviewable change.
+select = ["E4", "E7", "E9", "F", "B"]
+ignore = ["E741", "B007", "B905"]

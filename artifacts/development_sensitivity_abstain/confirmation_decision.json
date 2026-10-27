@@ -1,0 +1,62 @@
+{
+  "absent_comparator_scoring": "a comparator with no row at a locus is scored incorrect there; comparator_coverage reports how often this occurs",
+  "all_modalities_present": false,
+  "claim_boundary": "retrospective development performance of equal-weight consensus relative only to the named evaluated callers and fitted policies; no equivalence, state-of-the-art, or external-validity claim",
+  "cohort_subjects": {
+    "rnaseq": 51,
+    "wes": 63
+  },
+  "comparators_failing_noninferiority": [
+    {
+      "comparator": "MetaConsensus",
+      "delta_points": -0.847457627118644,
+      "modality": "rnaseq",
+      "simultaneous_ci_lo_points": -3.1061947944433266
+    },
+    {
+      "comparator": "Caller:OptiType",
+      "delta_points": 0.6535947712418301,
+      "modality": "wes",
+      "simultaneous_ci_lo_points": -3.436456434308787
+    },
+    {
+      "comparator": "BestSingleTool_nestedCV",
+      "delta_points": 0.6535947712418301,
+      "modality": "wes",
+      "simultaneous_ci_lo_points": -3.1282907917061107
+    }
+  ],
+  "comparators_significantly_exceeding_consensus": [],
+  "consensus_noninferior_2pp_pass": false,
+  "consensus_not_exceeded_is_advisory": "absence of a significant exceedance passes automatically under low power and does not decide the headline",
+  "consensus_not_exceeded_pass": true,
+  "descriptive_paired_inference": "locus_weighted_cr1_cluster_t",
+  "development_analysis_complete": true,
+  "external_prerequisites_pass": false,
+  "governing_paired_test": "exact_subject_signflip_holm",
+  "guarded_cc_ablation_pass": false,
+  "guarded_cc_per_gene_harm": [],
+  "headline_retained": false,
+  "input_sha256": "60a2b410fb93b52f3ce5c96e83a079562004524285b2014e02488d8b17778e4b",
+  "minimum_subjects": {
+    "rnaseq": 130,
+    "wes": 89,
+    "wgs": 120
+  },
+  "modalities_evaluated": [
+    "rnaseq",
+    "wes"
+  ],
+  "mode": "discovery",
+  "noninferiority_margin_points": 2.0,
+  "noninferiority_status": "post_hoc_exploratory_sensitivity_only",
+  "per_gene_harm_pass": true,
+  "plurality_retention_pass": false,
+  "primary_method": "SimplePluralityLex",
+  "primary_pass": false,
+  "primary_pass_definition": "No confirmatory pass/fail claim is made for this retrospective development analysis.",
+  "sample_size_pass": false,
+  "schema_version": "three-modality-confirmation-evaluation-2",
+  "status": "discovery_only",
+  "wgs_audit_pass": false
+}

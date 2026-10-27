@@ -1,0 +1,14 @@
+modality	caller	in_panel	rows	placeholder_second_allele	manufactured_homozygous	collapsed_to_one_group	false_homozygous	false_homozygous_rate	homozygous_calls
+wes	ArcasHLA	0	390	16	16	1	17	0.043590	17
+wes	HLA-HD	1	390	33	33	1	34	0.087179	34
+wes	Kourami	0	315	0	0	0	0	0.000000	28
+wes	OptiType	1	390	0	0	0	0	0.000000	42
+wes	POLYSOLVER	1	390	0	0	3	3	0.007692	48
+wes	SpecHLA	1	390	0	0	9	9	0.023077	46
+wes	T1K	1	390	28	28	5	33	0.084615	33
+rnaseq	ArcasHLA	1	321	32	32	1	33	0.102804	33
+rnaseq	HLA-HD	1	315	32	32	1	33	0.104762	33
+rnaseq	OptiType	1	315	0	0	0	0	0.000000	34
+rnaseq	Seq2HLA	0	31	0	0	0	0	0.000000	7
+rnaseq	SpecHLA	0	315	75	0	10	10	0.031746	16
+rnaseq	T1K	1	315	28	28	0	28	0.088889	28

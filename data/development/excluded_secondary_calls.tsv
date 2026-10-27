@@ -1,0 +1,13 @@
+cohort	subject	superpopulation	modality	gene	method	allele1_raw	allele2_raw	allele1	allele2	call_status	no_call_reason	champion_tool	supporting_tools	supporting_families	support_fraction	support_margin	override_triggered	outer_fold
+1000G-development	NA07000	CEU	rnaseq	A	BestSingleTool_nestedCV	HLA-A*02:01:01	HLA-A*31:01:02	A*02:01	A*31:01	callable								6
+1000G-development	NA07000	CEU	rnaseq	A	ChampionChallenger	A*02:01	A*31:01	A*02:01	A*31:01	callable		OptiType			1.0000	1.0000	0	6
+1000G-development	NA07000	CEU	rnaseq	A	MVFlooredCC	A*02:01	A*31:01	A*02:01	A*31:01	callable					0.7500	0.5000		6
+1000G-development	NA07000	CEU	rnaseq	A	MetaConsensus	A*02:01	A*31:01	A*02:01	A*31:01	callable			ArcasHLA,HLA-HD,OptiType	__hla-hd,alignment,kmer				6
+1000G-development	NA07000	CEU	rnaseq	B	BestSingleTool_nestedCV	HLA-B*07:02:01	HLA-B*15:01:01	B*07:02	B*15:01	callable								6
+1000G-development	NA07000	CEU	rnaseq	B	ChampionChallenger	B*07:02	B*15:01	B*07:02	B*15:01	callable		ArcasHLA			1.0000	1.0000	0	6
+1000G-development	NA07000	CEU	rnaseq	B	MVFlooredCC	B*07:02	B*15:01	B*07:02	B*15:01	callable					0.7500	0.5000		6
+1000G-development	NA07000	CEU	rnaseq	B	MetaConsensus	B*07:02	B*15:01	B*07:02	B*15:01	callable			ArcasHLA,HLA-HD,OptiType	__hla-hd,alignment,kmer				6
+1000G-development	NA07000	CEU	rnaseq	C	BestSingleTool_nestedCV	HLA-C*07:02:01	HLA-C*03:03:01	C*03:03	C*07:02	callable								6
+1000G-development	NA07000	CEU	rnaseq	C	ChampionChallenger	C*03:03	C*07:02	C*03:03	C*07:02	callable		ArcasHLA			1.0000	1.0000	0	6
+1000G-development	NA07000	CEU	rnaseq	C	MVFlooredCC	C*03:03	C*07:02	C*03:03	C*07:02	callable					0.7500	0.5000		6
+1000G-development	NA07000	CEU	rnaseq	C	MetaConsensus	C*03:03	C*07:02	C*03:03	C*07:02	callable			ArcasHLA,HLA-HD,OptiType	__hla-hd,alignment,kmer				6

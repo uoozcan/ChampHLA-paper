@@ -1,0 +1,5 @@
+org.label-schema.build-date: Saturday_14_March_2026_6:20:9_EET
+org.label-schema.schema-version: 1.0
+org.label-schema.usage.singularity.deffile.bootstrap: docker
+org.label-schema.usage.singularity.deffile.from: quay.io/biocontainers/seq2hla:2.3--hdfd78af_0
+org.label-schema.usage.singularity.version: 3.5.3

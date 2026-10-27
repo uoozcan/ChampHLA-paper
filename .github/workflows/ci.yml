@@ -1,0 +1,108 @@
+name: verification
+
+# The freeze manifest records relative paths and is validated on whichever
+# machine reads it, so a path-separator or collation difference between Windows
+# and Linux silently invalidates provenance. That class of defect is only
+# visible on a two-platform matrix, so both run on every change.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: tests (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[test,analysis,figures,documents]"
+
+      - name: Run tests
+        run: python -m pytest -q
+
+  verification:
+    name: verification gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[test,analysis,figures,documents]"
+
+      - name: Fetch the reference typing
+        run: |
+          mkdir -p runtime_data/public_truth
+          curl -fsSL --retry 3 -o runtime_data/public_truth/20140702_hla_diversity.txt https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20140725_hla_genotypes/20140702_hla_diversity.txt
+          echo "0455d0302ac12a29ab87091cab5e3e557416f6301e89fb122eef8d49cd5644ec  runtime_data/public_truth/20140702_hla_diversity.txt" | sha256sum -c -
+          curl -fsSL --retry 3 -o runtime_data/public_truth/20181129_HLA_types_full_1000_Genomes_Project_panel.txt https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HLA_types/20181129_HLA_types_full_1000_Genomes_Project_panel.txt
+          echo "570b5cc5523273826a5695452f18b77f8742e568e1e35a34aed5d2a313472e8e  runtime_data/public_truth/20181129_HLA_types_full_1000_Genomes_Project_panel.txt" | sha256sum -c -
+
+      - name: Run the local verification gate
+        # A reduced bootstrap keeps CI quick. Point estimates and every
+        # Holm-adjusted p value are exact and unaffected by this; only the
+        # bootstrap interval widths differ, so release runs use the default.
+        env:
+          PYTHON: python
+          BOOTSTRAP: "2000"
+        run: bash scripts/run_local_verification.sh
+
+      - name: Confirm no artifact carries a WGS performance number
+        run: |
+          if grep -rEn "0\.399|0\.494|\+30\.66|79/411|205/411" \
+               manuscripts/benchmark/ manuscripts/shared/generated_results.md; then
+            echo "::error::an invalid-WGS performance number reached a manuscript file"
+            exit 1
+          fi
+          echo "clean"
+
+  freeze-determinism:
+    name: freeze manifest is platform-stable
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: python -m pip install --upgrade pip && python -m pip install -e ".[test]"
+
+      - name: Freeze twice and compare content identity
+        # content_sha256 excludes build time and absolute root, so the same tree
+        # must yield the same value twice on one machine and across machines.
+        run: |
+          python - <<'PY'
+          import json, pathlib, tempfile
+          from champhla_confirmation.freeze import freeze_bundle
+          root = pathlib.Path(".").resolve()
+          with tempfile.TemporaryDirectory() as tmp:
+              tmp = pathlib.Path(tmp)
+              probe = tmp / "probe.tsv"
+              probe.write_text("a\n1\n", encoding="utf-8")
+              first = freeze_bundle(root, {"predictions": probe}, tmp / "a.json")
+              second = freeze_bundle(root, {"predictions": probe}, tmp / "b.json")
+          assert first["content_sha256"] == second["content_sha256"], "freeze is not reproducible"
+          assert not any("\\" in r["path"] for r in first["project_files"]), "non-POSIX path in manifest"
+          print("content_sha256", first["content_sha256"])
+          PY

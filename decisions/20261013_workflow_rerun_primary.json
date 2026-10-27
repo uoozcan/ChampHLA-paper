@@ -1,0 +1,26 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261013_workflow_rerun_primary",
+  "date": "2026-10-13",
+  "status": "SIGNED",
+  "supersedes_fields_of": [
+    "decisions/20261009_extension_confirmatory_preregistration.json (workflow release pin only)",
+    "decisions/20261008_singleton_native_homozygosity.json (T1K deployment interpretation only)"
+  ],
+  "decision": {
+    "workflow_release": "PanelHLA v3.5.0",
+    "tag": "v3.5.0",
+    "commit": "66d949da90861da6cf60cf1d4bee2f094f2518bd",
+    "archive_sha256": "22d9ed3bd808aec7364fbe869ad048c561be38bd02479dff530fe13fee4da7ed",
+    "development_scope": "rerun every frozen development-roster entry: 130 WES and 106 RNA-seq subjects",
+    "extension_scope": "after the corrected development rerun, run the unchanged frozen 89-WES/99-RNA confirmatory extension only after its separately signed amended pre-registration and public-release gates pass",
+    "primary_evidence": "the reproducible v3.5.0 development rerun is the sole source of primary development results",
+    "historical_evidence": "old stored calls remain only as a labelled cell-by-cell provenance comparison",
+    "unchanged": "consensus rule, panels, exact endpoint, extension roster, multiplicity, truth audit, no-replacement rule and report-regardless-of-direction commitment"
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-13, explicit user instruction to implement the complete publication-remediation plan",
+    "mechanism": "Codex conversation containing the locked decisions"
+  }
+}

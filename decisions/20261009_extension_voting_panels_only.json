@@ -1,0 +1,23 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261009_extension_voting_panels_only",
+  "date": "2026-10-09",
+  "status": "SIGNED",
+  "amends": "configs/benchmark_resource_protocol_v2.json (SHA-256 0981d6b61985d5d9169e601f76aea0c27f00ca9ee740b4ee9ded6c8cef6e0234), caller_panels.*_nonvoting, and the readiness requirement that every listed caller be ready",
+  "timing": "Before any extension input is staged, any extension caller is run, or any extension truth is joined. See reports/extension_readiness_assessment_20261009.md.",
+  "change": "The confirmatory extension requires, runs and reports only the voting panels: WES HLA-HD, OptiType, POLYSOLVER, SpecHLA, T1K; RNA-seq ArcasHLA, HLA-HD, OptiType, T1K. The non-voting comparators (HLA*LA, Kourami, HISAT-genotype, seq2HLA) are removed from the extension and from its readiness requirement.",
+  "unchanged": [
+    "primary method (SimplePluralityLex, equal weights, lexicographic tie-break, native-declaration singleton rule)",
+    "primary endpoint and secondary endpoints computed from the voting panels",
+    "roster, seeds and subject-disjointness",
+    "inference (subject bootstrap, subject sign-flip, Holm within assay; non-inferiority post hoc sensitivity only)",
+    "retention rules",
+    "all other blocking gates, including the clean immutable public release with DOI"
+  ],
+  "rationale": "The non-voting comparators feed no primary or confirmatory quantity. HISAT-genotype has no container or database at all, so requiring it would block the confirmatory test for descriptive comparators only. The only extension output removed is the descriptive 'caller database representability' rows for those four callers.",
+  "implementation": "configs/caller_resources_v2.json marks the four with extension_required=false and this decision; readiness.audit_extension_readiness skips callers so marked and records them as excluded.",
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-09 02:59 EEST by Umut Onur Özcan (session confirmation, option 'Voting panels only (Recommended)', described as: signed amendment before staging; readiness and the run cover the six voting callers only; primary method, endpoint, roster and inference untouched)"
+  }
+}

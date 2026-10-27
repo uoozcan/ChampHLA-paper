@@ -1,0 +1,3 @@
+modality	loci	champion_challenger_correct	family_gated_correct	delta	overrides	overrides_reverted_by_gate	min_supporting_families
+wes	390	369	370	1	19	2	2
+rnaseq	321	306	306	0	6	2	2

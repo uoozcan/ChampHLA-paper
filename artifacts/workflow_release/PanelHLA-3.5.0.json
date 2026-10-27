@@ -1,0 +1,42 @@
+{
+  "archive": "PanelHLA-3.5.0.tar.gz",
+  "archive_sha256": "22d9ed3bd808aec7364fbe869ad048c561be38bd02479dff530fe13fee4da7ed",
+  "commit": "66d949da90861da6cf60cf1d4bee2f094f2518bd",
+  "earlier_superseded_unpublished_archive_sha256": [
+    "220a927d75c095751f22bd1daa4e2afec8a9ff7f0c2d779b59c9703d36456034"
+  ],
+  "publication_status": "local release candidate; public repository tag and Zenodo deposit blocked by privacy/release gates",
+  "release": "PanelHLA 3.5.0",
+  "release_validation": "197 workflow tests passed; both live HG00096 T1K raw files parse under the documented current nine-column schema; strict HG00096 WES and RNA-seq smoke reruns completed with all required callers accounted for, checksummed outputs, exact release provenance and valid T1K parser audits",
+  "smoke_runs": {
+    "rnaseq": {
+      "job_id": "2281340",
+      "nested_t1k_job_id": "2281353",
+      "sample_id": "HG00096",
+      "state": "accepted",
+      "t1k_counts": {
+        "complete_heterozygous": 16,
+        "invalid": 0,
+        "native_homozygous": 5,
+        "no_call_after_quality_filter": 20,
+        "partial_after_quality_filter": 0
+      },
+      "t1k_current_9_rows": 41
+    },
+    "wes": {
+      "job_id": "2281339",
+      "sample_id": "HG00096",
+      "state": "accepted",
+      "t1k_counts": {
+        "complete_heterozygous": 27,
+        "invalid": 0,
+        "native_homozygous": 10,
+        "no_call_after_quality_filter": 4,
+        "partial_after_quality_filter": 0
+      },
+      "t1k_current_9_rows": 41
+    }
+  },
+  "supersedes_unpublished_archive_sha256": "8db1b43350686d81a498e515fae9194487c2b22b2f49659f0bddebabb8b8f73c",
+  "tag": "v3.5.0"
+}

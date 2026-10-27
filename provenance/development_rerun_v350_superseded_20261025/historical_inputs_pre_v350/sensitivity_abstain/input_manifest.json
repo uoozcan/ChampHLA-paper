@@ -1,0 +1,37 @@
+{
+  "identity_controls": {
+    "assay_manifest_enforced": true,
+    "assay_manifest_sha256": "b6ec490d0e1a905a7f66cbdb95e408335559fe66eb5403101da31a5af180e53b",
+    "excluded_caller_rows": 12,
+    "excluded_secondary_rows": 12,
+    "excluded_subject_assays": [
+      "NA07000:rnaseq"
+    ],
+    "identity_exclusions_sha256": "a1e06262bacabefc3119ba8a5f6451e6d1ae74b1f3dbe62d0f5d1eee28d73eeb"
+  },
+  "modalities": [
+    "wes",
+    "rnaseq"
+  ],
+  "native_homozygous_rows": 0,
+  "output_sha256": {
+    "normalized_caller_calls": "b6c38622dcaf264574a6ba948db1d3bd1aead5f19d08b5b166000d0464afb565",
+    "normalized_secondary_calls": "a1b3dcbd70bc70a0c1a51dadbfc3829a4db6716c6c8d03ac062f034474eb39c5"
+  },
+  "partial_rows": 153,
+  "rows": {
+    "caller": 3204,
+    "secondary": 2832
+  },
+  "schema_version": "panelhla-development-inputs-1",
+  "singleton_policy": "abstain",
+  "source_identifiers": {
+    "caller_rows": "recovered harmonized_population_enriched.tsv",
+    "method_rows": "recovered baseline_oof_calls.tsv"
+  },
+  "source_sha256": {
+    "caller_rows": "3fe5176e8e42ae03489097959066bffd42ff23e75726f93d0165a843347ae38c",
+    "method_rows": "9032108148e3f974942830c0f3fbdfd32c88b0cedd2b17f252edc87a1c38db68"
+  },
+  "truth_free": true
+}

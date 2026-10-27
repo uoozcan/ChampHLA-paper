@@ -1,0 +1,76 @@
+{
+  "schema_version": "panelhla-benchmark-resource-protocol-2",
+  "status": "locked_before_extension_truth_join",
+  "study_type": "retrospective development audit plus prospectively locked subject-disjoint public-data extension",
+  "article_type": "benchmark_resource",
+  "genes": ["A", "B", "C"],
+  "modalities": ["wes", "rnaseq"],
+  "wgs_accuracy_allowed": false,
+  "primary_method": {
+    "display_name": "PanelHLA plurality baseline",
+    "internal_identifier": "SimplePluralityLex",
+    "development_selection_status": "post_hoc",
+    "extension_status": "locked_before_truth_join",
+    "vote_rule": "one equal-weight vote per callable intended-use caller",
+    "tie_rule": "lexicographic tie break with mandatory tie flag",
+    "singleton_policy": "abstain unless caller-native output explicitly declares homozygosity"
+  },
+  "primary_endpoint": {
+    "name": "fixed-denominator exact unordered two-field genotype concordance",
+    "missing_prediction": "incorrect",
+    "truth_requirement": "one uniquely resolved unordered candidate pair",
+    "weighting": "locus weighted with uncertainty clustered by subject"
+  },
+  "secondary_endpoints": [
+    "callability",
+    "called-only exact genotype concordance",
+    "allele concordance clustered by subject",
+    "ambiguity-compatible genotype concordance",
+    "caller database representability"
+  ],
+  "extension_rosters": {
+    "source": "cohorts/frozen_initial_rosters.tsv",
+    "wes_subjects": 89,
+    "rnaseq_subjects": 99,
+    "replacement_after_outcome_review": false,
+    "wgs_rows_excluded": true
+  },
+  "caller_panels": {
+    "wes_voting": ["HLA-HD", "OptiType", "POLYSOLVER", "SpecHLA", "T1K"],
+    "wes_nonvoting": ["HLA*LA", "Kourami", "HISAT-genotype"],
+    "rnaseq_voting": ["ArcasHLA", "HLA-HD", "OptiType", "T1K"],
+    "rnaseq_nonvoting": ["seq2HLA"]
+  },
+  "normalization": {
+    "ipd_imgt_hla_release": "3.65.0",
+    "release_membership_required_for_extension": true,
+    "p_and_g_groups_are_not_expression_suffixes": true,
+    "original_identifier_retained": true
+  },
+  "inference": {
+    "bootstrap_unit": "subject",
+    "bootstrap_iterations": 100000,
+    "bootstrap_seed": 20260925,
+    "paired_test": "subject aggregate sign flip",
+    "signflip_exact_max_nonzero_subjects": 20,
+    "signflip_monte_carlo_iterations": 1000000,
+    "signflip_seed": 20260926,
+    "multiplicity": "Holm within modality",
+    "simultaneous_interval": "Bonferroni-adjusted percentile subject-cluster bootstrap",
+    "noninferiority_status": "post_hoc_supplementary_sensitivity_only"
+  },
+  "retention": {
+    "retain_extension_results_regardless_of_direction": true,
+    "do_not_reselect_method": true,
+    "do_not_replace_subjects": true,
+    "do_not_call_shared_ecosystem_extension_independent_clinical_validation": true
+  },
+  "blocking_gates": [
+    "zero development-extension subject overlap",
+    "truth-free prediction freeze validates before truth join",
+    "all expected caller outputs are present or explicitly failed",
+    "all extension alleles are validated against IPD-IMGT/HLA 3.65.0",
+    "clean Python 3.11.15 full-suite run",
+    "clean immutable public release with DOI"
+  ]
+}

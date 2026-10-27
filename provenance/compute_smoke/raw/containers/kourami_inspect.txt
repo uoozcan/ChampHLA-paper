@@ -1,0 +1,5 @@
+org.label-schema.build-date: Friday_20_March_2026_16:6:3_EET
+org.label-schema.schema-version: 1.0
+org.label-schema.usage.singularity.deffile.bootstrap: docker
+org.label-schema.usage.singularity.deffile.from: zlskidmore/kourami
+org.label-schema.usage.singularity.version: 3.5.3

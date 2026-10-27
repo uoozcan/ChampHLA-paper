@@ -1,0 +1,22 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261013_fimm_venex_scope_and_gate",
+  "date": "2026-10-13",
+  "status": "SIGNED",
+  "supersedes_fields_of": [
+    "decisions/20260929_fimm_panel_deviation.json (publication prominence only)",
+    "decisions/20261001_nci60_reactivation.json (publication prominence only)"
+  ],
+  "decision": {
+    "main_text": "one aggregate-only paragraph establishing only that agreement is not accuracy",
+    "supplement": "one consolidated aggregate-only FIMM/VenEx section",
+    "remove": "peripheral patient-cohort figures, duplicated detail and claims unrelated to the paper's central plurality-baseline question",
+    "privacy": "patient-level files, mappings and secure manifests remain outside public repositories and publication artifacts",
+    "submission_gate": "block submission rather than remove the cohorts until committee names, approval or permit identifiers, consent or biobank basis, FHRB identifier, collection period, demographics, inclusion/exclusion rules and secure-manifest checksums are verified"
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-13, explicit user instruction to implement the complete publication-remediation plan",
+    "mechanism": "Codex conversation containing the locked decisions"
+  }
+}

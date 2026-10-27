@@ -1,0 +1,10 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261026_metaconsensus_floating_point_drift",
+  "date": "2026-10-26",
+  "status": "RECORDED - reproducibility finding; no result, rule or code changed",
+  "finding": "One full verification run (2026-10-26, after the editorial rewrite) produced a registry whose SHA-256 differed from the author-approved 6fd741d6...: 135 rows changed only in artifact_sha256, because four compatibility tables embed the SHA-256 of the combined predictions file. The cause was one exploratory MetaConsensus prediction (WES, one HLA-A locus outside the exact endpoint, second allele A*23:17 versus A*23:01). The refit is seeded and deterministic in fresh processes (five standalone refits and the 8c2269d code gave the approved file), and the next full run reproduced the approved registry byte for byte. The difference arose inside one long pipeline process: the locus-weighted logistic fit runs 1,200 optimizer steps of BLAS matrix products whose rounding can depend on memory alignment, and two candidate pairs are nearly tied at that locus.",
+  "impact": "No reported number, interval, p value or conclusion changed; the affected locus is not in the exact endpoint and its compatibility outcome was unchanged. The registry-delta author gate stopped the run as designed.",
+  "decision": "Nothing is changed. src/champhla_confirmation/fitted.py lies inside the frozen extension-analysis digest pinned by the signed amendment, so it is not modified; MetaConsensus is an exploratory fitted comparator and is not part of the extension analysis. A release rerun whose registry differs only in this way is repeated, and the finding is disclosed as a limitation of the exploratory fitted comparators.",
+  "truth_exposure": "None beyond the existing pipeline: only file hashes and one prediction field were compared; no score was read or used."
+}

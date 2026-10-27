@@ -1,0 +1,145 @@
+[panelhla] modality=rnaseq tools=arcashla,optitype,seq2hla,t1k,hlahd
+[panelhla] nextflow=/appl/soft/manual/bio/x86_64/spackenvs/bapps_v202603/install_dir/zen5/none-none/nextflow-25.10.2-standalone-eiozh5/bin/nextflow samtools=/appl/soft/manual/bio/x86_64/spackenvs/bapps_v202603/install_dir/zen5/gcc-14.3.0/samtools-1.21-lrwjwo/bin/samtools
+
+ N E X T F L O W   ~  version 25.10.2
+
+WARN: Missing params file variable: ${samtools_bin_dir}
+Launching `/scratch/project_2008084/pihla-publish_verify/main.nf` [panelhla_rnaseq_1410978] DSL2 - revision: 91f035f6f0
+
+WARN: Access to undefined parameter `input_samplesheet` -- Initialise it to a default value eg. `params.input_samplesheet = some_value`
+
+========================================================================================
+    MVHLA — Multi-tool Voting-based HLA Analysis Pipeline
+========================================================================================
+Input               : /scratch/project_2008084/champhla_plurality_inputs/rnaseq/HG00096.staging.1236346
+Input type          : fastq
+Seq type            : rna
+Output dir          : /scratch/project_2008084/panelhla_e2e/rnaseq/results
+Tools               : arcashla,optitype,seq2hla,t1k,hlahd
+Reference build     : hg38
+Weighting           : calibrated
+Max CPUs            : 40
+Max memory          : 180.GB
+Max time            : 24.h
+========================================================================================
+
+Resolved modality   : rnaseq
+[-        ] OPTITYPE       -
+[-        ] ARCASHLA_FASTQ -
+[-        ] HLAHD_FASTQ    -
+[-        ] T1K_FASTQ      -
+[-        ] SEQ2HLA        -
+
+[-        ] OPTITYPE       | 0 of 1
+[-        ] ARCASHLA_FASTQ | 0 of 1
+[-        ] HLAHD_FASTQ    | 0 of 1
+[-        ] T1K_FASTQ      | 0 of 1
+[-        ] SEQ2HLA        | 0 of 1
+
+executor >  slurm (1)
+[1c/9fcf4d] OPTITYPE (HG00096) | 0 of 1
+[-        ] ARCASHLA_FASTQ     | 0 of 1
+[-        ] HLAHD_FASTQ        | 0 of 1
+[-        ] T1K_FASTQ          | 0 of 1
+[-        ] SEQ2HLA            | 0 of 1
+
+executor >  slurm (2)
+[1c/9fcf4d] OPTITYPE (HG00096)  | 0 of 1
+[-        ] ARCASHLA_FASTQ      | 0 of 1
+[-        ] HLAHD_FASTQ         | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096) | 0 of 1
+[-        ] SEQ2HLA             | 0 of 1
+
+executor >  slurm (3)
+[1c/9fcf4d] OPTITYPE (HG00096)  | 0 of 1
+[-        ] ARCASHLA_FASTQ      | 0 of 1
+[-        ] HLAHD_FASTQ         | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096) | 0 of 1
+[51/d94e81] SEQ2HLA (HG00096)   | 0 of 1
+
+executor >  slurm (4)
+[1c/9fcf4d] OPTITYPE (HG00096)    | 0 of 1
+[-        ] ARCASHLA_FASTQ        | 0 of 1
+[40/9704bd] HLAHD_FASTQ (HG00096) | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096)   | 0 of 1
+[51/d94e81] SEQ2HLA (HG00096)     | 0 of 1
+
+executor >  slurm (5)
+[1c/9fcf4d] OPTITYPE (HG00096)       | 0 of 1
+[86/f88d17] ARCASHLA_FASTQ (HG00096) | 0 of 1
+[40/9704bd] HLAHD_FASTQ (HG00096)    | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096)      | 0 of 1
+[51/d94e81] SEQ2HLA (HG00096)        | 0 of 1
+
+executor >  slurm (5)
+[1c/9fcf4d] OPTITYPE (HG00096)       | 0 of 1
+[86/f88d17] ARCASHLA_FASTQ (HG00096) | 0 of 1
+[40/9704bd] HLAHD_FASTQ (HG00096)    | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096)      | 0 of 1
+[51/d94e81] SEQ2HLA (HG00096)        | 0 of 1
+
+executor >  slurm (5)
+[1c/9fcf4d] OPTITYPE (HG00096)       | 0 of 1
+[86/f88d17] ARCASHLA_FASTQ (HG00096) | 0 of 1
+[40/9704bd] HLAHD_FASTQ (HG00096)    | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096)      | 0 of 1
+[51/d94e81] SEQ2HLA (HG00096)        | 0 of 1
+
+executor >  slurm (5)
+[1c/9fcf4d] OPTITYPE (HG00096)       | 0 of 1
+[86/f88d17] ARCASHLA_FASTQ (HG00096) | 1 of 1 ✔
+[40/9704bd] HLAHD_FASTQ (HG00096)    | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096)      | 0 of 1
+[51/d94e81] SEQ2HLA (HG00096)        | 0 of 1
+
+executor >  slurm (5)
+[1c/9fcf4d] OPTITYPE (HG00096)       | 1 of 1 ✔
+[86/f88d17] ARCASHLA_FASTQ (HG00096) | 1 of 1 ✔
+[40/9704bd] HLAHD_FASTQ (HG00096)    | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096)      | 0 of 1
+[51/d94e81] SEQ2HLA (HG00096)        | 0 of 1
+
+executor >  slurm (5)
+[1c/9fcf4d] OPTITYPE (HG00096)       | 1 of 1 ✔
+[86/f88d17] ARCASHLA_FASTQ (HG00096) | 1 of 1 ✔
+[40/9704bd] HLAHD_FASTQ (HG00096)    | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096)      | 0 of 1
+[51/d94e81] SEQ2HLA (HG00096)        | 1 of 1 ✔
+
+executor >  slurm (5)
+[1c/9fcf4d] OPTITYPE (HG00096)       | 1 of 1 ✔
+[86/f88d17] ARCASHLA_FASTQ (HG00096) | 1 of 1 ✔
+[40/9704bd] HLAHD_FASTQ (HG00096)    | 0 of 1
+[46/94be8e] T1K_FASTQ (HG00096)      | 1 of 1 ✔
+[51/d94e81] SEQ2HLA (HG00096)        | 1 of 1 ✔
+
+executor >  slurm (5)
+[1c/9fcf4d] OPTITYPE (HG00096)       | 1 of 1 ✔
+[86/f88d17] ARCASHLA_FASTQ (HG00096) | 1 of 1 ✔
+[40/9704bd] HLAHD_FASTQ (HG00096)    | 1 of 1 ✔
+[46/94be8e] T1K_FASTQ (HG00096)      | 1 of 1 ✔
+[51/d94e81] SEQ2HLA (HG00096)        | 1 of 1 ✔
+
+executor >  slurm (5)
+[1c/9fcf4d] OPTITYPE (HG00096)       | 1 of 1 ✔
+[86/f88d17] ARCASHLA_FASTQ (HG00096) | 1 of 1 ✔
+[40/9704bd] HLAHD_FASTQ (HG00096)    | 1 of 1 ✔
+[46/94be8e] T1K_FASTQ (HG00096)      | 1 of 1 ✔
+[51/d94e81] SEQ2HLA (HG00096)        | 1 of 1 ✔
+
+============================================================
+Pipeline completed!
+============================================================
+Status      : SUCCESS
+Completed at: 2026-09-19T00:12:19.289359621+03:00
+Duration    : 19m 32s
+Results dir : /scratch/project_2008084/panelhla_e2e/rnaseq/results
+============================================================
+
+Completed at: 19-Sep-2026 00:12:19
+Duration    : 19m 32s
+CPU hours   : 10.7
+Succeeded   : 5
+
+
+[panelhla] done. results in /scratch/project_2008084/panelhla_e2e/rnaseq/results

@@ -1,0 +1,51 @@
+modality	comparator	cohort_subjects	power	note
+rnaseq	ChampionChallenger	130	0.000	
+rnaseq	ChampionChallenger	200	0.000	
+rnaseq	ChampionChallenger	300	0.000	
+rnaseq	ChampionChallenger	500	0.001	
+rnaseq	ChampionChallenger	1000	0.001	
+rnaseq	TwoThirdsGuardedCC	130	0.000	
+rnaseq	TwoThirdsGuardedCC	200	0.000	
+rnaseq	TwoThirdsGuardedCC	300	0.000	
+rnaseq	TwoThirdsGuardedCC	500	0.001	
+rnaseq	TwoThirdsGuardedCC	1000	0.001	
+rnaseq	MVFlooredCC	130		identical to the vote at every locus
+rnaseq	MVFlooredCC	200		identical to the vote at every locus
+rnaseq	MVFlooredCC	300		identical to the vote at every locus
+rnaseq	MVFlooredCC	500		identical to the vote at every locus
+rnaseq	MVFlooredCC	1000		identical to the vote at every locus
+rnaseq	FamilyGatedCC	130	0.001	
+rnaseq	FamilyGatedCC	200	0.000	
+rnaseq	FamilyGatedCC	300	0.001	
+rnaseq	FamilyGatedCC	500	0.002	
+rnaseq	FamilyGatedCC	1000	0.003	
+rnaseq	MetaConsensus	130	0.000	
+rnaseq	MetaConsensus	200	0.000	
+rnaseq	MetaConsensus	300	0.002	
+rnaseq	MetaConsensus	500	0.024	
+rnaseq	MetaConsensus	1000	0.457	
+wes	ChampionChallenger	130	0.012	
+wes	ChampionChallenger	200	0.072	
+wes	ChampionChallenger	300	0.253	
+wes	ChampionChallenger	500	0.582	
+wes	ChampionChallenger	1000	0.959	
+wes	TwoThirdsGuardedCC	130	0.011	
+wes	TwoThirdsGuardedCC	200	0.080	
+wes	TwoThirdsGuardedCC	300	0.248	
+wes	TwoThirdsGuardedCC	500	0.600	
+wes	TwoThirdsGuardedCC	1000	0.969	
+wes	MVFlooredCC	130		identical to the vote at every locus
+wes	MVFlooredCC	200		identical to the vote at every locus
+wes	MVFlooredCC	300		identical to the vote at every locus
+wes	MVFlooredCC	500		identical to the vote at every locus
+wes	MVFlooredCC	1000		identical to the vote at every locus
+wes	FamilyGatedCC	130	0.032	
+wes	FamilyGatedCC	200	0.175	
+wes	FamilyGatedCC	300	0.416	
+wes	FamilyGatedCC	500	0.798	
+wes	FamilyGatedCC	1000	0.995	
+wes	MetaConsensus	130	0.000	
+wes	MetaConsensus	200	0.001	
+wes	MetaConsensus	300	0.006	
+wes	MetaConsensus	500	0.009	
+wes	MetaConsensus	1000	0.030	

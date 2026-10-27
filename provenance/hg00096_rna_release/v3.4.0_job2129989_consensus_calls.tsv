@@ -1,0 +1,4 @@
+sample	gene	allele1	allele2	total_weight	agreeing_tools	contributing_tools	consensus_status	chosen_by	warnings
+HG00096	A	A*01:01	A*29:02	4.0000	4	4	called	arcashla,hlahd,optitype,t1k	
+HG00096	B	B*08:01	B*44:03	4.0000	4	4	called	arcashla,hlahd,optitype,t1k	
+HG00096	C	C*07:01	C*16:01	3.0000	3	4	called	hlahd,optitype,t1k	

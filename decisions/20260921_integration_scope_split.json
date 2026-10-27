@@ -1,0 +1,52 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20260921_integration_scope_split",
+  "date": "2026-09-21",
+  "status": "PENDING_AUTHOR_SIGNOFF",
+  "decision": "Report the eight fitted integration policies in a companion paper rather than in the benchmark manuscript, keeping the caller and simple-rule comparisons here, and leave every multiplicity correction computed over the full set of comparisons actually conducted.",
+
+  "written_after_results_were_visible": true,
+  "why_that_matters": "Every result below was known before this scope decision was taken. A narrowing decided after seeing outcomes is exactly the shape of selective reporting, so the record states what was seen, what moved, and what was deliberately not allowed to change. The split is a presentation decision and must not become an analytical one.",
+
+  "what_prompted_it": "The author asked whether methods scoring above the vote could be omitted. They cannot be: dropping arms on the basis of their results is selective reporting, and FamilyGatedCC was pre-registered before it was run under decisions/20260918_family_gate_measurement.json. The premise was also mistaken -- no external caller exceeds PanelHLA-Consensus in either assay (best WES caller OptiType 360 against 365; best RNA-seq caller HLA-HD 297 against 306, with nothing ahead of the vote at all). The three methods ahead on WES are the project's own ablations, by four and five non-significant loci. A scope split was chosen instead of an omission.",
+
+  "what_moves_to_the_companion": {
+    "methods": ["ChampionChallenger", "TwoThirdsGuardedCC", "MVFlooredCC", "FamilyGatedCC",
+                "MetaConsensus", "WeightedConsensus", "RefFormer", "EvidenceGatedCC"],
+    "material": "Supplementary S2, S2a, and the integration-method rows of S8.",
+    "principle": "The benchmark manuscript compares the vote against callers and simple rules. The companion compares it against fitted integration policies -- methods with parameters, a training cohort, or a learned scorer."
+  },
+
+  "what_stays": {
+    "comparators": ["the five WES and four RNA-seq intended-use callers",
+                    "SimpleTwoThirdsConsensus", "BestSingleTool_nestedCV"],
+    "why": "SimpleTwoThirdsConsensus is a parameter-free rule and the basis of Figure 4. BestSingleTool_nestedCV is a caller-selection procedure and the basis of the protection claim. Both belong with the caller comparison rather than with the fitted policies.",
+    "analyses": ["the headroom ceiling, which is computed from caller outputs alone and is what motivates the companion",
+                 "the vote-support calibration (S7, Figure 5)",
+                 "the harmonisation diagnosis (S4)"]
+  },
+
+  "the_correction_family_does_not_change": {
+    "rule": "Holm correction stays computed over all comparisons conducted -- twelve on WES and eleven on RNA-seq -- not over the subset printed in this manuscript.",
+    "why": "Multiplicity is a property of the analyses performed, not of the analyses reported. Deferring five comparators to another paper does not undo the tests.",
+    "what_recomputing_would_have_done": "Recomputing Holm over the reduced set moves results in the paper's favour. ArcasHLA on RNA-seq flips from p = 0.091 to p = 0.034, turning a non-result into a significant win purely through a presentation choice. POLYSOLVER on WES moves 0.17 to 0.064 and OptiType on RNA-seq 0.22 to 0.063.",
+    "commitment": "No Holm-adjusted p value in Table 1, S1a or S1b changes as a result of this split, and no significant advantage over ArcasHLA on RNA-seq is claimed. This was checked by diffing the retained figures before and after."
+  },
+
+  "what_must_still_be_disclosed_here": [
+    "That eight integration policies were built and evaluated against this same vote, and that the companion reports them.",
+    "That none of them separated from the vote in either assay.",
+    "That the pre-declared two-percentage-point non-inferiority margin FAILS against three of them on WES -- ChampionChallenger and TwoThirdsGuardedCC at a simultaneous lower bound of -3.08 points, FamilyGatedCC at -3.33 -- so consensus cannot be declared non-inferior to them at this cohort size. Deferring the methods must not defer this failure."
+  ],
+
+  "nothing_is_removed_from_the_record": "configs/comparator_manifest.json, result_registry.tsv, artifacts/head_to_head/consensus_head_to_head.tsv, artifacts/integration_limits/ and every record under decisions/ retain all eight methods unchanged. The claim ledger rows for them are re-scoped to the companion route rather than deleted.",
+
+  "author_signoff": {
+    "required": true,
+    "signed": false,
+    "signed_by": null,
+    "signed_date": null,
+    "note": "Required because this narrows the scope of a manuscript after its results were known, and because the companion paper must actually be written for the deferral to be truthful. The assistant prepared this record and must not sign it; the decision is the author's.",
+    "what_signing_authorises": "Moving the eight fitted integration policies and their supplementary sections to a companion manuscript, retitling the benchmark paper accordingly, and retaining the unchanged multiplicity family."
+  }
+}

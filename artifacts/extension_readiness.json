@@ -1,0 +1,27 @@
+{
+  "caller_failures": {},
+  "caller_resources_sha256": "300fe05b70e86ac22235864fa418eb54d9d5df1ddddb8f4851a165622457e5ef",
+  "excluded_callers": {
+    "HISAT-genotype": "decisions/20261009_extension_voting_panels_only.json",
+    "HLA*LA": "decisions/20261009_extension_voting_panels_only.json",
+    "Kourami": "decisions/20261009_extension_voting_panels_only.json",
+    "seq2HLA": "decisions/20261009_extension_voting_panels_only.json"
+  },
+  "extension_execution_permitted": true,
+  "failures": [],
+  "protocol_audit_sha256": "e5ffb5bdbebdc705863a58a141265cc3f0d4ff0be0b5d489010a95a5d7eaca7c",
+  "ready": true,
+  "required_callers": [
+    "ArcasHLA",
+    "HLA-HD",
+    "OptiType",
+    "POLYSOLVER",
+    "SpecHLA",
+    "T1K"
+  ],
+  "schema_version": "panelhla-extension-readiness-1",
+  "truth_join_blockers": [
+    "no confirmatory pre-registration supplied"
+  ],
+  "truth_join_permitted": false
+}

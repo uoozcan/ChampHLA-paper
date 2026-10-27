@@ -1,0 +1,16 @@
+modality	subject	gene	superpopulation	reference	consensus	second_typing	adjudication	g_compatible_under_two_field_mapping	p_group_equivalent_to_reference
+rnaseq	NA10847	C	Utah	C*07:02+C*12:03	C*07:01+C*12:03		second typing unavailable	0	0
+wes	NA10847	C	CEU	C*07:02+C*12:03	C*07:01+C*12:03		second typing unavailable	0	0
+rnaseq	NA11840	B	Utah	B*27:03+B*57:01	B*27:05+B*57:01		second typing unavailable	0	0
+wes	NA11840	B	CEU	B*27:03+B*57:01	B*27:05+B*57:01		second typing unavailable	0	0
+wes	NA18504	C	YRI	C*02:02+C*12:03	C*02:10+C*12:03		second typing unavailable	1	1
+rnaseq	NA18505	C	Yoruba	C*02:02+C*07:01	C*02:10+C*07:01		second typing unavailable	1	1
+wes	NA18505	C	YRI	C*02:02+C*07:01	C*02:10+C*07:01		second typing unavailable	1	1
+wes	NA18507	C	YRI	C*02:02+C*17:01	C*02:10+C*17:01		second typing unavailable	1	1
+wes	NA18522	C	YRI	C*02:02+C*07:01	C*02:10+C*07:01		second typing unavailable	1	1
+wes	NA18537	A	CHB	A*02:01+A*11:01	A*02:07+A*11:01		second typing unavailable	0	0
+rnaseq	NA19116	B	Yoruba	B*07:02+B*39:03	B*07:02+B*39:24		second typing unavailable	0	0
+wes	NA19116	B	YRI	B*07:02+B*39:03	B*07:02+B*39:24		second typing unavailable	0	0
+wes	NA19129	C	YRI	C*07:01+C*07:02	C*07:02+C*07:18		second typing unavailable	1	1
+rnaseq	NA19131	A	Yoruba	A*66:02+A*68:02	A*66:03+A*68:02		second typing unavailable	0	0
+wes	NA19131	A	YRI	A*66:02+A*68:02	A*66:03+A*68:02		second typing unavailable	0	0

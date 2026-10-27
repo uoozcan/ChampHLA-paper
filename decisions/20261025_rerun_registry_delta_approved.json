@@ -1,0 +1,64 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261025_rerun_registry_delta_approved",
+  "date": "2026-10-25",
+  "status": "SIGNED - author approved the v3.5.0 rerun registry delta in the Claude Code session of 2026-10-25",
+  "relates_to": [
+    "decisions/20261013_workflow_rerun_primary.json",
+    "decisions/20261013_publication_remediation_scope.json",
+    "decisions/20261025_rerun_cohort_label.json"
+  ],
+  "decision": {
+    "approval": "The complete-roster v3.5.0 rerun results in result_registry.tsv replace the historical registry as the primary development evidence, as the 2026-10-13 records require, with every author-approval stop condition listed below accepted. Prose, tables and figures are revised to these results only through [RESULT:] tags; nothing is reported selectively.",
+    "approved_registry_sha256": "a21e9316f2344d2cc51a0e3ef80e328842737673dd59ac95f4ce36dad3cc4248",
+    "approved_delta_summary": {
+      "old_rows": 631,
+      "new_rows": 628,
+      "status_counts": {
+        "added": 0,
+        "changed": 419,
+        "removed": 3,
+        "unchanged": 209
+      }
+    },
+    "approved_reasons": [
+      "fitted-policy conclusion changed",
+      "fitted-policy ranking changed",
+      "headline direction changed: DEV_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_RNASEQ_CALLER_OPTITYPE",
+      "headline direction changed: DEV_PAIRED_RNASEQ_CHAMPIONCHALLENGER",
+      "headline direction changed: DEV_PAIRED_RNASEQ_METACONSENSUS",
+      "headline direction changed: DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_WES_CALLER_POLYSOLVER",
+      "headline direction changed: DEV_PAIRED_WES_METACONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_CALLER_HLA_HD",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_WES_CALLER_POLYSOLVER",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_HLA_HD",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_HLA_HD",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "strongest-caller identity changed"
+    ],
+    "binding": "The approval holds only while result_registry.tsv has exactly this SHA-256 and the delta reports exactly these reasons; any other registry stops the pipeline again.",
+    "cohort_label_record": "decisions/20261025_rerun_cohort_label.json is acknowledged by the author.",
+    "arcashla_diagnosis": "The v3.5.0 ArcasHLA RNA-seq deployment changed about half of its caller cells relative to the stored calls (truth-free cell ledger). Its cause is diagnosed truth-free and reported descriptively. No caller deployment, panel, rule or input is changed, and no sample is rerun, in response to this or any other result unless the author signs a separate pre-registration amendment that discloses the discovery path.",
+    "unchanged": "Consensus rule, panels, exact endpoint, multiplicity, extension roster and seal, no-replacement rule and report-regardless-of-direction commitment."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-25, explicit author choice: 'Accept, and diagnose ArcasHLA'",
+    "mechanism": "Claude Code session answering the registry-delta author gate"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "batch_count": 38,
+  "batch_size": 5,
+  "counts": {
+    "rnaseq": 99,
+    "wes": 89
+  },
+  "purpose": "truth-free public-input manifest for the frozen v3.5.0 confirmatory extension",
+  "schema_version": 1,
+  "selection_rule_status": "frozen extension roster pinned by decisions/20261013_extension_v350_preregistration_amendment.json",
+  "source_files": {
+    "cohorts/frozen_initial_rosters.tsv": "c54a2edaf7225f2bee886ab6e55569878e00fd0040a6e1598da7016a4d399c34",
+    "cohorts/official_1000g_assay_manifest.tsv": "b6ec490d0e1a905a7f66cbdb95e408335559fe66eb5403101da31a5af180e53b"
+  },
+  "truth_firewall": "contains sample identifiers and public input metadata only; no reference typing, alleles, caller predictions, or outcomes",
+  "tsv_sha256": "cb24725e7cca9669b8f91026e01a108f755fe7e6323e8dee08f3b9256cc0b820"
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261025_rerun_cohort_label",
+  "date": "2026-10-25",
+  "status": "RECORDED - operational label correction made before any score was computed; author acknowledgement requested",
+  "relates_to": [
+    "decisions/20261013_workflow_rerun_primary.json",
+    "decisions/20261013_publication_remediation_scope.json"
+  ],
+  "discovery_path": {
+    "what_happened": "The first Track C regeneration on the activated v3.5.0 rerun inputs (worktree scientific-reports-rerun-update, commit e684a3e) froze the truth-free predictions, built the development truth table, and then stopped in the deterministic truth join with 'predictions missing 271 truth loci'.",
+    "truth_derived_information_seen": "Only locus keys and their counts: the join reported 271 truth loci missing from the predictions; a key-only comparison showed every prediction row labelled cohort '1000G-development-rerun-v3.5.0' and every truth row labelled '1000G-development'. No allele, call correctness, endpoint, interval, ranking or other score was computed or inspected.",
+    "cause": "scripts/collect_development_rerun.py labels its rows with the rerun's provenance cohort; the truth builder (prepare_development_truth), the result registry and the claim audit key the development cohort by its canonical label. The two key sets therefore could not intersect."
+  },
+  "decision": {
+    "correction": "activate_development_rerun.py writes the active primary and abstain caller tables with cohort '1000G-development'. The archived truth-free collection keeps '1000G-development-rerun-v3.5.0', and both input manifests record the two labels under cohort_labels. No other field of any row changes.",
+    "history": "The earlier activation (8da799d) was reverted (0ecbcc7) and the inputs re-activated with the corrected script, so the record shows both.",
+    "unchanged": "Roster, release, collector output, caller calls, singleton policy, outer folds, frozen policy, endpoint, consensus rule, panels, multiplicity and every analysis choice. The regeneration runs once more on the relabelled inputs; nothing is tuned against a truth-derived quantity."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan (acknowledgement)",
+    "signed": "",
+    "mechanism": "Reported to the author in the Claude Code session of 2026-10-25"
+  }
+}

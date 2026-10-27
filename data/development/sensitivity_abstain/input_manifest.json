@@ -1,0 +1,37 @@
+{
+  "cohort_labels": {
+    "analysis": "1000G-development",
+    "collection": "1000G-development-rerun-v3.5.0"
+  },
+  "collection_manifest_sha256": "39190c3476427dde586b6f4a2ee2f602fa41f1505c784364925872f1018b8c10",
+  "identity_controls": {
+    "excluded_caller_rows": 0,
+    "excluded_subject_assays": [],
+    "rerun_manifest_enforced": true,
+    "rerun_manifest_sha256": "506405a006a2cabc80f8584fa21368d868d56a6164ccd60e017d36173bcbfd85"
+  },
+  "modalities": [
+    "wes",
+    "rnaseq"
+  ],
+  "native_homozygous_rows": 151,
+  "output_sha256": {
+    "normalized_caller_calls": "548d64252321337c3b4f813400d88e26cf882d7677801b44e1f46afdec0f0516",
+    "normalized_secondary_calls": "a1b3dcbd70bc70a0c1a51dadbfc3829a4db6716c6c8d03ac062f034474eb39c5"
+  },
+  "partial_rows": 157,
+  "rows": {
+    "caller": 3222,
+    "secondary": 2832
+  },
+  "schema_version": "champhla-development-rerun-inputs-1",
+  "singleton_policy": "abstain",
+  "source_identifiers": {
+    "caller_rows": "complete checksum-valid ChampHLA v3.5.0 development rerun",
+    "method_rows": "historical secondary rows retained only for fixed outer folds"
+  },
+  "source_sha256": {
+    "collected_calls": "fa687fb521b2d27074a13542591f70f7148d9d03a8de8b580a1d5572a47a8e54"
+  },
+  "truth_free": true
+}

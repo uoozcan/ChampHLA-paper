@@ -1,0 +1,66 @@
+{
+  "author_only_items": [
+    "FHRB or ethics committee identifier for the FIMM AML/MDS cohort",
+    "collection period for the sequenced specimens",
+    "cohort demographics summary",
+    "inclusion and exclusion rules",
+    "consent or biobank basis permitting publication of aggregate HLA genotype summaries"
+  ],
+  "blocking_items": [
+    "FHRB or ethics committee identifier for the FIMM AML/MDS cohort",
+    "collection period for the sequenced specimens",
+    "cohort demographics summary",
+    "inclusion and exclusion rules",
+    "consent or biobank basis permitting publication of aggregate HLA genotype summaries",
+    "Roihu-verified source manifest for the identity-linked workbook, current normalized caller calls, and specimen-donor crosswalk"
+  ],
+  "cohort_id": "FIMM_AML_MDS",
+  "completed_technical_items": [
+    "aggregate FIMM and VenEx outputs are checksum-frozen and independently recounted",
+    "BB7.2 flow input is checksum-frozen in Tier-C provenance and unlinked records remain in every denominator",
+    "manuscript states that shared callers make cross-modality agreement correlated and non-independent",
+    "all-callable and contested-both specimen denominators are reconciled against the aggregate export",
+    "donor-level longitudinal-conflict exclusions are reported",
+    "privacy scan excludes real identifiers, mapping tables, and secure absolute paths from exportable artifacts"
+  ],
+  "reporting_constraints": {
+    "bb72_linkage_fraction": {
+      "detail": "Only 16 of 53 flow donors link to sequenced specimens, and per-modality informative counts are 8 (scRNA), 14 (bulk RNA) and 13 (WES), giving linkage fractions of 0.151 to 0.264. Every BB7.2 estimate must be reported with its linkage fraction and unlinked counts.",
+      "evidence": "artifacts/fimm/tierC/bb72_metrics.tsv"
+    },
+    "donor_level_estimate_is_biased": {
+      "detail": "The donor-level comparison collapses a donor's specimens within one cohort and sets conflicting donors to no_call, which removes exactly the unstable donors before agreement is measured. 233 WES and 28 BulkRNA donor-loci were dropped this way, which is why donor-level BulkRNA-versus-WES (0.971) exceeds the all-callable specimen estimate (0.891). Donor results remain sensitivity-only; the all-callable and contested-both specimen definitions are coequal.",
+      "evidence": "artifacts/fimm_consensus/cross_modality/donor_collapse_conflicts.tsv"
+    }
+  },
+  "out_of_scope": [
+    "HLA evolutionary divergence",
+    "Kaplan-Meier survival",
+    "Cox proportional hazards",
+    "any accuracy or external-validation claim"
+  ],
+  "restored_to_scope": {
+    "cross_modality_caller_agreement": {
+      "evidence": "artifacts/fimm_consensus/cross_modality/cross_modality_agreement.tsv",
+      "reason": "hla_typing_results_combined_v7.xlsx carries the Patient_sample and Patient identifier columns the earlier copy had stripped, so specimens are paired by identity rather than by allele similarity. The withdrawal of the LEGACY fingerprint-matched numbers stands and is unchanged.",
+      "record": "decisions/20260929_fimm_panel_deviation.json",
+      "restored": "2026-09-29",
+      "superseded_withdrawal_reason": "The endpoint is circular. Every cross-modality pairing in the legacy FIMM data was produced by analyze_fimm_hla.py, which reads a merged workbook carrying no sample identifier column at all (only Method, Seq_type and six allele columns) and therefore matches scRNA specimens to bulk RNA and WES specimens BY ALLELE FINGERPRINT. Measuring HLA concordance on pairs that were themselves formed by HLA similarity cannot estimate anything. It is also what produced the two anomalies observed in the rerun: arcasHLA-versus-arcasHLA at a trivial 35/35, and an OptiType-only scRNA stratum agreeing at 0 of 33 specimen-loci."
+    }
+  },
+  "schema_version": "panelhla-fimm-submission-gate-2",
+  "scope": [
+    "cross_modality_caller_agreement",
+    "bb72_serogroup_agreement"
+  ],
+  "status": "BLOCKED_AUTHOR_AND_SECURE_PROVENANCE",
+  "submission_allowed": false,
+  "withdrawn_from_scope": {
+    "wes_allele_imbalance_category": {
+      "evidence": "decisions/20260929_fimm_legacy_withdrawal.json",
+      "reason": "The SpecHLA WES allele-frequency source carries no imbalance signal: all 225 rows have het_variant_count 0 and major_allele_fraction 1.0, so every donor-locus record classifies as excluded_nonheterozygous or insufficient and no informative category exists. The RNA-seq counterpart does carry real frequencies but its own provenance note excludes it from LOH classification because it measures differential expression, not copy number.",
+      "status": "BLOCKED_EVIDENCE",
+      "unblocks_when": "a WES allele-frequency table with non-zero informative heterozygous site counts is produced and checksum-frozen"
+    }
+  }
+}

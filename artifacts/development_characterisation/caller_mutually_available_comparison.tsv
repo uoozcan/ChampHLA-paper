@@ -1,0 +1,10 @@
+modality	caller	fixed_loci	stored_rows	absent_rows	absent_subject_gene	consensus_correct_fixed	caller_correct_fixed	mutually_available_loci	consensus_correct_mutually_available	caller_correct_mutually_available	consensus_wins_mutually_available	consensus_losses_mutually_available	ties_mutually_available	historical_task_state_for_absent_rows
+rnaseq	ArcasHLA	118	118	0		113	58	118	113	58	55	0	63	not_applicable
+rnaseq	HLA-HD	118	118	0		113	112	118	113	112	1	0	117	not_applicable
+rnaseq	OptiType	118	118	0		113	112	118	113	112	1	0	117	not_applicable
+rnaseq	T1K	118	118	0		113	101	118	113	101	12	0	106	not_applicable
+wes	HLA-HD	153	153	0		143	131	153	143	131	12	0	141	not_applicable
+wes	OptiType	153	153	0		143	142	153	143	142	2	1	150	not_applicable
+wes	POLYSOLVER	153	153	0		143	138	153	143	138	6	1	146	not_applicable
+wes	SpecHLA	153	153	0		143	134	153	143	134	12	3	138	not_applicable
+wes	T1K	153	153	0		143	125	153	143	125	19	1	133	not_applicable

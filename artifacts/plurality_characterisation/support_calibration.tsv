@@ -1,0 +1,11 @@
+modality	panel_size	callable_tools	top_support	support_label	full_panel	loci	correct	accuracy
+rnaseq	4	1	1	1/1	0	6	6	1.0
+rnaseq	4	4	1	1/4	1	2	1	0.5
+rnaseq	4	4	2	2/4	1	11	9	0.8181818181818182
+rnaseq	4	4	3	3/4	1	29	23	0.7931034482758621
+rnaseq	4	4	4	4/4	1	273	267	0.978021978021978
+wes	5	5	1	1/5	1	2	0	0.0
+wes	5	5	2	2/5	1	12	6	0.5
+wes	5	5	3	3/5	1	37	31	0.8378378378378378
+wes	5	5	4	4/5	1	116	109	0.9396551724137931
+wes	5	5	5	5/5	1	223	219	0.9820627802690582

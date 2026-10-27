@@ -1,0 +1,15 @@
+base.image: ubuntu:16.04
+description: Base image for BioDocker
+documentation: https://github.com/BioContainers/specs/wiki
+license: https://github.com/BioContainers/containers/blob/master/LICENSE
+org.label-schema.build-arch: amd64
+org.label-schema.build-date: Friday_31_October_2025_14:1:1_EET
+org.label-schema.schema-version: 1.0
+org.label-schema.usage.apptainer.version: 1.3.6-1.el8
+org.label-schema.usage.singularity.deffile.bootstrap: docker
+org.label-schema.usage.singularity.deffile.from: fred2/optitype:latest
+software: Biocontainers base Image
+software.version: 08252016
+tags: Genomics,Proteomics,Transcriptomics,General,Metabolomics
+version: 4
+website: http://biocontainers.pro

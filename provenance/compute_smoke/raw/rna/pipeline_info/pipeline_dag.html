@@ -1,0 +1,101 @@
+<!--
+  ~ Copyright 2013-2024, Seqera Labs
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<pre class="mermaid" style="text-align: center;">
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#B6ECE2',
+      'primaryTextColor': '#160F26',
+      'primaryBorderColor': '#065647',
+      'lineColor': '#545555',
+      'clusterBkg': '#BABCBD22',
+      'clusterBorder': '#DDDEDE',
+      'fontFamily': 'arial'
+    }
+  }
+}%%
+flowchart TB
+    subgraph " "
+    v4["Channel.fromFilePairs"]
+    v28["seq_type"]
+    v38["hla_genes"]
+    end
+    v29(["OPTITYPE"])
+    subgraph " "
+    v30[" "]
+    v31[" "]
+    v32["ch_optitype_results"]
+    v34[" "]
+    v35[" "]
+    v36[" "]
+    v37["ch_arcashla_results"]
+    v40[" "]
+    v41[" "]
+    v42["ch_hlahd_results"]
+    v44[" "]
+    v45[" "]
+    v46["ch_t1k_results"]
+    v48[" "]
+    v49[" "]
+    v50[" "]
+    v51[" "]
+    v52["ch_seq2hla_results"]
+    end
+    v33(["ARCASHLA_FASTQ"])
+    v39(["HLAHD_FASTQ"])
+    v43(["T1K_FASTQ"])
+    v47(["SEQ2HLA"])
+    v5(( ))
+    v4 --> v5
+    v28 --> v29
+    v5 --> v29
+    v29 --> v32
+    v29 --> v31
+    v29 --> v30
+    v5 --> v33
+    v33 --> v37
+    v33 --> v36
+    v33 --> v35
+    v33 --> v34
+    v38 --> v39
+    v5 --> v39
+    v39 --> v42
+    v39 --> v41
+    v39 --> v40
+    v5 --> v43
+    v43 --> v46
+    v43 --> v45
+    v43 --> v44
+    v5 --> v47
+    v47 --> v52
+    v47 --> v51
+    v47 --> v50
+    v47 --> v49
+    v47 --> v48
+
+</pre>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, maxTextSize: Number.MAX_SAFE_INTEGER, maxEdges: Number.MAX_SAFE_INTEGER });
+</script>
+</body>
+</html>

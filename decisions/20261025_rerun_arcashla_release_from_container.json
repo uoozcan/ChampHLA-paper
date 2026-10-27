@@ -1,0 +1,10 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261025_rerun_arcashla_release_from_container",
+  "date": "2026-10-25",
+  "status": "RECORDED - implements decisions/20261025_rerun_native_homozygote_collection.json (author-signed fix)",
+  "amends": "decisions/20261025_rerun_native_homozygote_collection.json",
+  "finding": "Every v3.5.0 sample's results/<sample>/arcashla/versions.yml has an empty arcasHLA version: the module's version probe printed nothing. The pinned container recorded in each sample's container_sha256.txt (arcashla.sif, SHA-256 60c42737ccb8c0fa91beef256437028b64d75451ca16e4bf90bb849ba0b6c05c) was inspected read-only on Roihu: a 14 May 2020 master checkout (commit 47469f58) whose scripts declare __version__ = '0.2.0', with IPD-IMGT/HLA 3.40.0 alignments.",
+  "decision": "The collector reads the arcasHLA release from versions.yml or, failing that, from the pinned container digest; only this inspected digest is mapped (to 0.2.0), and any other or missing digest abstains. Under the signed singleton policy, arcasHLA 0.2.0 single-allele rows are therefore caller-native homozygous declarations and are completed in the primary input.",
+  "truth_exposure": "None: container contents and caller-output fields only."
+}

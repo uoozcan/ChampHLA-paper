@@ -1,0 +1,7 @@
+modality	gene	loci	method	reference	delta_points	p_value	signflip_method	holm_adjusted_p	holm_significant	significant_harm
+rnaseq	A	38	guarded	SimpleTwoThirdsConsensus	18.421052631578945	0.015625	exact_enumeration	0.09375	0	0
+rnaseq	B	40	guarded	SimpleTwoThirdsConsensus	5.0	0.5	exact_enumeration	1.0	0	0
+rnaseq	C	40	guarded	SimpleTwoThirdsConsensus	7.5	0.25	exact_enumeration	1.0	0	0
+wes	A	50	guarded	SimpleTwoThirdsConsensus	6.0	0.25	exact_enumeration	1.0	0	0
+wes	B	52	guarded	SimpleTwoThirdsConsensus	1.9230769230769231	1.0	exact_enumeration	1.0	0	0
+wes	C	51	guarded	SimpleTwoThirdsConsensus	1.9607843137254901	1.0	exact_enumeration	1.0	0	0

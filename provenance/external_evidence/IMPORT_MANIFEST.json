@@ -1,0 +1,33 @@
+{
+  "schema_version": "champhla-external-evidence-1",
+  "imported_at_utc": "2026-09-17T20:43:16.533237+00:00",
+  "why": "The manuscript cited evidence living in sibling trees that do not ship with the submission, so a referee could not resolve the citation. These are read-only copies, checksummed against their sources. The sibling trees remain authoritative; if a copy and its source ever disagree, the source governs and the copy must be re-imported.",
+  "sources_are_not_git_repositories": "The sibling trees use checksums plus PROJECT_MANIFEST.json rather than git, by deliberate design. Their paths are recorded here verbatim.",
+  "files": [
+    {
+      "imported_as": "provenance/external_evidence/WGS_DIAGNOSIS_20260901.md",
+      "source_tree": "champhla_egcc_pilot",
+      "source_path": "champhla_egcc_pilot/WGS_DIAGNOSIS_20260901.md",
+      "bytes": 3917,
+      "sha256": "f7352685cd2306ff50f124c60745a1ac3ec10c6c62bfdd0ce5fa6e89f655b3b9",
+      "purpose": "Diagnosis of the harmonisation defect: the placeholder second allele duplicated into a false homozygous genotype. Source for supplementary S4 and claim BM-010."
+    },
+    {
+      "imported_as": "provenance/external_evidence/baseline_ladder_full_cohort.tsv",
+      "source_tree": "champhla_baseline_ladder",
+      "source_path": "champhla_baseline_ladder/outputs/baseline_ladder_full_cohort.tsv",
+      "bytes": 4121,
+      "sha256": "1e3045cc26d36a7c9ba96fd40b15003831d6f85b6d16a95c04af27bf10b7a5cd",
+      "purpose": "Baseline ladder at the reporting denominator. Source for the per-allele and tool-priority-cascade rows in supplementary S3."
+    },
+    {
+      "imported_as": "provenance/external_evidence/db_release_resolution.json",
+      "source_tree": "champhla_plurality",
+      "source_path": "champhla_plurality/artifacts/db_release_resolution/db_release_resolution.json",
+      "source_host": "CSC Roihu /scratch/project_2008084",
+      "bytes": 12116,
+      "sha256": "33f9731a23c73ac9dc50e18aae1df8e9a9564f7a6d0c80ba66f2a706c145a8de",
+      "purpose": "Per-caller IPD-IMGT/HLA release, resolved from database content rather than from filenames. Source for the release table in Methods."
+    }
+  ]
+}

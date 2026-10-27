@@ -1,0 +1,3 @@
+modality	subjects	loci	baseline_callable	baseline_correct	guarded_correct	plurality_correct	baseline_accuracy	guarded_accuracy	plurality_accuracy	delta_points	plurality_delta_points	wins	losses	ties	discordant_correctness_subjects	ci_lo_points	ci_hi_points	p_value	signflip_method	holm_adjusted_p	holm_significant
+wes	63	153	144	136	141	143	0.8888888888888888	0.9215686274509803	0.934640522875817	3.2679738562091503	-1.3071895424836601	5	0	148	5	0.6578947368421052	6.329113924050633	0.0625	exact_enumeration	0.0625	0
+rnaseq	51	118	101	96	108	112	0.8135593220338984	0.9152542372881356	0.9491525423728814	10.169491525423728	-3.389830508474576	12	0	106	11	5.042016806722689	15.929203539823009	0.0009765625	exact_enumeration	0.001953125	1

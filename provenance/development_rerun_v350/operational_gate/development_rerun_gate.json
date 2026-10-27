@@ -1,0 +1,21 @@
+{
+  "controller_finished_normally": true,
+  "execution_manager_sha256": "cd5e6ac676a1b1937e051de3f22d6162cfaf7ddb457cfccb4719b0e8d0aec7e9",
+  "operational_status_sha256": "5251615b958e613aaa254dc85637327df9e911beaad81257498f79a7c08fad95",
+  "performance_calculated": false,
+  "roster_sha256": "506405a006a2cabc80f8584fa21368d868d56a6164ccd60e017d36173bcbfd85",
+  "running_jobs": {
+    "champhla_ctl": 0,
+    "champhla_dev": 0,
+    "champhla_prefetch": 0
+  },
+  "schema_version": "champhla-development-rerun-gate-1",
+  "status": "PASS",
+  "truth_inspected": false,
+  "validator_counts": {
+    "checked": 236,
+    "complete_valid": 236,
+    "incomplete_or_invalid": 0
+  },
+  "validator_report_sha256": "7658fb6422f04d2009ec03337fe9299c2f068554643ef2695ada7ad5d7aa22c6"
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261012_second_typing_asterisk_documented",
+  "date": "2026-10-12",
+  "status": "RECORDED - correction of a statement of fact; no change to the signed rule or to any primary or secondary result",
+  "addresses": "reports/scientific_review_20261012.tsv SR-002 (FATAL) and SR-001 (FATAL)",
+  "relates_to": [
+    "decisions/20261009_reference_adjudication.json (signed 2026-10-09 21:10 EEST)",
+    "decisions/20261009_reference_adjudication_posthoc.json (recorded 2026-10-09)"
+  ],
+  "what_was_wrong": "The post hoc record, the manuscript and Supplementary S7 said that the trailing asterisk carried by some values of the second typing is undocumented. Only the IGSR README and the article's S2 Table had been checked. The asterisk is documented in the same article.",
+  "documented_meaning": {
+    "summary": "An asterisk marks a PolyPheMe typing that disagreed with the previously published typing of that individual and that the authors kept as correct after verification.",
+    "sources": [
+      {
+        "where": "Abi-Rached et al. 2018, PLoS ONE 13:e0206512, Supporting information, S1 Table legend",
+        "quotation": "In some cases (marked by asterisks), the PolyPheMe typing was validated through manual verifications (see Methods)."
+      },
+      {
+        "where": "S1 Table workbook (doi:10.1371/journal.pone.0206512.s009), footnote on sheets 'Correct typing' and 'Others'",
+        "quotation": "*: corrected match (see methods)"
+      },
+      {
+        "where": "Methods, evaluation of PolyPheMe performance",
+        "quotation": "Results initially labelled as 'imprecise' or 'discordant' were further investigated through manual inspection of the sequence reads. For 21 individuals, genomic DNA was also obtained from Coriell Institute and a new HLA typing was performed with a commercial kit (Holotype, Omixon) using NGS. [...] This verification step confirmed that 105 typing results initially identified as 'discordant' and four typing results initially identified as imprecise were in fact correctly typed by PolyPheMe (S3 Fig)."
+      },
+      {
+        "where": "S3 Fig (doi:10.1371/journal.pone.0206512.s003)",
+        "content": "A table of the 109 validated cases giving the PolyPheMe result, the existing result it replaced, the number of cases and how each was confirmed. It includes the alleles at every asterisked ChampHLA-Consensus error locus of this study: HLA-A 02:07 for 02:01, HLA-A 66:03 for 66:02, HLA-B 27:05 for 27:03, HLA-B 39:24 for 39:03, HLA-C 02:10 for 02:02 and HLA-C 07:01 for 07:02."
+      }
+    ],
+    "not_documented_in": [
+      "the IGSR README beside the file (README_20181129_HLA_types_full_1000_Genomes_Project_panel.txt)",
+      "the S2 Table legend and workbook, which the IGSR file reproduces"
+    ],
+    "link_from_S1_Table_to_the_IGSR_file": "An inference, checked on the data during the review: the IGSR file and S2 Table carry asterisks on the same cells; 109 of the 110 asterisked cells carry the same asterisk in S1 Table; all asterisked samples are among the 992 previously typed individuals; all exact-endpoint development subjects are among those 992.",
+    "verified_by": "reports/scientific_review_20261012.md SR-002; two independent checks of the article, its supporting files and the IGSR directory on 2026-10-12"
+  },
+  "consequences_for_reporting": [
+    "The manuscript and Supplementary S7 state the documented meaning and cite the S1 Table legend and S3 Fig; the word 'undocumented' is removed.",
+    "The manuscript states that under the signed parsing rule an asterisked value is unavailable, so the second typing is available only where the source did not retain a disagreement with the earlier published type; its agreement with the 2014 reference wherever available follows from that rule and is not an independent finding.",
+    "The manuscript states that at the asterisked consensus error loci the source reports the earlier published type as incorrect and its corrected typing equals the consensus call, with the kind of confirmation S3 Fig records. The statement remains post hoc with respect to the signed analysis, and the second typing remains exome-derived and not independent of the WES assay.",
+    "The sentence describing the source's validation is corrected: manual inspection of the reads for all cases, with NGS retyping of 21 individuals; not targeted resequencing of 105 results.",
+    "The reference-agreement sensitivity reports pairwise caller-error phi and what the vote does with each caller's errors on the loci where both typings agree, as reporting commitment 1 of the signed decision requires (artifacts/development_characterisation/reference_agreement_error_phi.tsv and reference_agreement_vote_correction.tsv)."
+  ],
+  "unchanged": [
+    "The signed parsing rule, the adjudication classes and the definition of the reference-agreement subset.",
+    "Every primary and secondary result. The exact endpoint against the 2014 reference remains primary; reference-corrected results are reported beside it as a labelled sensitivity (author's choice, 2026-10-12)."
+  ],
+  "authorization": {
+    "required": "none for the factual correction; the author chose on 2026-10-12, in the Claude Code session, to keep the registered exact endpoint as primary and to report the reference-corrected results beside the headline as sensitivity",
+    "recorded_by": "Claude Code session, 2026-10-12, under the approved remediation plan for reports/scientific_review_20261012.tsv"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "champhla-identity-exclusions-1",
+  "description": "Subject-assay inputs withheld from analysis. Every other input must appear in cohorts/official_1000g_assay_manifest.tsv or the pipeline fails.",
+  "exclusions": [
+    {
+      "subject": "NA07000",
+      "modality": "rnaseq",
+      "reason": "input absent from the official assay manifest; RNA-seq HLA genotype discordant with the subject's WES genotype at every gene",
+      "decision": "decisions/20261008_identity_check_na07000.json"
+    }
+  ]
+}

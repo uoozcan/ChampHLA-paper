@@ -1,0 +1,16 @@
+{
+  "development_extension_overlap": [],
+  "exposure_ledger_sha256": "3535775181969bf5095862123c89093824b12e6c3f4bc3243de75f9db575a263",
+  "failures": [],
+  "protocol_sha256": "0981d6b61985d5d9169e601f76aea0c27f00ca9ee740b4ee9ded6c8cef6e0234",
+  "roster_sha256": "c54a2edaf7225f2bee886ab6e55569878e00fd0040a6e1598da7016a4d399c34",
+  "schema_version": "panelhla-benchmark-resource-protocol-audit-1",
+  "selected_subjects_by_modality": {
+    "rnaseq": 99,
+    "wes": 89
+  },
+  "truth_join_permitted": true,
+  "valid": true,
+  "wgs_rows_in_source_roster": 120,
+  "wgs_rows_selected": 0
+}

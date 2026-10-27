@@ -1,0 +1,31 @@
+{
+  "schema_version": "panelhla-protocol-amendment-1",
+  "date": "2026-09-28",
+  "status": "active_for_development_reanalysis",
+  "superseded_protocol_modified": false,
+  "superseded_protocol": "configs/benchmark_resource_protocol_v2.json",
+  "superseded_protocol_sha256": "0981d6b61985d5d9169e601f76aea0c27f00ca9ee740b4ee9ded6c8cef6e0234",
+  "trigger": {
+    "review": "reports/peer_review_20260928.md",
+    "review_sha256": "f33ad1186db9b4c7cd76b484b814ac1800772f44dca3087ef3a0d0d9754cbab5",
+    "defect": "A uniquely resolved duplicate source row could conceal an ambiguous duplicate row for the same subject and gene."
+  },
+  "locked_corrections": {
+    "exact_truth": "Reject the subject-gene exact endpoint if any source row is ambiguous, invalid, absent, or conflicts with another row.",
+    "truth_firewall": "Freeze predictions for every requested locus before exact or set-valued truth selection.",
+    "primary_estimand": "Locus-weighted fixed-denominator exact unordered two-field genotype concordance.",
+    "paired_primary_inference": "CR1 subject-clustered t inference with G-1 degrees of freedom.",
+    "multiplicity": "Separate descriptive-comparator and exploratory-fitted Holm families within assay; exclude zero-discordance comparisons while displaying them.",
+    "paired_adjusted_interval": "Bonferroni-adjusted cluster-t interval over the identical active family.",
+    "sensitivity_inference": "Two-sided exact or 1000000-assignment Monte Carlo subject sign-flip test with plus-one correction.",
+    "ambiguity_secondary": "Compatibility with any source-allowed unordered two-field genotype.",
+    "g_group_secondary": "Compatibility after mapping two-field designations to all compatible official IPD-IMGT/HLA 3.65.0 G groups; not an exact G-group call."
+  },
+  "extension": {
+    "rosters_unchanged": true,
+    "truth_join_permitted_in_this_revision": false,
+    "performance_claim_permitted_in_this_revision": false
+  },
+  "retention_rule": "All corrected results are retained regardless of direction.",
+  "classification": "post_review_correction_not_prespecified"
+}

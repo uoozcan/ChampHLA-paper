@@ -1,0 +1,272 @@
+cohort	subject	modality	gene	superpopulation	truth_homozygous	baseline_callable	baseline_correct	guarded_correct	plurality_correct	baseline_pair	guarded_pair	plurality_pair	guarded_decision_reason
+1000G-development	HG00101	rnaseq	C	British	0	1	1	1	1	C*02:02+C*06:02	C*02:02+C*06:02	C*02:02+C*06:02	protected_two_thirds_consensus
+1000G-development	HG00101	wes	C	GBR	0	1	1	1	1	C*02:02+C*06:02	C*02:02+C*06:02	C*02:02+C*06:02	protected_two_thirds_consensus
+1000G-development	HG00104	rnaseq	B	British	0	1	1	1	1	B*37:01+B*44:03	B*37:01+B*44:03	B*37:01+B*44:03	protected_two_thirds_consensus
+1000G-development	HG00104	rnaseq	C	British	0	1	1	1	1	C*06:02+C*16:01	C*06:02+C*16:01	C*06:02+C*16:01	protected_two_thirds_consensus
+1000G-development	HG00112	rnaseq	C	British	0	1	1	1	1	C*08:02+C*14:02	C*08:02+C*14:02	C*08:02+C*14:02	protected_two_thirds_consensus
+1000G-development	HG00112	wes	C	GBR	0	1	1	1	1	C*08:02+C*14:02	C*08:02+C*14:02	C*08:02+C*14:02	protected_two_thirds_consensus
+1000G-development	HG00177	rnaseq	C	Finland	0	1	1	1	1	C*03:04+C*06:02	C*03:04+C*06:02	C*03:04+C*06:02	protected_two_thirds_consensus
+1000G-development	HG00177	wes	C	FIN	0	0	0	1	1		C*03:04+C*06:02	C*03:04+C*06:02	champion_challenger_resolved_disagreement
+1000G-development	HG00188	rnaseq	C	Finland	0	1	1	1	1	C*12:03+C*16:01	C*12:03+C*16:01	C*12:03+C*16:01	protected_two_thirds_consensus
+1000G-development	HG00188	wes	C	FIN	0	1	1	1	1	C*12:03+C*16:01	C*12:03+C*16:01	C*12:03+C*16:01	protected_two_thirds_consensus
+1000G-development	HG00551	wes	B	PUR	0	1	1	1	1	B*44:03+B*50:01	B*44:03+B*50:01	B*44:03+B*50:01	protected_two_thirds_consensus
+1000G-development	HG00551	wes	C	PUR	0	1	1	1	1	C*06:02+C*16:01	C*06:02+C*16:01	C*06:02+C*16:01	protected_two_thirds_consensus
+1000G-development	NA06985	rnaseq	A	Utah	0	1	1	1	1	A*02:01+A*03:01	A*02:01+A*03:01	A*02:01+A*03:01	protected_two_thirds_consensus
+1000G-development	NA06985	rnaseq	B	Utah	0	1	1	1	1	B*07:02+B*57:01	B*07:02+B*57:01	B*07:02+B*57:01	protected_two_thirds_consensus
+1000G-development	NA06985	rnaseq	C	Utah	0	1	1	1	1	C*06:02+C*07:02	C*06:02+C*07:02	C*06:02+C*07:02	protected_two_thirds_consensus
+1000G-development	NA06985	wes	A	CEU	0	1	1	1	1	A*02:01+A*03:01	A*02:01+A*03:01	A*02:01+A*03:01	protected_two_thirds_consensus
+1000G-development	NA06985	wes	B	CEU	0	1	1	1	1	B*07:02+B*57:01	B*07:02+B*57:01	B*07:02+B*57:01	protected_two_thirds_consensus
+1000G-development	NA06985	wes	C	CEU	0	1	1	1	1	C*06:02+C*07:02	C*06:02+C*07:02	C*06:02+C*07:02	protected_two_thirds_consensus
+1000G-development	NA06986	rnaseq	A	Utah	0	1	1	1	1	A*03:01+A*32:01	A*03:01+A*32:01	A*03:01+A*32:01	protected_two_thirds_consensus
+1000G-development	NA06986	rnaseq	B	Utah	1	1	1	1	1	B*44:03+B*44:03	B*44:03+B*44:03	B*44:03+B*44:03	protected_two_thirds_consensus
+1000G-development	NA06986	rnaseq	C	Utah	0	1	1	1	1	C*04:01+C*16:01	C*04:01+C*16:01	C*04:01+C*16:01	protected_two_thirds_consensus
+1000G-development	NA06986	wes	A	CEU	0	1	1	1	1	A*03:01+A*32:01	A*03:01+A*32:01	A*03:01+A*32:01	protected_two_thirds_consensus
+1000G-development	NA06986	wes	B	CEU	1	1	1	1	1	B*44:03+B*44:03	B*44:03+B*44:03	B*44:03+B*44:03	protected_two_thirds_consensus
+1000G-development	NA06986	wes	C	CEU	0	1	1	1	1	C*04:01+C*16:01	C*04:01+C*16:01	C*04:01+C*16:01	protected_two_thirds_consensus
+1000G-development	NA06994	rnaseq	A	Utah	0	1	1	1	1	A*02:01+A*32:01	A*02:01+A*32:01	A*02:01+A*32:01	protected_two_thirds_consensus
+1000G-development	NA06994	rnaseq	B	Utah	0	1	1	1	1	B*08:01+B*40:02	B*08:01+B*40:02	B*08:01+B*40:02	protected_two_thirds_consensus
+1000G-development	NA06994	wes	A	CEU	0	1	1	1	1	A*02:01+A*32:01	A*02:01+A*32:01	A*02:01+A*32:01	protected_two_thirds_consensus
+1000G-development	NA06994	wes	B	CEU	0	1	1	1	1	B*08:01+B*40:02	B*08:01+B*40:02	B*08:01+B*40:02	protected_two_thirds_consensus
+1000G-development	NA07000	wes	A	CEU	0	1	1	1	1	A*02:01+A*68:01	A*02:01+A*68:01	A*02:01+A*68:01	protected_two_thirds_consensus
+1000G-development	NA07000	wes	B	CEU	0	1	1	1	1	B*40:01+B*44:02	B*40:01+B*44:02	B*40:01+B*44:02	protected_two_thirds_consensus
+1000G-development	NA07037	rnaseq	A	Utah	0	1	1	1	1	A*30:01+A*31:01	A*30:01+A*31:01	A*30:01+A*31:01	protected_two_thirds_consensus
+1000G-development	NA07037	rnaseq	B	Utah	0	1	1	1	1	B*15:10+B*40:01	B*15:10+B*40:01	B*15:10+B*40:01	protected_two_thirds_consensus
+1000G-development	NA07037	rnaseq	C	Utah	1	1	1	1	1	C*03:04+C*03:04	C*03:04+C*03:04	C*03:04+C*03:04	protected_two_thirds_consensus
+1000G-development	NA07037	wes	A	CEU	0	1	1	1	1	A*30:01+A*31:01	A*30:01+A*31:01	A*30:01+A*31:01	protected_two_thirds_consensus
+1000G-development	NA07037	wes	B	CEU	0	1	1	1	1	B*15:10+B*40:01	B*15:10+B*40:01	B*15:10+B*40:01	protected_two_thirds_consensus
+1000G-development	NA07037	wes	C	CEU	1	1	1	1	1	C*03:04+C*03:04	C*03:04+C*03:04	C*03:04+C*03:04	protected_two_thirds_consensus
+1000G-development	NA07048	rnaseq	A	Utah	1	0	0	1	1		A*02:01+A*02:01	A*02:01+A*02:01	champion_challenger_resolved_disagreement
+1000G-development	NA07048	rnaseq	B	Utah	0	1	1	1	1	B*07:02+B*44:02	B*07:02+B*44:02	B*07:02+B*44:02	protected_two_thirds_consensus
+1000G-development	NA07048	rnaseq	C	Utah	0	1	1	1	1	C*05:01+C*07:02	C*05:01+C*07:02	C*05:01+C*07:02	protected_two_thirds_consensus
+1000G-development	NA07048	wes	A	CEU	1	1	1	1	1	A*02:01+A*02:01	A*02:01+A*02:01	A*02:01+A*02:01	protected_two_thirds_consensus
+1000G-development	NA07048	wes	B	CEU	0	1	1	1	1	B*07:02+B*44:02	B*07:02+B*44:02	B*07:02+B*44:02	protected_two_thirds_consensus
+1000G-development	NA07048	wes	C	CEU	0	1	1	1	1	C*05:01+C*07:02	C*05:01+C*07:02	C*05:01+C*07:02	protected_two_thirds_consensus
+1000G-development	NA07051	rnaseq	A	Utah	0	1	1	1	1	A*02:01+A*68:01	A*02:01+A*68:01	A*02:01+A*68:01	protected_two_thirds_consensus
+1000G-development	NA07051	rnaseq	C	Utah	0	1	1	1	1	C*03:03+C*07:02	C*03:03+C*07:02	C*03:03+C*07:02	protected_two_thirds_consensus
+1000G-development	NA07051	wes	A	CEU	0	1	1	1	1	A*02:01+A*68:01	A*02:01+A*68:01	A*02:01+A*68:01	protected_two_thirds_consensus
+1000G-development	NA07051	wes	C	CEU	0	1	1	1	1	C*03:03+C*07:02	C*03:03+C*07:02	C*03:03+C*07:02	protected_two_thirds_consensus
+1000G-development	NA07056	rnaseq	A	Utah	0	1	1	1	1	A*01:01+A*02:01	A*01:01+A*02:01	A*01:01+A*02:01	protected_two_thirds_consensus
+1000G-development	NA07056	rnaseq	B	Utah	0	1	1	1	1	B*08:01+B*57:01	B*08:01+B*57:01	B*08:01+B*57:01	protected_two_thirds_consensus
+1000G-development	NA07056	wes	A	CEU	0	1	1	1	1	A*01:01+A*02:01	A*01:01+A*02:01	A*01:01+A*02:01	protected_two_thirds_consensus
+1000G-development	NA07056	wes	B	CEU	0	1	1	1	1	B*08:01+B*57:01	B*08:01+B*57:01	B*08:01+B*57:01	protected_two_thirds_consensus
+1000G-development	NA07347	rnaseq	A	Utah	0	1	1	1	1	A*26:01+A*30:02	A*26:01+A*30:02	A*26:01+A*30:02	protected_two_thirds_consensus
+1000G-development	NA07347	rnaseq	B	Utah	0	1	1	1	1	B*18:01+B*44:02	B*18:01+B*44:02	B*18:01+B*44:02	protected_two_thirds_consensus
+1000G-development	NA07347	rnaseq	C	Utah	1	0	0	0	1		C*05:01+C*05:179	C*05:01+C*05:01	champion_challenger_resolved_disagreement
+1000G-development	NA07347	wes	A	CEU	0	1	1	1	1	A*26:01+A*30:02	A*26:01+A*30:02	A*26:01+A*30:02	protected_two_thirds_consensus
+1000G-development	NA07347	wes	B	CEU	0	1	1	1	1	B*18:01+B*44:02	B*18:01+B*44:02	B*18:01+B*44:02	protected_two_thirds_consensus
+1000G-development	NA07347	wes	C	CEU	1	1	1	1	1	C*05:01+C*05:01	C*05:01+C*05:01	C*05:01+C*05:01	protected_two_thirds_consensus
+1000G-development	NA07357	rnaseq	A	Utah	0	1	1	1	1	A*01:01+A*24:02	A*01:01+A*24:02	A*01:01+A*24:02	protected_two_thirds_consensus
+1000G-development	NA07357	rnaseq	B	Utah	0	1	1	1	1	B*08:01+B*39:06	B*08:01+B*39:06	B*08:01+B*39:06	protected_two_thirds_consensus
+1000G-development	NA07357	wes	A	CEU	0	1	1	1	1	A*01:01+A*24:02	A*01:01+A*24:02	A*01:01+A*24:02	protected_two_thirds_consensus
+1000G-development	NA07357	wes	B	CEU	0	1	1	1	1	B*08:01+B*39:06	B*08:01+B*39:06	B*08:01+B*39:06	protected_two_thirds_consensus
+1000G-development	NA10847	rnaseq	A	Utah	0	1	1	1	1	A*03:01+A*25:01	A*03:01+A*25:01	A*03:01+A*25:01	protected_two_thirds_consensus
+1000G-development	NA10847	rnaseq	B	Utah	0	1	1	1	1	B*08:01+B*18:01	B*08:01+B*18:01	B*08:01+B*18:01	protected_two_thirds_consensus
+1000G-development	NA10847	rnaseq	C	Utah	0	1	0	0	0	C*07:01+C*12:03	C*07:01+C*12:03	C*07:01+C*12:03	protected_two_thirds_consensus
+1000G-development	NA10847	wes	A	CEU	0	1	1	1	1	A*03:01+A*25:01	A*03:01+A*25:01	A*03:01+A*25:01	protected_two_thirds_consensus
+1000G-development	NA10847	wes	B	CEU	0	1	1	1	1	B*08:01+B*18:01	B*08:01+B*18:01	B*08:01+B*18:01	protected_two_thirds_consensus
+1000G-development	NA10847	wes	C	CEU	0	1	0	0	0	C*07:01+C*12:03	C*07:01+C*12:03	C*07:01+C*12:03	protected_two_thirds_consensus
+1000G-development	NA10851	rnaseq	A	Utah	0	1	1	1	1	A*01:01+A*24:02	A*01:01+A*24:02	A*01:01+A*24:02	protected_two_thirds_consensus
+1000G-development	NA10851	rnaseq	B	Utah	0	1	1	1	1	B*08:01+B*40:01	B*08:01+B*40:01	B*08:01+B*40:01	protected_two_thirds_consensus
+1000G-development	NA10851	rnaseq	C	Utah	0	0	0	1	1		C*03:04+C*07:01	C*03:04+C*07:01	champion_challenger_resolved_disagreement
+1000G-development	NA10851	wes	A	CEU	0	1	1	1	1	A*01:01+A*24:02	A*01:01+A*24:02	A*01:01+A*24:02	protected_two_thirds_consensus
+1000G-development	NA10851	wes	B	CEU	0	1	1	1	1	B*08:01+B*40:01	B*08:01+B*40:01	B*08:01+B*40:01	protected_two_thirds_consensus
+1000G-development	NA10851	wes	C	CEU	0	1	1	1	1	C*03:04+C*07:01	C*03:04+C*07:01	C*03:04+C*07:01	protected_two_thirds_consensus
+1000G-development	NA11829	rnaseq	A	Utah	1	0	0	1	1		A*02:01+A*02:01	A*02:01+A*02:01	champion_challenger_resolved_disagreement
+1000G-development	NA11829	rnaseq	C	Utah	0	1	1	1	1	C*03:04+C*05:01	C*03:04+C*05:01	C*03:04+C*05:01	protected_two_thirds_consensus
+1000G-development	NA11829	wes	A	CEU	1	1	1	1	1	A*02:01+A*02:01	A*02:01+A*02:01	A*02:01+A*02:01	protected_two_thirds_consensus
+1000G-development	NA11829	wes	C	CEU	0	1	1	1	1	C*03:04+C*05:01	C*03:04+C*05:01	C*03:04+C*05:01	protected_two_thirds_consensus
+1000G-development	NA11830	rnaseq	A	Utah	1	0	0	1	1		A*02:01+A*02:01	A*02:01+A*02:01	champion_challenger_resolved_disagreement
+1000G-development	NA11830	rnaseq	B	Utah	0	1	1	1	1	B*14:01+B*14:02	B*14:01+B*14:02	B*14:01+B*14:02	protected_two_thirds_consensus
+1000G-development	NA11830	rnaseq	C	Utah	1	0	0	0	0		C*05:01+C*08:02	C*05:01+C*08:02	plurality_fallback_missing_cc
+1000G-development	NA11830	wes	A	CEU	1	1	1	1	1	A*02:01+A*02:01	A*02:01+A*02:01	A*02:01+A*02:01	protected_two_thirds_consensus
+1000G-development	NA11830	wes	B	CEU	0	1	1	1	1	B*14:01+B*14:02	B*14:01+B*14:02	B*14:01+B*14:02	protected_two_thirds_consensus
+1000G-development	NA11830	wes	C	CEU	1	1	1	1	1	C*08:02+C*08:02	C*08:02+C*08:02	C*08:02+C*08:02	protected_two_thirds_consensus
+1000G-development	NA11831	rnaseq	A	Utah	0	1	1	1	1	A*01:01+A*03:01	A*01:01+A*03:01	A*01:01+A*03:01	protected_two_thirds_consensus
+1000G-development	NA11831	rnaseq	B	Utah	0	1	1	1	1	B*07:02+B*08:01	B*07:02+B*08:01	B*07:02+B*08:01	protected_two_thirds_consensus
+1000G-development	NA11831	wes	A	CEU	0	1	1	1	1	A*01:01+A*03:01	A*01:01+A*03:01	A*01:01+A*03:01	protected_two_thirds_consensus
+1000G-development	NA11831	wes	B	CEU	0	1	1	1	1	B*07:02+B*08:01	B*07:02+B*08:01	B*07:02+B*08:01	protected_two_thirds_consensus
+1000G-development	NA11832	rnaseq	A	Utah	0	1	1	1	1	A*02:01+A*32:01	A*02:01+A*32:01	A*02:01+A*32:01	protected_two_thirds_consensus
+1000G-development	NA11832	rnaseq	C	Utah	0	1	1	1	1	C*02:02+C*07:04	C*02:02+C*07:04	C*02:02+C*07:04	protected_two_thirds_consensus
+1000G-development	NA11832	wes	A	CEU	0	1	1	1	1	A*02:01+A*32:01	A*02:01+A*32:01	A*02:01+A*32:01	protected_two_thirds_consensus
+1000G-development	NA11832	wes	C	CEU	0	1	1	1	1	C*02:02+C*07:04	C*02:02+C*07:04	C*02:02+C*07:04	protected_two_thirds_consensus
+1000G-development	NA11840	rnaseq	A	Utah	1	0	0	1	1		A*02:01+A*02:01	A*02:01+A*02:01	champion_challenger_resolved_disagreement
+1000G-development	NA11840	rnaseq	B	Utah	0	1	0	0	0	B*27:05+B*57:01	B*27:05+B*57:01	B*27:05+B*57:01	protected_two_thirds_consensus
+1000G-development	NA11840	rnaseq	C	Utah	0	1	1	1	1	C*02:02+C*06:02	C*02:02+C*06:02	C*02:02+C*06:02	protected_two_thirds_consensus
+1000G-development	NA11840	wes	A	CEU	1	0	0	1	1		A*02:01+A*02:01	A*02:01+A*02:01	champion_challenger_resolved_disagreement
+1000G-development	NA11840	wes	B	CEU	0	1	0	0	0	B*27:05+B*57:01	B*27:05+B*57:01	B*27:05+B*57:01	protected_two_thirds_consensus
+1000G-development	NA11840	wes	C	CEU	0	1	1	1	1	C*02:02+C*06:02	C*02:02+C*06:02	C*02:02+C*06:02	protected_two_thirds_consensus
+1000G-development	NA11843	rnaseq	A	Utah	0	0	0	1	1		A*02:01+A*11:01	A*02:01+A*11:01	champion_challenger_resolved_disagreement
+1000G-development	NA11843	rnaseq	B	Utah	0	1	1	1	1	B*15:01+B*51:01	B*15:01+B*51:01	B*15:01+B*51:01	protected_two_thirds_consensus
+1000G-development	NA11843	rnaseq	C	Utah	0	1	1	1	1	C*03:04+C*15:02	C*03:04+C*15:02	C*03:04+C*15:02	protected_two_thirds_consensus
+1000G-development	NA11843	wes	A	CEU	0	1	1	1	1	A*02:01+A*11:01	A*02:01+A*11:01	A*02:01+A*11:01	protected_two_thirds_consensus
+1000G-development	NA11843	wes	B	CEU	0	1	1	1	1	B*15:01+B*51:01	B*15:01+B*51:01	B*15:01+B*51:01	protected_two_thirds_consensus
+1000G-development	NA11843	wes	C	CEU	0	1	1	1	1	C*03:04+C*15:02	C*03:04+C*15:02	C*03:04+C*15:02	protected_two_thirds_consensus
+1000G-development	NA11894	rnaseq	A	Utah	0	1	1	1	1	A*01:01+A*24:02	A*01:01+A*24:02	A*01:01+A*24:02	protected_two_thirds_consensus
+1000G-development	NA11894	rnaseq	B	Utah	0	1	1	1	1	B*08:01+B*55:01	B*08:01+B*55:01	B*08:01+B*55:01	protected_two_thirds_consensus
+1000G-development	NA11894	wes	A	CEU	0	0	0	1	1		A*01:01+A*24:02	A*01:01+A*24:02	champion_challenger_resolved_disagreement
+1000G-development	NA11894	wes	B	CEU	0	1	1	1	1	B*08:01+B*55:01	B*08:01+B*55:01	B*08:01+B*55:01	protected_two_thirds_consensus
+1000G-development	NA11920	rnaseq	A	Utah	1	0	0	1	1		A*02:01+A*02:01	A*02:01+A*02:01	champion_challenger_resolved_disagreement
+1000G-development	NA11920	rnaseq	C	Utah	0	1	1	1	1	C*03:03+C*05:01	C*03:03+C*05:01	C*03:03+C*05:01	protected_two_thirds_consensus
+1000G-development	NA11920	wes	A	CEU	1	1	1	1	1	A*02:01+A*02:01	A*02:01+A*02:01	A*02:01+A*02:01	protected_two_thirds_consensus
+1000G-development	NA11920	wes	C	CEU	0	1	1	1	1	C*03:03+C*05:01	C*03:03+C*05:01	C*03:03+C*05:01	protected_two_thirds_consensus
+1000G-development	NA12004	rnaseq	A	Utah	0	1	1	1	1	A*02:01+A*24:02	A*02:01+A*24:02	A*02:01+A*24:02	protected_two_thirds_consensus
+1000G-development	NA12004	rnaseq	B	Utah	1	1	1	1	1	B*07:02+B*07:02	B*07:02+B*07:02	B*07:02+B*07:02	protected_two_thirds_consensus
+1000G-development	NA12004	rnaseq	C	Utah	1	0	0	0	1		C*07:584+C*07:616	C*07:02+C*07:02	champion_challenger_resolved_disagreement
+1000G-development	NA12004	wes	A	CEU	0	1	1	1	1	A*02:01+A*24:02	A*02:01+A*24:02	A*02:01+A*24:02	protected_two_thirds_consensus
+1000G-development	NA12004	wes	B	CEU	1	1	1	1	1	B*07:02+B*07:02	B*07:02+B*07:02	B*07:02+B*07:02	protected_two_thirds_consensus
+1000G-development	NA12004	wes	C	CEU	1	1	1	1	1	C*07:02+C*07:02	C*07:02+C*07:02	C*07:02+C*07:02	protected_two_thirds_consensus
+1000G-development	NA12044	rnaseq	A	Utah	0	1	1	1	1	A*01:01+A*02:01	A*01:01+A*02:01	A*01:01+A*02:01	protected_two_thirds_consensus
+1000G-development	NA12044	rnaseq	B	Utah	1	1	1	1	1	B*07:02+B*07:02	B*07:02+B*07:02	B*07:02+B*07:02	protected_two_thirds_consensus
+1000G-development	NA12044	rnaseq	C	Utah	1	0	0	0	1		C*07:584+C*07:616	C*07:02+C*07:02	champion_challenger_resolved_disagreement
+1000G-development	NA12044	wes	A	CEU	0	1	1	1	1	A*01:01+A*02:01	A*01:01+A*02:01	A*01:01+A*02:01	protected_two_thirds_consensus
+1000G-development	NA12044	wes	B	CEU	1	1	1	1	1	B*07:02+B*07:02	B*07:02+B*07:02	B*07:02+B*07:02	protected_two_thirds_consensus
+1000G-development	NA12044	wes	C	CEU	1	1	1	1	1	C*07:02+C*07:02	C*07:02+C*07:02	C*07:02+C*07:02	protected_two_thirds_consensus
+1000G-development	NA12154	rnaseq	A	Utah	0	1	1	1	1	A*01:01+A*31:01	A*01:01+A*31:01	A*01:01+A*31:01	protected_two_thirds_consensus
+1000G-development	NA12154	rnaseq	B	Utah	0	1	1	1	1	B*08:01+B*40:01	B*08:01+B*40:01	B*08:01+B*40:01	protected_two_thirds_consensus
+1000G-development	NA12154	rnaseq	C	Utah	0	1	1	1	1	C*03:04+C*07:01	C*03:04+C*07:01	C*03:04+C*07:01	protected_two_thirds_consensus
+1000G-development	NA12154	wes	A	CEU	0	1	1	1	1	A*01:01+A*31:01	A*01:01+A*31:01	A*01:01+A*31:01	protected_two_thirds_consensus
+1000G-development	NA12154	wes	B	CEU	0	1	1	1	1	B*08:01+B*40:01	B*08:01+B*40:01	B*08:01+B*40:01	protected_two_thirds_consensus
+1000G-development	NA12154	wes	C	CEU	0	1	1	1	1	C*03:04+C*07:01	C*03:04+C*07:01	C*03:04+C*07:01	protected_two_thirds_consensus
+1000G-development	NA12234	rnaseq	A	Utah	0	0	0	1	1		A*11:01+A*32:01	A*11:01+A*32:01	champion_challenger_resolved_disagreement
+1000G-development	NA12234	rnaseq	B	Utah	0	1	1	1	1	B*40:02+B*44:03	B*40:02+B*44:03	B*40:02+B*44:03	protected_two_thirds_consensus
+1000G-development	NA12234	wes	A	CEU	0	1	1	1	1	A*11:01+A*32:01	A*11:01+A*32:01	A*11:01+A*32:01	protected_two_thirds_consensus
+1000G-development	NA12234	wes	B	CEU	0	0	0	1	1		B*40:02+B*44:03	B*40:02+B*44:03	champion_challenger_resolved_disagreement
+1000G-development	NA18501	wes	A	YRI	0	1	1	1	1	A*33:01+A*66:02	A*33:01+A*66:02	A*33:01+A*66:02	protected_two_thirds_consensus
+1000G-development	NA18501	wes	B	YRI	0	1	1	1	1	B*14:01+B*78:01	B*14:01+B*78:01	B*14:01+B*78:01	protected_two_thirds_consensus
+1000G-development	NA18501	wes	C	YRI	0	1	1	1	1	C*08:02+C*16:01	C*08:02+C*16:01	C*08:02+C*16:01	protected_two_thirds_consensus
+1000G-development	NA18502	rnaseq	A	Yoruba	0	1	1	1	1	A*24:24+A*74:01	A*24:24+A*74:01	A*24:24+A*74:01	protected_two_thirds_consensus
+1000G-development	NA18502	rnaseq	B	Yoruba	0	1	1	1	1	B*14:03+B*58:01	B*14:03+B*58:01	B*14:03+B*58:01	protected_two_thirds_consensus
+1000G-development	NA18502	rnaseq	C	Yoruba	0	1	1	1	1	C*07:01+C*08:02	C*07:01+C*08:02	C*07:01+C*08:02	protected_two_thirds_consensus
+1000G-development	NA18502	wes	A	YRI	0	0	0	0	1		A*23:01+A*74:01	A*24:24+A*74:01	champion_challenger_resolved_disagreement
+1000G-development	NA18502	wes	B	YRI	0	1	1	1	1	B*14:03+B*58:01	B*14:03+B*58:01	B*14:03+B*58:01	protected_two_thirds_consensus
+1000G-development	NA18502	wes	C	YRI	0	1	1	1	1	C*07:01+C*08:02	C*07:01+C*08:02	C*07:01+C*08:02	protected_two_thirds_consensus
+1000G-development	NA18504	wes	A	YRI	1	1	1	1	1	A*36:01+A*36:01	A*36:01+A*36:01	A*36:01+A*36:01	protected_two_thirds_consensus
+1000G-development	NA18504	wes	B	YRI	0	1	1	1	1	B*15:03+B*39:10	B*15:03+B*39:10	B*15:03+B*39:10	protected_two_thirds_consensus
+1000G-development	NA18504	wes	C	YRI	0	0	0	0	0		C*02:10+C*12:03	C*02:10+C*12:03	champion_challenger_resolved_disagreement
+1000G-development	NA18505	rnaseq	A	Yoruba	0	1	1	1	1	A*26:01+A*74:01	A*26:01+A*74:01	A*26:01+A*74:01	protected_two_thirds_consensus
+1000G-development	NA18505	rnaseq	B	Yoruba	0	1	1	1	1	B*15:03+B*53:01	B*15:03+B*53:01	B*15:03+B*53:01	protected_two_thirds_consensus
+1000G-development	NA18505	rnaseq	C	Yoruba	0	1	0	0	0	C*02:10+C*07:01	C*02:10+C*07:01	C*02:10+C*07:01	protected_two_thirds_consensus
+1000G-development	NA18505	wes	A	YRI	0	1	1	1	1	A*26:01+A*74:01	A*26:01+A*74:01	A*26:01+A*74:01	protected_two_thirds_consensus
+1000G-development	NA18505	wes	B	YRI	0	1	1	1	1	B*15:03+B*53:01	B*15:03+B*53:01	B*15:03+B*53:01	protected_two_thirds_consensus
+1000G-development	NA18505	wes	C	YRI	0	1	0	0	0	C*02:10+C*07:01	C*02:10+C*07:01	C*02:10+C*07:01	protected_two_thirds_consensus
+1000G-development	NA18507	wes	A	YRI	0	1	1	1	1	A*23:01+A*30:01	A*23:01+A*30:01	A*23:01+A*30:01	protected_two_thirds_consensus
+1000G-development	NA18507	wes	B	YRI	0	1	1	1	1	B*15:03+B*42:01	B*15:03+B*42:01	B*15:03+B*42:01	protected_two_thirds_consensus
+1000G-development	NA18507	wes	C	YRI	0	1	0	0	0	C*02:10+C*17:01	C*02:10+C*17:01	C*02:10+C*17:01	protected_two_thirds_consensus
+1000G-development	NA18508	rnaseq	A	Yoruba	0	1	1	1	1	A*33:03+A*68:02	A*33:03+A*68:02	A*33:03+A*68:02	protected_two_thirds_consensus
+1000G-development	NA18508	rnaseq	B	Yoruba	0	1	1	1	1	B*42:01+B*53:01	B*42:01+B*53:01	B*42:01+B*53:01	protected_two_thirds_consensus
+1000G-development	NA18508	rnaseq	C	Yoruba	0	1	1	1	1	C*04:01+C*17:01	C*04:01+C*17:01	C*04:01+C*17:01	protected_two_thirds_consensus
+1000G-development	NA18508	wes	A	YRI	0	1	1	1	1	A*33:03+A*68:02	A*33:03+A*68:02	A*33:03+A*68:02	protected_two_thirds_consensus
+1000G-development	NA18508	wes	B	YRI	0	1	1	1	1	B*42:01+B*53:01	B*42:01+B*53:01	B*42:01+B*53:01	protected_two_thirds_consensus
+1000G-development	NA18508	wes	C	YRI	0	1	1	1	1	C*04:01+C*17:01	C*04:01+C*17:01	C*04:01+C*17:01	protected_two_thirds_consensus
+1000G-development	NA18516	wes	A	YRI	0	1	1	1	1	A*03:01+A*29:02	A*03:01+A*29:02	A*03:01+A*29:02	protected_two_thirds_consensus
+1000G-development	NA18516	wes	B	YRI	0	1	1	1	1	B*15:10+B*53:01	B*15:10+B*53:01	B*15:10+B*53:01	protected_two_thirds_consensus
+1000G-development	NA18516	wes	C	YRI	1	1	1	1	1	C*04:01+C*04:01	C*04:01+C*04:01	C*04:01+C*04:01	protected_two_thirds_consensus
+1000G-development	NA18517	rnaseq	A	Yoruba	0	1	1	1	1	A*03:01+A*74:01	A*03:01+A*74:01	A*03:01+A*74:01	protected_two_thirds_consensus
+1000G-development	NA18517	rnaseq	B	Yoruba	0	1	1	1	1	B*49:01+B*51:01	B*49:01+B*51:01	B*49:01+B*51:01	protected_two_thirds_consensus
+1000G-development	NA18517	rnaseq	C	Yoruba	0	1	1	1	1	C*07:01+C*16:01	C*07:01+C*16:01	C*07:01+C*16:01	protected_two_thirds_consensus
+1000G-development	NA18517	wes	A	YRI	0	1	1	1	1	A*03:01+A*74:01	A*03:01+A*74:01	A*03:01+A*74:01	protected_two_thirds_consensus
+1000G-development	NA18517	wes	B	YRI	0	1	1	1	1	B*49:01+B*51:01	B*49:01+B*51:01	B*49:01+B*51:01	protected_two_thirds_consensus
+1000G-development	NA18517	wes	C	YRI	0	1	1	1	1	C*07:01+C*16:01	C*07:01+C*16:01	C*07:01+C*16:01	protected_two_thirds_consensus
+1000G-development	NA18522	wes	A	YRI	0	1	1	1	1	A*03:01+A*36:01	A*03:01+A*36:01	A*03:01+A*36:01	protected_two_thirds_consensus
+1000G-development	NA18522	wes	B	YRI	0	1	1	1	1	B*15:03+B*49:01	B*15:03+B*49:01	B*15:03+B*49:01	protected_two_thirds_consensus
+1000G-development	NA18522	wes	C	YRI	0	1	0	0	0	C*02:10+C*07:01	C*02:10+C*07:01	C*02:10+C*07:01	protected_two_thirds_consensus
+1000G-development	NA18523	wes	A	YRI	0	1	1	1	1	A*01:01+A*03:01	A*01:01+A*03:01	A*01:01+A*03:01	protected_two_thirds_consensus
+1000G-development	NA18523	wes	B	YRI	0	1	1	1	1	B*07:02+B*35:01	B*07:02+B*35:01	B*07:02+B*35:01	protected_two_thirds_consensus
+1000G-development	NA18523	wes	C	YRI	0	1	1	1	1	C*04:01+C*15:05	C*04:01+C*15:05	C*04:01+C*15:05	protected_two_thirds_consensus
+1000G-development	NA18526	wes	A	CHB	0	1	1	1	1	A*24:02+A*33:03	A*24:02+A*33:03	A*24:02+A*33:03	protected_two_thirds_consensus
+1000G-development	NA18526	wes	B	CHB	0	1	1	1	1	B*40:01+B*58:01	B*40:01+B*58:01	B*40:01+B*58:01	protected_two_thirds_consensus
+1000G-development	NA18526	wes	C	CHB	0	1	1	1	1	C*03:02+C*07:02	C*03:02+C*07:02	C*03:02+C*07:02	protected_two_thirds_consensus
+1000G-development	NA18532	wes	A	CHB	0	0	0	1	1		A*30:01+A*68:01	A*30:01+A*68:01	champion_challenger_resolved_disagreement
+1000G-development	NA18532	wes	B	CHB	0	1	1	1	1	B*13:02+B*15:18	B*13:02+B*15:18	B*13:02+B*15:18	protected_two_thirds_consensus
+1000G-development	NA18532	wes	C	CHB	0	1	1	1	1	C*06:02+C*07:04	C*06:02+C*07:04	C*06:02+C*07:04	protected_two_thirds_consensus
+1000G-development	NA18537	wes	A	CHB	0	1	0	0	0	A*02:07+A*11:01	A*02:07+A*11:01	A*02:07+A*11:01	protected_two_thirds_consensus
+1000G-development	NA18537	wes	B	CHB	0	1	1	1	1	B*38:02+B*46:01	B*38:02+B*46:01	B*38:02+B*46:01	protected_two_thirds_consensus
+1000G-development	NA18537	wes	C	CHB	0	1	1	1	1	C*01:02+C*07:02	C*01:02+C*07:02	C*01:02+C*07:02	protected_two_thirds_consensus
+1000G-development	NA18542	wes	A	CHB	0	1	1	1	1	A*11:01+A*33:03	A*11:01+A*33:03	A*11:01+A*33:03	protected_two_thirds_consensus
+1000G-development	NA18542	wes	B	CHB	0	1	1	1	1	B*46:01+B*58:01	B*46:01+B*58:01	B*46:01+B*58:01	protected_two_thirds_consensus
+1000G-development	NA18542	wes	C	CHB	0	1	1	1	1	C*01:02+C*03:02	C*01:02+C*03:02	C*01:02+C*03:02	protected_two_thirds_consensus
+1000G-development	NA18545	wes	A	CHB	0	1	1	1	1	A*11:01+A*24:02	A*11:01+A*24:02	A*11:01+A*24:02	protected_two_thirds_consensus
+1000G-development	NA18545	wes	B	CHB	1	1	1	1	1	B*40:01+B*40:01	B*40:01+B*40:01	B*40:01+B*40:01	protected_two_thirds_consensus
+1000G-development	NA18545	wes	C	CHB	0	1	1	1	1	C*04:01+C*07:02	C*04:01+C*07:02	C*04:01+C*07:02	protected_two_thirds_consensus
+1000G-development	NA18858	rnaseq	A	Yoruba	0	1	1	1	1	A*29:02+A*30:01	A*29:02+A*30:01	A*29:02+A*30:01	protected_two_thirds_consensus
+1000G-development	NA18858	rnaseq	B	Yoruba	0	1	1	1	1	B*18:01+B*49:01	B*18:01+B*49:01	B*18:01+B*49:01	protected_two_thirds_consensus
+1000G-development	NA18858	rnaseq	C	Yoruba	0	1	1	1	1	C*02:02+C*07:01	C*02:02+C*07:01	C*02:02+C*07:01	protected_two_thirds_consensus
+1000G-development	NA18858	wes	A	YRI	0	1	1	1	1	A*29:02+A*30:01	A*29:02+A*30:01	A*29:02+A*30:01	protected_two_thirds_consensus
+1000G-development	NA18858	wes	B	YRI	0	1	1	1	1	B*18:01+B*49:01	B*18:01+B*49:01	B*18:01+B*49:01	protected_two_thirds_consensus
+1000G-development	NA18858	wes	C	YRI	0	1	1	1	1	C*02:02+C*07:01	C*02:02+C*07:01	C*02:02+C*07:01	protected_two_thirds_consensus
+1000G-development	NA18861	rnaseq	A	Yoruba	0	1	1	1	1	A*03:01+A*68:02	A*03:01+A*68:02	A*03:01+A*68:02	protected_two_thirds_consensus
+1000G-development	NA18861	rnaseq	B	Yoruba	0	1	1	1	1	B*13:02+B*57:03	B*13:02+B*57:03	B*13:02+B*57:03	protected_two_thirds_consensus
+1000G-development	NA18861	rnaseq	C	Yoruba	0	1	1	1	1	C*03:02+C*07:01	C*03:02+C*07:01	C*03:02+C*07:01	protected_two_thirds_consensus
+1000G-development	NA18861	wes	A	YRI	0	1	1	1	1	A*03:01+A*68:02	A*03:01+A*68:02	A*03:01+A*68:02	protected_two_thirds_consensus
+1000G-development	NA18861	wes	B	YRI	0	1	1	1	1	B*13:02+B*57:03	B*13:02+B*57:03	B*13:02+B*57:03	protected_two_thirds_consensus
+1000G-development	NA18861	wes	C	YRI	0	1	1	1	1	C*03:02+C*07:01	C*03:02+C*07:01	C*03:02+C*07:01	protected_two_thirds_consensus
+1000G-development	NA19093	rnaseq	A	Yoruba	0	1	1	1	1	A*23:01+A*30:01	A*23:01+A*30:01	A*23:01+A*30:01	protected_two_thirds_consensus
+1000G-development	NA19093	rnaseq	B	Yoruba	0	1	1	1	1	B*35:01+B*53:01	B*35:01+B*53:01	B*35:01+B*53:01	protected_two_thirds_consensus
+1000G-development	NA19093	rnaseq	C	Yoruba	0	1	1	1	1	C*04:01+C*08:02	C*04:01+C*08:02	C*04:01+C*08:02	protected_two_thirds_consensus
+1000G-development	NA19093	wes	A	YRI	0	1	1	1	1	A*23:01+A*30:01	A*23:01+A*30:01	A*23:01+A*30:01	protected_two_thirds_consensus
+1000G-development	NA19093	wes	B	YRI	0	1	1	1	1	B*35:01+B*53:01	B*35:01+B*53:01	B*35:01+B*53:01	protected_two_thirds_consensus
+1000G-development	NA19093	wes	C	YRI	0	1	1	1	1	C*04:01+C*08:02	C*04:01+C*08:02	C*04:01+C*08:02	protected_two_thirds_consensus
+1000G-development	NA19099	rnaseq	A	Yoruba	0	1	1	1	1	A*23:01+A*36:01	A*23:01+A*36:01	A*23:01+A*36:01	protected_two_thirds_consensus
+1000G-development	NA19099	rnaseq	B	Yoruba	1	0	0	1	1		B*07:02+B*07:02	B*07:02+B*07:02	plurality_fallback_missing_cc
+1000G-development	NA19099	rnaseq	C	Yoruba	0	0	0	1	1		C*07:02+C*15:05	C*07:02+C*15:05	champion_challenger_resolved_disagreement
+1000G-development	NA19099	wes	A	YRI	0	1	1	1	1	A*23:01+A*36:01	A*23:01+A*36:01	A*23:01+A*36:01	protected_two_thirds_consensus
+1000G-development	NA19099	wes	B	YRI	1	1	1	1	1	B*07:02+B*07:02	B*07:02+B*07:02	B*07:02+B*07:02	protected_two_thirds_consensus
+1000G-development	NA19099	wes	C	YRI	0	1	1	1	1	C*07:02+C*15:05	C*07:02+C*15:05	C*07:02+C*15:05	protected_two_thirds_consensus
+1000G-development	NA19116	rnaseq	A	Yoruba	0	1	1	1	1	A*23:01+A*33:03	A*23:01+A*33:03	A*23:01+A*33:03	protected_two_thirds_consensus
+1000G-development	NA19116	rnaseq	B	Yoruba	0	1	0	0	0	B*07:02+B*39:24	B*07:02+B*39:24	B*07:02+B*39:24	protected_two_thirds_consensus
+1000G-development	NA19116	rnaseq	C	Yoruba	0	1	1	1	1	C*07:01+C*07:02	C*07:01+C*07:02	C*07:01+C*07:02	protected_two_thirds_consensus
+1000G-development	NA19116	wes	A	YRI	0	1	1	1	1	A*23:01+A*33:03	A*23:01+A*33:03	A*23:01+A*33:03	protected_two_thirds_consensus
+1000G-development	NA19116	wes	B	YRI	0	1	0	0	0	B*07:02+B*39:24	B*07:02+B*39:24	B*07:02+B*39:24	protected_two_thirds_consensus
+1000G-development	NA19116	wes	C	YRI	0	1	1	1	1	C*07:01+C*07:02	C*07:01+C*07:02	C*07:01+C*07:02	protected_two_thirds_consensus
+1000G-development	NA19129	rnaseq	A	Yoruba	0	1	1	1	1	A*02:02+A*23:01	A*02:02+A*23:01	A*02:02+A*23:01	protected_two_thirds_consensus
+1000G-development	NA19129	rnaseq	B	Yoruba	0	1	1	1	1	B*07:02+B*58:01	B*07:02+B*58:01	B*07:02+B*58:01	protected_two_thirds_consensus
+1000G-development	NA19129	rnaseq	C	Yoruba	0	0	0	1	1		C*07:01+C*07:02	C*07:01+C*07:02	champion_challenger_resolved_disagreement
+1000G-development	NA19129	wes	A	YRI	0	1	1	1	1	A*02:02+A*23:01	A*02:02+A*23:01	A*02:02+A*23:01	protected_two_thirds_consensus
+1000G-development	NA19129	wes	B	YRI	0	1	1	1	1	B*07:02+B*58:01	B*07:02+B*58:01	B*07:02+B*58:01	protected_two_thirds_consensus
+1000G-development	NA19129	wes	C	YRI	0	0	0	0	0		C*07:02+C*07:18	C*07:02+C*07:18	champion_challenger_resolved_disagreement
+1000G-development	NA19130	rnaseq	A	Yoruba	0	1	1	1	1	A*33:03+A*36:01	A*33:03+A*36:01	A*33:03+A*36:01	protected_two_thirds_consensus
+1000G-development	NA19130	rnaseq	B	Yoruba	0	1	1	1	1	B*13:02+B*35:01	B*13:02+B*35:01	B*13:02+B*35:01	protected_two_thirds_consensus
+1000G-development	NA19130	rnaseq	C	Yoruba	1	0	0	0	1		C*04:01+C*04:334	C*04:01+C*04:01	champion_challenger_resolved_disagreement
+1000G-development	NA19130	wes	A	YRI	0	1	1	1	1	A*33:03+A*36:01	A*33:03+A*36:01	A*33:03+A*36:01	protected_two_thirds_consensus
+1000G-development	NA19130	wes	B	YRI	0	0	0	0	1		B*13:01+B*35:01	B*13:02+B*35:01	champion_challenger_resolved_disagreement
+1000G-development	NA19130	wes	C	YRI	1	1	1	1	1	C*04:01+C*04:01	C*04:01+C*04:01	C*04:01+C*04:01	protected_two_thirds_consensus
+1000G-development	NA19131	rnaseq	A	Yoruba	0	1	0	0	0	A*66:03+A*68:02	A*66:03+A*68:02	A*66:03+A*68:02	protected_two_thirds_consensus
+1000G-development	NA19131	rnaseq	B	Yoruba	0	1	1	1	1	B*42:01+B*53:01	B*42:01+B*53:01	B*42:01+B*53:01	protected_two_thirds_consensus
+1000G-development	NA19131	rnaseq	C	Yoruba	0	1	1	1	1	C*04:01+C*17:01	C*04:01+C*17:01	C*04:01+C*17:01	protected_two_thirds_consensus
+1000G-development	NA19131	wes	A	YRI	0	1	0	0	0	A*66:03+A*68:02	A*66:03+A*68:02	A*66:03+A*68:02	protected_two_thirds_consensus
+1000G-development	NA19131	wes	B	YRI	0	1	1	1	1	B*42:01+B*53:01	B*42:01+B*53:01	B*42:01+B*53:01	protected_two_thirds_consensus
+1000G-development	NA19131	wes	C	YRI	0	1	1	1	1	C*04:01+C*17:01	C*04:01+C*17:01	C*04:01+C*17:01	protected_two_thirds_consensus
+1000G-development	NA19152	rnaseq	A	Yoruba	0	1	1	1	1	A*03:01+A*26:01	A*03:01+A*26:01	A*03:01+A*26:01	protected_two_thirds_consensus
+1000G-development	NA19152	rnaseq	B	Yoruba	0	1	1	1	1	B*15:10+B*56:01	B*15:10+B*56:01	B*15:10+B*56:01	protected_two_thirds_consensus
+1000G-development	NA19152	rnaseq	C	Yoruba	0	1	1	1	1	C*01:02+C*08:04	C*01:02+C*08:04	C*01:02+C*08:04	protected_two_thirds_consensus
+1000G-development	NA19152	wes	A	YRI	0	1	1	1	1	A*03:01+A*26:01	A*03:01+A*26:01	A*03:01+A*26:01	protected_two_thirds_consensus
+1000G-development	NA19152	wes	B	YRI	0	1	1	1	1	B*15:10+B*56:01	B*15:10+B*56:01	B*15:10+B*56:01	protected_two_thirds_consensus
+1000G-development	NA19152	wes	C	YRI	0	1	1	1	1	C*01:02+C*08:04	C*01:02+C*08:04	C*01:02+C*08:04	protected_two_thirds_consensus
+1000G-development	NA19153	rnaseq	A	Yoruba	0	1	1	1	1	A*33:03+A*36:01	A*33:03+A*36:01	A*33:03+A*36:01	protected_two_thirds_consensus
+1000G-development	NA19153	rnaseq	B	Yoruba	0	1	1	1	1	B*18:01+B*53:01	B*18:01+B*53:01	B*18:01+B*53:01	protected_two_thirds_consensus
+1000G-development	NA19153	rnaseq	C	Yoruba	0	1	1	1	1	C*04:01+C*05:01	C*04:01+C*05:01	C*04:01+C*05:01	protected_two_thirds_consensus
+1000G-development	NA19153	wes	A	YRI	0	1	1	1	1	A*33:03+A*36:01	A*33:03+A*36:01	A*33:03+A*36:01	protected_two_thirds_consensus
+1000G-development	NA19153	wes	B	YRI	0	1	1	1	1	B*18:01+B*53:01	B*18:01+B*53:01	B*18:01+B*53:01	protected_two_thirds_consensus
+1000G-development	NA19153	wes	C	YRI	0	1	1	1	1	C*04:01+C*05:01	C*04:01+C*05:01	C*04:01+C*05:01	protected_two_thirds_consensus
+1000G-development	NA19209	rnaseq	A	Yoruba	0	1	1	1	1	A*03:01+A*30:01	A*03:01+A*30:01	A*03:01+A*30:01	protected_two_thirds_consensus
+1000G-development	NA19209	rnaseq	B	Yoruba	0	1	1	1	1	B*15:10+B*52:01	B*15:10+B*52:01	B*15:10+B*52:01	protected_two_thirds_consensus
+1000G-development	NA19209	rnaseq	C	Yoruba	0	1	1	1	1	C*08:04+C*16:01	C*08:04+C*16:01	C*08:04+C*16:01	protected_two_thirds_consensus
+1000G-development	NA19209	wes	A	YRI	0	1	1	1	1	A*03:01+A*30:01	A*03:01+A*30:01	A*03:01+A*30:01	protected_two_thirds_consensus
+1000G-development	NA19209	wes	B	YRI	0	1	1	1	1	B*15:10+B*52:01	B*15:10+B*52:01	B*15:10+B*52:01	protected_two_thirds_consensus
+1000G-development	NA19209	wes	C	YRI	0	1	1	1	1	C*08:04+C*16:01	C*08:04+C*16:01	C*08:04+C*16:01	protected_two_thirds_consensus
+1000G-development	NA19210	rnaseq	C	Yoruba	0	1	1	1	1	C*03:02+C*08:04	C*03:02+C*08:04	C*03:02+C*08:04	protected_two_thirds_consensus
+1000G-development	NA19210	wes	C	YRI	0	1	1	1	1	C*03:02+C*08:04	C*03:02+C*08:04	C*03:02+C*08:04	protected_two_thirds_consensus
+1000G-development	NA20504	rnaseq	B	Tuscan	0	1	1	1	1	B*55:01+B*57:01	B*55:01+B*57:01	B*55:01+B*57:01	protected_two_thirds_consensus
+1000G-development	NA20504	wes	B	TSI	0	1	1	1	1	B*55:01+B*57:01	B*55:01+B*57:01	B*55:01+B*57:01	protected_two_thirds_consensus
+1000G-development	NA20508	rnaseq	B	Tuscan	0	1	1	1	1	B*41:02+B*57:01	B*41:02+B*57:01	B*41:02+B*57:01	protected_two_thirds_consensus
+1000G-development	NA20508	wes	B	TSI	0	1	1	1	1	B*41:02+B*57:01	B*41:02+B*57:01	B*41:02+B*57:01	protected_two_thirds_consensus
+1000G-development	NA20509	rnaseq	C	Tuscan	0	1	1	1	1	C*06:02+C*16:02	C*06:02+C*16:02	C*06:02+C*16:02	protected_two_thirds_consensus
+1000G-development	NA20509	wes	C	TSI	0	1	1	1	1	C*06:02+C*16:02	C*06:02+C*16:02	C*06:02+C*16:02	protected_two_thirds_consensus
+1000G-development	NA20510	rnaseq	B	Tuscan	0	1	1	1	1	B*15:17+B*55:01	B*15:17+B*55:01	B*15:17+B*55:01	protected_two_thirds_consensus
+1000G-development	NA20510	wes	B	TSI	0	1	1	1	1	B*15:17+B*55:01	B*15:17+B*55:01	B*15:17+B*55:01	protected_two_thirds_consensus
+1000G-development	NA20519	rnaseq	C	Tuscan	0	1	1	1	1	C*02:02+C*06:02	C*02:02+C*06:02	C*02:02+C*06:02	protected_two_thirds_consensus
+1000G-development	NA20519	wes	C	TSI	0	1	1	1	1	C*02:02+C*06:02	C*02:02+C*06:02	C*02:02+C*06:02	protected_two_thirds_consensus
+1000G-development	NA20521	rnaseq	B	Tuscan	0	1	1	1	1	B*14:01+B*49:01	B*14:01+B*49:01	B*14:01+B*49:01	protected_two_thirds_consensus
+1000G-development	NA20521	wes	B	TSI	0	1	1	1	1	B*14:01+B*49:01	B*14:01+B*49:01	B*14:01+B*49:01	protected_two_thirds_consensus
+1000G-development	NA20528	rnaseq	B	Tuscan	0	0	0	1	1		B*41:02+B*44:03	B*41:02+B*44:03	champion_challenger_resolved_disagreement
+1000G-development	NA20528	wes	B	TSI	0	1	1	1	1	B*41:02+B*44:03	B*41:02+B*44:03	B*41:02+B*44:03	protected_two_thirds_consensus

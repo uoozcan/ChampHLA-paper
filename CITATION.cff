@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: If you use ChampHLA, please cite the software and the accompanying paper.
+title: ChampHLA analysis, audit and manuscript code
+abstract: >-
+  The analysis, audit and freeze code accompanying the ChampHLA benchmark of
+  equal-weight caller consensus for short-read HLA class-I typing. This repository
+  holds the statistical evaluation, the claim auditor that ties every reported value
+  to a result registry, the provenance freeze manifests, and the manuscript sources.
+  The Nextflow DSL2 workflow that runs the callers and harmonises their output is a
+  separate repository, https://github.com/uoozcan/ChampHLA; every path cited in the
+  manuscript resolves inside this repository rather than that one.
+type: software
+repository-code: "https://github.com/uoozcan/ChampHLA-paper"
+license: MIT
+version: "0.1.0"
+# date-released is deliberately absent rather than carrying a placeholder. CFF 1.2.0
+# types it as a date, so "TO CONFIRM" made this file fail schema validation, which
+# broke GitHub's citation widget and Zenodo ingestion. It is optional in 1.2.0, so
+# omitting it keeps the file valid. Add it, with the DOI below, when the release tag
+# is cut. It remains an outstanding author field: see AUTHOR_FIELDS_TO_COMPLETE.md.
+#
+# At release, add the archived DOI as:
+#   identifiers:
+#     - type: doi
+#       value: 10.5281/zenodo.XXXXXXX
+#       description: Archived release of this repository
+keywords:
+  - HLA typing
+  - consensus methods
+  - ensemble benchmarking
+  - immunogenomics
+  - reproducible workflows
+authors:
+  - family-names: Özcan
+    given-names: Umut Onur
+  - family-names: Ikonen
+    given-names: Nemo
+  - family-names: Sergeev
+    given-names: Philipp
+  - family-names: Sinervuori
+    given-names: Ella
+  - family-names: Saeed
+    given-names: Khalid
+  - family-names: Tanoli
+    given-names: Ziaurrehman
+  - family-names: Vähä-Koskela
+    given-names: Markus
+# TO CONFIRM - author order, affiliations and ORCIDs are not yet agreed for
+# submission. The order above follows earlier internal records only.

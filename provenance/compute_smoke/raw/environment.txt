@@ -1,0 +1,12 @@
+[bapps] v202603 modules added to MODULEPATH
+(/appl/soft/manual/bio/x86_64/spackmods/v202603/Core) 
+Python 3.11.15
+samtools 1.21
+
+      N E X T F L O W
+      version 25.10.2 build 10555
+      created 28-11-2025 19:24 UTC (21:24 EEST)
+      cite doi:10.1038/nbt.3820
+      http://nextflow.io
+
+apptainer version 1.4.5-3.el9

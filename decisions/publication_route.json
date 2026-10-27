@@ -1,0 +1,13 @@
+{
+  "schema_version": "publication-route-2",
+  "active_manuscript": "benchmark",
+  "primary_method": "ChampHLA-Consensus",
+  "method_manuscript_status": "superseded_by_benchmark",
+  "method_manuscript_note": "TwoThirdsGuardedCC is demoted to an ablation. It does not significantly improve on ChampHLA-Consensus in WES (Holm p=1.0) and is exactly tied in RNA-seq. The conditional method manuscript is retained as an archived record, not activated.",
+  "amendment": "decisions/20260908_consensus_primary_amendment.json",
+  "count_reconciliation": "decisions/20260908_count_reconciliation.json",
+  "external_validation_complete": false,
+  "rna_locked_minimum_met": false,
+  "historical_wgs_valid": false,
+  "abstract_numeric_performance_allowed": false
+}

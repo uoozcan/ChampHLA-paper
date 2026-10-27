@@ -1,0 +1,16 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261009_nci60_estimates_withdrawn",
+  "date": "2026-10-09",
+  "status": "CORRECTION - reporting, no method change",
+  "addresses": "reports/pre_submission_review_20261008.tsv PSR-014 (MAJOR)",
+  "supersedes_fields_of": "decisions/20261001_nci60_reactivation.json (reporting of NCI-60 concordance in S9.6 and the main text)",
+  "finding": "The NCI-60 concordance figures (84.1% WES, 81.7% RNA-seq and the per-gene values) had no registry row and no tracked per-locus artifact. artifacts/source_results/publication_assessment.json records only the legacy run's panels (WES HLA-HD, OptiType, SpecHLA, T1K; RNA-seq arcasHLA, HLA-HD, OptiType, seq2HLA, SpecHLA, T1K), sample counts and a legacy heuristic confidence weighting. The text claimed the same caller versions, normalization pipeline and frozen plurality policy as the development analysis, which is not true, and attributed lower HLA-C RNA-seq concordance to expression variability without a citation.",
+  "rule": "Numbers that cannot be traced to a registered result are not reported. The NCI-60 sentences are removed from the main text, and S9.6 describes the legacy analysis without its estimates. Any future NCI-60 estimate must be regenerated under the current call-state rules, the fail-closed reference parser, the current workflow release and the development panels, with registry rows and binomial intervals.",
+  "changes": [
+    "manuscript.md: the Results sentence reporting NCI-60 concordance and the Discussion sentence on NCI-60 and HLA-C expression removed; a pointer to S9.6 remains.",
+    "supplementary.md S9.6: retitled 'legacy, not regenerated'; legacy panels and scoring stated; estimates withdrawn.",
+    "supplementary.md S8: the NCI-60 row notes the withdrawal."
+  ],
+  "pending": "Regeneration on Roihu from the surviving caller outputs, or a rerun with workflow release 3.4.0, once CSC access is renewed; not required for the development claims."
+}

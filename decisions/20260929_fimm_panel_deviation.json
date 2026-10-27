@@ -1,0 +1,76 @@
+{
+  "schema_version": "panelhla-protocol-amendment-1",
+  "date": "2026-09-29",
+  "status": "APPROVED_EXPLORATORY",
+  "author_confirmation": {
+    "confirmed_on": "2026-09-30",
+    "confirmation": "Explicit project-owner approval recorded in the project session.",
+    "scope": "ArcasHLA, OptiType and SpecHLA for FIMM exploratory non-accuracy reporting only"
+  },
+  "approval_scope": {
+    "cohort": "FIMM_AML_MDS",
+    "panel": [
+      "ArcasHLA",
+      "OptiType",
+      "SpecHLA"
+    ],
+    "eligibility_rules": {
+      "cross_modality": "two coequal definitions are reported: all_callable requires complete plurality pairs in both assays; contested_both additionally requires at least two valid callers in both assays",
+      "caller_dissent": "locus has at least two valid caller genotypes",
+      "single_caller": "reported as diagnostic composition only, not interpreted as voting evidence"
+    },
+    "permitted_claims": "exploratory non-accuracy agreement claims only",
+    "accuracy_claims_permitted": false,
+    "abstract_claims_permitted": false
+  },
+  "superseded_protocol_modified": false,
+  "superseded_protocol": "configs/benchmark_resource_protocol_v2.json",
+  "trigger": {
+    "event": "The author supplied hla_typing_results_combined_v7.xlsx, which carries the Patient_sample and Patient identifier columns that the previously available copy had stripped.",
+    "consequence": "Specimens can be paired by identity, so the cross-modality endpoint withdrawn in decisions/20260929_fimm_legacy_withdrawal.json becomes computable without circularity."
+  },
+  "locked_decisions": {
+    "panel_deviation": {
+      "decision": "The primary FIMM analysis votes over the three callers the cohort actually has for each assay: ArcasHLA, OptiType and SpecHLA.",
+      "reason": "PanelHLA's frozen panels admit only two of the three per assay. arcasHLA is not in the WES panel and SpecHLA is not in the RNA panel, so the strict panel reduces every locus to a two-caller lexicographic tie-break, which cannot demonstrate anything about voting. The strict panel is retained as a sensitivity analysis.",
+      "implementation": "An optional panel argument on build_consensus. PANELS itself is unmodified, so the 1000G development analysis is untouched; tests/test_consensus.py pins that the default path is unchanged.",
+      "observed_effect": "Under the strict WES panel 68.6 percent of loci have no callable caller at all and only 22 loci are contested. Under the three-caller panel 11.3 percent have none and 487 loci are contested."
+    },
+    "pairing_unit": {
+      "primary": "Patient_sample, the specimen identifier. The same physical specimen sequenced two ways, so a disagreement is assay or caller rather than biology.",
+      "secondary": "Patient, the donor identifier, where the two assays may come from different specimens and a difference may be disease evolution or HLA loss.",
+      "eligibility_status": "Within the specimen unit, all_callable and contested_both are coequal exploratory definitions; neither is designated primary."
+    },
+    "replicate_collapse": {
+      "decision": "Where the workbook carries more than one row for one specimen, caller and assay, agreeing repeats are kept once and disagreeing repeats are recorded as the caller not calling that locus.",
+      "reason": "build_consensus refuses a caller that proposes two pairs at one locus. Choosing between contradictory genotypes would be inventing a result and letting the caller vote twice would weight it above the rest of the panel.",
+      "observed": "642 replicate groups, of which 561 agreed and 81 conflicted."
+    },
+    "exclusions": {
+      "align_pair": "16 rows, a parsing artefact in the identifier column",
+      "VX_ prefixed": "16 rows, the VenEx cohort, analysed separately from its own native caller outputs",
+      "retained": "FH, FHRB, HruH, DEN and KI"
+    },
+    "single_allele_handling": {
+      "decision": "A locus reporting one allele is recorded as partial, not duplicated into a homozygote.",
+      "reason": "This is normalize_diploid_call's own truth-free default. It affects about 1.4 percent of locus slots and the count is reported.",
+      "note": "This differs from the published 1000G convention, where the harmonisation correction was pre-registered, found to lower accuracy, and set aside per decisions/20260918_harmonisation_correction_result.json. With no truth in FIMM there is nothing to tune against, so the conservative default governs."
+    },
+    "data_quality_recorded_not_repaired": {
+      "numeric_allele_cells": "89 WES rows carry a bare integer in an allele column with neighbouring cells blank and alleles displaced rightwards, a column shift upstream. They are left to fail normalisation and surface as invalid rather than being cleaned away.",
+      "no_match_token": "18 locus cells read no_match, treated as a caller no-call rather than invalid data."
+    }
+  },
+  "endpoints_permitted": [
+    "cross-modality exact unordered two-field agreement, paired by identity",
+    "panel composition and call rates per consensus rule",
+    "dissent of the plurality against each single caller, restricted to contested loci"
+  ],
+  "endpoints_forbidden": [
+    "any accuracy claim: the cohort has no independent HLA typing",
+    "any external-validation claim",
+    "any claim that cross-modality agreement reflects independent methods concurring, because no caller is unique to any assay"
+  ],
+  "retention_rule": "All results are retained regardless of direction.",
+  "classification": "post_hoc_exploratory_not_prespecified"
+}

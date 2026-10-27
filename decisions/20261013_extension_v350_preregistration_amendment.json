@@ -1,0 +1,78 @@
+{
+  "schema_version": "champhla-preregistration-amendment-1",
+  "decision_id": "20261013_extension_v350_preregistration_amendment",
+  "date": "2026-10-13",
+  "status": "SIGNED - analysis commit and extension-analysis code digest pinned; extension staging permitted; the one-time truth join waits for the published Zenodo deposit named by zenodo.publication_record",
+  "amends_without_rewriting": {
+    "record": "decisions/20261009_extension_confirmatory_preregistration.json",
+    "sha256": "e48c58a2f44e0c87286840ffb3598c9cc142e9cf6a948240617bc5d4796a19a7"
+  },
+  "release_pin": {
+    "workflow": "PanelHLA",
+    "tag": "v3.5.0",
+    "commit": "66d949da90861da6cf60cf1d4bee2f094f2518bd",
+    "archive": "PanelHLA-3.5.0.tar.gz",
+    "archive_sha256": "22d9ed3bd808aec7364fbe869ad048c561be38bd02479dff530fe13fee4da7ed",
+    "resource_manifest": "configs/caller_resources_v2.json",
+    "resource_manifest_sha256": "300fe05b70e86ac22235864fa418eb54d9d5df1ddddb8f4851a165622457e5ef",
+    "analysis_commit": "677bab435aaa61bba49a6e1740bf7c4b620146e2",
+    "analysis_commit_rule": "fill with the exact clean paper-repository commit containing this signed amendment, the final analysis code and freeze configuration; then update the Zenodo bundle before signing",
+    "analysis_code_sha256": "0b34744b37444634a91b4131daeddb47c2a7f1c6c45611c1a06030fa8318c32c",
+    "analysis_code_paths": [
+      "src/champhla_confirmation",
+      "scripts/run_extension.py",
+      "configs/caller_resources_v2.json",
+      "cohorts/frozen_initial_rosters.tsv"
+    ],
+    "analysis_code_digest_rule": "src/champhla_confirmation/readiness.py:extension_analysis_code_sha256; recomputed identically from a clean git archive of the analysis commit",
+    "input_manifest": {
+      "path": "cohorts/extension_v350_manifest.tsv",
+      "sha256": "cb24725e7cca9669b8f91026e01a108f755fe7e6323e8dee08f3b9256cc0b820"
+    }
+  },
+  "t1k_correction": {
+    "schema": "validate the documented current nine-column genotype output (eight genotype fields plus secondary_alleles) or the explicit legacy eight-column schema; reject all unknown or malformed schemas",
+    "quality": "discard any primary allele whose T1K quality is <=0",
+    "count_one": "with num_diff_alleles=1, duplicate exactly one surviving positive-quality primary allele as caller-native homozygosity",
+    "count_two": "with num_diff_alleles=2, require two surviving positive-quality primary alleles; one survivor is partial/non-call, never homozygous",
+    "count_zero": "accept only a native non-call whose two primary allele triples are placeholders",
+    "secondary_alleles": "parse and retain in provenance but never promote to the primary genotype",
+    "failure": "contradictory rows, malformed fields, unknown schemas and parser errors fail the workflow task"
+  },
+  "unchanged_commitments": [
+    "equal-weight plurality rule and lexicographic tie-break",
+    "frozen WES and RNA-seq caller panels",
+    "89-WES/99-RNA frozen subject roster and zero-overlap rule",
+    "registered exact two-field primary endpoint",
+    "multiplicity and truth-audit rules",
+    "no subject replacement",
+    "one-time truth join only after prediction/code/manifest freeze",
+    "report the extension regardless of direction"
+  ],
+  "frozen_roster": {
+    "path": "cohorts/frozen_initial_rosters.tsv",
+    "sha256": "c54a2edaf7225f2bee886ab6e55569878e00fd0040a6e1598da7016a4d399c34"
+  },
+  "zenodo": {
+    "reserved_doi": "10.5281/zenodo.23251288",
+    "bundle_status": "built after this signature from the signed record; published by the author",
+    "publication_record": "decisions/20261026_extension_preregistration_deposit_published.json"
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-26, explicit author statement in the Claude Code session: 'i sign extension amendment'",
+    "signature_rule": "commit this amendment alone after filling and verifying the analysis commit and Zenodo bundle; no extension input may be staged before that signature",
+    "statement_record": "decisions/20261026_extension_amendment_author_statement.json"
+  },
+  "gates": {
+    "public_immutable_release": false,
+    "public_timestamp_via_zenodo_hash_bundle": true,
+    "analysis_commit_pinned": true,
+    "zenodo_bundle_updated": false,
+    "author_signed": true,
+    "extension_readiness_revalidated_after_signature": false,
+    "extension_stage_or_submit_permitted": true,
+    "truth_join_permitted": false
+  },
+  "public_timestamp_route": "Author choice of 2026-10-26 (decisions/20261026_extension_amendment_author_statement.json): instead of a public repository release, a Zenodo deposit under the reserved DOI holds this signed record, the original pre-registration, the frozen roster and input manifest, and the SHA-256 of PanelHLA-3.5.0.tar.gz and of a git archive of the analysis commit. The deposit is published before any truth join; the repositories stay private until release."
+}

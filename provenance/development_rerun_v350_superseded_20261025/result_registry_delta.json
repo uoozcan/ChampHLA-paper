@@ -1,0 +1,137 @@
+{
+  "author_approval_reasons": [
+    "fitted-policy conclusion changed",
+    "fitted-policy ranking changed",
+    "headline direction changed: DEV_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+    "headline direction changed: DEV_PAIRED_RNASEQ_CALLER_OPTITYPE",
+    "headline direction changed: DEV_PAIRED_RNASEQ_CHAMPIONCHALLENGER",
+    "headline direction changed: DEV_PAIRED_RNASEQ_METACONSENSUS",
+    "headline direction changed: DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+    "headline direction changed: DEV_PAIRED_WES_CALLER_POLYSOLVER",
+    "headline direction changed: DEV_PAIRED_WES_METACONSENSUS",
+    "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+    "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_CALLER_HLA_HD",
+    "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_WES_CALLER_POLYSOLVER",
+    "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+    "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_HLA_HD",
+    "significance interpretation changed (adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+    "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+    "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+    "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+    "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+    "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_HLA_HD",
+    "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+    "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+    "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_FAMILYGATEDCC",
+    "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+    "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+    "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+    "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+    "strongest-caller identity changed"
+  ],
+  "author_approval_required": true,
+  "new_best_fitted": {
+    "rnaseq": [
+      "MetaConsensus",
+      "MetaConsensus"
+    ],
+    "wes": [
+      "MVFlooredCC",
+      "MVFlooredCC",
+      "MetaConsensus"
+    ]
+  },
+  "new_fitted_conclusion": {
+    "rnaseq": {
+      "any_fitted_improves_on_plurality": true,
+      "best_fitted_estimate": 0.9576271186440678,
+      "best_fitted_methods": [
+        "MetaConsensus",
+        "MetaConsensus"
+      ],
+      "plurality_estimate": 0.9491525423728814
+    },
+    "wes": {
+      "any_fitted_improves_on_plurality": false,
+      "best_fitted_estimate": 0.934640522875817,
+      "best_fitted_methods": [
+        "MVFlooredCC",
+        "MVFlooredCC",
+        "MetaConsensus"
+      ],
+      "plurality_estimate": 0.934640522875817
+    }
+  },
+  "new_registry": "D:\\projects\\project_2008084\\champhla_scirep_rerun_wt\\result_registry.tsv",
+  "new_rows": 628,
+  "new_strongest_callers": {
+    "rnaseq": [
+      "Caller:OptiType",
+      "Caller:OptiType"
+    ],
+    "wes": [
+      "Caller:OptiType",
+      "Caller:OptiType"
+    ]
+  },
+  "old_best_fitted": {
+    "rnaseq": [
+      "ChampionChallenger",
+      "MVFlooredCC",
+      "MVFlooredCC",
+      "TwoThirdsGuardedCC"
+    ],
+    "wes": [
+      "BestSingleTool_nestedCV",
+      "BestSingleTool_nestedCV",
+      "MVFlooredCC",
+      "MVFlooredCC",
+      "MetaConsensus",
+      "MetaConsensus"
+    ]
+  },
+  "old_fitted_conclusion": {
+    "rnaseq": {
+      "any_fitted_improves_on_plurality": false,
+      "best_fitted_estimate": 0.9576271186440678,
+      "best_fitted_methods": [
+        "ChampionChallenger",
+        "MVFlooredCC",
+        "MVFlooredCC",
+        "TwoThirdsGuardedCC"
+      ],
+      "plurality_estimate": 0.9576271186440678
+    },
+    "wes": {
+      "any_fitted_improves_on_plurality": false,
+      "best_fitted_estimate": 0.934640522875817,
+      "best_fitted_methods": [
+        "BestSingleTool_nestedCV",
+        "BestSingleTool_nestedCV",
+        "MVFlooredCC",
+        "MVFlooredCC",
+        "MetaConsensus",
+        "MetaConsensus"
+      ],
+      "plurality_estimate": 0.934640522875817
+    }
+  },
+  "old_registry": "D:\\projects\\project_2008084\\champhla_scirep_rerun_wt\\provenance\\development_rerun_v350\\historical_result_registry_pre_v350.tsv",
+  "old_rows": 631,
+  "old_strongest_callers": {
+    "rnaseq": [
+      "Caller:HLA-HD"
+    ],
+    "wes": [
+      "Caller:POLYSOLVER",
+      "Caller:POLYSOLVER"
+    ]
+  },
+  "schema_version": "champhla-result-registry-delta-1",
+  "status_counts": {
+    "added": 0,
+    "changed": 419,
+    "removed": 3,
+    "unchanged": 209
+  }
+}

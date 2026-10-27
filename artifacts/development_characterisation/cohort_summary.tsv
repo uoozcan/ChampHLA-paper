@@ -1,0 +1,3 @@
+modality	subjects	loci	subjects_shared_between_assays	requested_subjects_before_truth_filter	requested_subjects_shared_between_assays	requested_loci	excluded_ambiguous_or_unresolved_loci
+wes	63	153	50	130	105	390	237
+rnaseq	51	118	50	106	105	318	200

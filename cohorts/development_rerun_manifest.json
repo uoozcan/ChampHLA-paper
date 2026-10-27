@@ -1,0 +1,17 @@
+{
+  "batch_count": 48,
+  "batch_size": 5,
+  "counts": {
+    "rnaseq": 106,
+    "wes": 130
+  },
+  "purpose": "truth-free public-input manifest for the v3.5.0 development rerun",
+  "schema_version": 1,
+  "selection_rule_status": "historical rule not reconstructed; convenience/development roster",
+  "source_files": {
+    "cohorts/official_1000g_assay_manifest.tsv": "b6ec490d0e1a905a7f66cbdb95e408335559fe66eb5403101da31a5af180e53b",
+    "data/development/normalized_caller_calls.tsv": "6d386681444601c143b725b783e4212a95dc7d9c48066505eedaa12fee3d2c20"
+  },
+  "truth_firewall": "contains sample identifiers and public input metadata only; no reference typing, alleles, caller predictions, or outcomes",
+  "tsv_sha256": "506405a006a2cabc80f8584fa21368d868d56a6164ccd60e017d36173bcbfd85"
+}

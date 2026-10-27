@@ -1,0 +1,28 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261025_rerun_native_homozygote_collection",
+  "date": "2026-10-25",
+  "status": "SIGNED - author chose 'Fix collector, redo once' in the Claude Code session of 2026-10-25",
+  "relates_to": [
+    "decisions/20261008_singleton_native_homozygosity.json",
+    "decisions/20261013_workflow_rerun_primary.json",
+    "decisions/20261025_rerun_registry_delta_approved.json",
+    "decisions/20261025_rerun_registry_delta_approved_identity_rows.json"
+  ],
+  "discovery_path": {
+    "what_happened": "While the author-approved rerun results were being written into the prose, the singleton-sensitivity rows (truth-derived exact scores) showed identical primary and abstain-all scores for HLA-HD, arcasHLA and the vote. A truth-free inspection of the activated caller table then showed that every HLA-HD single-allele row (65 cells) carried HLA-HD's documented homozygous marker '-' as its second allele but had call_status 'partial', so it abstained under the primary policy.",
+    "truth_derived_information_seen": "The registry and delta the author had approved, including the singleton-sensitivity scores that prompted the inspection. The defect itself was confirmed only from caller-output fields (raw alleles, call status, homozygosity basis).",
+    "cause": "scripts/collect_development_rerun.py labelled an aggregate pair as a caller-native declaration only when the v3.5.0 aggregate already marked it callable; it never completed a non-callable single-allele row from the caller's own summary. The v3.5.0 aggregator marks those rows non-callable, so the signed native-declaration policy was not applied to HLA-HD (and could not be applied to arcasHLA)."
+  },
+  "decision": {
+    "correction": "The collector completes a non-callable single-allele row into a homozygous pair, labelled caller_native_declaration, when the caller's own summary declares it: always for HLA-HD ('-'), and for arcasHLA only when the sample's checksummed versions.yml records a release before 0.4.0 (unknown versions abstain). The completed pair must equal the summary's declared pair or collection stops. The abstain-all sensitivity table removes these declarations as before.",
+    "scope": "This restores the signed 2026-10-08 singleton policy; it changes no rule. Collection, activation and the single regeneration are repeated; the previous activation, its collection and its registry are kept as superseded provenance.",
+    "approvals": "decisions/20261025_rerun_registry_delta_approved.json and its identity-rows amendment bind registries computed from the defective inputs; they no longer authorize prose, and the corrected registry needs a new author approval.",
+    "unchanged": "Roster, release, endpoint, consensus rule, panels, multiplicity, singleton policy, outer folds and every analysis choice. Nothing is tuned against a truth-derived quantity."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-10-25, explicit author choice: 'Fix collector, redo once'",
+    "mechanism": "Claude Code session"
+  }
+}

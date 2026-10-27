@@ -1,0 +1,12 @@
+bash: GNU bash, version 5.2.15(1)-release (x86_64-pc-linux-gnu)
+busybox: BusyBox v1.36.1 (2024-06-02 11:42:27 UTC) multi-call binary.
+deb-list: gcc-12-base_12.2.0-14_amd64.deb|libc6_2.36-9+deb12u7_amd64.deb|libgcc-s1_12.2.0-14_amd64.deb|base-passwd_3.6.1_amd64.deb|bash_5.2.15-2+b2_amd64.deb|libc-bin_2.36-9+deb12u7_amd64.deb|libcrypt1_1%3a4.4.33-2_amd64.deb|libtinfo6_6.4-4_amd64.deb|login_1%3a4.13+dfsg1-1+b1_amd64.deb|ncurses-base_6.4-4_all.deb|base-files_12.4+deb12u5_amd64.deb
+glibc: GNU C Library (Debian GLIBC 2.36-9+deb12u7) stable release version 2.36.
+io.buildah.version: 1.35.4
+org.label-schema.build-arch: amd64
+org.label-schema.build-date: Monday_30_March_2026_1:4:42_EEST
+org.label-schema.schema-version: 1.0
+org.label-schema.usage.apptainer.version: 1.3.6-1.el8
+org.label-schema.usage.singularity.deffile.bootstrap: docker
+org.label-schema.usage.singularity.deffile.from: quay.io/biocontainers/t1k:1.0.9--h5ca1c30_0
+pkg-list: gcc-12-base|libc6|libgcc-s1|base-passwd|bash|libc-bin|libcrypt1|libtinfo6|login|ncurses-base|base-files

@@ -1,0 +1,4 @@
+Gene	Allele1	Allele2
+HLA-A	A*29:02	A*01:01
+HLA-B	B*44:03	B*08:01
+HLA-C	C*16:01	C*07:01

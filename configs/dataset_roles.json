@@ -1,0 +1,19 @@
+{
+  "schema_version": "panelhla-dataset-roles-1",
+  "datasets": {
+    "FIMM_AML_MDS": {
+      "role": "exploratory",
+      "accuracy_eligible": false,
+      "abstract_eligible": false,
+      "external_validation_eligible": false,
+      "claim_boundary": "Cross-modality and BB7.2 serogroup agreement only; no independent HLA truth."
+    },
+    "VENEX_WES": {
+      "role": "exploratory",
+      "accuracy_eligible": false,
+      "abstract_eligible": false,
+      "external_validation_eligible": false,
+      "claim_boundary": "Caller availability and within-panel disagreement only; no independent HLA truth."
+    }
+  }
+}

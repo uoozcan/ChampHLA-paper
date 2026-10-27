@@ -1,0 +1,53 @@
+{
+  "schema_version": "champhla-confirmation-protocol-2",
+  "status": "amended_after_development_scores_visible",
+  "supersedes": "configs/confirmation_protocol.json",
+  "superseded_record_retained": true,
+  "amendment_records": [
+    "decisions/20260908_consensus_primary_amendment.json",
+    "decisions/20260917_protocol_amendment.json"
+  ],
+  "note": "configs/confirmation_protocol.json is the frozen pre-registration and is deliberately left unedited. This file records what the code actually executes, so the divergence is machine-readable rather than something a reader must infer by reading evaluation.py.",
+
+  "primary_method": "SimplePluralityLex",
+  "primary_method_published_name": "PanelHLA-Consensus",
+  "primary_gate": "consensus_not_exceeded",
+  "primary_gate_definition": "No comparator significantly exceeds the primary method in any evaluated modality, by exact subject-cluster sign-flip test with Holm correction inside that modality's comparator family.",
+  "primary_gate_is_not_equivalence": "Absence of a significant loss is the claim. The study is not powered as an equivalence trial and no equivalence bound is declared.",
+
+  "reference_aliases_excluded_from_comparator_family": ["SimplePluralityLex", "MajorityVote"],
+  "reference_alias_note": "MajorityVote is the historical name of the same rule and is emitted alongside it. It is excluded from every comparator family; leaving it in compared the primary method against itself and inflated each Holm family by one.",
+
+  "primary_multiplicity": "Holm within each modality comparator family, not across modalities",
+  "multiplicity_change_note": "The frozen protocol declared Holm across WGS, WES and RNA-seq for a three-modality primary endpoint. With a per-modality comparator family the correction is applied within each modality. This is a change in the correction structure and is disclosed, not presented as prespecified.",
+
+  "per_gene_harm_gate": "The primary method must not significantly harm any single gene relative to the abstaining two-thirds baseline.",
+  "per_gene_harm_anchor": "SimplePluralityLex",
+  "per_gene_harm_anchor_note": "Previously anchored on TwoThirdsGuardedCC, which is no longer the primary method. The guarded per-gene test is retained as an ablation record under guarded_cc_per_gene_harm.",
+
+  "guarded_cc_status": "retained_ablation",
+  "endpoint": "fixed-denominator exact unordered two-field correctness",
+  "absent_comparator_scoring": "A comparator with no row at an eligible locus is scored incorrect there, so every method shares one denominator. Per-comparator coverage is reported beside each comparison.",
+
+  "genes": ["A", "B", "C"],
+  "manuscript_modalities": ["wes", "rnaseq"],
+  "manuscript_modalities_note": "WGS is excluded from the reported scope because its legacy inputs are invalid. It appears only as a diagnostic. The evaluation artifact records modalities_evaluated so the scope of any run is auditable.",
+  "reporting_denominator": {"wes": 390, "rnaseq": 321},
+
+  "panels": {
+    "wgs": ["HLA-HD", "Kourami", "OptiType", "SpecHLA", "T1K"],
+    "wes": ["HLA-HD", "OptiType", "POLYSOLVER", "SpecHLA", "T1K"],
+    "rnaseq": ["ArcasHLA", "HLA-HD", "OptiType", "T1K"]
+  },
+
+  "bootstrap_iterations": 100000,
+  "bootstrap_seeding": "per (modality, comparator); seeding per modality alone made every comparator in a modality resample on an identical sequence, so their intervals were perfectly correlated",
+  "random_seed": 20260831,
+  "confidence_intervals_corrected_for_multiplicity": false,
+  "interval_versus_test_precedence": "Where a bootstrap interval excludes zero but the Holm-adjusted exact test does not reach significance, the Holm-adjusted test governs the claim.",
+
+  "genome_reference": "GRCh38DH",
+  "imgt_hla_version_note": "The single value 3.59.0 in configs/runtime_versions.json describes the project reference resources, not the callers. Each caller bundles its own IPD-IMGT/HLA release, spanning 3.11.0 to 3.63.0. See artifacts/db_release_resolution/db_release_resolution.json and the Methods table.",
+
+  "claim_boundary": "Equal-weight consensus matches the modality-best caller without prior caller selection, and is not exceeded by any tested integration method in WES or RNA-seq."
+}

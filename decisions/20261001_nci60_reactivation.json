@@ -1,0 +1,54 @@
+{
+  "schema_version": "panelhla-protocol-amendment-1",
+  "date": "2026-10-01",
+  "status": "APPROVED_EXPLORATORY",
+  "author_confirmation": {
+    "confirmed_on": "2026-10-01",
+    "confirmation": "Explicit project-owner approval recorded in the project session.",
+    "scope": "NCI-60 WES and RNA-seq as exploratory descriptive external application only; no accuracy or external-validation claim"
+  },
+  "supersedes": "The NCI-60 exclusion in decisions/publication_route.json is narrowed: the original exclusion was of 'external validation claims'; this record authorises NCI-60 call-level data for an exploratory descriptive application section (S9.6) only.",
+  "original_exclusion_basis": {
+    "source": "decisions/publication_route.json and decisions/20260924_publication_remediation.json",
+    "reason": "NCI-60 and GIAB arms do not meet the active external-validation standard (small, mixed provenance, not the prespecified primary external cohort).",
+    "kept_exclusion": "NCI-60 numbers must NOT appear in the abstract, conclusions, primary accuracy table (Table 1), or any external-validation claim. The exclusion of NCI-60 as a primary validation cohort is not lifted."
+  },
+  "reactivation_scope": {
+    "cohort": "NCI-60",
+    "modalities": ["wes", "rnaseq"],
+    "samples": 42,
+    "class_I_loci_per_modality": 82,
+    "wes_callers": ["HLA-HD", "OptiType", "SpecHLA", "T1K"],
+    "rna_callers": ["ArcasHLA", "HLA-HD", "OptiType", "Seq2HLA", "SpecHLA", "T1K"],
+    "imgt_version": "3.59.0",
+    "truth_source": "Reinhold et al. 2019 (Cancer Research 79:3519–3531; SBT HLA typing of NCI-60 cell lines). Truth-source field in publication_assessment.json records Adams et al. 2005 — the Reinhold 2019 citation governs the manuscript.",
+    "aggregate_plurality_concordance": {
+      "wes": {"correct": 69, "loci": 82, "pct": 84.1},
+      "rnaseq": {"correct": 67, "loci": 82, "pct": 81.7}
+    },
+    "data_location_roihu": {
+      "wes": "/scratch/project_2008084/hla_calibration/nci60/wes/",
+      "rna": "/scratch/project_2008084/hla_calibration/nci60/rna/"
+    }
+  },
+  "permitted_claims": [
+    "exploratory descriptive plurality concordance against published SBT HLA truth",
+    "caller availability and per-gene breakdown as supplementary diagnostic information",
+    "illustrative observation that plurality concordance is broadly consistent with the development analysis"
+  ],
+  "forbidden_claims": [
+    "any external-validation claim",
+    "any accuracy claim that would position this as prospective evidence",
+    "any appearance in abstract, conclusions or primary result summary",
+    "comparison against MetaConsensus or Champion-Challenger as a primary finding"
+  ],
+  "manuscript_placement": "S9.6 only, clearly labelled as exploratory descriptive external application and not external validation",
+  "reference_to_add": "Reinhold et al. (2019). A Land of Diversity and Heterogeneity: The NCI-60 in Light of Recent Re-Annotations and Current Genomic Data. Cancer Research, 79, 3519–3531.",
+  "governance": {
+    "truth_is_public": true,
+    "no_subject_overlap_with_development": true,
+    "development_subject_overlap": "none (NCI-60 cell lines are not 1000G subjects)",
+    "retention_rule": "Results are retained regardless of direction."
+  },
+  "classification": "post_hoc_exploratory_not_prespecified"
+}

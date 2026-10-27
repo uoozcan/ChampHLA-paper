@@ -1,0 +1,2 @@
+"OPTITYPE":
+    optitype: usage: OptiType [-h] --input FQ [FQ ...] (--rna | --dna) [--beta B]

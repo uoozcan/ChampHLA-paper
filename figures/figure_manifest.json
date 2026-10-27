@@ -1,0 +1,1110 @@
+{
+  "figures": [
+    {
+      "axis_limits": {
+        "truth_disposition_x": [
+          0,
+          413.40000000000003
+        ]
+      },
+      "caption_key": "study_design_truth_flow",
+      "figure_id": "Figure 1",
+      "flow_counts": {
+        "rnaseq": {
+          "absent": 54,
+          "ambiguous": 145,
+          "invalid": 1,
+          "requested": 318,
+          "resolved": 118,
+          "truth_source_present": 264
+        },
+        "wes": {
+          "absent": 54,
+          "ambiguous": 182,
+          "invalid": 1,
+          "requested": 390,
+          "resolved": 153,
+          "truth_source_present": 336
+        }
+      },
+      "output_sha256": {
+        "pdf": "ba064be8828907357875f355970991452960f6cb49e6aa69035607c447d812a3",
+        "png": "f698aaf6eca1af4208f51b5e4ef03390c1cf65e550003b774081ff41753e158a",
+        "svg": "b3431237a8f86628697f2bb47f1a5918b633d9d9e285f707b575e3fa3a23647b",
+        "tiff": "39b15460969eaaefb2e1484c98ce28d1cda3ecfb8601e18a3b338e8f3504f5da"
+      },
+      "panels": [
+        "workflow",
+        "consensus_vote",
+        "truth_firewall",
+        "truth_disposition"
+      ],
+      "render_profile": "publication_600dpi_four_format",
+      "suppression_rule": null
+    },
+    {
+      "axis_limits": {
+        "callability": [
+          90,
+          100
+        ],
+        "concordance": [
+          35,
+          100
+        ]
+      },
+      "caption_key": "primary_performance_callability",
+      "count_columns": [
+        "genotypes_correct/loci",
+        "callable/loci"
+      ],
+      "displayed_methods": {
+        "rnaseq": [
+          "SimplePluralityLex",
+          "BestSingleTool_nestedCV",
+          "Caller:ArcasHLA",
+          "Caller:HLA-HD",
+          "Caller:OptiType",
+          "Caller:T1K"
+        ],
+        "wes": [
+          "SimplePluralityLex",
+          "BestSingleTool_nestedCV",
+          "Caller:HLA-HD",
+          "Caller:OptiType",
+          "Caller:POLYSOLVER",
+          "Caller:SpecHLA",
+          "Caller:T1K"
+        ]
+      },
+      "figure_id": "Figure 2",
+      "metrics": [
+        "genotype_accuracy",
+        "callability"
+      ],
+      "output_sha256": {
+        "pdf": "975784f4cbcb1238af427f621a291c879fe9c83908664d99757855a1d7b9260b",
+        "png": "085d45370ceab463c2d13943d3405d681b459679c82283d02c88598a4a7582c4",
+        "svg": "5a38cdaf6726ff57c2921bd2f7e0085fea5a2168d1da6adb2d9bae6d168b9432",
+        "tiff": "485b70aac0c2b33dbcb9814b5ee6dfed709ef6ceffa78bc1905c52c9668baa4c"
+      },
+      "panels": [
+        "wes_performance",
+        "rnaseq_performance"
+      ],
+      "render_profile": "publication_600dpi_four_format",
+      "suppression_rule": null
+    },
+    {
+      "axis_limits": {
+        "difference_points": [
+          -60,
+          60
+        ]
+      },
+      "caption_key": "paired_cluster_robust_differences",
+      "displayed_methods": {
+        "rnaseq": {
+          "descriptive_comparator": [
+            "Caller:ArcasHLA",
+            "Caller:HLA-HD",
+            "Caller:OptiType",
+            "Caller:T1K",
+            "SimpleStrictMajority",
+            "SimpleTwoThirdsConsensus"
+          ],
+          "exploratory_fitted": [
+            "BestSingleTool_nestedCV",
+            "ChampionChallenger",
+            "TwoThirdsGuardedCC",
+            "MVFlooredCC",
+            "MetaConsensus",
+            "FamilyGatedCC"
+          ]
+        },
+        "wes": {
+          "descriptive_comparator": [
+            "Caller:HLA-HD",
+            "Caller:OptiType",
+            "Caller:POLYSOLVER",
+            "Caller:SpecHLA",
+            "Caller:T1K",
+            "SimpleStrictMajority",
+            "SimpleTwoThirdsConsensus"
+          ],
+          "exploratory_fitted": [
+            "BestSingleTool_nestedCV",
+            "ChampionChallenger",
+            "TwoThirdsGuardedCC",
+            "MVFlooredCC",
+            "MetaConsensus",
+            "FamilyGatedCC"
+          ]
+        }
+      },
+      "figure_id": "Figure 3",
+      "output_sha256": {
+        "pdf": "b1b83606cc543f98c94b13cc5cc18def250841edd300862959764313f61b7abd",
+        "png": "7f6d99888f0f45d8c8d603411954a89609b3997e5b8bcf8f1bdd1427ee2a14d0",
+        "svg": "00ef5948ab7cc3b0e96a2ae6fb33ce5d5a3033e1c1da2d5fb48c1f23496bd185",
+        "tiff": "ac106cc04ec13a2d61f0f9b24be898bf22abf9a8a50679e23c86a8b51d02ebf8"
+      },
+      "panels": [
+        "wes_paired",
+        "rnaseq_paired"
+      ],
+      "render_profile": "publication_600dpi_four_format",
+      "right_columns": [
+        "wins/losses",
+        "signflip_holm_adjusted_p"
+      ],
+      "significance_colour": "#AA3377",
+      "suppression_rule": null
+    },
+    {
+      "axis_limits": {
+        "error_phi_colour_scale": [
+          0,
+          1
+        ]
+      },
+      "caption_key": "caller_error_dependence",
+      "figure_id": "Figure 4",
+      "matrix_values": {
+        "rnaseq": [
+          {
+            "caller1": "ArcasHLA",
+            "caller2": "HLA-HD",
+            "fixed_denominator_phi": 0.22756474745819988,
+            "mutually_callable_phi": 0.22756474745819988
+          },
+          {
+            "caller1": "ArcasHLA",
+            "caller2": "OptiType",
+            "fixed_denominator_phi": 0.15040198826260337,
+            "mutually_callable_phi": 0.15040198826260337
+          },
+          {
+            "caller1": "ArcasHLA",
+            "caller2": "T1K",
+            "fixed_denominator_phi": 0.11372868729536238,
+            "mutually_callable_phi": 0.11372868729536238
+          },
+          {
+            "caller1": "HLA-HD",
+            "caller2": "OptiType",
+            "fixed_denominator_phi": 0.8244047619047619,
+            "mutually_callable_phi": 0.8244047619047619
+          },
+          {
+            "caller1": "HLA-HD",
+            "caller2": "T1K",
+            "fixed_denominator_phi": 0.4543076374648705,
+            "mutually_callable_phi": 0.4543076374648705
+          },
+          {
+            "caller1": "OptiType",
+            "caller2": "T1K",
+            "fixed_denominator_phi": 0.4543076374648705,
+            "mutually_callable_phi": 0.4543076374648705
+          }
+        ],
+        "wes": [
+          {
+            "caller1": "HLA-HD",
+            "caller2": "OptiType",
+            "fixed_denominator_phi": 0.5349440464854964,
+            "mutually_callable_phi": 0.5349440464854964
+          },
+          {
+            "caller1": "HLA-HD",
+            "caller2": "POLYSOLVER",
+            "fixed_denominator_phi": 0.49130262559979293,
+            "mutually_callable_phi": 0.49130262559979293
+          },
+          {
+            "caller1": "HLA-HD",
+            "caller2": "SpecHLA",
+            "fixed_denominator_phi": 0.35403191910319826,
+            "mutually_callable_phi": 0.35403191910319826
+          },
+          {
+            "caller1": "HLA-HD",
+            "caller2": "T1K",
+            "fixed_denominator_phi": 0.4323042716024928,
+            "mutually_callable_phi": 0.4034466888812334
+          },
+          {
+            "caller1": "OptiType",
+            "caller2": "POLYSOLVER",
+            "fixed_denominator_phi": 0.5889389430676949,
+            "mutually_callable_phi": 0.5889389430676949
+          },
+          {
+            "caller1": "OptiType",
+            "caller2": "SpecHLA",
+            "fixed_denominator_phi": 0.35553021932201156,
+            "mutually_callable_phi": 0.35553021932201156
+          },
+          {
+            "caller1": "OptiType",
+            "caller2": "T1K",
+            "fixed_denominator_phi": 0.39176076288425093,
+            "mutually_callable_phi": 0.38247315498700596
+          },
+          {
+            "caller1": "POLYSOLVER",
+            "caller2": "SpecHLA",
+            "fixed_denominator_phi": 0.47567274277152577,
+            "mutually_callable_phi": 0.47567274277152577
+          },
+          {
+            "caller1": "POLYSOLVER",
+            "caller2": "T1K",
+            "fixed_denominator_phi": 0.2987011219403891,
+            "mutually_callable_phi": 0.2869720215917757
+          },
+          {
+            "caller1": "SpecHLA",
+            "caller2": "T1K",
+            "fixed_denominator_phi": 0.28306976679606033,
+            "mutually_callable_phi": 0.23512820333498544
+          }
+        ]
+      },
+      "output_sha256": {
+        "pdf": "a05fc267256dea2ed74eb9e7f6c92c70922e0946267b73392e5a61663938445b",
+        "png": "956af0c15c776efa7f9bc4dad12a47fc701821b60f986eb988f8d0962d5fe59a",
+        "svg": "73dd4aee70999373b05a18b9f6dfd753fd62afbeba6d399e589fbb4f4ec6c75b",
+        "tiff": "ce5d97353b38f3e3b3b69d009d83d098a5cf207513a5cf411eb7412980a2ba76"
+      },
+      "panels": [
+        "wes_error_phi",
+        "rnaseq_error_phi"
+      ],
+      "render_profile": "publication_600dpi_four_format",
+      "suppression_rule": null
+    },
+    {
+      "axis_limits": {
+        "percentage": [
+          0,
+          100
+        ]
+      },
+      "caption_key": "call_state_composition",
+      "figure_id": "Supplementary Figure S1",
+      "output_sha256": {
+        "pdf": "3307f0a6548aa5c0dc65350640791e2f8098721fdb93d73af6e1db495b7d6fc4",
+        "png": "8c2cdf5d9f69bd0ddec87958d8d5935538d9b381dc653c2d16aa33b034dde469",
+        "svg": "1e3095a7db5489e2a593dfc9fbc733cf5af987a6a2200b9331cf1e1b4b0946d9",
+        "tiff": "790723e2defb4d0001d067039e684e79bd65b40799d259c545a14aab766908a7"
+      },
+      "panels": [
+        "wes_call_states",
+        "rnaseq_call_states"
+      ],
+      "render_profile": "publication_600dpi_four_format",
+      "state_counts": {
+        "rnaseq": [
+          {
+            "absent": 0,
+            "callable": 118,
+            "caller": "ArcasHLA",
+            "invalid": 0,
+            "loci": 118,
+            "missing": 0,
+            "partial": 0
+          },
+          {
+            "absent": 0,
+            "callable": 118,
+            "caller": "HLA-HD",
+            "invalid": 0,
+            "loci": 118,
+            "missing": 0,
+            "partial": 0
+          },
+          {
+            "absent": 0,
+            "callable": 118,
+            "caller": "OptiType",
+            "invalid": 0,
+            "loci": 118,
+            "missing": 0,
+            "partial": 0
+          },
+          {
+            "absent": 0,
+            "callable": 118,
+            "caller": "T1K",
+            "invalid": 0,
+            "loci": 118,
+            "missing": 0,
+            "partial": 0
+          }
+        ],
+        "wes": [
+          {
+            "absent": 0,
+            "callable": 153,
+            "caller": "HLA-HD",
+            "invalid": 0,
+            "loci": 153,
+            "missing": 0,
+            "partial": 0
+          },
+          {
+            "absent": 0,
+            "callable": 153,
+            "caller": "OptiType",
+            "invalid": 0,
+            "loci": 153,
+            "missing": 0,
+            "partial": 0
+          },
+          {
+            "absent": 0,
+            "callable": 153,
+            "caller": "POLYSOLVER",
+            "invalid": 0,
+            "loci": 153,
+            "missing": 0,
+            "partial": 0
+          },
+          {
+            "absent": 0,
+            "callable": 153,
+            "caller": "SpecHLA",
+            "invalid": 0,
+            "loci": 153,
+            "missing": 0,
+            "partial": 0
+          },
+          {
+            "absent": 0,
+            "callable": 150,
+            "caller": "T1K",
+            "invalid": 0,
+            "loci": 153,
+            "missing": 1,
+            "partial": 2
+          }
+        ]
+      },
+      "suppression_rule": null
+    },
+    {
+      "axis_limits": {
+        "callability": [
+          85,
+          100
+        ],
+        "concordance": [
+          80,
+          100
+        ]
+      },
+      "caption_key": "threshold_tradeoff",
+      "figure_id": "Supplementary Figure S2",
+      "identical_points_not_jittered": true,
+      "output_sha256": {
+        "pdf": "cc975d2623f5d31f76146511eca3b8d8969cb7a37acbba26118d796d9d8ad6f9",
+        "png": "6ade929b2d5803fc19ba8fa6d7eecb29fcf68c495849e030461c37368e3333e4",
+        "svg": "6d02428dfe820cf9349abea2605dbe6b05508c5fc303f0623c721eb49033f8b0",
+        "tiff": "3ff4dc6f87f4e594a4aa3a526fd3b4c91006874641c9b926589227fa2a7c06b5"
+      },
+      "panels": [
+        "wes_thresholds",
+        "rnaseq_thresholds"
+      ],
+      "render_profile": "publication_600dpi_four_format",
+      "suppression_rule": null,
+      "threshold_points": {
+        "rnaseq": [
+          {
+            "callability": 100.0,
+            "concordance": 95.76271186440678,
+            "method": "SimplePluralityLex"
+          },
+          {
+            "callability": 93.22033898305084,
+            "concordance": 89.83050847457628,
+            "method": "SimpleStrictMajority"
+          },
+          {
+            "callability": 93.22033898305084,
+            "concordance": 89.83050847457628,
+            "method": "SimpleTwoThirdsConsensus"
+          }
+        ],
+        "wes": [
+          {
+            "callability": 100.0,
+            "concordance": 93.4640522875817,
+            "method": "SimplePluralityLex"
+          },
+          {
+            "callability": 98.0392156862745,
+            "concordance": 92.15686274509804,
+            "method": "SimpleStrictMajority"
+          },
+          {
+            "callability": 94.11764705882352,
+            "concordance": 88.88888888888889,
+            "method": "SimpleTwoThirdsConsensus"
+          }
+        ]
+      }
+    },
+    {
+      "axis_limits": {
+        "concordance": [
+          0,
+          100
+        ]
+      },
+      "caption_key": "support_profiles",
+      "figure_id": "Supplementary Figure S3",
+      "output_sha256": {
+        "pdf": "e623726b01944693458ab5a02749663ccc7504e79eb7e2d260e596d5cbb23d3d",
+        "png": "ec0a9ddd23fd2e409efdc7dcde551a2c4376b49785a7000d2fe720eb1d75969e",
+        "svg": "34e1493684831999aa081ac8dba97adac6ffa2b4bd1c460b8e295058e318dc80",
+        "tiff": "23fa5c6b94080db5e8bd8cff8e324a83ad365abb8bada3f676899d5515b569e2"
+      },
+      "panels": [
+        "wes_support",
+        "rnaseq_support"
+      ],
+      "profile_contract": {
+        "rnaseq": {
+          "displayed": [
+            "2/4",
+            "3/4",
+            "4/4"
+          ],
+          "outside_scale": [],
+          "suppressed": []
+        },
+        "wes": {
+          "displayed": [
+            "3/5",
+            "4/5",
+            "5/5"
+          ],
+          "outside_scale": [],
+          "suppressed": [
+            "3/4",
+            "2/5"
+          ]
+        }
+      },
+      "render_profile": "publication_600dpi_four_format",
+      "suppression_rule": "point estimate and interval suppressed when loci < 5",
+      "zero_support_outside_scale": true
+    },
+    {
+      "axis_limits": {
+        "percentage_upper": 100
+      },
+      "caption_key": "truth_sensitivity",
+      "different_denominators_not_connected": true,
+      "endpoint_contract": {
+        "rnaseq": {
+          "Ambiguity-compatible": {
+            "denominators": [
+              263
+            ],
+            "methods": [
+              "BestSingleTool_nestedCV",
+              "Caller:ArcasHLA",
+              "Caller:HLA-HD",
+              "Caller:OptiType",
+              "Caller:T1K",
+              "SimplePluralityLex"
+            ]
+          },
+          "Exact two-field": {
+            "denominators": [
+              118
+            ],
+            "methods": [
+              "BestSingleTool_nestedCV",
+              "Caller:ArcasHLA",
+              "Caller:HLA-HD",
+              "Caller:OptiType",
+              "Caller:T1K",
+              "SimplePluralityLex"
+            ]
+          },
+          "G-compatible (two-field mapping)": {
+            "denominators": [
+              261
+            ],
+            "methods": [
+              "BestSingleTool_nestedCV",
+              "Caller:ArcasHLA",
+              "Caller:HLA-HD",
+              "Caller:OptiType",
+              "Caller:T1K",
+              "SimplePluralityLex"
+            ]
+          },
+          "P-group-compatible (two-field mapping)": {
+            "denominators": [
+              261
+            ],
+            "methods": [
+              "BestSingleTool_nestedCV",
+              "Caller:ArcasHLA",
+              "Caller:HLA-HD",
+              "Caller:OptiType",
+              "Caller:T1K",
+              "SimplePluralityLex"
+            ]
+          }
+        },
+        "wes": {
+          "Ambiguity-compatible": {
+            "denominators": [
+              335
+            ],
+            "methods": [
+              "BestSingleTool_nestedCV",
+              "Caller:HLA-HD",
+              "Caller:OptiType",
+              "Caller:POLYSOLVER",
+              "Caller:SpecHLA",
+              "Caller:T1K",
+              "SimplePluralityLex"
+            ]
+          },
+          "Exact two-field": {
+            "denominators": [
+              153
+            ],
+            "methods": [
+              "BestSingleTool_nestedCV",
+              "Caller:HLA-HD",
+              "Caller:OptiType",
+              "Caller:POLYSOLVER",
+              "Caller:SpecHLA",
+              "Caller:T1K",
+              "SimplePluralityLex"
+            ]
+          },
+          "G-compatible (two-field mapping)": {
+            "denominators": [
+              333
+            ],
+            "methods": [
+              "BestSingleTool_nestedCV",
+              "Caller:HLA-HD",
+              "Caller:OptiType",
+              "Caller:POLYSOLVER",
+              "Caller:SpecHLA",
+              "Caller:T1K",
+              "SimplePluralityLex"
+            ]
+          },
+          "P-group-compatible (two-field mapping)": {
+            "denominators": [
+              333
+            ],
+            "methods": [
+              "BestSingleTool_nestedCV",
+              "Caller:HLA-HD",
+              "Caller:OptiType",
+              "Caller:POLYSOLVER",
+              "Caller:SpecHLA",
+              "Caller:T1K",
+              "SimplePluralityLex"
+            ]
+          }
+        }
+      },
+      "endpoint_display_titles": {
+        "Ambiguity-compatible": "Ambiguity-\ncompatible",
+        "Exact two-field": "Exact\ntwo-field",
+        "G-compatible (two-field mapping)": "G-compatible\n(two-field map)",
+        "P-group-compatible (two-field mapping)": "P-compatible\n(two-field map)"
+      },
+      "figure_id": "Supplementary Figure S4",
+      "output_sha256": {
+        "pdf": "9d4c494b276c3d6e42073ec9ce6fe02dff3a6c2af212851b08fe1451d168bd4a",
+        "png": "b23e5149a8ec72091f9e96ba5e4bb1db43fa3ee1557ad4b916a19c480d73d2cf",
+        "svg": "f0dd83f998afa53af77808dbd71d3f802cb48cae329c01944206cf80896d6e4e",
+        "tiff": "0696a14e438b4d7bf4fa6fa141d2abf5f59ee59c5d11fa10b8375769d31c8d3c"
+      },
+      "panels": [
+        "wes_endpoints",
+        "rnaseq_endpoints"
+      ],
+      "render_profile": "publication_600dpi_four_format",
+      "suppression_rule": null
+    },
+    {
+      "axis_limits": {},
+      "caption_key": "champion_challenger_flow",
+      "figure_id": "Supplementary Figure S5",
+      "output_sha256": {
+        "pdf": "dc34d6f9ce8878f8d4334323eb94678c8fd6062f92980e511e3facfab1e94d0e",
+        "png": "95c5af20ff6f3c6dfe1ca83a464a11a23dd4e39f29eaaa5925c1a8a7f514c1f9",
+        "svg": "537ac4b856a37e9d50dcc08994faf2a20d61e3e15d206a2d6ae4050c015590b4",
+        "tiff": "8c1824430675f373fa3781d54a5f072bfcd989bf2cd4b222e51c0d05c785504e"
+      },
+      "panels": [
+        "decision_flow"
+      ],
+      "render_profile": "publication_600dpi_four_format",
+      "suppression_rule": null
+    },
+    {
+      "axis_limits": {
+        "concordance": [
+          60,
+          100
+        ],
+        "percentage": [
+          0,
+          100
+        ]
+      },
+      "caption_key": "fimm_cross_modality",
+      "composition_counts": {
+        "0": {
+          "bulk_rna": 207,
+          "scrna": 0,
+          "wes": 344
+        },
+        "1": {
+          "bulk_rna": 696,
+          "scrna": 18,
+          "wes": 2211
+        },
+        "2": {
+          "bulk_rna": 330,
+          "scrna": 75,
+          "wes": 466
+        },
+        "3": {
+          "bulk_rna": 48,
+          "scrna": 0,
+          "wes": 21
+        }
+      },
+      "eligibility_definitions": {
+        "all_callable": "complete plurality calls in both assays",
+        "contested_both": "complete plurality calls and >=2 valid callers in both assays"
+      },
+      "exclusion_counts": {
+        "locus_cells_numeric_artefact": 89,
+        "locus_rows_missing": 2488,
+        "locus_rows_partial": 90,
+        "replicate_conflicts": 81
+      },
+      "figure_id": "Supplementary Figure S6",
+      "output_sha256": {
+        "pdf": "c7ea6bc53af90c90ffbcd8b2a21db451a0d11552ef581c011ff798f76b304529",
+        "png": "fa7456ae1b47b5327ee44f32cdf24fe5d038b253782b82c58f84aa65d360b372",
+        "svg": "27623d4e75ec033519a3e58457d16c2cca6168187c267e853aa7944fbd8d9cf7"
+      },
+      "panels": [
+        "coequal_specimen_concordance",
+        "valid_caller_composition"
+      ],
+      "render_profile": "exploratory_300dpi_three_format",
+      "result_ids": [
+        "FIMM_PANEL_SPECIMEN_BULKRNA_WES_EXACT_PAIR",
+        "FIMM_PANEL_SPECIMEN_SCRNA_WES_EXACT_PAIR",
+        "FIMM_PANEL_SPECIMEN_BULKRNA_SCRNA_EXACT_PAIR",
+        "FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_WES_EXACT_PAIR",
+        "FIMM_PANEL_SPECIMEN_CONTESTED_SCRNA_WES_EXACT_PAIR",
+        "FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_SCRNA_EXACT_PAIR",
+        "FIMM_PANEL_FLOW_REPLICATE_CONFLICTS",
+        "FIMM_PANEL_FLOW_LOCUS_CELLS_NUMERIC_ARTEFACT",
+        "FIMM_PANEL_FLOW_LOCUS_ROWS_PARTIAL",
+        "FIMM_PANEL_FLOW_LOCUS_ROWS_MISSING",
+        "FIMM_PANEL_WES_CALLABLE_CALLERS_0",
+        "FIMM_PANEL_WES_CALLABLE_CALLERS_1",
+        "FIMM_PANEL_WES_CALLABLE_CALLERS_2",
+        "FIMM_PANEL_WES_CALLABLE_CALLERS_3",
+        "FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_0",
+        "FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_1",
+        "FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_2",
+        "FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_3",
+        "FIMM_PANEL_SCRNA_CALLABLE_CALLERS_1",
+        "FIMM_PANEL_SCRNA_CALLABLE_CALLERS_2"
+      ],
+      "suppression_rule": null
+    },
+    {
+      "axis_limits": {
+        "percentage": [
+          0,
+          100
+        ]
+      },
+      "caption_key": "fimm_bb72",
+      "confusion_matrices": {
+        "bulk_rna": {
+          "fn": 0,
+          "fp": 0,
+          "tn": 7,
+          "tp": 7
+        },
+        "scrna": {
+          "fn": 1,
+          "fp": 0,
+          "tn": 3,
+          "tp": 4
+        },
+        "wes": {
+          "fn": 0,
+          "fp": 2,
+          "tn": 4,
+          "tp": 7
+        }
+      },
+      "figure_id": "Supplementary Figure S7",
+      "output_sha256": {
+        "pdf": "981cf824178d396446fc102df2f4a1dfc6eeac8982e1893f273d64e13ff299e0",
+        "png": "59d56dfad2a91642e81ae379445264025a1722b894eb680894ab113d8077d067",
+        "svg": "07640e7c760e90c2733bf6c132fc2d1ea7b31090424cb4f6df51840da244580d"
+      },
+      "panels": [
+        "primary_confusion_matrices",
+        "mapping_interval_estimates"
+      ],
+      "render_profile": "exploratory_300dpi_three_format",
+      "result_ids": [
+        "FIMM_BB72_SCRNA_A02_SENSITIVITY",
+        "FIMM_BB72_SCRNA_A02_SPECIFICITY",
+        "FIMM_BB72_SCRNA_A02_AGREEMENT",
+        "FIMM_BB72_SCRNA_A02_A68_A69_SENSITIVITY",
+        "FIMM_BB72_SCRNA_A02_A68_A69_SPECIFICITY",
+        "FIMM_BB72_SCRNA_A02_A68_A69_AGREEMENT",
+        "FIMM_BB72_BULK_RNA_A02_SENSITIVITY",
+        "FIMM_BB72_BULK_RNA_A02_SPECIFICITY",
+        "FIMM_BB72_BULK_RNA_A02_AGREEMENT",
+        "FIMM_BB72_BULK_RNA_A02_A68_A69_SENSITIVITY",
+        "FIMM_BB72_BULK_RNA_A02_A68_A69_SPECIFICITY",
+        "FIMM_BB72_BULK_RNA_A02_A68_A69_AGREEMENT",
+        "FIMM_BB72_WES_A02_SENSITIVITY",
+        "FIMM_BB72_WES_A02_SPECIFICITY",
+        "FIMM_BB72_WES_A02_AGREEMENT",
+        "FIMM_BB72_WES_A02_A68_A69_SENSITIVITY",
+        "FIMM_BB72_WES_A02_A68_A69_SPECIFICITY",
+        "FIMM_BB72_WES_A02_A68_A69_AGREEMENT"
+      ],
+      "suppression_rule": null
+    },
+    {
+      "availability_counts": {
+        "empty": {
+          "HLA-HD": 0,
+          "OptiType": 0,
+          "POLYSOLVER": 22,
+          "SpecHLA": 2,
+          "T1K": 0
+        },
+        "missing": {
+          "HLA-HD": 0,
+          "OptiType": 0,
+          "POLYSOLVER": 64,
+          "SpecHLA": 7,
+          "T1K": 0
+        },
+        "ok": {
+          "HLA-HD": 86,
+          "OptiType": 86,
+          "POLYSOLVER": 0,
+          "SpecHLA": 77,
+          "T1K": 86
+        }
+      },
+      "axis_limits": {
+        "dissent_percentage": [
+          0,
+          20
+        ],
+        "percentage": [
+          0,
+          100
+        ]
+      },
+      "caption_key": "venex_diagnostics",
+      "figure_id": "Supplementary Figure S8",
+      "output_sha256": {
+        "pdf": "646445f67f1a4739c1dd9b8886ff10c560bb76340c168345a9b95bbc058e9ea1",
+        "png": "4338188ff62300834fbd2780aeed1eaecf4d620ef228592c3ff957191d7b73cc",
+        "svg": "5e8209b788ad868ce7ba4a0267c854da2280419d431c255d3007556ba0b2a83e"
+      },
+      "panels": [
+        "caller_availability",
+        "contested_locus_dissent"
+      ],
+      "render_profile": "exploratory_300dpi_three_format",
+      "result_ids": [
+        "VENEX_WES_HLA_HD_OK",
+        "VENEX_WES_OPTITYPE_OK",
+        "VENEX_WES_POLYSOLVER_EMPTY",
+        "VENEX_WES_POLYSOLVER_MISSING",
+        "VENEX_WES_SPECHLA_EMPTY",
+        "VENEX_WES_SPECHLA_MISSING",
+        "VENEX_WES_SPECHLA_OK",
+        "VENEX_WES_T1K_OK",
+        "VENEX_WES_HLA_HD_CONTESTED_DISSENT",
+        "VENEX_WES_OPTITYPE_CONTESTED_DISSENT",
+        "VENEX_WES_POLYSOLVER_CONTESTED_DISSENT",
+        "VENEX_WES_SPECHLA_CONTESTED_DISSENT",
+        "VENEX_WES_T1K_CONTESTED_DISSENT"
+      ],
+      "suppression_rule": "POLYSOLVER dissent is non-estimable at zero overlap"
+    },
+    {
+      "aggregate_counts": {
+        "rnaseq": {
+          "ArcasHLA": {
+            "call_changed": 176,
+            "callable_to_noncall": 0,
+            "identical": 142,
+            "new_rerun_cell": 0,
+            "noncall_state_changed": 0,
+            "noncall_to_callable": 0,
+            "stored_cell_missing_from_rerun": 0
+          },
+          "HLA-HD": {
+            "call_changed": 7,
+            "callable_to_noncall": 0,
+            "identical": 305,
+            "new_rerun_cell": 6,
+            "noncall_state_changed": 0,
+            "noncall_to_callable": 0,
+            "stored_cell_missing_from_rerun": 0
+          },
+          "OptiType": {
+            "call_changed": 0,
+            "callable_to_noncall": 0,
+            "identical": 312,
+            "new_rerun_cell": 6,
+            "noncall_state_changed": 0,
+            "noncall_to_callable": 0,
+            "stored_cell_missing_from_rerun": 0
+          },
+          "T1K": {
+            "call_changed": 6,
+            "callable_to_noncall": 0,
+            "identical": 278,
+            "new_rerun_cell": 6,
+            "noncall_state_changed": 0,
+            "noncall_to_callable": 28,
+            "stored_cell_missing_from_rerun": 0
+          }
+        },
+        "wes": {
+          "HLA-HD": {
+            "call_changed": 31,
+            "callable_to_noncall": 0,
+            "identical": 359,
+            "new_rerun_cell": 0,
+            "noncall_state_changed": 0,
+            "noncall_to_callable": 0,
+            "stored_cell_missing_from_rerun": 0
+          },
+          "OptiType": {
+            "call_changed": 5,
+            "callable_to_noncall": 0,
+            "identical": 385,
+            "new_rerun_cell": 0,
+            "noncall_state_changed": 0,
+            "noncall_to_callable": 0,
+            "stored_cell_missing_from_rerun": 0
+          },
+          "POLYSOLVER": {
+            "call_changed": 34,
+            "callable_to_noncall": 0,
+            "identical": 356,
+            "new_rerun_cell": 0,
+            "noncall_state_changed": 0,
+            "noncall_to_callable": 0,
+            "stored_cell_missing_from_rerun": 0
+          },
+          "SpecHLA": {
+            "call_changed": 47,
+            "callable_to_noncall": 0,
+            "identical": 343,
+            "new_rerun_cell": 0,
+            "noncall_state_changed": 0,
+            "noncall_to_callable": 0,
+            "stored_cell_missing_from_rerun": 0
+          },
+          "T1K": {
+            "call_changed": 23,
+            "callable_to_noncall": 7,
+            "identical": 332,
+            "new_rerun_cell": 0,
+            "noncall_state_changed": 0,
+            "noncall_to_callable": 28,
+            "stored_cell_missing_from_rerun": 0
+          }
+        }
+      },
+      "aggregate_only": true,
+      "axis_limits": {
+        "percentage_lower": 0,
+        "percentage_upper": 100
+      },
+      "caption_key": "stored_to_v350_caller_cell_changes",
+      "change_order": [
+        "identical",
+        "call_changed",
+        "noncall_to_callable",
+        "callable_to_noncall",
+        "noncall_state_changed",
+        "new_rerun_cell",
+        "stored_cell_missing_from_rerun"
+      ],
+      "colours": {
+        "call_changed": "#0072B2",
+        "callable_to_noncall": "#D55E00",
+        "identical": "#999999",
+        "new_rerun_cell": "#56B4E9",
+        "noncall_state_changed": "#CC79A7",
+        "noncall_to_callable": "#009E73",
+        "stored_cell_missing_from_rerun": "#E69F00"
+      },
+      "figure_id": "Supplementary Figure S9",
+      "grouping": [
+        "modality",
+        "caller",
+        "difference_class"
+      ],
+      "output_sha256": {
+        "pdf": "b025df3f83f28a668eb99b2c519cf5edcdcec8bf00a9cf0ab5e5cd594a4e12cc",
+        "png": "d9763b2220bdd036e945f456636b953bbf04277e2df7b51afd7f0005d8ceb333",
+        "svg": "8cabebaaff25c566e51d2ffa0ca661f7db6c6f88bb92079936e370bc8f5c6697",
+        "tiff": "8e76e383ab208d1d8c09802a18e445d51696fec04cb36a6198017ccb9bd65159"
+      },
+      "panels": [
+        "wes",
+        "rnaseq"
+      ],
+      "render_profile": "publication_600dpi_four_format",
+      "suppression_rule": null
+    }
+  ],
+  "schema_version": "panelhla-figure-manifest-1",
+  "source_artifacts": {
+    "ambiguity": {
+      "path": "artifacts/development_characterisation/ambiguity_compatibility.tsv",
+      "sha256": "ef913202148b5ea5a26fe4ecd8384a782debf8bae7743dc6df1e819cefdcf41d"
+    },
+    "comparisons": {
+      "path": "artifacts/development_corrected/secondary_method_results.tsv",
+      "sha256": "2725f9cc79da8deb11890d4122963432903cfd8d0a5e5844c482513637cb9368"
+    },
+    "correlation": {
+      "path": "artifacts/development_characterisation/caller_error_correlation.tsv",
+      "sha256": "18b887b5be00b0e67abbf3e8a6a936baf5dc898831f87f39993ff6d70d609d12"
+    },
+    "fimm_bb72": {
+      "path": "artifacts/fimm/tierC/bb72_metrics.tsv",
+      "sha256": "b67f0ea1f19cc65266d55eb0207faa010938be71d7e78db7e588bb1ffe92d933"
+    },
+    "fimm_bulk_composition": {
+      "path": "artifacts/fimm_consensus/FIMM-AML-BulkRNA/panel3/panel_composition.tsv",
+      "sha256": "e181e068d2ece43f741bc099291151782f238c8cdf409ff48edb8a7f09658455"
+    },
+    "fimm_cross": {
+      "path": "artifacts/fimm_consensus/cross_modality/cross_modality_agreement.tsv",
+      "sha256": "66f02f99a7a4524cce7aef5d23dfe574149a781cdf74240f1617c12af794a61f"
+    },
+    "fimm_flow": {
+      "path": "artifacts/fimm_consensus/cohort_flow.tsv",
+      "sha256": "c10603a624586868598c5f926433dfcfa337c7132dd552b0455c248795c4487c"
+    },
+    "fimm_scrna_composition": {
+      "path": "artifacts/fimm_consensus/FIMM-AML-SCRNA/panel3/panel_composition.tsv",
+      "sha256": "7fc3cd41094282324d7d4a997355aed1cc2905bb51334c89f67aa5a9a6c4d954"
+    },
+    "fimm_wes_composition": {
+      "path": "artifacts/fimm_consensus/FIMM-AML-WES/panel3/panel_composition.tsv",
+      "sha256": "78719362fb75259317953e74dd7705ffb30e07556f343379158f0f293e85b6e5"
+    },
+    "g_group": {
+      "path": "artifacts/development_characterisation/g_group_compatibility.tsv",
+      "sha256": "ff465b43ebb9ae35cbd75edeee5ff842544a20f51b010694d321c71fcd5dae26"
+    },
+    "missingness": {
+      "path": "artifacts/development_characterisation/caller_missingness.tsv",
+      "sha256": "35d07fe3a47f83ee27acaca6add8bd0e543cb0c41306683b47f08deee79c93a9"
+    },
+    "p_group": {
+      "path": "artifacts/development_characterisation/p_group_compatibility.tsv",
+      "sha256": "445357cc7e83a13cfea2e07624b02d41cfcb37c6b200aafd0661c588c9f60605"
+    },
+    "performance": {
+      "path": "artifacts/development_corrected/method_performance.tsv",
+      "sha256": "44f494b52ac3d459a6a8fdbc78eea122369171dfecb30756f8d02ea4b65dbde2"
+    },
+    "stored_vs_rerun_cells": {
+      "path": "provenance/development_rerun_v350/truth_free_collection/stored_vs_rerun_cells.tsv",
+      "sha256": "c5c591eea9bfa70e4a7e5bb1d75bfcff21031b89c26a37a86ee9f9c5631ab2e4"
+    },
+    "support": {
+      "path": "artifacts/development_characterisation/support_stratified_concordance.tsv",
+      "sha256": "d06ff6e0f3a91d4c0c56958c39f8e6982ddc32a946ead991f454cf91dfe2d050"
+    },
+    "truth_flow": {
+      "path": "artifacts/development_characterisation/truth_flow.tsv",
+      "sha256": "0044bfd5a6286d509ec9b7817c135c66ccccedd5fe9a45a1752c7bc8057a2753"
+    },
+    "venex_dissent": {
+      "path": "artifacts/venex/plurality_vs_caller.tsv",
+      "sha256": "191831662d1f500fd2ced4051b989c1f012a7b94466d3fa4ce7c041e627772cf"
+    },
+    "venex_validation": {
+      "path": "artifacts/venex/caller_validation_summary.tsv",
+      "sha256": "c150690da158a77d075637bd230d36e2ce72a36a78cf603a673a0d37fadfad68"
+    }
+  },
+  "style_contract": {
+    "exploratory_formats": [
+      "pdf",
+      "svg",
+      "png"
+    ],
+    "exploratory_raster_dpi": 300,
+    "formats": [
+      "pdf",
+      "svg",
+      "png",
+      "tiff"
+    ],
+    "main_width_mm": 180,
+    "minimum_font_points": 7,
+    "percentage_upper_bound": 100,
+    "raster_dpi": 600,
+    "render_profiles": {
+      "exploratory_300dpi_three_format": {
+        "formats": [
+          "pdf",
+          "svg",
+          "png"
+        ],
+        "raster_dpi": 300
+      },
+      "publication_600dpi_four_format": {
+        "formats": [
+          "pdf",
+          "svg",
+          "png",
+          "tiff"
+        ],
+        "raster_dpi": 600
+      }
+    },
+    "significance_colour": "#AA3377"
+  }
+}

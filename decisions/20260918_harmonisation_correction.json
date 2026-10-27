@@ -1,0 +1,75 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20260918_harmonisation_correction",
+  "date": "2026-09-18",
+  "status": "SIGNED",
+  "decision": "Correct the harmonisation defect that converted a partial call into a confident homozygous genotype, and re-derive the WES and RNA-seq results under a rule fixed in advance.",
+  "written_before_the_run": true,
+  "written_before_the_run_note": "This record is written and signed before the correction is executed. Nothing in it was chosen after seeing a corrected score. The pre-correction figures below are the currently published ones and are stated here so the comparison is fixed in advance.",
+  "defect": {
+    "description": "Where a caller could not determine a second allele it emitted a placeholder. Harmonisation replaced that placeholder with a copy of the first allele, so a partial call became a confident homozygous genotype.",
+    "second_mechanism": "Two distinct high-resolution alleles reported by one caller can collapse to the same two-field group, producing a homozygous genotype from a heterozygous call.",
+    "sites": [
+      "pihla bin/hla_benchmark.py:644  allele2 = alleles[1] if len(alleles) > 1 else allele1",
+      "pihla bin/parse_immuannot_gtf.py:103  a2 = alleles[1][0] if len(alleles) > 1 else a1",
+      "pihla bin/parse_seq2hla_results.py:111  a2 = a1"
+    ],
+    "not_a_defect_here": [
+      "bin/build_ihwg_truth.py and bin/build_getrm_truth.py use the same single-allele-means-homozygous convention on the TRUTH side, where it is correct: that is how sequence-based typing records a homozygote. These must not be changed. Changing them would corrupt the reference typing rather than fix anything."
+    ],
+    "measured_extent": {
+      "source": "artifacts/harmonisation_defect/harmonisation_defect_counts.tsv",
+      "cohort": "benchmark_{wes,rna}_truthbacked, the development cohort this paper reports on",
+      "wes_panel_members": "79 of 1950 caller rows (4.1%)",
+      "rnaseq_panel_members": "94 of 1266 caller rows (7.4%)",
+      "caller_specific": "OptiType emits no placeholder at all. SpecHLA emits 75 on RNA-seq and manufactured none, because its outputs were handled correctly. The callers that manufacture homozygotes are HLA-HD, T1K and ArcasHLA."
+    }
+  },
+  "discovery_path": {
+    "how_found": "By inspecting truth-derived output: the diagnosis in provenance/external_evidence/WGS_DIAGNOSIS_20260901.md compared manufactured homozygous genotypes against the reference typing.",
+    "classification": "Amendment to the pre-registration, not a plain bug fix. Per CLAUDE.md, a finding discovered from truth-derived output is an amendment even when the fix itself is truth-independent and test-covered.",
+    "superseded_record_retained": true
+  },
+  "primary_rule": {
+    "name": "abstain_at_undetermined_second_allele",
+    "definition": "A caller whose second allele is undetermined casts no vote at that locus and is not counted among the callable voters there. The plurality is taken over the remaining callers by the unchanged rule: most votes, alphabetical tie-break, always call.",
+    "rationale": "It invents no information. The caller stated it could not determine the allele, and the previous behaviour asserted the opposite."
+  },
+  "sensitivity_rule": {
+    "name": "vote_determined_allele_only",
+    "definition": "The same caller instead votes for the single allele it did determine, contributing to any candidate pair containing that allele.",
+    "rationale": "Uses the partial information rather than discarding it. Pre-registered as a sensitivity analysis so that the choice between the two rules cannot be made after seeing which performs better."
+  },
+  "endpoint": {
+    "primary": "Change in the number of correct exact unordered two-field calls for PanelHLA-Consensus, at the fixed denominators of 390 WES loci and 321 RNA-seq loci, reported separately per assay.",
+    "secondary": "The same change for every individual caller and for each comparator in the existing comparator family.",
+    "inference": "Exact subject-cluster sign-flip tests with Holm correction within each modality's comparator family, unchanged from the current protocol.",
+    "pre_correction_values": {
+      "wes_consensus": "365 / 390",
+      "rnaseq_consensus": "306 / 321",
+      "note": "These are the currently published values and are the baseline the correction is measured against."
+    }
+  },
+  "reporting_commitments": [
+    "The correction is run once. Whatever it gives is reported, including if consensus becomes less accurate.",
+    "Both the primary and the sensitivity rule are reported, whichever direction each moves.",
+    "No threshold, panel, guard or tie-break is tuned in response to the result. If the result suggests a further change, that is a new pre-registration, not an adjustment to this one.",
+    "The pre-correction numbers are retained alongside the corrected ones rather than replaced silently."
+  ],
+  "scope": {
+    "modalities": [
+      "wes",
+      "rnaseq"
+    ],
+    "excluded": "Whole-genome data. Its inputs are separately invalid, so a harmonisation correction there could not produce an admissible number.",
+    "sealed_holdout": "Not opened. This correction is applied to development data only."
+  },
+  "author_signoff": {
+    "required": true,
+    "signed_by": "Umut Onur Özcan",
+    "signed_date": "2026-09-18",
+    "note": "Required because the correction changes every reported number in the paper, and because the defect was discovered from truth-derived output.",
+    "signature_mechanism": "Authorisation given by the author in an interactive working session on 2026-09-18, after the record was presented for review. Recorded by the assistant at the author's explicit instruction; the decision is the author's.",
+    "scope_of_authorisation": "Authorises the harmonisation correction: abstention at an undetermined second allele as the primary rule, single-allele voting as a pre-registered sensitivity, run once against the stated endpoint."
+  }
+}

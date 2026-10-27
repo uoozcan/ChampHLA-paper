@@ -1,0 +1,167 @@
+Sep-18 23:52:46.280 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /scratch/project_2008084/pihla-publish_verify/main.nf -params-file /scratch/project_2008084/pihla-publish_verify/conf/roihu_params.yaml -name panelhla_rnaseq_1410978 -w /scratch/project_2008084/panelhla_e2e/rnaseq/work --input /scratch/project_2008084/champhla_plurality_inputs/rnaseq/HG00096.staging.1236346 --input_type fastq --tools arcashla,optitype,seq2hla,t1k,hlahd --seq_type rna --optitype_seq_type rna --spechla_exon_only 0 --run_modality rnaseq --outdir /scratch/project_2008084/panelhla_e2e/rnaseq/results --slurm_account project_2008084 -profile roihu,singularity
+Sep-18 23:52:46.340 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.2
+Sep-18 23:52:46.375 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/scratch/project_2008084/.nextflow/plugins; core-plugins: nf-amazon@3.4.2,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.3,nf-wave@1.16.1
+Sep-18 23:52:46.393 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Sep-18 23:52:46.394 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Sep-18 23:52:46.397 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Sep-18 23:52:46.409 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Sep-18 23:52:46.541 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Sep-18 23:52:46.564 [main] WARN  nextflow.cli.CmdRun - Missing params file variable: ${samtools_bin_dir}
+Sep-18 23:52:46.597 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /scratch/project_2008084/pihla-publish_verify/nextflow.config
+Sep-18 23:52:46.600 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /scratch/project_2008084/pihla-publish_verify/nextflow.config
+Sep-18 23:52:46.619 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `roihu,singularity`
+Sep-18 23:52:47.245 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, slurm, roihu, test, stub, puhti, singularity, docker]
+Sep-18 23:52:47.261 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Sep-18 23:52:47.261 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Sep-18 23:52:47.272 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /scratch/project_2008084/.nextflow/secrets/store.json
+Sep-18 23:52:47.274 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@7c7e73c5] - activable => nextflow.secret.LocalSecretsProvider@7c7e73c5
+Sep-18 23:52:47.278 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Sep-18 23:52:47.291 [main] DEBUG nextflow.cli.CmdRun - Launching `/scratch/project_2008084/pihla-publish_verify/main.nf` [panelhla_rnaseq_1410978] DSL2 - revision: 91f035f6f0
+Sep-18 23:52:47.326 [main] DEBUG nextflow.Session - Session UUID: 782625ee-7c6e-4076-8324-5675c60df9d8
+Sep-18 23:52:47.326 [main] DEBUG nextflow.Session - Run name: panelhla_rnaseq_1410978
+Sep-18 23:52:47.327 [main] DEBUG nextflow.Session - Executor pool size: 8
+Sep-18 23:52:47.334 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Sep-18 23:52:47.338 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Sep-18 23:52:47.369 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.2 build 10555
+  Created: 28-11-2025 19:24 UTC (21:24 EEST)
+  System: Linux 5.14.0-687.41.1.1.el9_8.x86_64
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.11+9
+  Encoding: UTF-8 (UTF-8)
+  Process: 1052682@rc6130 [10.145.8.86]
+  CPUs: 8 - Mem: 748.5 GB (552.4 GB) - Swap: 4 GB (3.9 GB)
+Sep-18 23:52:47.412 [main] DEBUG nextflow.Session - Work-dir: /scratch/project_2008084/panelhla_e2e/rnaseq/work [lustre]
+Sep-18 23:52:47.458 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Sep-18 23:52:47.464 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Sep-18 23:52:47.467 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Sep-18 23:52:47.501 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Sep-18 23:52:47.508 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Sep-18 23:52:47.675 [main] DEBUG nextflow.Session - Session start
+Sep-18 23:52:47.681 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /scratch/project_2008084/panelhla_e2e/rnaseq/results/pipeline_info/execution_trace.txt
+Sep-18 23:52:48.203 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Sep-18 23:52:49.095 [main] WARN  nextflow.script.ScriptBinding - Access to undefined parameter `input_samplesheet` -- Initialise it to a default value eg. `params.input_samplesheet = some_value`
+Sep-18 23:52:49.097 [main] INFO  nextflow.Nextflow - 
+========================================================================================
+    MVHLA — Multi-tool Voting-based HLA Analysis Pipeline
+========================================================================================
+Input               : /scratch/project_2008084/champhla_plurality_inputs/rnaseq/HG00096.staging.1236346
+Input type          : fastq
+Seq type            : rna
+Output dir          : /scratch/project_2008084/panelhla_e2e/rnaseq/results
+Tools               : arcashla,optitype,seq2hla,t1k,hlahd
+Reference build     : hg38
+Weighting           : calibrated
+Max CPUs            : 40
+Max memory          : 180.GB
+Max time            : 24.h
+========================================================================================
+
+Sep-18 23:52:49.150 [main] INFO  nextflow.Nextflow - Resolved modality   : rnaseq
+Sep-18 23:52:49.159 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name OPTITYPE
+Sep-18 23:52:49.160 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:OPTITYPE|OPTITYPE_FASTQ` matches process OPTITYPE
+Sep-18 23:52:49.161 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:OPTITYPE|OPTITYPE_FASTQ` matches process OPTITYPE
+Sep-18 23:52:49.161 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:OPTITYPE|OPTITYPE_FASTQ` matches process OPTITYPE
+Sep-18 23:52:49.168 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-18 23:52:49.168 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-18 23:52:49.177 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Sep-18 23:52:49.181 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 100; pollInterval: 5s; dumpInterval: 5m 
+Sep-18 23:52:49.183 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Sep-18 23:52:49.184 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Sep-18 23:52:49.199 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'OPTITYPE': maxForks=0; fair=false; array=0
+Sep-18 23:52:49.218 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ARCASHLA_FASTQ
+Sep-18 23:52:49.219 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:ARCASHLA_FASTQ` matches process ARCASHLA_FASTQ
+Sep-18 23:52:49.221 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-18 23:52:49.221 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-18 23:52:49.222 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ARCASHLA_FASTQ': maxForks=0; fair=false; array=0
+Sep-18 23:52:49.225 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_high` matches labels `process_high` for process with name HLAHD_FASTQ
+Sep-18 23:52:49.226 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:HLAHD_FASTQ` matches process HLAHD_FASTQ
+Sep-18 23:52:49.227 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-18 23:52:49.227 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-18 23:52:49.228 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'HLAHD_FASTQ': maxForks=0; fair=false; array=0
+Sep-18 23:52:49.231 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name T1K_FASTQ
+Sep-18 23:52:49.232 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:T1K_FASTQ` matches process T1K_FASTQ
+Sep-18 23:52:49.233 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-18 23:52:49.233 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-18 23:52:49.234 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'T1K_FASTQ': maxForks=0; fair=false; array=0
+Sep-18 23:52:49.236 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name SEQ2HLA
+Sep-18 23:52:49.237 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withName:SEQ2HLA` matches process SEQ2HLA
+Sep-18 23:52:49.239 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Sep-18 23:52:49.239 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Sep-18 23:52:49.239 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SEQ2HLA': maxForks=0; fair=false; array=0
+Sep-18 23:52:49.242 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ARCASHLA_FASTQ, AGGREGATE_RESULTS, CRAM_TO_BAM, POLYSOLVER, OPTITYPE_FASTQ, T1K_FASTQ, IMMUANNOT, EXTRACT_HLA_REGION, OPTITYPE, HLAHD, ARCASHLA, LOCITYPER, SPECHLA_FASTQ, GENERATE_SILVER_TRUTH, KOURAMI, ARCASHLA_BAM, T1K_LONGREADS, MAJORITY_VOTING, EXTRACT_HLA_AND_CONVERT, SPECHLA, SPECHLA_BAM, SEQ2HLA, HLAHD_BAM, BAM_TO_FASTQ, HLAHD_FASTQ
+Sep-18 23:52:49.246 [main] DEBUG nextflow.Session - Igniting dataflow network (19)
+Sep-18 23:52:49.250 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /scratch/project_2008084/champhla_plurality_inputs/rnaseq/HG00096.staging.1236346/; pattern: *_{R1,R2,1,2}*.{fastq,fq,fastq.gz,fq.gz}; options: [checkIfExists:true]
+Sep-18 23:52:49.250 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > OPTITYPE
+Sep-18 23:52:49.251 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ARCASHLA_FASTQ
+Sep-18 23:52:49.251 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > HLAHD_FASTQ
+Sep-18 23:52:49.251 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > T1K_FASTQ
+Sep-18 23:52:49.251 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SEQ2HLA
+Sep-18 23:52:49.252 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_17c71b63f8afcea3: /scratch/project_2008084/pihla-publish_verify/modules/hlahd.nf
+  Script_67ca072171223070: /scratch/project_2008084/pihla-publish_verify/modules/seq2hla.nf
+  Script_a2455041bb77459a: /scratch/project_2008084/pihla-publish_verify/modules/kourami.nf
+  Script_5141f91d4e53089d: /scratch/project_2008084/pihla-publish_verify/modules/aggregation.nf
+  Script_6e6953ef28c3936d: /scratch/project_2008084/pihla-publish_verify/modules/majority_voting.nf
+  Script_2686476a0f8034c5: /scratch/project_2008084/pihla-publish_verify/modules/immuannot.nf
+  Script_c171f0dd5d6e5667: /scratch/project_2008084/pihla-publish_verify/modules/bam_to_fastq.nf
+  Script_30283c31a91e865b: /scratch/project_2008084/pihla-publish_verify/modules/optitype.nf
+  Script_3d9958f084dbb777: /scratch/project_2008084/pihla-publish_verify/main.nf
+  Script_fccd53ac3581c7d0: /scratch/project_2008084/pihla-publish_verify/modules/polysolver.nf
+  Script_5ece02e4f5d35395: /scratch/project_2008084/pihla-publish_verify/modules/locityper.nf
+  Script_0575f63c5eabdf55: /scratch/project_2008084/pihla-publish_verify/modules/t1k.nf
+  Script_0085f755a31216a9: /scratch/project_2008084/pihla-publish_verify/modules/silver_truth.nf
+  Script_833a48eab5dd4de5: /scratch/project_2008084/pihla-publish_verify/modules/spechla.nf
+  Script_9562e45410074b45: /scratch/project_2008084/pihla-publish_verify/modules/arcashla.nf
+Sep-18 23:52:49.253 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Sep-18 23:52:49.253 [main] DEBUG nextflow.Session - Session await
+Sep-18 23:52:49.621 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process OPTITYPE (HG00096) > jobId: 1410979; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/1c/9fcf4d05d0612ea9b3d553b600a4e4
+Sep-18 23:52:49.622 [Task submitter] INFO  nextflow.Session - [1c/9fcf4d] Submitted process > OPTITYPE (HG00096)
+Sep-18 23:52:49.878 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process T1K_FASTQ (HG00096) > jobId: 1410980; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/46/94be8e3b83fdf184b5bfd657dee718
+Sep-18 23:52:49.879 [Task submitter] INFO  nextflow.Session - [46/94be8e] Submitted process > T1K_FASTQ (HG00096)
+Sep-18 23:52:50.851 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process SEQ2HLA (HG00096) > jobId: 1410981; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/51/d94e81d15d505b11df1ab86dc3152a
+Sep-18 23:52:50.851 [Task submitter] INFO  nextflow.Session - [51/d94e81] Submitted process > SEQ2HLA (HG00096)
+Sep-18 23:52:51.033 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process HLAHD_FASTQ (HG00096) > jobId: 1410983; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/40/9704bd3c2144180ca69de889a52b7e
+Sep-18 23:52:51.033 [Task submitter] INFO  nextflow.Session - [40/9704bd] Submitted process > HLAHD_FASTQ (HG00096)
+Sep-18 23:52:51.269 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ARCASHLA_FASTQ (HG00096) > jobId: 1410984; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/86/f88d17dff8cb683b0e14a57097857a
+Sep-18 23:52:51.269 [Task submitter] INFO  nextflow.Session - [86/f88d17] Submitted process > ARCASHLA_FASTQ (HG00096)
+Sep-18 23:57:54.197 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 5 -- submitted tasks are shown below
+~> TaskHandler[jobId: 1410979; id: 1; name: OPTITYPE (HG00096); status: RUNNING; exit: -; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/1c/9fcf4d05d0612ea9b3d553b600a4e4 started: 1789764774188; exited: -; ]
+~> TaskHandler[jobId: 1410980; id: 4; name: T1K_FASTQ (HG00096); status: RUNNING; exit: -; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/46/94be8e3b83fdf184b5bfd657dee718 started: 1789764774362; exited: -; ]
+~> TaskHandler[jobId: 1410981; id: 5; name: SEQ2HLA (HG00096); status: RUNNING; exit: -; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/51/d94e81d15d505b11df1ab86dc3152a started: 1789764774364; exited: -; ]
+~> TaskHandler[jobId: 1410983; id: 2; name: HLAHD_FASTQ (HG00096); status: RUNNING; exit: -; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/40/9704bd3c2144180ca69de889a52b7e started: 1789764774365; exited: -; ]
+~> TaskHandler[jobId: 1410984; id: 3; name: ARCASHLA_FASTQ (HG00096); status: RUNNING; exit: -; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/86/f88d17dff8cb683b0e14a57097857a started: 1789764774366; exited: -; ]
+Sep-18 23:58:59.360 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 1410984; id: 3; name: ARCASHLA_FASTQ (HG00096); status: COMPLETED; exit: 0; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/86/f88d17dff8cb683b0e14a57097857a started: 1789764774366; exited: 2026-09-18T20:58:55Z; ]
+Sep-18 23:58:59.361 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Sep-18 23:58:59.395 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Sep-19 00:02:24.212 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 1410979; id: 1; name: OPTITYPE (HG00096); status: COMPLETED; exit: 0; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/1c/9fcf4d05d0612ea9b3d553b600a4e4 started: 1789764774188; exited: 2026-09-18T21:02:23Z; ]
+Sep-19 00:02:54.248 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 3 -- submitted tasks are shown below
+~> TaskHandler[jobId: 1410980; id: 4; name: T1K_FASTQ (HG00096); status: RUNNING; exit: -; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/46/94be8e3b83fdf184b5bfd657dee718 started: 1789764774362; exited: -; ]
+~> TaskHandler[jobId: 1410981; id: 5; name: SEQ2HLA (HG00096); status: RUNNING; exit: -; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/51/d94e81d15d505b11df1ab86dc3152a started: 1789764774364; exited: -; ]
+~> TaskHandler[jobId: 1410983; id: 2; name: HLAHD_FASTQ (HG00096); status: RUNNING; exit: -; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/40/9704bd3c2144180ca69de889a52b7e started: 1789764774365; exited: -; ]
+Sep-19 00:05:09.276 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 1410981; id: 5; name: SEQ2HLA (HG00096); status: COMPLETED; exit: 0; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/51/d94e81d15d505b11df1ab86dc3152a started: 1789764774364; exited: 2026-09-18T21:05:06Z; ]
+Sep-19 00:07:04.279 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 1410980; id: 4; name: T1K_FASTQ (HG00096); status: COMPLETED; exit: 0; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/46/94be8e3b83fdf184b5bfd657dee718 started: 1789764774362; exited: 2026-09-18T21:07:01Z; ]
+Sep-19 00:07:54.278 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 1410983; id: 2; name: HLAHD_FASTQ (HG00096); status: RUNNING; exit: -; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/40/9704bd3c2144180ca69de889a52b7e started: 1789764774365; exited: -; ]
+Sep-19 00:12:14.287 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 1410983; id: 2; name: HLAHD_FASTQ (HG00096); status: COMPLETED; exit: 0; error: -; workDir: /scratch/project_2008084/panelhla_e2e/rnaseq/work/40/9704bd3c2144180ca69de889a52b7e started: 1789764774365; exited: 2026-09-18T21:12:09Z; ]
+Sep-19 00:12:14.415 [main] DEBUG nextflow.Session - Session await > all processes finished
+Sep-19 00:12:19.285 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Sep-19 00:12:19.286 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Sep-19 00:12:19.288 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Sep-19 00:12:19.289 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Sep-19 00:12:19.291 [main] INFO  nextflow.Nextflow - 
+============================================================
+Pipeline completed!
+============================================================
+Status      : SUCCESS
+Completed at: 2026-09-19T00:12:19.289359621+03:00
+Duration    : 19m 32s
+Results dir : /scratch/project_2008084/panelhla_e2e/rnaseq/results
+============================================================
+
+Sep-19 00:12:19.296 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=5; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=10h 41m 30s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=5; peakCpus=48; peakMemory=192 GB; ]
+Sep-19 00:12:19.367 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Sep-19 00:12:19.752 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Sep-19 00:12:19.792 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Sep-19 00:12:19.798 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Sep-19 00:12:19.810 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Sep-19 00:12:19.810 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

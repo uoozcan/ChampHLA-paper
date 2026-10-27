@@ -1,0 +1,90 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20260917_project_rename",
+  "date": "2026-09-17",
+  "decision": "The project is renamed from ChampHLA to PanelHLA.",
+  "rationale": [
+    "The 2026-09-08 amendment demoted Champion-Challenger from the primary method to a retained ablation and promoted equal-weight plurality over a modality-appropriate caller panel.",
+    "A name that literally encodes 'Champion' therefore misdescribes the method the paper reports.",
+    "PanelHLA names the caller panel, which is the object the paper is actually about.",
+    "The rename also resolves a pre-existing split in which the GitHub repository and Nextflow pipeline were named pihla / pihla-publish while the manuscript said ChampHLA."
+  ],
+  "supersedes": null,
+  "superseded_record_retained": true,
+  "rename_rule": "Rename labels. Never rename an identifier that lives inside data, because doing so either invalidates a checksummed artifact or changes what a run reproduces.",
+  "renamed": {
+    "display_method_name": "ChampHLA-Consensus -> PanelHLA-Consensus (result_registry.tsv, 3 rows; manuscripts)",
+    "prose": "manuscripts/, README.md, RECOVERY_STATUS.md",
+    "code_labels": "docstrings, CLI --description text, generated table headings, the ENA User-Agent string",
+    "ablation_display_name": "ChampHLA-RefFormer -> PanelHLA-RefFormer",
+    "live_decision_exception": "decisions/publication_route.json IS renamed, unlike everything else under decisions/. It is a live routing decision describing the current active method, not a record of a past decision, so leaving it naming the old method would make it wrong rather than historical."
+  },
+  "deliberately_not_renamed": [
+    {
+      "item": "method keys",
+      "examples": [
+        "SimplePluralityLex",
+        "TwoThirdsGuardedCC",
+        "SimpleTwoThirdsConsensus",
+        "MajorityVote"
+      ],
+      "reason": "These are values inside frozen prediction tables and checksummed artifacts. Renaming them would invalidate every artifact and break the freeze chain."
+    },
+    {
+      "item": "selection seeds",
+      "examples": [
+        "ChampHLA-CC-expansion-20260901 (configs/confirmation_expansion.json, cohorts/frozen_initial_rosters.*)",
+        "ChampHLA-CC-confirmation-20260831 (champhla_confirmation/cli.py --seed default)"
+      ],
+      "reason": "A seed is an input, not a label. Changing the string changes which subjects a roster selects, so the frozen rosters would no longer reproduce."
+    },
+    {
+      "item": "schema_version values",
+      "examples": [
+        "champhla-expansion-1",
+        "champhla-release-freeze-1",
+        "champhla-publication-originals-1"
+      ],
+      "reason": "Version identifiers embedded in checksummed artifacts; changing them alters artifact content and breaks validation."
+    },
+    {
+      "item": "Python package names",
+      "examples": [
+        "champhla_confirmation",
+        "champhla_recovery",
+        "champhla_refformer"
+      ],
+      "reason": "Package paths are hashed into every freeze manifest. Renaming them would invalidate all existing manifests and require a full re-freeze and re-verification. Deferred as a separate, deliberately scoped change."
+    },
+    {
+      "item": "immutable governance and provenance records",
+      "examples": [
+        "decisions/",
+        "provenance/",
+        "reports/",
+        "ORIGINALS_MANIFEST.json",
+        "manuscripts/source_original/"
+      ],
+      "reason": "These record what was decided and what was received, at the time. Rewriting them retroactively would falsify the record."
+    },
+    {
+      "item": "sibling evidence trees",
+      "examples": [
+        "champhla_egcc_pilot",
+        "champhla_cc_confirmation",
+        "champhla_baseline_ladder",
+        "champhla_refformer"
+      ],
+      "reason": "Each is checksum-governed by PROJECT_MANIFEST.json / ORIGINALS_MANIFEST.json. Renaming files would break those manifests. They remain under their historical names."
+    },
+    {
+      "item": "CSC scratch path /scratch/project_2008084/pihla-publish",
+      "reason": "Roughly ninety sbatch scripts hard-code it and checksummed records reference it. Renaming breaks both for no scientific gain. The pipeline README notes that the path retains its historical name."
+    }
+  ],
+  "author_signoff": {
+    "required": false,
+    "note": "A rename changes no claim, no number and no endpoint. It is recorded here for continuity rather than as a pre-registration amendment."
+  },
+  "verification": "Full test suite green after the rename (53 tests). Seed guards asserted: configs/confirmation_expansion.json 1, champhla_confirmation/cli.py 1, cohorts/frozen_initial_rosters.tsv 308, cohorts/frozen_initial_rosters.json 1 -- all unchanged."
+}

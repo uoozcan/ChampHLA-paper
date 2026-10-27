@@ -1,0 +1,256 @@
+[panelhla] modality=wgs tools=optitype,hlahd,polysolver,kourami,spechla,t1k
+[panelhla] nextflow=/appl/soft/manual/bio/x86_64/spackenvs/bapps_v202603/install_dir/zen5/none-none/nextflow-25.10.2-standalone-eiozh5/bin/nextflow samtools=/appl/soft/manual/bio/x86_64/spackenvs/bapps_v202603/install_dir/zen5/gcc-14.3.0/samtools-1.21-lrwjwo/bin/samtools
+
+ N E X T F L O W   ~  version 25.10.2
+
+WARN: Missing params file variable: ${samtools_bin_dir}
+Launching `/scratch/project_2008084/pihla-publish_v5/main.nf` [panelhla_wgs_1427633] DSL2 - revision: 91f035f6f0
+
+WARN: Access to undefined parameter `input_samplesheet` -- Initialise it to a default value eg. `params.input_samplesheet = some_value`
+
+========================================================================================
+    MVHLA — Multi-tool Voting-based HLA Analysis Pipeline
+========================================================================================
+Input               : /scratch/project_2008084/champhla_plurality_inputs/wgs/HG00096
+Input type          : bam
+Seq type            : dna
+Output dir          : /scratch/project_2008084/panelhla_e2e/vote/results
+Tools               : optitype,hlahd,polysolver,kourami,spechla,t1k
+Reference build     : hg38
+Weighting           : calibrated
+Max CPUs            : 40
+Max memory          : 180.GB
+Max time            : 24.h
+========================================================================================
+
+Resolved modality   : wgs
+[-        ] SPECHLA_BAM                    -
+[-        ] HLAHD_BAM                      -
+[-        ] POLYSOLVER                     -
+[-        ] KOURAMI                        -
+[-        ] BAM_TO_FASTQ                   -
+[-        ] OPTITYPE                       -
+[-        ] T1K_FASTQ                      -
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (2)
+[-        ] SPECHLA_BAM                    | 0 of 1
+[-        ] HLAHD_BAM                      | 0 of 1
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[-        ] KOURAMI                        | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] OPTITYPE                       -
+[-        ] T1K_FASTQ                      -
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (4)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 0 of 1
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[-        ] KOURAMI                        | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] OPTITYPE                       -
+[-        ] T1K_FASTQ                      -
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (5)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 0 of 1
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] OPTITYPE                       -
+[-        ] T1K_FASTQ                      -
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (5)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 0 of 1
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] OPTITYPE                       -
+[-        ] T1K_FASTQ                      -
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (5)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 0 of 1
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] OPTITYPE                       -
+[-        ] T1K_FASTQ                      -
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (5)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 0 of 1
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[-        ] OPTITYPE                       | 0 of 1
+[-        ] T1K_FASTQ                      -
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (7)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 0 of 1
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 0 of 1
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (7)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 0 of 1
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 0 of 1
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (7)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 0 of 1
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (7)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (7)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 0 of 1
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (7)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 0 of 1
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (7)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[26/608294] POL…R (HG00096.mate_aware_hla) | 0 of 1
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 1 of 1 ✔
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (7)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 0 of 1
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[26/608294] POL…R (HG00096.mate_aware_hla) | 1 of 1 ✔
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 1 of 1 ✔
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[-        ] MAJ…WORKFLOW:AGGREGATE_RESULTS -
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (8)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[26/608294] POL…R (HG00096.mate_aware_hla) | 1 of 1 ✔
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 1 of 1 ✔
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[70/9890f0] MAJ…REGATE_RESULTS (aggregate) | 0 of 1
+[-        ] MAJ…G_WORKFLOW:MAJORITY_VOTING -
+
+executor >  slurm (9)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[26/608294] POL…R (HG00096.mate_aware_hla) | 1 of 1 ✔
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 1 of 1 ✔
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[70/9890f0] MAJ…REGATE_RESULTS (aggregate) | 1 of 1 ✔
+[65/d62ad3] MAJ…AJORITY_VOTING (consensus) | 0 of 1
+
+executor >  slurm (9)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[26/608294] POL…R (HG00096.mate_aware_hla) | 1 of 1 ✔
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 1 of 1 ✔
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[70/9890f0] MAJ…REGATE_RESULTS (aggregate) | 1 of 1 ✔
+[65/d62ad3] MAJ…AJORITY_VOTING (consensus) | 1 of 1 ✔
+
+executor >  slurm (9)
+[c2/06b502] SPE…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[52/fed248] HLA…M (HG00096.mate_aware_hla) | 1 of 1 ✔
+[26/608294] POL…R (HG00096.mate_aware_hla) | 1 of 1 ✔
+[d5/f99762] KOU…I (HG00096.mate_aware_hla) | 1 of 1 ✔
+[c6/3319ab] BAM…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[57/d3b981] OPT…E (HG00096.mate_aware_hla) | 1 of 1 ✔
+[da/ed39cb] T1K…Q (HG00096.mate_aware_hla) | 1 of 1 ✔
+[70/9890f0] MAJ…REGATE_RESULTS (aggregate) | 1 of 1 ✔
+[65/d62ad3] MAJ…AJORITY_VOTING (consensus) | 1 of 1 ✔
+
+============================================================
+Pipeline completed!
+============================================================
+Status      : SUCCESS
+Completed at: 2026-09-20T15:06:53.272428096+03:00
+Duration    : 6h 14m 57s
+Results dir : /scratch/project_2008084/panelhla_e2e/vote/results
+============================================================
+
+
+    PERFORMANCE SUMMARY:
+- SpecHLA: Used BAM input with chromosome 6 extraction (OPTIMIZED)
+    - OptiType: Full BAM-to-FASTQ conversion performed
+    ============================================================
+            
+Completed at: 20-Sep-2026 15:06:53
+Duration    : 6h 14m 57s
+CPU hours   : 101.3
+Succeeded   : 9
+
+
+[panelhla] done. results in /scratch/project_2008084/panelhla_e2e/vote/results

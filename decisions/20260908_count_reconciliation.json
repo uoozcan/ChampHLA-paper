@@ -1,0 +1,44 @@
+{
+  "schema_version": "count-reconciliation-1",
+  "date": "2026-09-08",
+  "purpose": "Resolve the four numeric discrepancies listed in reports/SUPERVISOR_PROJECT_AND_METHOD_REPORT_2026-09-02.md before any prose is generated.",
+  "authoritative_source": "champhla_cc_confirmation/discovery/final_policy_check/joined.tsv, evaluated by champhla_confirmation.evaluation._evaluate_rows; summarised in artifacts/source_results/primary_modality_results.tsv (sha256 edfaf9bcda5f4207a68692275a587eb7c43fcee1eeae512821693d91189793e7).",
+  "resolutions": [
+    {
+      "issue": "raw Champion-Challenger WES count",
+      "competing_values": {
+        "champhla_baseline_ladder (dev subset, 276 loci)": 252,
+        "pooled_primary_analysis.tsv (all subjects, 390 loci)": 364,
+        "confirmation joined.tsv (all subjects, 390 loci)": 369
+      },
+      "adopted": 369,
+      "reason": "The confirmation pipeline is the checksummed path the registry already references. The 364 value comes from a superseded historical replay of the CC policy; the two runs fit the reliability/confidence weights differently. 369 is also the value least favourable to the consensus headline, so adopting it is the conservative choice.",
+      "superseded_values_retained_in": "supplementary, labelled as a historical replay"
+    },
+    {
+      "issue": "MetaConsensus WGS count",
+      "competing_values": {"frozen artifact": 220, "baseline ladder": 230},
+      "adopted": null,
+      "reason": "Moot. No WGS accuracy claim is made and all legacy WGS rows are validity=invalid. Neither value may appear as a performance number."
+    },
+    {
+      "issue": "pooled 669/711 versus 675/711 both labelled Champion-Challenger",
+      "adopted": "separate names",
+      "reason": "669/711 is raw ChampionChallenger; 675/711 is TwoThirdsGuardedCC. These are different methods and are never both called Champion-Challenger."
+    },
+    {
+      "issue": "two denominators in circulation",
+      "competing_values": {"all development subjects": "390/321/411", "subject-separated subset": "276/231/275"},
+      "adopted": "390/321/411",
+      "reason": "Declared in decisions/20260908_consensus_primary_amendment.json. The subset is reported as a sensitivity analysis."
+    }
+  ],
+  "naming": {
+    "public_name": "ChampHLA-Consensus",
+    "internal_identifier": "SimplePluralityLex",
+    "definition": "Unweighted plurality over the intended-use caller panel; top vote-getting canonical unordered two-field pair wins; alphabetical tie-break; always emits a call.",
+    "historical_aliases": ["MajorityVote", "plurality vote", "SimpleConsensusBaseline"],
+    "not_to_be_confused_with": ["SimpleStrictMajority (>50%)", "SimpleTwoThirdsConsensus (>=2/3, abstaining)"],
+    "evidence_that_aliases_are_the_same_rule": "In champhla_cc_confirmation joined.tsv, methods MajorityVote and SimplePluralityLex produce identical counts in every modality (WES 365, RNA 306, WGS 164)."
+  }
+}

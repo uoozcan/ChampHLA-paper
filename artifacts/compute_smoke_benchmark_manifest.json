@@ -1,0 +1,20 @@
+{
+  "caller_task_count": 11,
+  "interpretation_boundary": "Current HG00096 single-sample workflow smoke measurements; not historical development-cohort resource use, monetary cost, or cohort-scale estimates.",
+  "output_tsv": "compute_smoke_benchmark.tsv",
+  "output_tsv_sha256": "4144e2ca8b35d9b1b9eea4bc564abadeeda6442c33f2ca786bb4f3d3032582d2",
+  "record_type": "single_sample_workflow_smoke",
+  "row_count": 14,
+  "schema_version": "panelhla-compute-smoke-manifest-1",
+  "source_manifest_sha256": "8bd06350bf36ce2622b5164ac61ccc8a09e02f3ee600cb4c49972a49f5fbcb2e",
+  "workflow_revisions": [
+    {
+      "dsl_revision": "91f035f6f0",
+      "workflow_commit": "987f5eb56b00200b768560ece494fa730b25ef00"
+    },
+    {
+      "dsl_revision": "91f035f6f0",
+      "workflow_commit": "ce31c7427318328cb91f387015f1969f6b27e039"
+    }
+  ]
+}
