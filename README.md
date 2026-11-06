@@ -187,13 +187,23 @@ echo "38687335d053056d799891a37c42b1ac24a5a2a1eb5fccaf34db58188bccfff7  runtime_
 bash scripts/run_local_verification.sh
 ```
 
-The logistic meta-consensus refit is not bit-for-bit reproducible across processes
-(`decisions/20261105_metaconsensus_variation.json`; Supplementary S7.1). The
-variation can reach the primary and the abstain-all artifacts.
-If a run stops at the registry-delta author gate and
-`provenance/development_rerun_v350/result_registry_delta.md` shows only
-meta-consensus rows or artifacts that embed its hash,
-restore the tracked files and rerun; this is not a reproduction failure.
+The registry-delta author gate continues only if the regenerated
+`result_registry.tsv` is byte-identical to one approved by a signed record. If a
+run stops there, `git diff result_registry.tsv` shows what moved
+(`result_registry_delta.md` compares with the pre-v3.5.0 registry and always
+lists many changes). Two known causes are not reproduction failures:
+
+- The logistic meta-consensus refit is not bit-for-bit reproducible across
+  processes (`decisions/20261105_metaconsensus_variation.json`; Supplementary
+  S7.1). The variation can reach the primary and the abstain-all artifacts. If
+  only meta-consensus rows or artifacts that embed its hash differ, restore the
+  tracked files and rerun.
+- On Linux, 14 `sensitivity_adjusted_p` values differ from the approved registry
+  in the last digit (relative difference at most 2.2e-16), and so do the hashes of
+  the two `secondary_method_results.tsv` files that hold them. No count, estimate,
+  interval, call or rounded value changes. Rerunning does not remove this, so a
+  Linux run stops at the gate before the figures, tests and claim audits
+  (`decisions/20261107_linux_last_digit_pvalues.json`).
 
 The second file is the in silico retyping used only to adjudicate consensus
 errors (Abi-Rached et al. 2018); a release run requires it. `PUBLIC_TRUTH` overrides the default path above. Set `RESTORED_CALLER_SOURCE` to the

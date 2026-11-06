@@ -261,6 +261,8 @@ The release freeze and the in-gate tests did not run, because the gate stops fir
 
 **Snapshot build.** `scripts/publish_snapshot.sh` failed closed at the first attempt. The cohort-label check added in S1 flagged `provenance/cohort_rows_withheld_20261106.json`. Signed S2 makes that file the public manifest whose rule names the withheld cohorts. It holds only counts and hashes, and `decisions/` already names the cohorts. The check now exempts exactly that file. Against the tested tree, the old check flags only that file and the new one flags nothing. No snapshot was built at that attempt, and `public-snapshot` stayed at `787aa7c`.
 
+**Recorded, 7 November.** After the fix, snapshot `bf7cd66` was built from `c9f0e9b`. The author then chose to record the last-digit difference and fix the README ("Record and fix README (Recommended)"): `decisions/20261107_linux_last_digit_pvalues.json` lists the 14 rows and the hashes. The registry, values and code are unchanged, and no approval is added for the Linux registry. Recording it found that the README's check could not be made: `result_registry_delta.md` compares with the pre-v3.5.0 registry, not the approved one. The README now points to `git diff result_registry.tsv`, keeps the rerun advice for meta-consensus variation, and says a Linux run stops at the gate on these 14 rows every time.
+
 ## Meta-consensus variation: S7.1 corrected and signed
 
 The author signed `decisions/20261105_metaconsensus_variation.json` in the Claude Code session of 5 November ("Sign the correction"). The 26 October record is kept unedited.

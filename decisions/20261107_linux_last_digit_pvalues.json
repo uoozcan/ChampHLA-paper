@@ -1,0 +1,50 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261107_linux_last_digit_pvalues",
+  "date": "2026-11-07",
+  "status": "RECORDED - the author chose 'Record and fix README (Recommended)' in the Claude Code session of 2026-11-07; this record approves no registry and does not open the gate",
+  "relates_to": [
+    "decisions/20261105_metaconsensus_variation.json",
+    "decisions/20261026_metaconsensus_floating_point_drift.json",
+    "reports/manuscript_fatal_fixes_20261105.md",
+    "README.md"
+  ],
+  "discovery_path": {
+    "what_happened": "At the author's request ('A run on another machine, then building the snapshot'), the would-be snapshot tree baddd874 (from c5a60df) was run in release mode on CSC Roihu, twice (Slurm jobs 2922240 and 2922316). Both runs stopped at the registry-delta author gate. The regenerated result_registry.tsv was compared row by row with the approved one.",
+    "truth_derived_information_seen": "The registry holds scored results. Its rows were compared only for equality; nothing was chosen, tuned or selected by score."
+  },
+  "finding": {
+    "environment": "Roihu, Linux-5.14.0 x86_64, Python 3.11.15, NumPy 1.26.4, SciPy 1.14.1, Matplotlib 3.9.2. The approved registry (SHA-256 143a1e169588e8c30ff43ca23bd0b5b364a27e4f5ffc8f0c99357cb3285c2b5f) was produced on the author's Windows machine.",
+    "job_2922240": "Registry 585648f794688c2a4c98d38c533d233c4325684ae6d5e8f16cf0493f6eeef966. Also carries the documented meta-consensus variation (one WES prediction; combined predictions 5f0ab067...), which the prescribed repeat removed.",
+    "job_2922316": "Registry 2fac3e5defd28ecc05e730588d77cdb57a2b86ef833ae7c3731a7fca9fb22df2; combined predictions back at the approved 09a64e67f569a90ea587c67396a3e89da2accec380c4c9177b49b92ebdce81e2. 50 of the registry's rows differ: 14 in sensitivity_adjusted_p and the two artifact hashes, 36 in the two artifact hashes only. All 50 point to artifacts/development_corrected/secondary_method_results.tsv or artifacts/development_sensitivity_abstain/secondary_method_results.tsv (25 rows each).",
+    "rows": [
+      "DEV_PAIRED_RNASEQ_CALLER_T1K",
+      "DEV_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "DEV_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "DEV_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+      "DEV_PAIRED_WES_CHAMPIONCHALLENGER",
+      "DEV_PAIRED_WES_FAMILYGATEDCC",
+      "DEV_PAIRED_WES_METACONSENSUS",
+      "DEV_PAIRED_WES_TWOTHIRDSGUARDEDCC",
+      "DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "DEV_SINGLETON_ABSTAIN_PAIRED_WES_CHAMPIONCHALLENGER",
+      "DEV_SINGLETON_ABSTAIN_PAIRED_WES_FAMILYGATEDCC",
+      "DEV_SINGLETON_ABSTAIN_PAIRED_WES_TWOTHIRDSGUARDEDCC"
+    ],
+    "size": "Each of the 14 values differs in its last digit, a relative difference of at most 2.2e-16 (one unit in the last place), for example 0.004011279957868068 against 0.004011279957868069. Both Roihu runs gave the same values. No count, estimate, interval, call, adjusted_p or rounded value changed.",
+    "origin": "A platform difference between the Roihu run and the Windows machine. Which floating-point operation differs was not established.",
+    "readme_check": "The README told a reader whose run stops at the gate to check that provenance/development_rerun_v350/result_registry_delta.md shows only meta-consensus rows. That report compares with the pre-v3.5.0 registry and always lists hundreds of changes, so the check could not be made from it. The gate itself passes only when result_registry.tsv is byte-identical to one approved by a signed record; git diff of result_registry.tsv shows what moved."
+  },
+  "decision": {
+    "registered_values": "Unchanged. The registry keeps the approved values, and no approval record is added for the Linux registry.",
+    "no_code_change": "No script, threshold or rounding changes.",
+    "readme": "The registry-gate note tells the reader to compare result_registry.tsv with the tracked copy (git diff), keeps the advice to restore and rerun for meta-consensus variation, and says that on Linux the 14 last-digit sensitivity_adjusted_p rows and the two secondary_method_results.tsv hashes differ on every run. Such a run stops at the gate before the figures, tests and claim audits, and is not a reproduction failure."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "given": "2026-11-07, author's choice in the Claude Code session: 'Record and fix README (Recommended)'",
+    "mechanism": "Claude Code session"
+  }
+}
