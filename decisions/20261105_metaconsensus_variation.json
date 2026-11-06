@@ -1,0 +1,34 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261105_metaconsensus_variation",
+  "date": "2026-11-05",
+  "status": "SIGNED - author approved the corrected Supplementary S7.1 wording in the Claude Code session of 2026-11-05",
+  "updates": "decisions/20261026_metaconsensus_floating_point_drift.json (finding and disclosure only; that record is not edited)",
+  "relates_to": [
+    "reports/metaconsensus_drift_20261105.md",
+    "decisions/20261013_extension_v350_preregistration_amendment.json"
+  ],
+  "discovery_path": {
+    "what_happened": "A full verification run on 5 November 2026 stopped at the author gate with differences in the abstain-all artifacts. Repeating the fitted stage on identical inputs reproduced it.",
+    "truth_derived_information_seen": "Exact-endpoint scores were used only to say whether a moved call changes a reported number. Nothing was chosen, tuned or selected by score."
+  },
+  "finding": {
+    "primary_inputs": "17 refits; 1 changed a call (WES, outside the exact endpoint); exact-endpoint scores unchanged at 140/153 and 113/118.",
+    "abstain_all_inputs": "26 refits; 3 changed a call; 1 lowered the WES exact-endpoint score from 143/153 to 142/153; RNA-seq stayed at 113/118.",
+    "scope": "Only logistic meta-consensus moved. The vote and single callers use no fitted model; MV-floor scores and nested-CV output did not move.",
+    "mechanism": "Coefficients vary between refits on identical inputs, up to 3.0e-2, and the selected L2 penalty changed in one fold. One BLAS thread did not remove the variation. No locus has a top-two gap under 1e-6, so these are not machine-precision ties. The origin of the first numerical difference is not established.",
+    "limit": "43 refits on one machine show what can move, not everything that could."
+  },
+  "decision": {
+    "no_code_change": "src/champhla_confirmation/fitted.py stays as it is. It lies inside the extension-analysis digest pinned by the signed amendment, and meta-consensus is an exploratory comparator. A fix would need a new signed amendment and would change exploratory results.",
+    "registered_values": "The registry keeps the modal values already approved (primary 140/153 and 113/118; abstain-all 143/153 and 113/118). A verification run that stops at the gate because of this variation is repeated, and the delta should show only meta-consensus rows or the artifacts that embed its hash.",
+    "supplementary_s7_1_old": "In one verification run, a prediction at a WES locus outside the exact endpoint differed from the approved run because two candidate pairs were nearly tied. No reported result changed; the next run reproduced the approved registry exactly (`decisions/20261026_metaconsensus_floating_point_drift.json`).",
+    "supplementary_s7_1_new": "Its fitted coefficients varied between repeated refits on identical inputs, and the selected penalty changed in one fold. In 17 refits on the primary inputs, one changed a call, at a WES locus outside the exact endpoint, and no reported result changed. In 26 refits on the abstain-all inputs, three changed a call, and one of these lowered the abstain-all WES score from 143/153 to 142/153; the RNA-seq score did not change (`decisions/20261105_metaconsensus_variation.json`). The vote and single callers use no fitted model, and other fitted policies did not change.",
+    "readme": "The README note on the registry gate keeps its advice to rerun, and says the variation can reach abstain-all artifacts."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-05, explicit author statement: 'Sign the correction'",
+    "mechanism": "Claude Code session"
+  }
+}

@@ -23,7 +23,10 @@ from champhla_confirmation.io import write_tsv  # noqa: E402
 from champhla_confirmation.panels import GENES, PANELS  # noqa: E402
 from champhla_confirmation.schema import normalize_caller_row  # noqa: E402
 
-STORED = ROOT / "data" / "development" / "normalized_caller_calls.tsv"
+# The stored calls are the archived outputs from before the v3.5.0 study run;
+# data/development now holds the study-run calls (decisions/20261106_posthoc_round3_amendment.json, A1).
+STORED = (ROOT / "provenance" / "development_rerun_v350" / "historical_inputs_pre_v350"
+          / "normalized_caller_calls.tsv")
 RERUN = ROOT / "provenance" / "hg00096_rerun"
 OUTPUT = ROOT / "artifacts" / "development_characterisation" / "hg00096_rerun_comparison.tsv"
 RELEASES = ROOT / "provenance" / "hg00096_wes_release"

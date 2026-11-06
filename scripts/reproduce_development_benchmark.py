@@ -56,7 +56,6 @@ from champhla_recovery.submission import render_docx, validate_docx_parity  # no
 
 RELEASE_BOOTSTRAP = 100_000
 RELEASE_POWER_ITERATIONS = 2_000
-FIMM_AUTHOR_GATE = ROOT / "configs" / "fimm_submission_gate.json"
 def require_file(path: Path, description: str) -> None:
     if not path.is_file():
         raise SystemExit(f"missing {description}: {path}")
@@ -305,12 +304,39 @@ def main() -> int:
         print("== second-typing adjudication ==")
         subprocess.run([sys.executable, str(ROOT / "scripts" / "adjudicate_reference_discordance.py"),
                         str(joined), str(second_typing)], check=True)
+        for script in ("score_reference_substitution_posthoc.py",
+                       "score_leave_one_caller_out_posthoc.py",
+                       "score_p_group_agreement_posthoc.py",
+                       "build_flagged_loci_evidence.py",
+                       # decisions/20261106_posthoc_round3_amendment.json
+                       "score_error_dependence_counts_posthoc.py",
+                       "score_duplicate_rows_and_group_gap_posthoc.py",
+                       "score_naive_baselines_posthoc.py",
+                       "score_allele_vote_and_abstention_posthoc.py"):
+            subprocess.run([sys.executable, str(ROOT / "scripts" / script)], check=True)
     elif args.release:
         raise SystemExit(f"--release needs the second typing for the adjudication: {second_typing}")
     else:
         print("== second-typing adjudication not rerun: file absent ==")
+    pedigree = runtime / "public_pedigree" / "20130606_g1k.ped"
+    if pedigree.is_file():
+        print("== relatedness and family-clustered sign-flip (post hoc) ==")
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "score_relatedness_posthoc.py")],
+                       check=True)
+    elif args.release:
+        raise SystemExit(f"--release needs the public pedigree file: {pedigree}")
+    else:
+        print("== relatedness check not rerun: pedigree file absent ==")
     if rerun_inputs:
-        print("== restored analyses (S12): historical stored-output provenance, not rerun ==")
+        # decisions/20261106_posthoc_round3_amendment.json: S12.1-S12.3 use the study-run
+        # calls; calibration keeps its archived estimates (no study-run probabilities).
+        print("== restored analyses (S12) on the study-run calls ==")
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "restored_analyses.py")],
+                       check=True)
+        # decisions/20261106_posthoc_round4_amendment.json, C1: archived versus study runs.
+        print("== run stability, archived outputs against study runs (post hoc) ==")
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "score_run_stability_posthoc.py")],
+                       check=True)
     elif args.restored_caller_source:
         # S12 reads the joined table written above, so it must run before the
         # registry; without it the committed S12 artifacts are used unchanged.
@@ -338,7 +364,7 @@ def main() -> int:
         compare_result_registry.write_reports(delta_rows, delta_summary, provenance)
         # Each signed approval binds one exact registry; later amendments add new
         # records rather than editing an earlier one.
-        approvals = sorted((ROOT / "decisions").glob("20261025_rerun_registry_delta_approved*.json"))
+        approvals = sorted((ROOT / "decisions").glob("*_rerun_registry_delta_approved*.json"))
         approval = next((
             record for record in approvals
             if compare_result_registry.approval_matches(
@@ -369,7 +395,6 @@ def main() -> int:
             str(ROOT / "manuscripts" / "claim_audit.tsv"),
             str(ROOT / "artifacts" / f"benchmark_{name.removesuffix('.md')}_audit.json"),
             str(ROOT),
-            author_gate=str(FIMM_AUTHOR_GATE),
         ))
     scientific_failures = sorted({failure for result in audit_results
                                   for failure in result["blocking_failures"]})
@@ -387,7 +412,7 @@ def main() -> int:
         "scientific_failures": scientific_failures,
         "author_archive_input_required": bool(author_blockers),
         "author_archive_markers": author_blockers,
-        "author_gate": FIMM_AUTHOR_GATE.relative_to(ROOT).as_posix(),
+        "author_gate": "",
         "author_gate_statuses": author_gate_statuses,
         "unresolved_author_gate_items": [
             item.removeprefix("FIMM: ") for item in author_blockers

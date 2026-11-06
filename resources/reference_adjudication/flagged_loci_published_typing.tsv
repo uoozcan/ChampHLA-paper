@@ -1,0 +1,11 @@
+subject	gene	erlich_2011	trusight_buchkovich_2017	assembly	abi_rached_confirmation
+NA10847	C	vote	vote	none	targeted NGS and manual review
+NA11840	B	vote	vote	none	read inspection only
+NA18504	C	vote	no row	none	undetermined
+NA18505	C	vote	vote	HPRC: vote	undetermined
+NA18507	C	vote	no row	none	undetermined
+NA18522	C	vote	no row	HPRC: vote	undetermined
+NA18537	A	vote	no row	none	undetermined
+NA19116	B	vote	vote	none	read inspection only
+NA19129	C	reference; cannot separate at exons 2-3	no row	HGSVC3: vote, provisional	undetermined
+NA19131	A	vote	vote	none	read inspection only

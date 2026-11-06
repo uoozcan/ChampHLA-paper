@@ -1,0 +1,23 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261105_abstract_counts_allowed",
+  "date": "2026-11-05",
+  "status": "SIGNED - author chose abstract option A-plus and allowed counts in the Claude Code session of 2026-11-05",
+  "amends": "decisions/publication_route.json (abstract_numeric_performance_allowed, false to true)",
+  "relates_to": [
+    "reports/abstract_options_20261105.md",
+    "decisions/20261105_reference_attribution_amendment.json",
+    "decisions/20261105_reference_presentation_amendment.json"
+  ],
+  "decision": {
+    "abstract": "HLA class I typing from short reads depends on the caller, assay and reference database; voting is proposed when the best caller is unknown. We evaluated ChampHLA-Consensus, an equal-weight plurality vote over five exome and four RNA-seq callers, made primary after a fitted rule failed to outperform it on these data. In 1000 Genomes and Geuvadis subjects with one recorded 2014 reference genotype, the vote agreed with it at 143/153 exome loci (63 subjects) and 113/118 RNA-seq loci (51 subjects), one locus above the strongest caller in each assay. They differed at three exome loci and one RNA-seq locus, too few to compare. After multiplicity correction the vote exceeded HLA-HD and T1K in exome data and T1K in RNA-seq; a deployment defect affected one RNA-seq caller. All 15 vote errors, at 10 loci, fell where a re-typing of the same exomes reports the 2014 type as incorrect; laboratory typing, checked post hoc and only there, gives the vote's type at nine. With corrected values there, HLA-HD scored 118/118 and the vote 117/118 in RNA-seq. Retained loci came mainly from two populations. These development results establish neither equivalence nor clinical validity; testing on unseen subjects is incomplete.",
+    "reason": "Finding JP-007 of the simulated journal-panel review of 3-4 November 2026: readers could not get the main results from the abstract. The earlier rule was internal; the journal does not require it.",
+    "post_hoc_content": "The abstract reports the post hoc corrected-value result (HLA-HD 118/118, vote 117/118 in RNA-seq) beside the laboratory typing at flagged loci, so that neither appears without the other.",
+    "unchanged": "No score, panel, rule, threshold or registry row changes. The registry's abstract_allowed values are unchanged, and the abstract cites no result tags."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-05, explicit author statement: 'A-plus; allow counts'",
+    "mechanism": "Claude Code session"
+  }
+}

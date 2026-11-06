@@ -1,0 +1,73 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261105_reference_attribution_amendment",
+  "date": "2026-11-05",
+  "status": "SIGNED - author approved the reference attribution amendment in the Claude Code session of 2026-11-05; its wording is applied",
+  "amends": "decisions/20261009_reference_adjudication.json, third reporting commitment only ('may reflect reference-typing error'); that signed record is not edited",
+  "relates_to": [
+    "decisions/20261012_second_typing_asterisk_documented.json",
+    "decisions/20261105_reference_presentation_amendment.json",
+    "decisions/20261105_posthoc_round2_amendment.json"
+  ],
+  "disclosure_of_existing_breach": "The signed commitment allows attribution to reference error only as 'may reflect reference-typing error'. No record lifted it, yet the manuscript went further: 'explains most of this apparent shared error', 'Most consensus errors therefore probably reflect errors in the 2014 reference typing rather than in the callers' and 'appears to reflect the reference typing rather than the callers'. The simulated journal-panel review of 3-4 November 2026 found this (JP-005). Signing this record does not make that earlier wording compliant; the wording is replaced below. The first commitment, G-equivalence counts in Results, was also not met in the main text, and the proposed wording supplies them.",
+  "discovery_path": {
+    "what_happened": "A blind review agent asked whether targeted typing existed for the flagged loci. An evidence agent then looked up published typing at the 10 distinct loci behind the 15 vote errors, and a second agent checked it. On 5 November 2026 the two laboratory files were re-read directly, with rows filtered to these 10 subjects.",
+    "truth_derived_information_seen": "All development results and the identities of the vote-error loci. The laboratory sources were consulted because these loci were errors against the 2014 table, so this is a discrepant analysis: errors shared by the 2014 table and the callers at unflagged loci stay untested.",
+    "firewall": "Development subjects only. No extension or NCI-60 truth was used."
+  },
+  "evidence": {
+    "erlich_2011": "Erlich RL et al. BMC Genomics 2011;12:42, Additional File 7, 454 sequencing of class I exons 2-3. Gives the vote's type at 9 of 10 loci. At the tenth (NA19129 HLA-C) it gives the 2014 type, and C*07:01 and C*07:18 are identical in exons 2-3, so the assay cannot separate them.",
+    "buchkovich_2017": "Buchkovich ML et al. Genome Medicine 2017, Table S6, TruSight HLA targeted DNA typing. Gives the vote's type at all 5 RNA-seq vote-error loci and is recorded as not matching the Sanger type at each. Only discordant samples were retyped, so this is not a rate.",
+    "p_and_g_classes": "From artifacts/development_characterisation/flagged_loci_evidence_posthoc.tsv and reference_adjudication.tsv: the 2014 type and the vote differ in P group at 5 of 10 loci, and are P- and G-compatible under the lenient two-field mapping at the other 5.",
+    "limits": "The source of the second typing has no per-sample list of targeted confirmations: 1 locus certainly targeted, 3 read inspection only, 6 undetermined. The published-typing lookup covers flagged loci only."
+  },
+  "decision": {
+    "replacement_rule": "At the 10 flagged loci, the text may state what each published source reports and may say that laboratory typing supports the vote's type. Any statement about why the vote's gain is small stays at 'may'. Every such statement carries, in the same paragraph, that the checks were post hoc and made only at flagged loci. No statement may extend this to unflagged loci, describe a score as corrected, or say that callers were right and the reference wrong in general.",
+    "unchanged": "The registered 2014 table remains the reference and the exact endpoint remains primary. No score, panel, rule or threshold changes. No registry row changes. The first two reporting commitments stand.",
+    "not_decided_here": "The abstract (JP-007). Its current sentence on re-typing is left as it is until that decision.",
+    "author_judgement_required": "Whether this discovery was truth-contaminated, including the review's process note that an evidence agent's first scripts ran over whole public typing tables before filtering. Signing this record records the wording decision and should state that judgement."
+  },
+  "proposed_manuscript_changes": [
+    {
+      "where": "Results",
+      "old": "A published re-typing of the same exomes explains most of this apparent shared error.",
+      "new": "All 15 vote errors fall at 10 distinct loci where a published re-typing of the same exomes reports the 2014 type as incorrect."
+    },
+    {
+      "where": "Results",
+      "old": "Most consensus errors therefore probably reflect errors in the 2014 reference typing rather than in the callers. On this subset,",
+      "new": "Laboratory typing not derived from these exomes agrees at the flagged loci: 454 sequencing of exons 2 and 3 [48] gives the vote's type at nine of the ten, and targeted typing [35] gives it at all five RNA-seq loci. The tenth differs only outside exons 2 and 3. At five loci the 2014 type and the vote differ in protein (different P groups); at the other five they are P- and G-compatible under a two-field mapping. We made these checks post hoc and only at loci already flagged, so they cannot show that loci without a flag are correct (Supplementary S7). On the subset where the two typings agree,"
+    },
+    {
+      "where": "Discussion",
+      "old": "The vote's small gain appears to reflect the reference typing rather than the callers.",
+      "new": "Reference-typing error may contribute to the vote's small gain, but these data do not show why the gain is small."
+    },
+    {
+      "where": "Discussion",
+      "old": "A vote cannot improve on a caller at the ceiling allowed by the reference. An uncorrected reference can make agreement among callers look like shared error.",
+      "new": "A vote cannot exceed a caller at a ceiling set by the reference, and an uncorrected reference can make agreement among callers look like shared error."
+    },
+    {
+      "where": "Discussion",
+      "old": "This account is exploratory and should be tested against orthogonal laboratory typing.",
+      "new": "This account is exploratory. Laboratory typing supports it at the flagged loci, but those loci were checked because they were flagged; testing it elsewhere would need independent typing of unflagged loci."
+    },
+    {
+      "where": "Supplementary S7",
+      "old": "A 2011 study (doi:10.1186/1471-2164-12-42; column headed Erlich) typed",
+      "new": "Erlich *et al.* [48] typed"
+    },
+    {
+      "where": "References",
+      "old": "(new entry, first cited in Results)",
+      "new": "48. Erlich RL, Jia X, Anderson S, Banks E, Gao X, Carrington M, et al. Next-generation sequencing for HLA typing of class I loci. BMC Genomics. 2011;12:42. doi:10.1186/1471-2164-12-42. Current references 48 to 53 become 49 to 54 in both documents."
+    }
+  ],
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-05, explicit author statement: 'Sign; not contaminated'",
+    "mechanism": "Claude Code session",
+    "contamination_judgement": "2026-11-05, author's judgement in the same statement: 'not contaminated'. The discovery path above stays disclosed."
+  }
+}

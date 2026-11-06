@@ -28,10 +28,10 @@
         }
       },
       "output_sha256": {
-        "pdf": "ba064be8828907357875f355970991452960f6cb49e6aa69035607c447d812a3",
-        "png": "f698aaf6eca1af4208f51b5e4ef03390c1cf65e550003b774081ff41753e158a",
-        "svg": "b3431237a8f86628697f2bb47f1a5918b633d9d9e285f707b575e3fa3a23647b",
-        "tiff": "39b15460969eaaefb2e1484c98ce28d1cda3ecfb8601e18a3b338e8f3504f5da"
+        "pdf": "5a95eabc3f6a2109c6a18508cb2214a8e1cf82676ef6c487074adf4f8da0e845",
+        "png": "cfec5f9529c0e4437ed75a8db960d5e9ff59dbee87f73196d557da1aeb3fc4c7",
+        "svg": "280e5a170c747f75a77081be50be0ccbf9aaf94051f59b2c6cce7fb44180e5ba",
+        "tiff": "864896d7e7c0ce01f36357df7240b88a0ccf9f1ce537de85dd895aca9a0cbb38"
       },
       "panels": [
         "workflow",
@@ -83,10 +83,10 @@
         "callability"
       ],
       "output_sha256": {
-        "pdf": "975784f4cbcb1238af427f621a291c879fe9c83908664d99757855a1d7b9260b",
-        "png": "085d45370ceab463c2d13943d3405d681b459679c82283d02c88598a4a7582c4",
-        "svg": "5a38cdaf6726ff57c2921bd2f7e0085fea5a2168d1da6adb2d9bae6d168b9432",
-        "tiff": "485b70aac0c2b33dbcb9814b5ee6dfed709ef6ceffa78bc1905c52c9668baa4c"
+        "pdf": "6f1709c66c2bd6388df3a42223c1bf1d44217525112472d623d9a4d09fced5f3",
+        "png": "f30b18e6b7f89171a923f5f777e61c2ff30bf117d1e8fb796bd1b73ddb3ca3fd",
+        "svg": "78f890047582993a0fd8c4125f4ff0789719d40d01727cde64e124c1aa607496",
+        "tiff": "9385e84d64283c3f3341b73216f14a4885eb4ae4903da79eebb2fac143d2a369"
       },
       "panels": [
         "wes_performance",
@@ -144,10 +144,10 @@
       },
       "figure_id": "Figure 3",
       "output_sha256": {
-        "pdf": "b1b83606cc543f98c94b13cc5cc18def250841edd300862959764313f61b7abd",
-        "png": "7f6d99888f0f45d8c8d603411954a89609b3997e5b8bcf8f1bdd1427ee2a14d0",
-        "svg": "00ef5948ab7cc3b0e96a2ae6fb33ce5d5a3033e1c1da2d5fb48c1f23496bd185",
-        "tiff": "ac106cc04ec13a2d61f0f9b24be898bf22abf9a8a50679e23c86a8b51d02ebf8"
+        "pdf": "f82e6cc3a6d9a1102ba6aa68978ab94100e87b5b2f4359ab578e07db7b08bb13",
+        "png": "d0c64118fb76bf730701b07d8c52dc548d13fdb6125f82eb3ede171a18fbb7d4",
+        "svg": "1d34f82728e44a6beb7c3f59f7143dec0e8de2265963889dd8c24ffb1d4be2f0",
+        "tiff": "72f55d0ec0f9bcc918567d600069673febf292785c3ed06191a119c15a59f7ad"
       },
       "panels": [
         "wes_paired",
@@ -409,10 +409,10 @@
       "figure_id": "Supplementary Figure S2",
       "identical_points_not_jittered": true,
       "output_sha256": {
-        "pdf": "cc975d2623f5d31f76146511eca3b8d8969cb7a37acbba26118d796d9d8ad6f9",
-        "png": "6ade929b2d5803fc19ba8fa6d7eecb29fcf68c495849e030461c37368e3333e4",
-        "svg": "6d02428dfe820cf9349abea2605dbe6b05508c5fc303f0623c721eb49033f8b0",
-        "tiff": "3ff4dc6f87f4e594a4aa3a526fd3b4c91006874641c9b926589227fa2a7c06b5"
+        "pdf": "09e2dfd80b147a74b4d76ab2543c480a44549f1b5faa5994c65d0d8f13b40b00",
+        "png": "14fb850096864511c5a2f7b2443d01f4bca94d2d7935df5c12ab887016cf2d80",
+        "svg": "87460639c217c8ba01a0cee8ce0f9514ed5fb61e5ba3d37fe2712b3a36aa1bc8",
+        "tiff": "f11d4f90f1cc2c840ff8905fdfa1bdf4b979c0cbbb0ab3f24a11342ccddd9ff8"
       },
       "panels": [
         "wes_thresholds",
@@ -660,209 +660,6 @@
       "suppression_rule": null
     },
     {
-      "axis_limits": {
-        "concordance": [
-          60,
-          100
-        ],
-        "percentage": [
-          0,
-          100
-        ]
-      },
-      "caption_key": "fimm_cross_modality",
-      "composition_counts": {
-        "0": {
-          "bulk_rna": 207,
-          "scrna": 0,
-          "wes": 344
-        },
-        "1": {
-          "bulk_rna": 696,
-          "scrna": 18,
-          "wes": 2211
-        },
-        "2": {
-          "bulk_rna": 330,
-          "scrna": 75,
-          "wes": 466
-        },
-        "3": {
-          "bulk_rna": 48,
-          "scrna": 0,
-          "wes": 21
-        }
-      },
-      "eligibility_definitions": {
-        "all_callable": "complete plurality calls in both assays",
-        "contested_both": "complete plurality calls and >=2 valid callers in both assays"
-      },
-      "exclusion_counts": {
-        "locus_cells_numeric_artefact": 89,
-        "locus_rows_missing": 2488,
-        "locus_rows_partial": 90,
-        "replicate_conflicts": 81
-      },
-      "figure_id": "Supplementary Figure S6",
-      "output_sha256": {
-        "pdf": "c7ea6bc53af90c90ffbcd8b2a21db451a0d11552ef581c011ff798f76b304529",
-        "png": "fa7456ae1b47b5327ee44f32cdf24fe5d038b253782b82c58f84aa65d360b372",
-        "svg": "27623d4e75ec033519a3e58457d16c2cca6168187c267e853aa7944fbd8d9cf7"
-      },
-      "panels": [
-        "coequal_specimen_concordance",
-        "valid_caller_composition"
-      ],
-      "render_profile": "exploratory_300dpi_three_format",
-      "result_ids": [
-        "FIMM_PANEL_SPECIMEN_BULKRNA_WES_EXACT_PAIR",
-        "FIMM_PANEL_SPECIMEN_SCRNA_WES_EXACT_PAIR",
-        "FIMM_PANEL_SPECIMEN_BULKRNA_SCRNA_EXACT_PAIR",
-        "FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_WES_EXACT_PAIR",
-        "FIMM_PANEL_SPECIMEN_CONTESTED_SCRNA_WES_EXACT_PAIR",
-        "FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_SCRNA_EXACT_PAIR",
-        "FIMM_PANEL_FLOW_REPLICATE_CONFLICTS",
-        "FIMM_PANEL_FLOW_LOCUS_CELLS_NUMERIC_ARTEFACT",
-        "FIMM_PANEL_FLOW_LOCUS_ROWS_PARTIAL",
-        "FIMM_PANEL_FLOW_LOCUS_ROWS_MISSING",
-        "FIMM_PANEL_WES_CALLABLE_CALLERS_0",
-        "FIMM_PANEL_WES_CALLABLE_CALLERS_1",
-        "FIMM_PANEL_WES_CALLABLE_CALLERS_2",
-        "FIMM_PANEL_WES_CALLABLE_CALLERS_3",
-        "FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_0",
-        "FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_1",
-        "FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_2",
-        "FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_3",
-        "FIMM_PANEL_SCRNA_CALLABLE_CALLERS_1",
-        "FIMM_PANEL_SCRNA_CALLABLE_CALLERS_2"
-      ],
-      "suppression_rule": null
-    },
-    {
-      "axis_limits": {
-        "percentage": [
-          0,
-          100
-        ]
-      },
-      "caption_key": "fimm_bb72",
-      "confusion_matrices": {
-        "bulk_rna": {
-          "fn": 0,
-          "fp": 0,
-          "tn": 7,
-          "tp": 7
-        },
-        "scrna": {
-          "fn": 1,
-          "fp": 0,
-          "tn": 3,
-          "tp": 4
-        },
-        "wes": {
-          "fn": 0,
-          "fp": 2,
-          "tn": 4,
-          "tp": 7
-        }
-      },
-      "figure_id": "Supplementary Figure S7",
-      "output_sha256": {
-        "pdf": "981cf824178d396446fc102df2f4a1dfc6eeac8982e1893f273d64e13ff299e0",
-        "png": "59d56dfad2a91642e81ae379445264025a1722b894eb680894ab113d8077d067",
-        "svg": "07640e7c760e90c2733bf6c132fc2d1ea7b31090424cb4f6df51840da244580d"
-      },
-      "panels": [
-        "primary_confusion_matrices",
-        "mapping_interval_estimates"
-      ],
-      "render_profile": "exploratory_300dpi_three_format",
-      "result_ids": [
-        "FIMM_BB72_SCRNA_A02_SENSITIVITY",
-        "FIMM_BB72_SCRNA_A02_SPECIFICITY",
-        "FIMM_BB72_SCRNA_A02_AGREEMENT",
-        "FIMM_BB72_SCRNA_A02_A68_A69_SENSITIVITY",
-        "FIMM_BB72_SCRNA_A02_A68_A69_SPECIFICITY",
-        "FIMM_BB72_SCRNA_A02_A68_A69_AGREEMENT",
-        "FIMM_BB72_BULK_RNA_A02_SENSITIVITY",
-        "FIMM_BB72_BULK_RNA_A02_SPECIFICITY",
-        "FIMM_BB72_BULK_RNA_A02_AGREEMENT",
-        "FIMM_BB72_BULK_RNA_A02_A68_A69_SENSITIVITY",
-        "FIMM_BB72_BULK_RNA_A02_A68_A69_SPECIFICITY",
-        "FIMM_BB72_BULK_RNA_A02_A68_A69_AGREEMENT",
-        "FIMM_BB72_WES_A02_SENSITIVITY",
-        "FIMM_BB72_WES_A02_SPECIFICITY",
-        "FIMM_BB72_WES_A02_AGREEMENT",
-        "FIMM_BB72_WES_A02_A68_A69_SENSITIVITY",
-        "FIMM_BB72_WES_A02_A68_A69_SPECIFICITY",
-        "FIMM_BB72_WES_A02_A68_A69_AGREEMENT"
-      ],
-      "suppression_rule": null
-    },
-    {
-      "availability_counts": {
-        "empty": {
-          "HLA-HD": 0,
-          "OptiType": 0,
-          "POLYSOLVER": 22,
-          "SpecHLA": 2,
-          "T1K": 0
-        },
-        "missing": {
-          "HLA-HD": 0,
-          "OptiType": 0,
-          "POLYSOLVER": 64,
-          "SpecHLA": 7,
-          "T1K": 0
-        },
-        "ok": {
-          "HLA-HD": 86,
-          "OptiType": 86,
-          "POLYSOLVER": 0,
-          "SpecHLA": 77,
-          "T1K": 86
-        }
-      },
-      "axis_limits": {
-        "dissent_percentage": [
-          0,
-          20
-        ],
-        "percentage": [
-          0,
-          100
-        ]
-      },
-      "caption_key": "venex_diagnostics",
-      "figure_id": "Supplementary Figure S8",
-      "output_sha256": {
-        "pdf": "646445f67f1a4739c1dd9b8886ff10c560bb76340c168345a9b95bbc058e9ea1",
-        "png": "4338188ff62300834fbd2780aeed1eaecf4d620ef228592c3ff957191d7b73cc",
-        "svg": "5e8209b788ad868ce7ba4a0267c854da2280419d431c255d3007556ba0b2a83e"
-      },
-      "panels": [
-        "caller_availability",
-        "contested_locus_dissent"
-      ],
-      "render_profile": "exploratory_300dpi_three_format",
-      "result_ids": [
-        "VENEX_WES_HLA_HD_OK",
-        "VENEX_WES_OPTITYPE_OK",
-        "VENEX_WES_POLYSOLVER_EMPTY",
-        "VENEX_WES_POLYSOLVER_MISSING",
-        "VENEX_WES_SPECHLA_EMPTY",
-        "VENEX_WES_SPECHLA_MISSING",
-        "VENEX_WES_SPECHLA_OK",
-        "VENEX_WES_T1K_OK",
-        "VENEX_WES_HLA_HD_CONTESTED_DISSENT",
-        "VENEX_WES_OPTITYPE_CONTESTED_DISSENT",
-        "VENEX_WES_POLYSOLVER_CONTESTED_DISSENT",
-        "VENEX_WES_SPECHLA_CONTESTED_DISSENT",
-        "VENEX_WES_T1K_CONTESTED_DISSENT"
-      ],
-      "suppression_rule": "POLYSOLVER dissent is non-estimable at zero overlap"
-    },
-    {
       "aggregate_counts": {
         "rnaseq": {
           "ArcasHLA": {
@@ -974,17 +771,17 @@
         "noncall_to_callable": "#009E73",
         "stored_cell_missing_from_rerun": "#E69F00"
       },
-      "figure_id": "Supplementary Figure S9",
+      "figure_id": "Supplementary Figure S6",
       "grouping": [
         "modality",
         "caller",
         "difference_class"
       ],
       "output_sha256": {
-        "pdf": "b025df3f83f28a668eb99b2c519cf5edcdcec8bf00a9cf0ab5e5cd594a4e12cc",
-        "png": "d9763b2220bdd036e945f456636b953bbf04277e2df7b51afd7f0005d8ceb333",
-        "svg": "8cabebaaff25c566e51d2ffa0ca661f7db6c6f88bb92079936e370bc8f5c6697",
-        "tiff": "8e76e383ab208d1d8c09802a18e445d51696fec04cb36a6198017ccb9bd65159"
+        "pdf": "ea8573f922648dcdfa876890c1462a9b3e88edb0747e3493fef38bf3d5ae8ae6",
+        "png": "7c81e6b6d5be927e6624913ef038b0304a23fffcfe78d3a39a5e61b681dba50b",
+        "svg": "5632ae0294af77c263a461f9bf685322fca7fb47c7712336d3bdf6d86eb4cb10",
+        "tiff": "6fb5bd2f282979b3c64189920e63580db158baa2ad69d0037448e4f93533151e"
       },
       "panels": [
         "wes",
@@ -1007,30 +804,6 @@
     "correlation": {
       "path": "artifacts/development_characterisation/caller_error_correlation.tsv",
       "sha256": "18b887b5be00b0e67abbf3e8a6a936baf5dc898831f87f39993ff6d70d609d12"
-    },
-    "fimm_bb72": {
-      "path": "artifacts/fimm/tierC/bb72_metrics.tsv",
-      "sha256": "b67f0ea1f19cc65266d55eb0207faa010938be71d7e78db7e588bb1ffe92d933"
-    },
-    "fimm_bulk_composition": {
-      "path": "artifacts/fimm_consensus/FIMM-AML-BulkRNA/panel3/panel_composition.tsv",
-      "sha256": "e181e068d2ece43f741bc099291151782f238c8cdf409ff48edb8a7f09658455"
-    },
-    "fimm_cross": {
-      "path": "artifacts/fimm_consensus/cross_modality/cross_modality_agreement.tsv",
-      "sha256": "66f02f99a7a4524cce7aef5d23dfe574149a781cdf74240f1617c12af794a61f"
-    },
-    "fimm_flow": {
-      "path": "artifacts/fimm_consensus/cohort_flow.tsv",
-      "sha256": "c10603a624586868598c5f926433dfcfa337c7132dd552b0455c248795c4487c"
-    },
-    "fimm_scrna_composition": {
-      "path": "artifacts/fimm_consensus/FIMM-AML-SCRNA/panel3/panel_composition.tsv",
-      "sha256": "7fc3cd41094282324d7d4a997355aed1cc2905bb51334c89f67aa5a9a6c4d954"
-    },
-    "fimm_wes_composition": {
-      "path": "artifacts/fimm_consensus/FIMM-AML-WES/panel3/panel_composition.tsv",
-      "sha256": "78719362fb75259317953e74dd7705ffb30e07556f343379158f0f293e85b6e5"
     },
     "g_group": {
       "path": "artifacts/development_characterisation/g_group_compatibility.tsv",
@@ -1059,14 +832,6 @@
     "truth_flow": {
       "path": "artifacts/development_characterisation/truth_flow.tsv",
       "sha256": "0044bfd5a6286d509ec9b7817c135c66ccccedd5fe9a45a1752c7bc8057a2753"
-    },
-    "venex_dissent": {
-      "path": "artifacts/venex/plurality_vs_caller.tsv",
-      "sha256": "191831662d1f500fd2ced4051b989c1f012a7b94466d3fa4ce7c041e627772cf"
-    },
-    "venex_validation": {
-      "path": "artifacts/venex/caller_validation_summary.tsv",
-      "sha256": "c150690da158a77d075637bd230d36e2ce72a36a78cf603a673a0d37fadfad68"
     }
   },
   "style_contract": {

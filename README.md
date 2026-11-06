@@ -181,8 +181,19 @@ curl -fsSL -o runtime_data/public_truth/20140702_hla_diversity.txt https://ftp.1
 echo "0455d0302ac12a29ab87091cab5e3e557416f6301e89fb122eef8d49cd5644ec  runtime_data/public_truth/20140702_hla_diversity.txt" | sha256sum -c -
 curl -fsSL -o runtime_data/public_truth/20181129_HLA_types_full_1000_Genomes_Project_panel.txt https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HLA_types/20181129_HLA_types_full_1000_Genomes_Project_panel.txt
 echo "570b5cc5523273826a5695452f18b77f8742e568e1e35a34aed5d2a313472e8e  runtime_data/public_truth/20181129_HLA_types_full_1000_Genomes_Project_panel.txt" | sha256sum -c -
+mkdir -p runtime_data/public_pedigree
+curl -fsSL -o runtime_data/public_pedigree/20130606_g1k.ped https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_g1k.ped
+echo "38687335d053056d799891a37c42b1ac24a5a2a1eb5fccaf34db58188bccfff7  runtime_data/public_pedigree/20130606_g1k.ped" | sha256sum -c -
 bash scripts/run_local_verification.sh
 ```
+
+The logistic meta-consensus refit is not bit-for-bit reproducible across processes
+(`decisions/20261105_metaconsensus_variation.json`; Supplementary S7.1). The
+variation can reach the primary and the abstain-all artifacts.
+If a run stops at the registry-delta author gate and
+`provenance/development_rerun_v350/result_registry_delta.md` shows only
+meta-consensus rows or artifacts that embed its hash,
+restore the tracked files and rerun; this is not a reproduction failure.
 
 The second file is the in silico retyping used only to adjudicate consensus
 errors (Abi-Rached et al. 2018); a release run requires it. `PUBLIC_TRUTH` overrides the default path above. Set `RESTORED_CALLER_SOURCE` to the
@@ -196,9 +207,6 @@ What needs more than a laptop:
   public reference typing above.
 - Caller execution (raw reads to caller outputs) uses the separate workflow
   repository and was run on CSC Roihu; it is not part of this gate.
-- The exploratory FIMM and VenEx aggregates are regenerated only inside the
-  controlled environment that holds the patient data; the repository carries
-  the aggregates and their checksums, never row-level data.
 - Earlier NCI-60 estimates were withdrawn (Supplementary S9). The pilot has
   completed and the full-roster workflow run is in progress; its results are
   awaited for this submission. This local gate does not run the NCI-60 workflow

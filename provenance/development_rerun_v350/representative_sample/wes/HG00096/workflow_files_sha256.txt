@@ -1,0 +1,3 @@
+cee796600e5c9058ebce31bb7eb83fdced0c3d79ff92223dfa57d89fcbd36d1f  /scratch/project_2008084/champhla_publication_remediation/releases/PanelHLA-3.5.0/main.nf
+dab7d5fecdbe1c9f654539361c2dd859f50c19ed1f07f9df2f5abf432b8fd67e  /scratch/project_2008084/champhla_publication_remediation/releases/PanelHLA-3.5.0/nextflow.config
+6254de70ac7d33fb74c86d1ddfc2d19d7ea485ba85628fac14cdaa07548c8876  /scratch/project_2008084/champhla_publication_remediation/releases/PanelHLA-3.5.0/conf/roihu_params.yaml

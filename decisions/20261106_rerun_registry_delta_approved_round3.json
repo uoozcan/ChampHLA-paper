@@ -1,0 +1,60 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261106_rerun_registry_delta_approved_round3",
+  "date": "2026-11-06",
+  "status": "SIGNED - author approved the registry after the round 3 amendment in the Claude Code session of 2026-11-06",
+  "supersedes": [
+    "decisions/20261105_rerun_registry_delta_approved_cohorts_removed.json"
+  ],
+  "relates_to": [
+    "decisions/20261106_posthoc_round3_amendment.json",
+    "reports/manuscript_fatal_fixes_20261105.md"
+  ],
+  "decision": {
+    "approval": "Approves result_registry.tsv after the round 3 amendment, against the approved registry c02f0dfcfa8ea75743dd264d270f59fd9717727baf1a0ec1d312bb3787cc93f1: 86 rows added (error counts 32, intersection 22, naive baselines 12, abstention 9, G-over-P 3, allele-level vote 2, relatedness 2, family clustering 2, archived POLYSOLVER 1, RNA-seq two-allele conflict 1), 1 removed (DEV_DISCORDANCE_RNASEQ_SINGLE_CALLER, now an empty class on the study-run calls), and 88 changed: 6 HG00096 rows (three values corrected, all six with a new artifact hash), 81 S12 rows (44 per-gene, 18 cross-assay and 5 discordance rows recomputed on the study-run calls; 14 calibration rows change only their claim boundary), and the protocol-change ledger row for sixteen changes. No primary, comparator or fitted-policy row changed.",
+    "approved_registry_sha256": "d2702af18ebba4552d31e590e5f2d2e480c7cbb108b3d080414866ca8671bf32",
+    "approved_delta_summary": {
+      "old_rows": 631,
+      "new_rows": 695,
+      "status_counts": {
+        "unchanged": 34,
+        "changed": 496,
+        "added": 165,
+        "removed": 101
+      }
+    },
+    "approved_reasons": [
+      "fitted-policy conclusion changed",
+      "fitted-policy ranking changed",
+      "headline direction changed: DEV_PAIRED_RNASEQ_METACONSENSUS",
+      "headline direction changed: DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_WES_CALLER_POLYSOLVER",
+      "headline direction changed: DEV_PAIRED_WES_METACONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_WES_CALLER_POLYSOLVER",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "strongest-caller identity changed"
+    ],
+    "reasons_note": "The 25 gate reasons are identical to those approved on 5 November; they compare against the pre-v3.5.0 historical registry, and none comes from round 3."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-06, explicit author statement: 'I approve it'",
+    "mechanism": "Claude Code session"
+  }
+}

@@ -16,7 +16,7 @@
     },
     "joined_development": {
       "path": "runtime_data/joined_development.tsv",
-      "sha256": "9c6013f316e373d36b82079ecf4a0fefb748116b7b2be4a7f5062ccca68dc68e"
+      "sha256": "76657256a6f3b70184de9d7f13c2c294bc0301c7ee32381db98b3738deb204b7"
     }
   },
   "loci": {
@@ -25,9 +25,9 @@
   },
   "outputs": {
     "caller_calibration.tsv": "05a56b2860f6e968f6202940555bd250a0a5bc1af0280c944e1aef4fbc9f744a",
-    "cross_assay_agreement.tsv": "7c160b359a36a6d226a4dd0ee5e9ef9c547da93d462348337e2d59602e6f53c4",
-    "discordance_taxonomy.tsv": "a89f98f39d34404a0cce03d8b9bd114a9bd6788ff9a6ababcb977f0f46795bd9",
-    "per_gene_caller_concordance.tsv": "62705fd9c233d91c2cad9ed3f3f4b562831808e3e385a7555cb85ed431601aa6"
+    "cross_assay_agreement.tsv": "11771dfd7e585d311c488440aa2b6c1b2bd09b7cc32ac7d47ed4da21b7d101e9",
+    "discordance_taxonomy.tsv": "fe9b2e14d6430a278d1344d0d09a246f9036faff739966bc135424b657358d5e",
+    "per_gene_caller_concordance.tsv": "13cdfec999613edd5e87821566c729437c58f256ef9f05642c2465706d179910"
   },
   "schema_version": "champhla-restored-analyses-1"
 }

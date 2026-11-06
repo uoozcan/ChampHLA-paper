@@ -111,14 +111,17 @@ def test_main_text_and_display_item_limits() -> None:
 def test_ethics_and_author_completion_are_honest_and_separate() -> None:
     text = _text()
     methods = _between(text, "## Methods", "## Results")
-    checklist = (ROOT / "AUTHOR_FIELDS_TO_COMPLETE.md").read_text(encoding="utf-8")
     assert "### Ethics and data reuse" in methods
     assert "No new participants were recruited" in methods
-    assert "controlled patient data" in methods
+    assert "rather than clinical patients" in methods
+    assert "controlled patient data" not in methods
     assert "PROVISIONAL" not in text and "TO CONFIRM" not in text
-    assert "Author contributions" in checklist and "Competing interests" in checklist
-    assert "Funding" in checklist and "large language model" in checklist
     assert "## Data availability" in text and "## Code availability" in text
+    path = ROOT / "AUTHOR_FIELDS_TO_COMPLETE.md"
+    if path.is_file():  # held back from the public snapshot (publish_snapshot.sh)
+        checklist = path.read_text(encoding="utf-8")
+        assert "Author contributions" in checklist and "Competing interests" in checklist
+        assert "Funding" in checklist and "large language model" in checklist
 
 
 def test_references_are_sequential_by_first_citation() -> None:

@@ -1,0 +1,30 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261105_reference_presentation_amendment",
+  "date": "2026-11-05",
+  "status": "SIGNED - author approved the post hoc reference presentation amendment in the Claude Code session of 2026-11-05",
+  "amends": "decisions/20261013_corrected_reference_presentation.json (presentation only; that signed record is not edited)",
+  "relates_to": [
+    "decisions/20261009_reference_adjudication.json",
+    "decisions/20261009_reference_adjudication_posthoc.json",
+    "decisions/20261012_second_typing_asterisk_documented.json",
+    "decisions/20261025_rerun_native_homozygote_collection.json"
+  ],
+  "discovery_path": {
+    "what_happened": "A simulated journal-panel review of the manuscript (3-4 November 2026, finding JP-002) read the Table 2 'Corrected-reference' column as a correction and found that it is a filter: it keeps loci where the second typing equals the 2014 type and scores against the 2014 type, which removes all 15 vote errors by construction. The review then scored every method with the flagged values substituted.",
+    "truth_derived_information_seen": "All development results, the second typing at development subjects and the per-locus development scores. The substitution counts were computed by the review's own script and independently by two of its agents before this record was written. This is therefore an amendment after results, not a pre-specified analysis.",
+    "firewall": "Development subjects only. No extension or NCI-60 truth was used for these counts."
+  },
+  "decision": {
+    "column_rename": "The Table 2 column presented as 'Corrected-reference sensitivity' is labelled 'Loci where both typings agree, correct', with a table note that the filter removes all 15 vote errors by construction. The analysis and its numbers are unchanged.",
+    "added_sensitivity_table": "Supplementary S7 adds artifacts/development_characterisation/reference_substitution_posthoc.tsv, from scripts/score_reference_substitution_posthoc.py: every method on all exact loci, with the flagged value at each asterisk-flagged locus (10 WES, 6 RNA-seq) and the 2014 type elsewhere. Denominators stay fixed and a missing call scores incorrect.",
+    "values_stated_before_the_repository_script_ran": "WES: vote 153, OptiType 150, POLYSOLVER 145, HLA-HD 138, SpecHLA 136, T1K 132 of 153. RNA-seq: HLA-HD 118, vote 117, OptiType 116, T1K 104, arcasHLA 60 of 118. The repository script ran once and matched all eleven.",
+    "boundary": "Post hoc and not independent: the flagged values derive from the same exome data, and T1K and SpecHLA were evaluated against them in their original publications. The table does not rank methods, does not replace the primary endpoint and selects nothing. No threshold, panel or rule was changed.",
+    "not_decided_here": "Whether the main text states that HLA-HD exceeds the vote by one RNA-seq locus under substitution. That bears on the headline claim, so it remains the author's decision."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-05, explicit author statement: 'I approve both'",
+    "mechanism": "Claude Code session"
+  }
+}

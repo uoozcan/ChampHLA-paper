@@ -1,11 +1,11 @@
 assay	category	loci	assay_loci	share_percent	consensus_correct	consensus_concordance_percent	ci_low_percent	ci_high_percent	interval_method	tied_loci
 wes	no_evidence	0	153	0.0	0				clopper_pearson_exact	0
 wes	single_caller	0	153	0.0	0				clopper_pearson_exact	0
-wes	unanimous	93	153	60.8	90	96.8	90.9	99.3	clopper_pearson_exact	0
-wes	one_allele_conflict	57	153	37.3	51	89.5	78.5	96.0	clopper_pearson_exact	1
-wes	two_allele_conflict	3	153	2.0	2	66.7	9.4	99.2	clopper_pearson_exact	0
+wes	unanimous	104	153	68.0	103	99.0	94.8	100.0	clopper_pearson_exact	0
+wes	one_allele_conflict	44	153	28.8	36	81.8	67.3	91.8	clopper_pearson_exact	0
+wes	two_allele_conflict	5	153	3.3	4	80.0	28.4	99.5	clopper_pearson_exact	0
 rnaseq	no_evidence	0	118	0.0	0				clopper_pearson_exact	0
-rnaseq	single_caller	3	118	2.5	3	100.0	29.2	100.0	clopper_pearson_exact	0
-rnaseq	unanimous	102	118	86.4	98	96.1	90.3	98.9	clopper_pearson_exact	0
-rnaseq	one_allele_conflict	13	118	11.0	12	92.3	64.0	99.8	clopper_pearson_exact	1
-rnaseq	two_allele_conflict	0	118	0.0	0				clopper_pearson_exact	0
+rnaseq	single_caller	0	118	0.0	0				clopper_pearson_exact	0
+rnaseq	unanimous	53	118	44.9	51	96.2	87.0	99.5	clopper_pearson_exact	0
+rnaseq	one_allele_conflict	39	118	33.1	37	94.9	82.7	99.4	clopper_pearson_exact	0
+rnaseq	two_allele_conflict	26	118	22.0	25	96.2	80.4	99.9	clopper_pearson_exact	0

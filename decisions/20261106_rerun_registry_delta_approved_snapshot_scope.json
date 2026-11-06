@@ -1,0 +1,60 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261106_rerun_registry_delta_approved_snapshot_scope",
+  "date": "2026-11-06",
+  "status": "SIGNED - author approved the registry after the public-snapshot scope change in the Claude Code session of 2026-11-06",
+  "supersedes": [
+    "decisions/20261106_rerun_registry_delta_approved_round4.json"
+  ],
+  "relates_to": [
+    "decisions/20261106_public_snapshot_scope.json",
+    "provenance/cohort_rows_withheld_20261106.json"
+  ],
+  "decision": {
+    "approval": "Approves result_registry.tsv after the public-snapshot scope record (S2), against the approved registry a4d970ecba73f5483f2a1899c1b75d7ce35681595f61927b5c0ff96afae5bd10: no row added or removed, and 2 changed: DEV_ARCHIVED_WES_CALLER_POLYSOLVER, whose artifact_sha256 now pins the filtered archived registry (adb8fa69... in place of a5747655...), and the protocol-change ledger row for eighteen changes. The gate now compares against the filtered archived registry of 532 rows, so the 99 withheld FIMM and VenEx rows no longer count as removed. No primary, comparator or fitted-policy row changed.",
+    "approved_registry_sha256": "894e1c10a42ec4661d0786fd625e6906972d843dce4837d01ff7673c4f208c3b",
+    "approved_delta_summary": {
+      "old_rows": 532,
+      "new_rows": 712,
+      "status_counts": {
+        "unchanged": 34,
+        "changed": 496,
+        "added": 182,
+        "removed": 2
+      }
+    },
+    "approved_reasons": [
+      "fitted-policy conclusion changed",
+      "fitted-policy ranking changed",
+      "headline direction changed: DEV_PAIRED_RNASEQ_METACONSENSUS",
+      "headline direction changed: DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_WES_CALLER_POLYSOLVER",
+      "headline direction changed: DEV_PAIRED_WES_METACONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_WES_CALLER_POLYSOLVER",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "strongest-caller identity changed"
+    ],
+    "reasons_note": "The 25 gate reasons are identical to those approved on 5 November and in round 4; removing the cohort rows from the archived registry changed none of them."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-06, explicit author statement: 'I approve it'",
+    "mechanism": "Claude Code session"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "champhla-cohort-rows-withheld-1",
+  "decision_record": "decisions/20261106_public_snapshot_scope.json",
+  "rule": "A registry drops every row whose cohort is one of withheld_cohorts; a delta drops every row whose result_id is one of the rows dropped from the registry in the same directory. Every other byte is unchanged.",
+  "withheld_cohorts": [
+    "FIMM_AML_MDS",
+    "VENEX_WES",
+    "FIMM-AML-BulkRNA",
+    "FIMM-AML-SCRNA",
+    "FIMM-AML-WES"
+  ],
+  "withheld_copies": "provenance/cohort_rows_withheld_20261106/ (private repository only; held back from the public snapshot)",
+  "files": [
+    {
+      "path": "provenance/development_rerun_v350/historical_result_registry_pre_v350.tsv",
+      "withheld_copy": "provenance/cohort_rows_withheld_20261106/provenance/development_rerun_v350/historical_result_registry_pre_v350.tsv",
+      "rows_before": 631,
+      "rows_after": 532,
+      "sha256_before": "a5747655c20f0828ee17fb05ddda8b1e1510d8cc9389e2f9ba902340a50ea221",
+      "sha256_after": "adb8fa6962e4233d61b4986497bc0ddb63704cae0c423360fc7c01458f9d2e74"
+    },
+    {
+      "path": "provenance/development_rerun_v350/result_registry_delta.tsv",
+      "withheld_copy": "provenance/cohort_rows_withheld_20261106/provenance/development_rerun_v350/result_registry_delta.tsv",
+      "rows_before": 813,
+      "rows_after": 714,
+      "sha256_before": "87597cb8a097f5b7a007d20d877c6927e16387261a5503d102bc16b190b235ff",
+      "sha256_after": "43af6c41ee3bda9f306d658a819b35389caf63edd95c0696602e81164478efb9"
+    },
+    {
+      "path": "provenance/development_rerun_v350_superseded_20261025/historical_result_registry_pre_v350.tsv",
+      "withheld_copy": "provenance/cohort_rows_withheld_20261106/provenance/development_rerun_v350_superseded_20261025/historical_result_registry_pre_v350.tsv",
+      "rows_before": 631,
+      "rows_after": 532,
+      "sha256_before": "a5747655c20f0828ee17fb05ddda8b1e1510d8cc9389e2f9ba902340a50ea221",
+      "sha256_after": "adb8fa6962e4233d61b4986497bc0ddb63704cae0c423360fc7c01458f9d2e74"
+    },
+    {
+      "path": "provenance/development_rerun_v350_superseded_20261025/result_registry_delta.tsv",
+      "withheld_copy": "provenance/cohort_rows_withheld_20261106/provenance/development_rerun_v350_superseded_20261025/result_registry_delta.tsv",
+      "rows_before": 631,
+      "rows_after": 532,
+      "sha256_before": "f3b084c223a659645340e95bfbb242f2268b9ebc9263049a55c93b0b2a85e2e6",
+      "sha256_after": "8eb43cf6c54ef9133aa7d2fade00f8550e1d41b6656f8657a9acd999ec981d5f"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261105_rerun_registry_delta_approved_cohorts_removed",
+  "date": "2026-11-05",
+  "status": "SIGNED - author approved the registry after the cohort removal in the Claude Code session of 2026-11-05",
+  "supersedes": [
+    "decisions/20261105_rerun_registry_delta_approved_round2.json"
+  ],
+  "relates_to": [
+    "decisions/20261105_patient_cohorts_removed.json",
+    "reports/manuscript_fatal_fixes_20261105.md"
+  ],
+  "decision": {
+    "approval": "Approves result_registry.tsv after removing 99 FIMM and VENEX rows from the approved registry 1b47f47955f1da58931bb4263d94112beb46ae6ae048c27af33845ab9435b36b, with the protocol-change ledger row updated for fifteen changes. No other registry row changed.",
+    "approved_registry_sha256": "c02f0dfcfa8ea75743dd264d270f59fd9717727baf1a0ec1d312bb3787cc93f1",
+    "approved_delta_summary": {
+      "old_rows": 631,
+      "new_rows": 610,
+      "status_counts": {
+        "unchanged": 110,
+        "changed": 421,
+        "added": 79,
+        "removed": 100
+      }
+    },
+    "approved_reasons": [
+      "fitted-policy conclusion changed",
+      "fitted-policy ranking changed",
+      "headline direction changed: DEV_PAIRED_RNASEQ_METACONSENSUS",
+      "headline direction changed: DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_WES_CALLER_POLYSOLVER",
+      "headline direction changed: DEV_PAIRED_WES_METACONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_WES_CALLER_POLYSOLVER",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "strongest-caller identity changed"
+    ]
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-05, explicit author statement: 'I approve it'",
+    "mechanism": "Claude Code session"
+  }
+}

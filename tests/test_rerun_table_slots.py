@@ -36,7 +36,7 @@ def test_main_table_adds_corrected_reference_column_for_every_displayed_method()
     rendered = TABLES.main_table(performance, corrected)
 
     assert "Exact-reference correct" in rendered
-    assert "Corrected-reference sensitivity, correct" in rendered
+    assert "Loci where both typings agree, correct" in rendered
     assert "2/2" in rendered
 
 

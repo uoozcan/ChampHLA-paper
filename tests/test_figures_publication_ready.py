@@ -26,17 +26,12 @@ SUPPLEMENTARY_NAMES = (
     "supplementary_figure_s4_truth_sensitivity",
     "supplementary_figure_s5_champion_challenger",
 )
-# Supplementary Figures S6-S8 are the aggregate-only exploratory cohort figures (S9),
-# rendered in the three-format 300 dpi profile.
-EXPLORATORY_NAMES = (
-    "supplementary_figure_s6_fimm_concordance",
-    "supplementary_figure_s7_fimm_bb72",
-    "supplementary_figure_s8_venex_diagnostics",
-)
-# Supplementary Figure S9 is generated only from the v3.5.0 rerun cell ledger.
+# decisions/20261105_patient_cohorts_removed.json removed the three cohort figures.
+EXPLORATORY_NAMES = ()
+# Supplementary Figure S6 is generated only from the v3.5.0 rerun cell ledger.
 RERUN_LEDGER = ROOT / "provenance/development_rerun_v350/truth_free_collection/stored_vs_rerun_cells.tsv"
 RERUN_NAMES = (
-    ("supplementary_figure_s9_rerun_cell_changes",) if RERUN_LEDGER.is_file() else ()
+    ("supplementary_figure_s6_rerun_cell_changes",) if RERUN_LEDGER.is_file() else ()
 )
 SUPPLEMENTARY_NAMES += RERUN_NAMES
 NAMES = MAIN_NAMES + SUPPLEMENTARY_NAMES
@@ -126,9 +121,8 @@ def test_manifest_is_complete_and_hashes_every_source_and_output():
         "Figure 1", "Figure 2", "Figure 3", "Figure 4",
         "Supplementary Figure S1", "Supplementary Figure S2",
         "Supplementary Figure S3", "Supplementary Figure S4",
-        "Supplementary Figure S5", "Supplementary Figure S6",
-        "Supplementary Figure S7", "Supplementary Figure S8",
-    ] + (["Supplementary Figure S9"] if RERUN_LEDGER.is_file() else [])
+        "Supplementary Figure S5",
+    ] + (["Supplementary Figure S6"] if RERUN_LEDGER.is_file() else [])
     for source in manifest["source_artifacts"].values():
         assert _sha256(ROOT / source["path"]) == source["sha256"]
     for name, item in zip(MANIFEST_ORDER, manifest["figures"], strict=True):
@@ -157,17 +151,10 @@ def test_style_contract_and_all_percentage_axes_stop_at_100():
 
 
 def test_all_figures_use_publication_render_profile():
-    """Only the aggregate-only exploratory cohort figures (S6-S8) use the 300 dpi
-    three-format profile; every development figure is publication-grade."""
-    exploratory = {"Supplementary Figure S6", "Supplementary Figure S7",
-                   "Supplementary Figure S8"}
+    """Every remaining figure is publication-grade."""
     for item in _manifest()["figures"]:
-        if item["figure_id"] in exploratory:
-            assert item["render_profile"] == "exploratory_300dpi_three_format"
-            assert set(item["output_sha256"]) == {"pdf", "svg", "png"}
-        else:
-            assert item["render_profile"] == "publication_600dpi_four_format"
-            assert set(item["output_sha256"]) == {"pdf", "svg", "png", "tiff"}
+        assert item["render_profile"] == "publication_600dpi_four_format"
+        assert set(item["output_sha256"]) == {"pdf", "svg", "png", "tiff"}
 
 def test_figure1_flow_counts_are_generated_from_truth_flow():
     rows = _rows(ROOT / "artifacts/development_characterisation/truth_flow.tsv")

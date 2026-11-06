@@ -2391,8 +2391,25 @@ z
     </g>
    </g>
    <g id="text_41">
-    <!-- arcasHLA -->
-    <g transform="translate(103.403889 309.860328) scale(0.075 -0.075)">
+    <!-- arcasHLA† -->
+    <g transform="translate(99.233186 309.860328) scale(0.075 -0.075)">
+     <defs>
+      <path id="ArialMT-2020" d="M 1475 -1081
+L 1475 2706
+L 228 2706
+L 228 3206
+L 1475 3206
+L 1475 4475
+L 2038 4475
+L 2038 3206
+L 3294 3206
+L 3294 2706
+L 2038 2706
+L 2038 -1081
+L 1475 -1081
+z
+" transform="scale(0.015625)"/>
+     </defs>
      <use xlink:href="#ArialMT-61"/>
      <use xlink:href="#ArialMT-72" x="55.615234"/>
      <use xlink:href="#ArialMT-63" x="88.916016"/>
@@ -2401,6 +2418,7 @@ z
      <use xlink:href="#ArialMT-48" x="244.53125"/>
      <use xlink:href="#ArialMT-4c" x="316.748047"/>
      <use xlink:href="#ArialMT-41" x="372.363281"/>
+     <use xlink:href="#ArialMT-2020" x="439.0625"/>
     </g>
    </g>
    <g id="text_42">

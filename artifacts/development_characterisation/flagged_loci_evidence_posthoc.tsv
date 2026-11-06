@@ -1,0 +1,11 @@
+subject	gene	superpopulation	reference_2014	vote	vote_error_assays	p_group_equal	erlich_2011	trusight_buchkovich_2017	assembly	abi_rached_confirmation	analysis_status
+NA10847	C	CEU	C*07:02+C*12:03	C*07:01+C*12:03	WES and RNA-seq	0	vote	vote	none	targeted NGS and manual review	post_hoc_after_results
+NA11840	B	CEU	B*27:03+B*57:01	B*27:05+B*57:01	WES and RNA-seq	0	vote	vote	none	read inspection only	post_hoc_after_results
+NA18504	C	YRI	C*02:02+C*12:03	C*02:10+C*12:03	WES	1	vote	no row	none	undetermined	post_hoc_after_results
+NA18505	C	YRI	C*02:02+C*07:01	C*02:10+C*07:01	WES and RNA-seq	1	vote	vote	HPRC: vote	undetermined	post_hoc_after_results
+NA18507	C	YRI	C*02:02+C*17:01	C*02:10+C*17:01	WES	1	vote	no row	none	undetermined	post_hoc_after_results
+NA18522	C	YRI	C*02:02+C*07:01	C*02:10+C*07:01	WES	1	vote	no row	HPRC: vote	undetermined	post_hoc_after_results
+NA18537	A	CHB	A*02:01+A*11:01	A*02:07+A*11:01	WES	0	vote	no row	none	undetermined	post_hoc_after_results
+NA19116	B	YRI	B*07:02+B*39:03	B*07:02+B*39:24	WES and RNA-seq	0	vote	vote	none	read inspection only	post_hoc_after_results
+NA19129	C	YRI	C*07:01+C*07:02	C*07:02+C*07:18	WES	1	reference; cannot separate at exons 2-3	no row	HGSVC3: vote, provisional	undetermined	post_hoc_after_results
+NA19131	A	YRI	A*66:02+A*68:02	A*66:03+A*68:02	WES and RNA-seq	0	vote	vote	none	read inspection only	post_hoc_after_results

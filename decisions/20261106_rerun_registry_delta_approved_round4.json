@@ -1,0 +1,60 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261106_rerun_registry_delta_approved_round4",
+  "date": "2026-11-06",
+  "status": "SIGNED - author approved the registry after the round 4 amendment in the Claude Code session of 2026-11-06",
+  "supersedes": [
+    "decisions/20261106_rerun_registry_delta_approved_round3.json"
+  ],
+  "relates_to": [
+    "decisions/20261106_posthoc_round4_amendment.json",
+    "reports/manuscript_fatal_fixes_20261105.md"
+  ],
+  "decision": {
+    "approval": "Approves result_registry.tsv after the round 4 amendment, against the approved registry d2702af18ebba4552d31e590e5f2d2e480c7cbb108b3d080414866ca8671bf32: 17 rows added (DEV_RUN_STABILITY_*: 11 per-method archived and study-run scores, and per assay the vote calls changed, the largest caller change and the leading caller), none removed, and 1 changed: the protocol-change ledger row for seventeen changes. No primary, comparator or fitted-policy row changed.",
+    "approved_registry_sha256": "a4d970ecba73f5483f2a1899c1b75d7ce35681595f61927b5c0ff96afae5bd10",
+    "approved_delta_summary": {
+      "old_rows": 631,
+      "new_rows": 712,
+      "status_counts": {
+        "unchanged": 34,
+        "changed": 496,
+        "added": 182,
+        "removed": 101
+      }
+    },
+    "approved_reasons": [
+      "fitted-policy conclusion changed",
+      "fitted-policy ranking changed",
+      "headline direction changed: DEV_PAIRED_RNASEQ_METACONSENSUS",
+      "headline direction changed: DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_WES_CALLER_POLYSOLVER",
+      "headline direction changed: DEV_PAIRED_WES_METACONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_WES_CALLER_POLYSOLVER",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "strongest-caller identity changed"
+    ],
+    "reasons_note": "The 25 gate reasons are identical to those approved on 5 November; they compare against the pre-v3.5.0 historical registry, and none comes from round 4."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-06, explicit author statement: 'I approve it'",
+    "mechanism": "Claude Code session"
+  }
+}

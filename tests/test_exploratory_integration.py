@@ -6,6 +6,8 @@ import json
 import re
 from pathlib import Path
 
+import pytest
+
 from champhla_recovery.exploratory import (
     FIMM_AGGREGATES,
     VENEX_AGGREGATES,
@@ -16,6 +18,10 @@ from champhla_recovery.exploratory import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+needs_held_back_aggregates = pytest.mark.skipif(
+    not (ROOT / "artifacts" / "fimm_consensus").is_dir(),
+    reason="controlled aggregates are held back from the public snapshot",
+)
 
 
 def _cross_module():
@@ -54,6 +60,7 @@ def test_fimm_panel_deviation_is_approved_only_within_requested_boundary():
     assert scope["abstract_claims_permitted"] is False
 
 
+@needs_held_back_aggregates
 def test_every_frozen_aggregate_estimate_and_interval_recounts():
     assert validate_aggregate_estimates(ROOT) == []
 
@@ -90,6 +97,7 @@ def test_contested_eligibility_requires_two_callers_in_both_assays():
     assert (contested["agreement"], contested["overlap"]) == (1, 1)
 
 
+@needs_held_back_aggregates
 def test_checksum_manifests_cover_every_published_aggregate():
     for relative, expected_paths in (
         ("artifacts/fimm_consensus/aggregate_checksums.tsv", FIMM_AGGREGATES),
@@ -101,63 +109,9 @@ def test_checksum_manifests_cover_every_published_aggregate():
             assert row["sha256"] == sha256(ROOT / row["artifact"])
 
 
+@needs_held_back_aggregates
 def test_exported_aggregate_bundle_passes_privacy_scan():
     assert privacy_failures(ROOT) == []
-
-
-def test_registry_boundaries_and_non_estimable_rows_are_explicit():
-    rows = _rows(ROOT / "result_registry.tsv")
-    active = [row for row in rows if row["cohort"] in {"FIMM_AML_MDS", "VENEX_WES"}]
-    assert active
-    assert all(row["abstract_allowed"] == "0" for row in active)
-    assert all(row["result_kind"] in {
-        "performance", "concordance", "categorical-summary", "survival-effect"
-    } for row in active)
-    disjoint = [row for row in active if row["result_id"].startswith("FIMM_PANEL_DISJOINT_")]
-    assert len(disjoint) == 3
-    assert all(row["loci"] == "0" and row["estimate"] == "" for row in disjoint)
-    assert all("zero overlap" in row["claim_boundary"] for row in disjoint)
-    assert not any("tierA" in row["artifact_path"] or "tierB" in row["artifact_path"]
-                   for row in active)
-    assert not any("imbalance" in row["endpoint"].lower() for row in active)
-
-
-def test_fimm_specimen_definitions_are_coequal_and_donor_rows_are_sensitivity_only():
-    rows = {row["result_id"]: row for row in _rows(ROOT / "result_registry.tsv")}
-    for pair in ("BULKRNA_WES", "SCRNA_WES", "BULKRNA_SCRNA"):
-        all_callable = rows[f"FIMM_PANEL_SPECIMEN_{pair}_EXACT_PAIR"]
-        contested = rows[f"FIMM_PANEL_SPECIMEN_CONTESTED_{pair}_EXACT_PAIR"]
-        donor = rows[f"FIMM_PANEL_DONOR_{pair}_EXACT_PAIR_SENSITIVITY"]
-        assert all_callable["analysis_status"] == "exploratory_coequal"
-        assert contested["analysis_status"] == "exploratory_coequal"
-        assert all_callable["endpoint"].startswith("all_callable_")
-        assert contested["endpoint"].startswith("contested_both_")
-        assert donor["analysis_status"] == "exploratory_sensitivity"
-        assert "donor collapse is sensitivity-only" in donor["claim_boundary"]
-
-
-def test_contested_specimen_counts_match_the_secure_recounted_aggregate():
-    rows = {row["result_id"]: row for row in _rows(ROOT / "result_registry.tsv")}
-    expected = {
-        "BULKRNA_WES": (62, 70),
-        "SCRNA_WES": (21, 24),
-        "BULKRNA_SCRNA": (18, 21),
-    }
-    for pair, (agreement, overlap) in expected.items():
-        row = rows[f"FIMM_PANEL_SPECIMEN_CONTESTED_{pair}_EXACT_PAIR"]
-        assert (int(row["correct"]), int(row["loci"])) == (agreement, overlap)
-
-
-def test_contested_donor_sensitivity_is_conservative_and_explicitly_estimable_or_not():
-    rows = {row["result_id"]: row for row in _rows(ROOT / "result_registry.tsv")}
-    bulk_wes = rows[
-        "FIMM_PANEL_DONOR_CONTESTED_BULKRNA_WES_EXACT_PAIR_SENSITIVITY"]
-    assert (bulk_wes["correct"], bulk_wes["loci"], bulk_wes["estimate"]) == (
-        "2", "2", "1.0")
-    for pair in ("SCRNA_WES", "BULKRNA_SCRNA"):
-        row = rows[f"FIMM_PANEL_DONOR_CONTESTED_{pair}_EXACT_PAIR_SENSITIVITY"]
-        assert row["loci"] == "0" and row["estimate"] == ""
-        assert row["analysis_status"].endswith("non_estimable")
 
 
 def test_submission_gate_contains_only_author_and_secure_source_blockers():
@@ -181,35 +135,19 @@ def test_withdrawn_legacy_numbers_do_not_reenter_active_text_or_figures():
     assert "wes_allele_imbalance" not in active
 
 
-def test_retained_aggregate_only_patient_claims_use_stable_registry_tags():
+def test_patient_cohorts_are_out_of_the_paper_and_the_registry():
+    """decisions/20261105_patient_cohorts_removed.json keeps the S8 row and the ledger row;
+    decisions/20261106_public_snapshot_scope.json adds the ledger row withholding their
+    aggregate rows from the published provenance."""
     main = (ROOT / "manuscripts/benchmark/manuscript.md").read_text(encoding="utf-8")
     supplement = (ROOT / "manuscripts/benchmark/supplementary.md").read_text(encoding="utf-8")
-    assert "62/70" in main
-    assert "[RESULT:FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_WES_EXACT_PAIR]" in main
-    retained = (
-        "FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_WES_EXACT_PAIR",
-        "FIMM_PANEL_DISJOINT_BULKRNA_WES_NON_ESTIMABLE",
-        "VENEX_WES_HLA_HD_CONTESTED_DISSENT",
-        "VENEX_WES_OPTITYPE_CONTESTED_DISSENT",
-        "VENEX_WES_SPECHLA_CONTESTED_DISSENT",
-        "VENEX_WES_T1K_CONTESTED_DISSENT",
-        "VENEX_WES_POLYSOLVER_CONTESTED_DISSENT",
-        "VENEX_WES_POLYSOLVER_MISSING",
-        "VENEX_WES_POLYSOLVER_EMPTY",
-    )
-    for result_id in retained:
-        assert f"[RESULT:{result_id}]" in supplement
-    # decisions/20261026_fimm_venex_s9_restored.json restores the registered S9 detail:
-    # coequal specimen pairs, donor sensitivity and BB7.2 (always with its linkage).
-    for restored in (
-        "FIMM_PANEL_SPECIMEN_BULKRNA_WES_EXACT_PAIR",
-        "FIMM_PANEL_SPECIMEN_SCRNA_WES_EXACT_PAIR",
-        "FIMM_PANEL_SPECIMEN_BULKRNA_SCRNA_EXACT_PAIR",
-        "FIMM_PANEL_WES_ARCASHLA_CONTESTED_DISSENT",
-    ):
-        assert f"[RESULT:{restored}]" in supplement
-    assert "FIMM_BB72_WES_A02_" in supplement
-    assert "Only 16 of 53 flow records linked" in " ".join(supplement.split())
-    # Withdrawn analyses never return.
-    assert "fingerprint" in supplement and "is withdrawn" in supplement
-    assert "no LOH claim is made" in " ".join(supplement.split())
+    assert "FIMM" not in main and "VenEx" not in main and "BB7.2" not in main
+    assert "RESULT:FIMM" not in supplement and "RESULT:VENEX" not in supplement
+    disclosures = [line for line in supplement.splitlines()
+                   if "FIMM" in line or "VenEx" in line]
+    assert len(disclosures) == 3
+    assert any("Analysed, not reported" in line for line in disclosures)
+    assert any("Remove the FIMM and VenEx patient cohorts" in line for line in disclosures)
+    assert any("Withhold the FIMM and VenEx aggregate rows" in line for line in disclosures)
+    rows = _rows(ROOT / "result_registry.tsv")
+    assert not [row for row in rows if row["result_id"].startswith(("FIMM_", "VENEX_"))]

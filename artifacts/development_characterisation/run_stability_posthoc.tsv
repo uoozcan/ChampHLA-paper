@@ -1,0 +1,12 @@
+modality	method	loci	archived_correct	study_run_correct	change
+rnaseq	ChampHLA-Consensus	118	113	113	0
+rnaseq	ArcasHLA	118	109	58	-51
+rnaseq	HLA-HD	118	110	112	2
+rnaseq	OptiType	118	109	112	3
+rnaseq	T1K	118	91	101	10
+wes	ChampHLA-Consensus	153	143	143	0
+wes	HLA-HD	153	126	131	5
+wes	OptiType	153	140	142	2
+wes	POLYSOLVER	153	143	138	-5
+wes	SpecHLA	153	123	134	11
+wes	T1K	153	113	125	12

@@ -1,0 +1,10 @@
+modality	minimum_support	loci	called	correct
+rnaseq	1	118	118	113
+rnaseq	2	118	118	113
+rnaseq	3	118	110	106
+rnaseq	4	118	53	51
+wes	1	153	153	143
+wes	2	153	153	143
+wes	3	153	150	141
+wes	4	153	141	134
+wes	5	153	104	103

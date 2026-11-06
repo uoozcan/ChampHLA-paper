@@ -1,0 +1,7 @@
+stratum	loci	wes_consensus_correct	rnaseq_consensus_correct	pooled_vote_correct	wes_percent	rnaseq_percent	pooled_percent
+all	116	110	111	111	94.8	95.7	95.7
+assays_agree	115	110	110	110	95.7	95.7	95.7
+assays_disagree	1	0	1	1	0.0	100.0	100.0
+gene_A	38	37	37	37	97.4	97.4	97.4
+gene_B	39	37	37	37	94.9	94.9	94.9
+gene_C	39	36	37	37	92.3	94.9	94.9

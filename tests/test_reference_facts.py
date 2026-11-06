@@ -1,5 +1,5 @@
 """Facts the manuscript states about pinned resources, checked against the resource,
-and the numbered (Vancouver) citation scheme BMC Bioinformatics requires."""
+and the numbered citation scheme Scientific Reports requires."""
 from __future__ import annotations
 
 import re

@@ -1,0 +1,39 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261105_patient_cohorts_removed",
+  "date": "2026-11-05",
+  "status": "SIGNED - author approved removing the patient cohorts in the Claude Code session of 2026-11-05",
+  "reverses": [
+    "decisions/20261013_fimm_venex_scope_and_gate.json: main_text, supplement and submission_gate ('block submission rather than remove the cohorts'). Its privacy rule stands.",
+    "decisions/20261026_fimm_venex_s9_restored.json: main_text, supplement and figures. Its exclusions stand."
+  ],
+  "discovery_path": {
+    "what_happened": "Finding JP-017 of the simulated journal-panel review of 3-4 November 2026 tested the signed choice to block submission rather than remove the cohorts, and recommended removal. The review recorded that no main claim depends on these cohorts.",
+    "results_already_seen": "The aggregate FIMM and VenEx results are known, including bulk RNA-seq and WES agreement of 62/70 and VenEx dissent counts. So this removal happens after results and must be disclosed. It is not based on their direction: they support no accuracy claim either way."
+  },
+  "decision": {
+    "reason": "The cohorts support no claim in the paper, and their governance fields and secure-manifest check remain incomplete, so they block submission and break verification on the public snapshot.",
+    "removed_from_the_paper": {
+      "main_text": "Methods sentences on FIMM, VenEx and BB7.2; the FIMM and VenEx clause on Wilson intervals; the Ethics paragraph on these cohorts; the Results paragraph and its two result tags; the Data availability sentence on FIMM storage; their mention in the Supplementary information summary.",
+      "supplement": "S9.1 to S9.5 (189 lines, 4 tables, 27 result tags) and Supplementary Figures S6, S7 and S8 with their legends.",
+      "references": "28 and 29 (BB7.2) and 40 (Wilson) lose their only citations and are removed; later references are renumbered in both documents.",
+      "registry": "99 FIMM and VENEX rows leave result_registry.tsv, from 709 to 610 rows before any other change. No other result row may change."
+    },
+    "kept": {
+      "nci60": "The NCI-60 material stays as it is and becomes S9, retitled 'NCI-60 cell-line application'. It reports no result. Mentions of S9.6 become S9.",
+      "section_numbers": "S10 onward keep their numbers. Supplementary Figure S9 becomes S6.",
+      "controlled_data": "artifacts/fimm, artifacts/fimm_consensus, artifacts/venex, data/fimm and all controlled files are not deleted or opened. The snapshot keeps holding them back. The import code and its synthetic tests stay, so this can be reversed.",
+      "unrelated_clinical_text": "Background on transplantation and pharmacogenomics, and the limitation on clinical use, are not about these cohorts and stay."
+    },
+    "disclosure_kept_in_the_paper": "S8 row replacing the two FIMM rows, with no numbers: 'Aggregate FIMM AML/MDS and VenEx patient-cohort analyses | Analysed, not reported | Agreement among callers without reference typing supports no accuracy claim, and cohort governance fields were incomplete at submission. The earlier fingerprint-paired analysis was withdrawn, and LOH, HED and survival analyses were excluded.' A ledger row records the same, with this record as its decision.",
+    "gate": "configs/fimm_submission_gate.json no longer governs this paper, and the claim audit stops reporting its six FIMM items. The draft-notice line on FIMM in scripts/build_drive_document.sh is removed. AUTHOR_FIELDS_TO_COMPLETE.md and COAUTHOR_REVIEW_CHECKLIST.md drop their FIMM items.",
+    "code": "scripts/generate_result_registry.py and scripts/generate_figures.py stop reading the controlled aggregate paths, which is the fix to test for the snapshot failure. Tests that pin S9, table counts or figure counts are updated: tables 46 to 42, figures 13 to 10.",
+    "sequence": "After this record is signed: apply the text and code, regenerate the registry, then ask the author to sign the registry delta as a separate step, run full verification and repeat the snapshot-shaped verification.",
+    "not_decided_here": "Authorship. If any co-author was included for the FIMM or VenEx cohorts, the author list and acknowledgements need the author's review. A later separate paper on these cohorts stays possible, and any future use needs its own governance."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-05, explicit author statement: 'Sign removal'",
+    "mechanism": "Claude Code session"
+  }
+}

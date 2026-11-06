@@ -1,0 +1,12 @@
+modality	caller	runs	cpu_hours_median	cpu_hours_min	cpu_hours_max	peak_rss_gib_median	peak_rss_gib_min	peak_rss_gib_max	failed_task_attempts
+rnaseq	HLA-HD	106	2.403	0.135	12.209	10.70	3.60	24.00	1
+rnaseq	OptiType	106	0.093	0.006	0.330	6.75	0.29	19.40	0
+rnaseq	T1K	106	0.562	0.145	1.301	10.10	5.10	18.60	0
+rnaseq	arcasHLA	106	0.071	0.034	0.160	1.40	0.85	2.40	0
+rnaseq	shared steps	106	0.011	0.005	0.021	0.45	0.02	0.90	0
+wes	HLA-HD	130	0.092	0.028	0.226	1.40	0.70	3.70	0
+wes	OptiType	130	0.007	0.005	0.015	0.49	0.25	1.40	0
+wes	POLYSOLVER	130	0.599	0.370	1.178	3.90	2.80	6.20	0
+wes	SpecHLA	130	0.185	0.102	0.523	0.99	0.68	1.30	0
+wes	T1K	130	0.129	0.056	0.243	4.00	3.20	6.00	0
+wes	shared steps	130	0.079	0.032	0.566	1.70	0.39	8.50	0

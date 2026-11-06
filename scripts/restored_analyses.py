@@ -272,9 +272,17 @@ def main() -> int:
               "the checksum-pinned historical calibration artifact is retained"),
     )
     args = parser.parse_args()
-    expected = json.loads(INPUT_MANIFEST.read_text(encoding="utf-8"))["source_sha256"]["caller_rows"]
     observed = None
+    # Without a caller source, calibration keeps its preserved estimates, so the
+    # manifest keeps naming the source those estimates came from.
+    previous = OUT / "manifest.json"
+    expected = (json.loads(previous.read_text(encoding="utf-8"))["inputs"]["caller_source"]["sha256"]
+                if previous.is_file() else None)
     if args.caller_source is not None:
+        # Only the archived input manifest records the recovered caller table, and
+        # only calibration reads it (decisions/20261106_posthoc_round3_amendment.json).
+        expected = json.loads(
+            INPUT_MANIFEST.read_text(encoding="utf-8"))["source_sha256"]["caller_rows"]
         observed = sha256(args.caller_source)
         if observed != expected:
             raise SystemExit(

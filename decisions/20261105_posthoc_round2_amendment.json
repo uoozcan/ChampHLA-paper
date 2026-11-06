@@ -1,0 +1,30 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261105_posthoc_round2_amendment",
+  "date": "2026-11-05",
+  "status": "SIGNED - author approved the round 2 post hoc amendment in the Claude Code session of 2026-11-05",
+  "relates_to": [
+    "decisions/20261009_reference_adjudication.json",
+    "decisions/20261025_arcashla_report_as_is.json",
+    "decisions/20261105_reference_presentation_amendment.json"
+  ],
+  "discovery_path": {
+    "what_happened": "The simulated journal-panel review of 3-4 November 2026 (findings JP-005, JP-006, JP-013 and JP-015) computed leave-one-caller-out scores from the development tables and collected published typing at the flagged vote-error loci. Its evidence agents then recorded what each published source reports at those loci.",
+    "truth_derived_information_seen": "All development results and per-locus scores. Every table here was added after results and is post hoc. The sources were looked up only because the loci were flagged, so loci without a flag remain untested.",
+    "firewall": "Development subjects only. No extension or NCI-60 truth is used. The review recorded a separate process note: an evidence agent's first scripts ran over whole public typing tables before filtering. None of that output entered these tables. Whether it counts as contamination remains the author's judgement."
+  },
+  "decision": {
+    "leave_one_caller_out": "scripts/score_leave_one_caller_out_posthoc.py: plurality and strict majority with each panel caller left out. It changes no panel and selects nothing. The main text may say that the RNA-seq threshold reduction came from the arcasHLA row.",
+    "p_group_column": "scripts/score_p_group_agreement_posthoc.py adds a Table 2 column: a call agrees when it equals the 2014 type or shares its P groups under the lenient two-field mapping. The reason is what the 2014 assay measured, exons 2 and 3. It does not replace the primary endpoint.",
+    "flagged_locus_evidence": "resources/reference_adjudication/flagged_loci_published_typing.tsv records what each source reports at the ten loci. Values were transcribed from the review's evidence file, which a second review agent checked, and were not re-read from the source files for this record. Source file SHA-256: Erlich Additional File archive 2e913419db3be2c28800dd4d890ae6014c0ec8344bc9af9838775b1ce954eac6; Buchkovich ESM2 25402f4a54f754f2784b0d66d2898c19dda2f29958f9964c211b109ceb5794a5. The HGSVC3 entry is a provisional check by the review at one diagnostic site, not a published typing.",
+    "ledger": "Adds rows for the rerun's caller effects and the arcasHLA decision, and labels five earlier sizes as from historical stored outputs. No row is added for panel choice, because no decision record of that choice was found.",
+    "values_stated_before_the_repository_scripts_ran": "RNA-seq: full panel plurality 113, strict majority 106 correct with 110 callable; without arcasHLA plurality 113, strict majority 113 correct with 118 callable; plurality without HLA-HD 110, OptiType 110, T1K 113. WES: full panel plurality 143, strict majority 141; plurality without any one caller within 140-143. P group: vote 148/153 and 114/118. Evidence: Erlich gives the vote at 9 of 10, TruSight at 5 of 5, P group differs at 5 of 10. All matched on the single run.",
+    "boundary": "The registered primary endpoint, panels, rule and thresholds are unchanged. The primary arcasHLA result stays in the registry as decided on 25 October.",
+    "not_decided_here": "This record does not lift the 'may reflect reference-typing error' commitment in decisions/20261009_reference_adjudication.json. The S7 table reports what the sources say and attributes nothing. Lifting that commitment, and the abstract, the title and the patient cohorts, are separate author decisions."
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-05, explicit author statement: 'I approve both'",
+    "mechanism": "Claude Code session"
+  }
+}

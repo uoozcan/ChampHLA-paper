@@ -1,0 +1,3 @@
+modality	loci	allele_vote_correct	plurality_correct	loci_where_calls_differ
+rnaseq	118	113	113	0
+wes	153	143	143	0

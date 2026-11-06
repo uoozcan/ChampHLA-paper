@@ -1,0 +1,34 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261106_roihu_descriptions_round5",
+  "date": "2026-11-06",
+  "status": "SIGNED - author approved the round 5 descriptions as drafted in the Claude Code session of 2026-11-06; nothing below had been computed or read, and no script for these items existed, when it was signed",
+  "relates_to": [
+    "decisions/20261106_posthoc_round4_amendment.json",
+    "reports/author_decisions_20261106.md",
+    "reports/manuscript_fatal_fixes_20261105.md"
+  ],
+  "discovery_path": {
+    "what_happened": "The simulated journal-panel review of 3-4 November 2026 asked for the deployment, input and cost descriptions below (JP-012, JP-014, JP-025, JP-029, JP-035). Their source files are on the Roihu cluster. They were split from the round 4 draft on 6 November so that the local items need not wait for cluster access.",
+    "truth_derived_information_seen": "All development results. None of these items uses reference typing: they come from caller images, workflow records, run traces and read alignments.",
+    "firewall": "Development subjects only. On Roihu only the development run directories and the development input alignments are read. No extension or NCI-60 data, prediction or truth is read, and champhla_egcc_pilot/runs/sealed_holdout/ is not read, listed or passed to any script."
+  },
+  "procedure": "Each item is fixed as written before any script for it exists. Scripts are tested on synthetic data, then run once. Values that differ from the expected values are reported as computed. Every file read from Roihu is checked against its hash in provenance/development_rerun_v350/truth_free_collection/sample_run_provenance.tsv where one exists. New numbers enter the registry, which then goes to the author gate for a separate approval.",
+  "truth_free_descriptions": {
+    "R1_table_1_deployment (JP-012)": "Extend Table 1 with, per caller and assay, the software version, image SHA-256, native database release and source, non-default parameters and input route, read from the study-run container manifests and workflow files. Read which T1K reference file the RNA-seq tasks used from the task logs. Expected from code reading: POLYSOLVER race Unknown with includeFreq 0; SpecHLA -u 1; arcasHLA database 3.40.0. Methods gains '(run here with the frequency prior off)' for POLYSOLVER if that setting is confirmed.",
+    "R2_read_length_and_depth (JP-025)": "From the 236 development input alignments: read layout (paired or single), median read length, and mean depth over the HLA-A, HLA-B and HLA-C exon 2 and 3 coordinates of the build named in each file's header. Report by assay as median and range. Expected: RNA-seq paired-end, about 75 bp. No relation to caller errors is computed; that would use the reference typing and needs its own post hoc item.",
+    "R3_rescue_read_classes (JP-029)": "For the WES study runs (129 subjects by the panel's count), aggregate the per-sample rescue tables and classify realigned reads by source contig (HLA allele or alternate contig) and landing position (inside or outside the HLA-A, -B and -C genes), with unplaced and duplicate reads counted separately. Report totals by class. No expected value.",
+    "R4_run_cost (JP-014)": "From the Nextflow traces of the 236 study runs: CPU hours, peak memory and failed task attempts per caller and assay, as median and range per sample. Report as measured on Roihu, not as a cost estimate for other systems. No expected value.",
+    "R5_representative_manifest (JP-035)": "Copy one complete sample's per-sample provenance files (input checksums, container manifest, workflow files, execution trace and result inventory) for one development subject fixed by rule before any of them is opened: the first subject, in sorted order of cohorts/development_rerun_manifest.tsv, that has both a WES and an RNA-seq input, with both assays copied. Check each against its hash, and add them to provenance/development_rerun_v350/. Adds no result."
+  },
+  "not_included": {
+    "error_versus_depth (JP-025)": "Relating caller errors to depth uses the reference typing and would be a new post hoc analysis with its own expected value.",
+    "positive_controls (JP-012)": "Running each caller on a sample with a published developer result needs new caller runs and its own plan."
+  },
+  "boundary": "The primary endpoint, panels, rule, thresholds and fitted policies are unchanged. Nothing here is a candidate primary or selects a method.",
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-06, explicit author statement: 'Sign as drafted'",
+    "mechanism": "Claude Code session"
+  }
+}

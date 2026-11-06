@@ -36,6 +36,26 @@ HOLD_BACK=(
   'figures/supplementary_figure_s8_venex_diagnostics.*'
   # Quotes the VenEx pseudonym exposed in the 2026-10-08 incident.
   reports/pre_submission_review_20261008.tsv
+  # Unfiltered provenance holding the FIMM/VenEx aggregate rows; the published copies
+  # are filtered (decisions/20261106_public_snapshot_scope.json, S2).
+  provenance/cohort_rows_withheld_20261106
+  # Internal working records, not needed to reproduce the paper (same record, S1).
+  AUTHOR_FIELDS_TO_COMPLETE.md
+  AUTHOR_REQUEST_20261008.md
+  reports/AUTHOR_REQUEST_20261027.md
+  COAUTHOR_REVIEW_CHECKLIST.md
+  RECOVERY_STATUS.md
+  reports/AUTHOR_INPUT_REQUIRED_SCIENTIFIC_REPORTS.md
+  reports/ChampHLA_Scientific_Reports_Cover_Letter.md
+  reports/author_decisions_20261106.md
+  reports/coauthor_update_20261106.md
+  reports/drive_v3_changes_since_20261006.md
+  reports/pre_submission_review_20261008.md
+  reports/scientific_review_20261012.md
+  reports/champhla_scientific_reports_review_20261019.md
+  manuscripts/historical
+  manuscripts/source_original
+  manuscripts/benchmark/PanelHLA_Manuscript_v2.docx
 )
 
 IDX=$(mktemp)
@@ -65,6 +85,15 @@ for pattern in 'FIMM-[A-Za-z]{0,6}[_-]?[0-9]{2,}' 'VX_[0-9]+_[0-9]+' '\bFHRB[0-9
     fail=1
   fi
 done
+# The public manifest of that filtering names the withheld cohorts in its rule and holds
+# only counts and hashes (same record, S2), so it is the one exemption.
+cohort_rows=$(git grep -I -l -E 'FIMM_AML_MDS|VENEX_WES|FIMM-AML-(BulkRNA|SCRNA|WES)' \
+  "${TREE}" -- provenance ':!provenance/cohort_rows_withheld_20261106.json' || true)
+if [[ -n ${cohort_rows} ]]; then
+  echo "BLOCKED: cohort aggregate rows in published provenance:" >&2
+  echo "${cohort_rows}" | sed "s/^${TREE}://" >&2
+  fail=1
+fi
 if (( fail )); then
   exit 3
 fi

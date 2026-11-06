@@ -1,0 +1,33 @@
+modality	scope	caller1	caller2	loci	caller1_errors	caller2_errors	both_wrong	expected_both_wrong_if_independent	both_wrong_same_genotype	error_phi
+rnaseq	fixed_denominator	ArcasHLA	HLA-HD	118	60	6	6	3.05	2	0.227565
+rnaseq	fixed_denominator	ArcasHLA	OptiType	118	60	6	5	3.05	2	0.150402
+rnaseq	fixed_denominator	ArcasHLA	T1K	118	60	17	11	8.64	2	0.113729
+rnaseq	fixed_denominator	HLA-HD	OptiType	118	6	6	5	0.31	5	0.824405
+rnaseq	fixed_denominator	HLA-HD	T1K	118	6	17	5	0.86	4	0.454308
+rnaseq	fixed_denominator	OptiType	T1K	118	6	17	5	0.86	4	0.454308
+rnaseq	typings_agree	ArcasHLA	HLA-HD	112	54	0	0	0.00	0	
+rnaseq	typings_agree	ArcasHLA	OptiType	112	54	1	0	0.48	0	-0.091584
+rnaseq	typings_agree	ArcasHLA	T1K	112	54	12	6	5.79	0	0.012380
+rnaseq	typings_agree	HLA-HD	OptiType	112	0	1	0	0.00	0	
+rnaseq	typings_agree	HLA-HD	T1K	112	0	12	0	0.00	0	
+rnaseq	typings_agree	OptiType	T1K	112	1	12	0	0.11	0	-0.032880
+wes	fixed_denominator	HLA-HD	OptiType	153	22	11	9	1.58	7	0.534944
+wes	fixed_denominator	HLA-HD	POLYSOLVER	153	22	15	10	2.16	5	0.491303
+wes	fixed_denominator	HLA-HD	SpecHLA	153	22	19	9	2.73	3	0.354032
+wes	fixed_denominator	HLA-HD	T1K	153	22	28	13	4.03	6	0.432304
+wes	fixed_denominator	OptiType	POLYSOLVER	153	11	15	8	1.08	7	0.588939
+wes	fixed_denominator	OptiType	SpecHLA	153	11	19	6	1.37	4	0.355530
+wes	fixed_denominator	OptiType	T1K	153	11	28	8	2.01	7	0.391761
+wes	fixed_denominator	POLYSOLVER	SpecHLA	153	15	19	9	1.86	5	0.475673
+wes	fixed_denominator	POLYSOLVER	T1K	153	15	28	8	2.75	6	0.298701
+wes	fixed_denominator	SpecHLA	T1K	153	19	28	9	3.48	5	0.283070
+wes	typings_agree	HLA-HD	OptiType	143	12	2	0	0.17	0	-0.036046
+wes	typings_agree	HLA-HD	POLYSOLVER	143	12	6	1	0.50	0	0.062459
+wes	typings_agree	HLA-HD	SpecHLA	143	12	12	2	1.01	0	0.090331
+wes	typings_agree	HLA-HD	T1K	143	12	19	4	1.59	0	0.178749
+wes	typings_agree	OptiType	POLYSOLVER	143	2	6	0	0.08	0	-0.024924
+wes	typings_agree	OptiType	SpecHLA	143	2	12	0	0.17	0	-0.036046
+wes	typings_agree	OptiType	T1K	143	2	19	0	0.27	0	-0.046620
+wes	typings_agree	POLYSOLVER	SpecHLA	143	6	12	3	0.50	2	0.314055
+wes	typings_agree	POLYSOLVER	T1K	143	6	19	0	0.80	0	-0.081918
+wes	typings_agree	SpecHLA	T1K	143	12	19	3	1.59	0	0.104444

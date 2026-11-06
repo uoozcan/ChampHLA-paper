@@ -66,7 +66,7 @@
     }
   },
   "new_registry": "result_registry.tsv",
-  "new_rows": 630,
+  "new_rows": 745,
   "new_strongest_callers": {
     "rnaseq": [
       "Caller:HLA-HD",
@@ -121,7 +121,7 @@
     }
   },
   "old_registry": "provenance/development_rerun_v350/historical_result_registry_pre_v350.tsv",
-  "old_rows": 631,
+  "old_rows": 532,
   "old_strongest_callers": {
     "rnaseq": [
       "Caller:HLA-HD"
@@ -133,9 +133,9 @@
   },
   "schema_version": "champhla-result-registry-delta-1",
   "status_counts": {
-    "added": 0,
-    "changed": 421,
-    "removed": 1,
-    "unchanged": 209
+    "added": 215,
+    "changed": 496,
+    "removed": 2,
+    "unchanged": 34
   }
 }

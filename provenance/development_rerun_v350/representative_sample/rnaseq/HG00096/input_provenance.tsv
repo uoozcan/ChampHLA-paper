@@ -1,0 +1,2 @@
+sample_id	modality	batch_id	input_url	index_url	source_input_md5	source_index_md5	source_record	expected_build	detected_build
+HG00096	rnaseq	rnaseq-001	https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/GEUV/E-GEUV-1/processed/HG00096.1.M_111124_6.bam	https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/GEUV/E-GEUV-1/processed/HG00096.1.M_111124_6.bam.bai			ERR188040	GRCh37	GRCh37

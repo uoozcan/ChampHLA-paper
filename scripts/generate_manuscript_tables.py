@@ -102,7 +102,8 @@ def replace_block(path: Path, name: str, content: str) -> None:
 
 
 def main_table(performance: list[dict[str, str]],
-               corrected_reference: list[dict[str, str]] | None = None) -> str:
+               corrected_reference: list[dict[str, str]] | None = None,
+               p_group: list[dict[str, str]] | None = None) -> str:
     allowed = {"primary", "descriptive_comparator"}
     rows = [
         row for row in performance
@@ -125,6 +126,8 @@ def main_table(performance: list[dict[str, str]],
     rows.sort(key=lambda row: ((0 if row["modality"] == "wes" else 1), order[row["method"]]))
     corrected = ({(row["modality"], row["method"]): row for row in corrected_reference}
                  if corrected_reference is not None else None)
+    p_groups = ({(row["modality"], row["method"]): row for row in p_group}
+                if p_group is not None else None)
     body = []
     for row in rows:
         scope = ("individual caller" if row["method"].startswith("Caller:") else
@@ -143,6 +146,9 @@ def main_table(performance: list[dict[str, str]],
             result.append(
                 f"{sensitivity['agreement_correct']}/{sensitivity['agreement_loci']}"
             )
+        if p_groups is not None:
+            agreement = p_groups[(row["modality"], row["method"])]
+            result.append(f"{agreement['p_group_agreement']}/{agreement['loci']}")
         result.extend([
             f"{pct(row['genotype_accuracy'])} "
             f"({pct(row['genotype_ci_lo'])}–{pct(row['genotype_ci_hi'])})",
@@ -158,12 +164,32 @@ def main_table(performance: list[dict[str, str]],
         "of 0% or 100%. In the four-caller RNA-seq panel, strict majority and\n"
         "two-thirds consensus are mathematically identical and therefore appear once."
     )
+    if any(row["method"] == "Caller:ArcasHLA" for row in rows):
+        legend += ("\nThe arcasHLA row reflects a defective workflow deployment rather than "
+                   "the caller (Limitations).")
     correct_header = "Exact-reference correct" if corrected is not None else "Correct"
     headers = ["Assay", "Method", "Scope", "Callable", correct_header]
     aligns = ["---", "---", "---", "---:", "---:"]
     if corrected is not None:
-        headers.append("Corrected-reference sensitivity, correct")
+        headers.append("Loci where both typings agree, correct")
         aligns.append("---:")
+        vote = [row for row in rows if row["method"] == "SimplePluralityLex"]
+        errors = sum(int(row["loci"]) - int(row["genotypes_correct"]) for row in vote)
+        kept = sum(int(corrected[(row["modality"], row["method"])]["agreement_loci"]) -
+                   int(corrected[(row["modality"], row["method"])]["agreement_correct"])
+                   for row in vote)
+        removed = f"all {errors}" if kept == 0 else f"{errors - kept} of the {errors}"
+        legend += (
+            "\nThe both-typings column scores the 2014 type only at loci where the second\n"
+            f"typing equals it. This removes {removed} vote errors by "
+            "construction,\nso it is not an accuracy estimate against corrected values."
+        )
+    if p_groups is not None:
+        headers.append("P group agrees with the 2014 type")
+        aligns.append("---:")
+        legend += ("\nThe P-group column is post hoc: the 2014 typing read exons 2 and 3, so it "
+                   "counts a call\nthat equals the 2014 type or shares its P groups under a "
+                   "two-field mapping.")
     headers.extend(["Fixed-denominator concordance, % (95% CI)",
                     "Called-only concordance, % (95% CI)"])
     aligns.extend(["---:", "---:"])
@@ -200,16 +226,28 @@ def singleton_sensitivity_table(primary: list[dict[str, str]],
     )
 
 
+# Reader labels shared with Supplementary Figure S6 (round 4 amendment, A3).
+RERUN_CHANGE_LABELS = {
+    "identical": "identical",
+    "call_changed": "call changed",
+    "noncall_to_callable": "non-call to callable",
+    "callable_to_noncall": "callable to non-call",
+    "noncall_state_changed": "non-call state changed",
+    "new_rerun_cell": "present only in the study run",
+    "stored_cell_missing_from_rerun": "present only in the archived outputs",
+}
+
+
 def rerun_cell_comparison_table(rows: list[dict[str, str]]) -> str:
     """Aggregate SR-005's cell ledger without exposing subject identifiers."""
     counts: dict[tuple[str, str, str], int] = {}
     for row in rows:
         key = row["modality"], row["caller"], row["difference_class"]
         counts[key] = counts.get(key, 0) + 1
-    body = [[label(modality), label(caller), difference.replace("_", " "), count]
+    body = [[label(modality), label(caller), RERUN_CHANGE_LABELS[difference], count]
             for (modality, caller, difference), count in sorted(counts.items())]
     return table(
-        ["Assay", "Caller", "Stored-to-rerun cell state", "Caller–gene cells"],
+        ["Assay", "Caller", "Archived-to-study-run cell state", "Caller–gene cells"],
         body, ["---", "---", "---", "---:"],
     )
 
@@ -699,6 +737,114 @@ def reference_agreement_table(rows: list[dict[str, str]]) -> str:
                  ["---", "---", "---:", "---:"])
 
 
+def reference_substitution_table(rows: list[dict[str, str]]) -> str:
+    """POST HOC: corrected values substituted at flagged loci, fixed denominators."""
+    order = {"wes": 0, "rnaseq": 1}
+    body = [[label(r["modality"]), label(r["method"]),
+             f"{r['exact_correct']}/{r['loci']}",
+             f"{r['substituted_correct']}/{r['loci']}"]
+            for r in sorted(rows, key=lambda r: (order.get(r["modality"], 9),
+                                                 r["method"] != "SimplePluralityLex",
+                                                 r["method"].startswith("Caller:"),
+                                                 label(r["method"])))]
+    return table(["Assay", "Method", "All exact loci, correct",
+                  "Corrected values substituted at flagged loci, correct"], body,
+                 ["---", "---", "---:", "---:"])
+
+
+def flagged_loci_evidence_table(rows: list[dict[str, str]]) -> str:
+    """POST HOC: published typing at the ten distinct vote-error loci."""
+    body = [[r["subject"], f"HLA-{r['gene']}", r["superpopulation"], r["reference_2014"],
+             r["vote"], r["vote_error_assays"],
+             "yes" if r["p_group_equal"] == "1" else "no", r["erlich_2011"],
+             r["trusight_buchkovich_2017"], r["assembly"], r["abi_rached_confirmation"]]
+            for r in rows]
+    return table(["Subject", "Gene", "Population", "2014 type", "ChampHLA-Consensus",
+                  "Vote error in", "Same P group", "Erlich 2011 (454, exons 2-3)",
+                  "TruSight (Buchkovich 2017)", "Assembly", "Abi-Rached confirmation"], body,
+                 ["---"] * 11)
+
+
+def leave_one_caller_out_table(rows: list[dict[str, str]]) -> str:
+    """POST HOC: plurality and strict majority with each panel caller left out."""
+    order = {"wes": 0, "rnaseq": 1}
+    body = [[label(r["modality"]),
+             "none" if r["left_out"] == "none" else label(f"Caller:{r['left_out']}"),
+             f"{r['plurality_correct']}/{r['loci']}",
+             f"{r['strict_majority_callable']}/{r['loci']}",
+             f"{r['strict_majority_correct']}/{r['loci']}"]
+            for r in sorted(rows, key=lambda r: (order.get(r["modality"], 9),
+                                                 r["left_out"] != "none", r["left_out"]))]
+    return table(["Assay", "Caller left out", "Plurality correct", "Strict majority callable",
+                  "Strict majority correct"], body,
+                 ["---", "---", "---:", "---:", "---:"])
+
+
+def phi_cell(row: dict[str, str]) -> str:
+    """Phi, or "undefined" where a caller has no error or no correct call (round 3, B2)."""
+    both, first, second = (int(row[k]) for k in ("both_wrong", "caller1_only_wrong",
+                                                  "caller2_only_wrong"))
+    loci = int(row["loci"])
+    margins = (both + first, loci - both - first, both + second, loci - both - second)
+    return "undefined" if 0 in margins else number(row["error_phi"])
+
+
+def error_dependence_counts_table(rows: list[dict[str, str]]) -> str:
+    """Joint, expected and same-genotype error counts (round 3, B2)."""
+    order = {"wes": 0, "rnaseq": 1}
+    scope = {"fixed_denominator": "All exact loci", "typings_agree": "Both typings agree"}
+    body = [[label(r["modality"]), scope[r["scope"]], label(r["caller1"]), label(r["caller2"]),
+             r["loci"], r["both_wrong"], r["expected_both_wrong_if_independent"],
+             r["both_wrong_same_genotype"]]
+            for r in sorted(rows, key=lambda r: (order.get(r["modality"], 9), r["scope"] != "fixed_denominator"))]
+    return table(["Assay", "Loci", "Caller 1", "Caller 2", "N", "Both wrong",
+                  "Expected if independent", "Same wrong genotype"], body,
+                 ["---", "---", "---", "---", "---:", "---:", "---:", "---:"])
+
+
+def naive_baselines_table(rows: list[dict[str, str]]) -> str:
+    """Leave-one-subject-out baselines that use no reads (round 3, B3)."""
+    order = {"wes": 0, "rnaseq": 1}
+    name = {"most_common_genotype": "Most common genotype",
+            "two_most_common_alleles": "Two most common alleles"}
+    body = [[label(r["modality"]), name[r["baseline"]],
+             f"{r['exact_correct']}/{r['exact_loci']}",
+             f"{r['set_valued_correct']}/{r['set_valued_loci']}",
+             f"{r['excluded_correct']}/{r['excluded_loci']}"]
+            for r in sorted(rows, key=lambda r: (order.get(r["modality"], 9), r["baseline"]))]
+    return table(["Assay", "Baseline", "Exact endpoint", "Set-valued", "Excluded loci"], body,
+                 ["---", "---", "---:", "---:", "---:"])
+
+
+def intersection_table(rows: list[dict[str, str]]) -> str:
+    """Set-valued scores with duplicate rows united and intersected (round 3, B4)."""
+    order = {"wes": 0, "rnaseq": 1}
+    keep = [r for r in rows
+            if r["method"] == "SimplePluralityLex" or r["method"].startswith("Caller:")]
+    body = [[label(r["modality"]), label(r["method"]),
+             f"{r['set_valued_union_compatible']}/{r['set_valued_union_loci']}",
+             f"{r['set_valued_intersection_compatible']}/{r['set_valued_intersection_loci']}",
+             f"{r['excluded_union_compatible']}/{r['excluded_union_loci']}",
+             f"{r['excluded_intersection_compatible']}/{r['excluded_intersection_loci']}"]
+            for r in sorted(keep, key=lambda r: (order.get(r["modality"], 9),
+                                                 r["method"] != "SimplePluralityLex",
+                                                 r["method"]))]
+    return table(["Assay", "Method", "Set-valued, union", "Set-valued, intersection",
+                  "Excluded loci, union", "Excluded loci, intersection"], body,
+                 ["---", "---", "---:", "---:", "---:", "---:"])
+
+
+def abstention_table(rows: list[dict[str, str]]) -> str:
+    """The vote's callability trade-off at every support threshold (round 3, B8)."""
+    order = {"wes": 0, "rnaseq": 1}
+    body = [[label(r["modality"]), r["minimum_support"], f"{r['called']}/{r['loci']}",
+             r["correct"], f"{r['correct']}/{r['called']}"]
+            for r in sorted(rows, key=lambda r: (order.get(r["modality"], 9),
+                                                 int(r["minimum_support"])))]
+    return table(["Assay", "Minimum support", "Called", "Correct", "Correct among called"],
+                 body, ["---", "---:", "---:", "---:", "---:"])
+
+
 def reference_agreement_phi_table(agreement: list[dict[str, str]],
                                   full: list[dict[str, str]]) -> str:
     """Caller-error phi on the loci where both typings agree, beside all exact loci."""
@@ -714,7 +860,7 @@ def reference_agreement_phi_table(agreement: list[dict[str, str]],
                      r["loci"],
                      f"{r['both_correct']}/{r['caller2_only_wrong']}/"
                      f"{r['caller1_only_wrong']}/{r['both_wrong']}",
-                     number(r["error_phi"])])
+                     phi_cell(r)])
     return table(["Assay", "Caller 1", "Caller 2",
                   "All exact loci: error φ (both wrong/loci)", "Loci where both typings agree",
                   "Both right / only 2 wrong / only 1 wrong / both wrong",
@@ -887,14 +1033,56 @@ def s12_calibration_table(rows: list[dict[str, str]]) -> str:
                   "Brier score", "ECE"], body, ["---", "---", "---:", "---:", "---:", "---:", "---:"])
 
 
+ASSAY_LABEL = {"wes": "WES", "rnaseq": "RNA-seq"}
+
+
+def round5_deployment_table(rows: list[dict[str, str]]) -> str:
+    body = []
+    for row in rows:
+        database = row["database_source"]
+        if row["t1k_index_in_task_logs"]:
+            database += f"; task logs name `{row['t1k_index_in_task_logs'].rsplit('/', 1)[-1]}`"
+        digest = row["image_sha256"][:12] if row["image_sha256"] else "–"
+        body.append([ASSAY_LABEL[row["modality"]], row["caller"], row["image"], digest,
+                     row["recorded_version"], database, row["parameters"], row["input_route"]])
+    return table(["Assay", "Caller", "Image", "SHA-256 (first 12)", "Version recorded by the runs",
+                  "Database source", "Parameters", "Input route"], body)
+
+
+def round5_input_table(rows: list[dict[str, str]]) -> str:
+    body = [[ASSAY_LABEL[row["modality"]], row["inputs"], row["detected_builds"].replace(";", "; "),
+             row["layouts"].replace(";", "; "),
+             f"{row['read_length_median']} ({row['read_length_min']}–{row['read_length_max']})",
+             f"{row['exon_depth_median']} ({row['exon_depth_min']}–{row['exon_depth_max']})"]
+            for row in rows]
+    return table(["Assay", "Inputs", "Build read from the header", "Read layout",
+                  "Median read length, bp (range)", "Mean exon depth, median (range)"],
+                 body, ["---", "---:", "---", "---", "---:", "---:"])
+
+
+def round5_cost_table(rows: list[dict[str, str]]) -> str:
+    order = {"wes": 0, "rnaseq": 1}
+    rows = sorted(rows, key=lambda r: (order[r["modality"]], r["caller"] == "shared steps",
+                                       r["caller"].lower()))
+    body = [[ASSAY_LABEL[row["modality"]], row["caller"], row["runs"],
+             f"{row['cpu_hours_median']} ({row['cpu_hours_min']}–{row['cpu_hours_max']})",
+             f"{row['peak_rss_gib_median']} ({row['peak_rss_gib_min']}–{row['peak_rss_gib_max']})",
+             row["failed_task_attempts"]] for row in rows]
+    return table(["Assay", "Caller", "Runs", "CPU hours per run, median (range)",
+                  "Peak memory per run, GiB, median (range)", "Failed task attempts"],
+                 body, ["---", "---", "---:", "---:", "---:", "---:"])
+
+
 def main() -> int:
     corrected = ART / "development_corrected"
     characterised = ART / "development_characterisation"
     performance = read(corrected / "method_performance.tsv")
     comparisons = read(corrected / "secondary_method_results.tsv")
     reference_sensitivity = characterised / "reference_agreement_sensitivity.tsv"
+    p_group = characterised / "exact_locus_p_group_agreement_posthoc.tsv"
     replace_block(MANUSCRIPT, "MAIN TABLE", main_table(
-        performance, read(reference_sensitivity) if reference_sensitivity.is_file() else None
+        performance, read(reference_sensitivity) if reference_sensitivity.is_file() else None,
+        read(p_group) if p_group.is_file() else None,
     ))
     replace_block(SUPPLEMENT, "COHORT TABLE", cohort_table(read(characterised / "cohort_summary.tsv")))
     replace_block(SUPPLEMENT, "PERFORMANCE TABLE", performance_table(performance))
@@ -937,8 +1125,6 @@ def main() -> int:
         read(ART / "development_characterisation" / "truth_selection_compatibility.tsv")))
     replace_block(SUPPLEMENT, "TRUTH SELECTION PROFILE TABLE", truth_selection_profile_table(
         read(ART / "development_characterisation" / "truth_selection_profile.tsv")))
-    replace_block(SUPPLEMENT, "POWER TABLE", power_table(
-        read(ART / "development_limits" / "power_curve.tsv")))
     character = ART / "development_characterisation"
     if (character / "reference_adjudication.tsv").is_file():
         replace_block(SUPPLEMENT, "ADJUDICATION TABLE", adjudication_table(
@@ -946,12 +1132,27 @@ def main() -> int:
             read(character / "reference_adjudication_flagged_loci_posthoc.tsv")))
         replace_block(SUPPLEMENT, "REFERENCE AGREEMENT TABLE", reference_agreement_table(
             read(character / "reference_agreement_sensitivity.tsv")))
+        replace_block(SUPPLEMENT, "REFERENCE SUBSTITUTION TABLE", reference_substitution_table(
+            read(character / "reference_substitution_posthoc.tsv")))
+        replace_block(SUPPLEMENT, "FLAGGED LOCI EVIDENCE TABLE", flagged_loci_evidence_table(
+            read(character / "flagged_loci_evidence_posthoc.tsv")))
+        replace_block(SUPPLEMENT, "LEAVE ONE CALLER OUT TABLE", leave_one_caller_out_table(
+            read(character / "leave_one_caller_out_posthoc.tsv")))
         replace_block(SUPPLEMENT, "REFERENCE AGREEMENT PHI TABLE", reference_agreement_phi_table(
             read(character / "reference_agreement_error_phi.tsv"),
             read(character / "caller_error_correlation.tsv")))
         replace_block(SUPPLEMENT, "REFERENCE AGREEMENT CORRECTION TABLE",
                       reference_agreement_correction_table(
                           read(character / "reference_agreement_vote_correction.tsv")))
+        # decisions/20261106_posthoc_round3_amendment.json
+        replace_block(SUPPLEMENT, "ERROR DEPENDENCE COUNTS TABLE", error_dependence_counts_table(
+            read(character / "error_dependence_counts_posthoc.tsv")))
+    replace_block(SUPPLEMENT, "NAIVE BASELINES TABLE", naive_baselines_table(
+        read(ART / "development_characterisation" / "naive_baselines_posthoc.tsv")))
+    replace_block(SUPPLEMENT, "INTERSECTION TABLE", intersection_table(
+        read(ART / "development_characterisation" / "set_valued_intersection_posthoc.tsv")))
+    replace_block(SUPPLEMENT, "ABSTENTION TABLE", abstention_table(
+        read(ART / "development_characterisation" / "vote_abstention_tradeoff_posthoc.tsv")))
     replace_block(SUPPLEMENT, "HEADROOM TABLE", headroom_table(
         read(ART / "development_limits" / "headroom.tsv")))
     replace_block(SUPPLEMENT, "PROTOCOL CHANGE TABLE", protocol_change_table(
@@ -971,6 +1172,12 @@ def main() -> int:
         replace_block(SUPPLEMENT, "RERUN CELL CHANGE CHARACTER TABLE",
                       rerun_cell_change_character_table(
                           read(rerun_cells), read(rerun_collection / "t1k_parser_provenance.tsv")))
+    replace_block(SUPPLEMENT, "ROUND5 DEPLOYMENT TABLE", round5_deployment_table(
+        read(characterised / "round5_caller_deployment.tsv")))
+    replace_block(SUPPLEMENT, "ROUND5 INPUT TABLE", round5_input_table(
+        read(characterised / "round5_input_read_depth_summary.tsv")))
+    replace_block(SUPPLEMENT, "ROUND5 COST TABLE", round5_cost_table(
+        read(characterised / "round5_run_cost.tsv")))
     restored = ART / "restored_analyses"
     replace_block(SUPPLEMENT, "S12 DISAGREEMENT TABLE", s12_disagreement_table(
         read(restored / "discordance_taxonomy.tsv")))

@@ -7,7 +7,7 @@ rnaseq	B	ArcasHLA	B*08:01+B*44:03	B*08:01+B*44:03	1
 rnaseq	B	HLA-HD	B*08:01+B*44:03	B*08:01+B*44:03	1
 rnaseq	B	OptiType	B*08:01+B*44:03	B*08:01+B*44:03	1
 rnaseq	B	T1K	B*08:01+B*44:03	B*08:01+B*44:03	1
-rnaseq	C	ArcasHLA	C*07:01+C*16:148	C*07:01+C*16:01	0
+rnaseq	C	ArcasHLA	C*07:01+C*16:01	C*07:01+C*16:01	1
 rnaseq	C	HLA-HD	C*07:01+C*16:01	C*07:01+C*16:01	1
 rnaseq	C	OptiType	C*07:01+C*16:01	C*07:01+C*16:01	1
 rnaseq	C	T1K	C*07:01+C*16:01	C*07:01+C*16:01	1
@@ -16,13 +16,13 @@ wes	A	OptiType	A*01:01+A*29:02	A*01:01+A*29:02	1
 wes	A	POLYSOLVER	A*01:01+A*29:02	A*01:01+A*01:01	0
 wes	A	SpecHLA	A*01:01+A*29:02	not_rerun	0
 wes	A	T1K	A*01:01+A*29:02	partial	0
-wes	B	HLA-HD	B*08:01+B*44:03	B*08:01+B*08:01	0
+wes	B	HLA-HD	B*08:01+B*44:26	B*08:01+B*08:01	0
 wes	B	OptiType	B*08:01+B*44:03	B*08:01+B*44:03	1
 wes	B	POLYSOLVER	B*08:01+B*44:03	B*08:01+B*08:01	0
 wes	B	SpecHLA	B*08:01+B*44:03	not_rerun	0
-wes	B	T1K	B*08:01+B*44:03	partial	0
-wes	C	HLA-HD	C*07:01+C*16:01	C*07:01+C*16:21	0
+wes	B	T1K	B*07:359+B*08:01	partial	0
+wes	C	HLA-HD	C*07:141+C*16:21	C*07:01+C*16:21	0
 wes	C	OptiType	C*07:01+C*16:01	C*07:01+C*16:01	1
 wes	C	POLYSOLVER	C*07:01+C*16:01	C*07:01+C*07:01	0
-wes	C	SpecHLA	C*07:01+C*16:01	not_rerun	0
+wes	C	SpecHLA	C*16:01+C*16:01	not_rerun	0
 wes	C	T1K	C*07:01+C*16:01	partial	0

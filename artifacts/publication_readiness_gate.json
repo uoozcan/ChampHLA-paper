@@ -1,29 +1,13 @@
 {
-  "author_archive_input_required": true,
-  "author_archive_markers": [
-    "FIMM: FHRB or ethics committee identifier for the FIMM AML/MDS cohort",
-    "FIMM: Roihu-verified source manifest for the identity-linked workbook, current normalized caller calls, and specimen-donor crosswalk",
-    "FIMM: cohort demographics summary",
-    "FIMM: collection period for the sequenced specimens",
-    "FIMM: consent or biobank basis permitting publication of aggregate HLA genotype summaries",
-    "FIMM: inclusion and exclusion rules"
-  ],
-  "author_gate": "configs/fimm_submission_gate.json",
-  "author_gate_statuses": [
-    "BLOCKED_AUTHOR_AND_SECURE_PROVENANCE"
-  ],
+  "author_archive_input_required": false,
+  "author_archive_markers": [],
+  "author_gate": "",
+  "author_gate_statuses": [],
   "bootstrap_iterations": 100000,
   "power_iterations": 2000,
   "public_truth_sha256": "0455d0302ac12a29ab87091cab5e3e557416f6301e89fb122eef8d49cd5644ec",
   "schema_version": "panelhla-publication-readiness-1",
   "scientific_failures": [],
-  "status": "author_input_required",
-  "unresolved_author_gate_items": [
-    "FHRB or ethics committee identifier for the FIMM AML/MDS cohort",
-    "Roihu-verified source manifest for the identity-linked workbook, current normalized caller calls, and specimen-donor crosswalk",
-    "cohort demographics summary",
-    "collection period for the sequenced specimens",
-    "consent or biobank basis permitting publication of aggregate HLA genotype summaries",
-    "inclusion and exclusion rules"
-  ]
+  "status": "technically_ready",
+  "unresolved_author_gate_items": []
 }

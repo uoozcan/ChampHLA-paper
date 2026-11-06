@@ -34,19 +34,6 @@ OUTPUT = ROOT / "result_registry.tsv"
 DECISION = ROOT / "decisions" / "20260924_publication_remediation.json"
 COMPUTE = ROOT / "artifacts" / "compute_smoke_benchmark.tsv"
 SCHEMA = "panelhla-result-registry-4"
-FIMM_FLOW = ROOT / "artifacts" / "fimm_consensus" / "cohort_flow.tsv"
-FIMM_CROSS = ROOT / "artifacts" / "fimm_consensus" / "cross_modality" / "cross_modality_agreement.tsv"
-FIMM_CONFLICTS = ROOT / "artifacts" / "fimm_consensus" / "cross_modality" / "donor_collapse_conflicts.tsv"
-FIMM_DISJOINT = ROOT / "artifacts" / "fimm_consensus" / "cross_modality" / "disjoint_caller_sensitivity.tsv"
-FIMM_BB72 = ROOT / "artifacts" / "fimm" / "tierC" / "bb72_metrics.tsv"
-FIMM_PANEL_COMPOSITION = {
-    "WES": ROOT / "artifacts" / "fimm_consensus" / "FIMM-AML-WES" / "panel3" / "panel_composition.tsv",
-    "BULKRNA": ROOT / "artifacts" / "fimm_consensus" / "FIMM-AML-BulkRNA" / "panel3" / "panel_composition.tsv",
-    "SCRNA": ROOT / "artifacts" / "fimm_consensus" / "FIMM-AML-SCRNA" / "panel3" / "panel_composition.tsv",
-}
-VENEX_VALIDATION = ROOT / "artifacts" / "venex" / "caller_validation_summary.tsv"
-VENEX_DISSENT = ROOT / "artifacts" / "venex" / "plurality_vs_caller.tsv"
-VENEX_COMPOSITION = ROOT / "artifacts" / "venex" / "panel_composition.tsv"
 RESTORED = ROOT / "artifacts" / "restored_analyses"
 LIMITS = ROOT / "artifacts" / "development_limits"
 ERROR_PHI = ROOT / "artifacts" / "development_characterisation" / "caller_error_correlation.tsv"
@@ -129,231 +116,15 @@ def exploratory_row(
     }
 
 
-def append_exploratory_rows(rows: list[dict[str, str]]) -> None:
-    flow_hash_boundary = (
-        "Aggregate FIMM cohort flow only; no real specimen or donor identifiers; "
-        "exploratory and not accuracy evidence"
-    )
-    for item in read_rows(FIMM_FLOW):
-        count = item["count"]
-        rows.append(exploratory_row(
-            result_id=f"FIMM_PANEL_FLOW_{slug(item['stage'])}",
-            cohort="FIMM_AML_MDS", modality="mixed",
-            method="three-caller ChampHLA exploratory application",
-            analysis_status="exploratory_descriptive", endpoint=f"cohort_flow_{item['stage']}",
-            artifact=FIMM_FLOW, result_kind="categorical-summary", estimate=count,
-            unit="count", loci=count if item["stage"].startswith("locus_") else "",
-            acquired=count, claim_boundary=flow_hash_boundary,
-        ))
-
-    pair_labels = {
-        ("FIMM-AML-BulkRNA", "FIMM-AML-WES"): "BULKRNA_WES",
-        ("FIMM-AML-SCRNA", "FIMM-AML-WES"): "SCRNA_WES",
-        ("FIMM-AML-BulkRNA", "FIMM-AML-SCRNA"): "BULKRNA_SCRNA",
-    }
-    for item in read_rows(FIMM_CROSS):
-        if item["gene"] != "ALL":
-            continue
-        label = pair_labels[(item["left_cohort"], item["right_cohort"])]
-        specimen = item["pairing"] == "specimen"
-        contested = item["eligibility"] == "contested_both"
-        eligibility_id = "_CONTESTED" if contested else ""
-        suffix = "" if specimen else "_SENSITIVITY"
-        estimable = int(item["overlap"]) > 0
-        status = "exploratory_coequal" if specimen else "exploratory_sensitivity"
-        if not estimable:
-            status += "_non_estimable"
-        eligibility_boundary = (
-            "both assays had complete plurality calls and at least two valid callers"
-            if contested else
-            "both assays had complete plurality calls regardless of valid-caller count"
-        )
-        boundary = (
-            "Exact unordered two-field cross-modality agreement without HLA truth; "
-            f"eligibility required {eligibility_boundary}; "
-            "the all-callable and contested-both definitions are coequal exploratory views; "
-            "shared callers induce correlated agreement"
-        )
-        if not specimen:
-            boundary += (
-                "; donor collapse is sensitivity-only and excludes longitudinal conflicts "
-                f"({item['left_donor_loci_dropped_as_conflict']} left, "
-                f"{item['right_donor_loci_dropped_as_conflict']} right)"
-            )
-        rows.append(exploratory_row(
-            result_id=(f"FIMM_PANEL_{item['pairing'].upper()}{eligibility_id}_"
-                       f"{label}_EXACT_PAIR{suffix}"),
-            cohort="FIMM_AML_MDS", modality=label.lower(),
-            method="SimplePluralityLex three-caller panel",
-            analysis_status=status,
-            endpoint=f"{item['eligibility']}_exact_unordered_two_field_pair_agreement",
-            artifact=FIMM_CROSS, result_kind="concordance",
-            estimate=item["estimate"] if estimable else "",
-            ci_low=item["ci_lo"] if estimable else "",
-            ci_high=item["ci_hi"] if estimable else "", unit="proportion",
-            loci=item["overlap"], correct=item["agreement"], intended=item["overlap"],
-            acquired=item["overlap"], callable_n=item["overlap"],
-            interval_method="Wilson 95%" if estimable else "not estimable",
-            claim_boundary=boundary,
-        ))
-
-    for item in read_rows(FIMM_DISJOINT):
-        label = pair_labels[(item["left_cohort"], item["right_cohort"])]
-        rows.append(exploratory_row(
-            result_id=f"FIMM_PANEL_DISJOINT_{label}_NON_ESTIMABLE",
-            cohort="FIMM_AML_MDS", modality=label.lower(),
-            method="caller-disjoint sensitivity",
-            analysis_status="exploratory_sensitivity_non_estimable",
-            endpoint="caller_disjoint_exact_pair_agreement", artifact=FIMM_DISJOINT,
-            result_kind="concordance", unit="proportion", loci="0", correct="0",
-            intended="0", acquired="0", callable_n="0",
-            claim_boundary=f"Non-estimable with zero overlap: {item['reason']}",
-        ))
-
-    for item in read_rows(FIMM_CONFLICTS):
-        count = item["donor_locus_conflicts"]
-        assay = item["cohort"].replace("FIMM-AML-", "").upper()
-        rows.append(exploratory_row(
-            result_id=f"FIMM_PANEL_{slug(assay)}_LONGITUDINAL_CONFLICTS",
-            cohort="FIMM_AML_MDS", modality=assay.lower(),
-            method="conservative donor collapse", analysis_status="exploratory_diagnostic",
-            endpoint="longitudinal_conflict_exclusion", artifact=FIMM_CONFLICTS,
-            result_kind="categorical-summary", estimate=count, unit="donor-loci",
-            loci=count, acquired=count,
-            claim_boundary="Conflict count removed by donor collapse; explains optimistic donor-level sensitivity",
-        ))
-
-    for assay, path in FIMM_PANEL_COMPOSITION.items():
-        panel_rows = read_rows(path)
-        denominator = sum(int(item["loci"]) for item in panel_rows)
-        for item in panel_rows:
-            callers = item["callable_tools"]
-            rows.append(exploratory_row(
-                result_id=f"FIMM_PANEL_{assay}_CALLABLE_CALLERS_{callers}",
-                cohort="FIMM_AML_MDS", modality=assay.lower(),
-                method="three-caller ChampHLA exploratory application",
-                analysis_status="exploratory_diagnostic", endpoint="callable_caller_composition",
-                artifact=path, result_kind="categorical-summary", estimate=item["share"],
-                unit="proportion", loci=item["loci"], intended=str(denominator),
-                acquired=str(denominator), callable_n=item["loci"],
-                claim_boundary=(
-                    f"Count and share of locus rows with {callers} valid callers; "
-                    "zero is missing-call and one is single-caller evidence, not voting"
-                ),
-            ))
-
-    metric_parts = {
-        "sensitivity": ("tp", "fn"), "specificity": ("tn", "fp"),
-        "ppv": ("tp", "fp"), "npv": ("tn", "fn"),
-        "accuracy": ("tp_tn", "all"),
-    }
-    for item in read_rows(FIMM_BB72):
-        tp, tn, fp, fn = (int(item[field]) for field in ("tp", "tn", "fp", "fn"))
-        if item["metric"] == "accuracy":
-            successes, denominator = tp + tn, tp + tn + fp + fn
-        else:
-            success_field, other_field = metric_parts[item["metric"]]
-            successes = int(item[success_field])
-            denominator = successes + int(item[other_field])
-        mapping = "A02" if item["mapping"] == "A*02" else "A02_A68_A69"
-        reported_metric = "agreement" if item["metric"] == "accuracy" else item["metric"]
-        rows.append(exploratory_row(
-            result_id=f"FIMM_BB72_{slug(item['modality'])}_{mapping}_{slug(reported_metric)}",
-            cohort="FIMM_AML_MDS", modality=item["modality"],
-            method=f"SimplePluralityLex versus BB7.2 ({item['mapping']})",
-            analysis_status=("exploratory_primary" if mapping == "A02" else
-                             "exploratory_sensitivity"),
-            endpoint=f"bb72_serogroup_{reported_metric}", artifact=FIMM_BB72,
-            result_kind="performance", estimate=item["estimate"], ci_low=item["ci_lo"],
-            ci_high=item["ci_hi"], unit="proportion", subjects=item["informative"],
-            loci=str(denominator), correct=str(successes), intended=item["flow_records_total"],
-            acquired=str(int(item["informative"]) + int(item["excluded"])),
-            callable_n=item["informative"], interval_method="Wilson 95%",
-            claim_boundary=(
-                "BB7.2 serogroup agreement only, not allele-level HLA accuracy; "
-                f"confusion matrix TP={tp}, TN={tn}, FP={fp}, FN={fn}; "
-                f"{item['informative']} informative of {item['flow_records_total']} flow records"
-            ),
-        ))
-
-    for item in read_rows(VENEX_VALIDATION):
-        rows.append(exploratory_row(
-            result_id=f"VENEX_WES_{slug(item['caller'])}_{slug(item['status'])}",
-            cohort="VENEX_WES", modality="wes", method=item["caller"],
-            analysis_status="exploratory_diagnostic", endpoint="caller_output_availability",
-            artifact=VENEX_VALIDATION, result_kind="categorical-summary",
-            estimate=item["samples"], unit="samples", subjects=item["samples"],
-            intended=item["cohort_samples"], acquired=item["samples"],
-            claim_boundary="Native caller output availability/failure status; no HLA truth and no accuracy claim",
-        ))
-
-    for label, cohort_dir in (("WES", "FIMM-AML-WES"), ("BULKRNA", "FIMM-AML-BulkRNA"),
-                              ("SCRNA", "FIMM-AML-SCRNA")):
-        dissent = ROOT / "artifacts" / "fimm_consensus" / cohort_dir / "panel3" / "plurality_vs_caller.tsv"
-        for item in read_rows(dissent):
-            denominator = item["contested_mutually_callable_loci"]
-            estimable = int(denominator) > 0
-            rows.append(exploratory_row(
-                result_id=f"FIMM_PANEL_{label}_{slug(item['caller'])}_CONTESTED_DISSENT",
-                cohort=cohort_dir, modality=label.lower(), method=item["caller"],
-                analysis_status=("exploratory_diagnostic" if estimable else
-                                 "exploratory_diagnostic_non_estimable"),
-                endpoint="contested_locus_plurality_dissent", artifact=dissent,
-                result_kind="categorical-summary",
-                estimate=item["contested_dissent_rate"] if estimable else "",
-                ci_low=item["contested_dissent_ci_lo"] if estimable else "",
-                ci_high=item["contested_dissent_ci_hi"] if estimable else "",
-                unit="proportion", loci=denominator, correct=item["contested_dissents"],
-                intended=denominator, acquired=denominator, callable_n=denominator,
-                interval_method="Wilson 95%" if estimable else "not estimable",
-                claim_boundary=(
-                    "Within-panel contested-locus dissent from a plurality that includes "
-                    "this caller; aggregate only; not error against truth"),
-            ))
-
-    for item in read_rows(VENEX_DISSENT):
-        denominator = item["contested_mutually_callable_loci"]
-        estimable = int(denominator) > 0
-        rows.append(exploratory_row(
-            result_id=f"VENEX_WES_{slug(item['caller'])}_CONTESTED_DISSENT",
-            cohort="VENEX_WES", modality="wes", method=item["caller"],
-            analysis_status=("exploratory_diagnostic" if estimable else
-                             "exploratory_diagnostic_non_estimable"),
-            endpoint="contested_locus_plurality_dissent", artifact=VENEX_DISSENT,
-            result_kind="categorical-summary",
-            estimate=item["contested_dissent_rate"] if estimable else "",
-            ci_low=item["contested_dissent_ci_lo"] if estimable else "",
-            ci_high=item["contested_dissent_ci_hi"] if estimable else "",
-            unit="proportion", loci=denominator, correct=item["contested_dissents"],
-            intended=denominator, acquired=denominator, callable_n=denominator,
-            interval_method="Wilson 95%" if estimable else "not estimable",
-            claim_boundary=(
-                "Within-panel contested-locus dissent from a plurality that includes this caller; "
-                "not error against truth" if estimable else
-                "Non-estimable because the caller produced zero mutually callable loci"
-            ),
-        ))
-
-    for item in read_rows(VENEX_COMPOSITION):
-        rows.append(exploratory_row(
-            result_id=f"VENEX_WES_CALLABLE_CALLERS_{item['callable_tools']}",
-            cohort="VENEX_WES", modality="wes", method="ChampHLA WES panel",
-            analysis_status="exploratory_diagnostic", endpoint="callable_caller_composition",
-            artifact=VENEX_COMPOSITION, result_kind="categorical-summary",
-            estimate=item["share"], unit="proportion", loci=item["loci"],
-            intended="258", acquired="258", callable_n=item["loci"],
-            claim_boundary="Effective caller-panel composition only; no independent HLA truth",
-        ))
-
-
 def append_restored_rows(rows: list[dict[str, str]]) -> None:
     """Register the analyses restored from the earlier drafts (gap review B1-B4).
 
     The artifacts are written by scripts/restored_analyses.py from the frozen
     joined development table; they are post hoc and never abstract-eligible.
     """
-    boundary = ("Post hoc descriptive analysis restored from the earlier ChampHLA drafts; "
-                "development loci only; not external validation")
+    boundary = ("Post hoc descriptive analysis restored from the earlier ChampHLA drafts, "
+                "recomputed on the study-run calls (decisions/20261106_posthoc_round3_"
+                "amendment.json); development loci only; not external validation")
     for item in read_rows(RESTORED / "discordance_taxonomy.tsv"):
         if item["loci"] == "0":
             continue
@@ -412,8 +183,11 @@ def append_restored_rows(rows: list[dict[str, str]]) -> None:
                 artifact=RESTORED / "caller_calibration.tsv", result_kind="performance",
                 estimate=item[metric], unit="score", loci=item["scored_loci"],
                 callable_n=item["callable_loci"],
-                claim_boundary=(boundary + "; probabilities were calibrated against earlier "
-                                "development labels, so this is exploratory"),
+                claim_boundary=("Post hoc descriptive analysis restored from the earlier "
+                                "ChampHLA drafts; archived calls, because the study-run calls "
+                                "have no calibrated probabilities; probabilities were "
+                                "calibrated against earlier development labels, so this is "
+                                "exploratory"),
             )
             row["fitted_status"] = "exploratory_fitted"
             rows.append(row)
@@ -626,6 +400,72 @@ def append_adjudication_rows(rows: list[dict[str, str]]) -> None:
             loci=str(loci), correct=str(correct),
             claim_boundary="Method-independent subset: both reference typings agree",
         ))
+    substitution = ADJUDICATION / "reference_substitution_posthoc.tsv"
+    for item in read_rows(substitution):
+        loci, correct = int(item["loci"]), int(item["substituted_correct"])
+        rows.append(exploratory_row(
+            result_id=(f"DEV_REFERENCE_SUBSTITUTION_{item['modality'].upper()}_"
+                       f"{slug(item['method'])}"),
+            cohort="1000G-development-unique-truth", modality=item["modality"],
+            method=item["method"], analysis_status="exploratory_sensitivity",
+            endpoint="posthoc_exact_concordance_with_corrected_values_substituted",
+            artifact=substitution, result_kind="concordance",
+            estimate=f"{correct / loci:.6f}", unit="proportion",
+            loci=str(loci), correct=str(correct),
+            claim_boundary=("POST HOC (decisions/20261105_reference_presentation_amendment."
+                            "json); flagged values derive from the same exome data, so this "
+                            "is not independent and does not rank methods"),
+        ))
+    round2 = "POST HOC (decisions/20261105_posthoc_round2_amendment.json); "
+    p_group = ADJUDICATION / "exact_locus_p_group_agreement_posthoc.tsv"
+    for item in read_rows(p_group):
+        loci, correct = int(item["loci"]), int(item["p_group_agreement"])
+        rows.append(exploratory_row(
+            result_id=f"DEV_P_GROUP_AGREEMENT_{item['modality'].upper()}_{slug(item['method'])}",
+            cohort="1000G-development-unique-truth", modality=item["modality"],
+            method=item["method"], analysis_status="exploratory_sensitivity",
+            endpoint="posthoc_p_group_agreement_with_2014_type",
+            artifact=p_group, result_kind="concordance",
+            estimate=f"{correct / loci:.6f}", unit="proportion",
+            loci=str(loci), correct=str(correct),
+            claim_boundary=round2 + "lenient two-field P-group mapping; not the primary endpoint",
+        ))
+    leave_one_out = ADJUDICATION / "leave_one_caller_out_posthoc.tsv"
+    for item in read_rows(leave_one_out):
+        for name, method, correct, called in (
+                ("PLURALITY", "plurality", item["plurality_correct"], ""),
+                ("STRICT", "strict majority", item["strict_majority_correct"],
+                 item["strict_majority_callable"])):
+            rows.append(exploratory_row(
+                result_id=(f"DEV_LEAVE_ONE_OUT_{item['modality'].upper()}_"
+                           f"{slug(item['left_out'])}_{name}"),
+                cohort="1000G-development-unique-truth", modality=item["modality"],
+                method=f"{method} leaving out {item['left_out']}",
+                analysis_status="exploratory_sensitivity",
+                endpoint="posthoc_exact_concordance_leaving_one_caller_out",
+                artifact=leave_one_out, result_kind="concordance",
+                estimate=f"{int(correct) / int(item['loci']):.6f}", unit="proportion",
+                loci=item["loci"], correct=correct, callable_n=called,
+                claim_boundary=round2 + "describes dependence on one caller; changes no panel",
+            ))
+    evidence = ADJUDICATION / "flagged_loci_evidence_posthoc.tsv"
+    evidence_rows = read_rows(evidence)
+    for name, field, value, description in (
+            ("ERLICH_GIVES_VOTE", "erlich_2011", "vote", "454 typing gives the vote's type"),
+            ("TRUSIGHT_GIVES_VOTE", "trusight_buchkovich_2017", "vote",
+             "TruSight typing gives the vote's type"),
+            ("P_GROUP_DIFFERS", "p_group_equal", "0", "2014 type and vote differ in P group")):
+        count = sum(row[field] == value for row in evidence_rows)
+        rows.append(exploratory_row(
+            result_id=f"DEV_FLAGGED_LOCI_{name}",
+            cohort="1000G-development-unique-truth", modality="wes",
+            method="published typing at flagged vote-error loci",
+            analysis_status="exploratory_diagnostic",
+            endpoint=f"posthoc_flagged_loci_{name.lower()}", artifact=evidence,
+            result_kind="categorical-summary", estimate=str(count), unit="count",
+            loci=str(len(evidence_rows)), correct=str(count),
+            claim_boundary=round2 + description + "; checked only at flagged loci",
+        ))
     headroom = ADJUDICATION / "reference_agreement_headroom.tsv"
     for item in read_rows(headroom):
         rows.append(exploratory_row(
@@ -711,6 +551,142 @@ def append_adjudication_rows(rows: list[dict[str, str]]) -> None:
                                 "manual verification against the earlier published type "
                                 "(decisions/20261012_second_typing_asterisk_documented.json)"),
             ))
+
+
+def append_round3_rows(rows: list[dict[str, str]]) -> None:
+    """Rows from decisions/20261106_posthoc_round3_amendment.json (B2-B4, B7, B8)."""
+    round3 = "POST HOC (decisions/20261106_posthoc_round3_amendment.json); "
+    cohort = "1000G-development-unique-truth"
+    counts = ADJUDICATION / "error_dependence_counts_posthoc.tsv"
+    for item in read_rows(counts):
+        rows.append(exploratory_row(
+            result_id=(f"DEV_ERROR_COUNTS_{item['modality'].upper()}_{slug(item['scope'])}_"
+                       f"{slug(item['caller1'])}_{slug(item['caller2'])}"),
+            cohort=cohort, modality=item["modality"],
+            method=f"{item['caller1']} and {item['caller2']}",
+            analysis_status="exploratory_diagnostic", endpoint=f"joint_errors_{item['scope']}",
+            artifact=counts, result_kind="categorical-summary", estimate=item["both_wrong"],
+            unit="count", loci=item["loci"], correct=item["both_wrong"],
+            claim_boundary=round3 + (
+                f"expected if independent {item['expected_both_wrong_if_independent']}; "
+                f"same wrong genotype {item['both_wrong_same_genotype']}; phi "
+                f"{item['error_phi'] or 'undefined'}; descriptive dependence, not causal"),
+        ))
+    naive = ADJUDICATION / "naive_baselines_posthoc.tsv"
+    for item in read_rows(naive):
+        for scope in ("exact", "set_valued", "excluded"):
+            loci, correct = int(item[f"{scope}_loci"]), int(item[f"{scope}_correct"])
+            rows.append(exploratory_row(
+                result_id=(f"DEV_NAIVE_{item['modality'].upper()}_{slug(item['baseline'])}_"
+                           f"{slug(scope)}"),
+                cohort=cohort, modality=item["modality"],
+                method=item["baseline"].replace("_", " "),
+                analysis_status="exploratory_descriptive",
+                endpoint=f"naive_baseline_{scope}", artifact=naive, result_kind="concordance",
+                estimate=f"{correct / loci:.6f}", unit="proportion",
+                loci=str(loci), correct=str(correct),
+                claim_boundary=round3 + "leave-one-subject-out baseline using no reads; "
+                                        "descriptive, not a comparator",
+            ))
+    intersection = ADJUDICATION / "set_valued_intersection_posthoc.tsv"
+    for item in read_rows(intersection):
+        if not (item["method"] == "SimplePluralityLex" or item["method"].startswith("Caller:")):
+            continue
+        for scope in ("set_valued", "excluded"):
+            loci = int(item[f"{scope}_intersection_loci"])
+            correct = int(item[f"{scope}_intersection_compatible"])
+            rows.append(exploratory_row(
+                result_id=(f"DEV_INTERSECTION_{item['modality'].upper()}_{slug(scope)}_"
+                           f"{slug(item['method'])}"),
+                cohort="1000G-development-set-valued-truth", modality=item["modality"],
+                method=item["method"], analysis_status="exploratory_sensitivity",
+                endpoint=f"set_valued_compatibility_intersected_rows_{scope}",
+                artifact=intersection, result_kind="concordance",
+                estimate=f"{correct / loci:.6f}", unit="proportion",
+                loci=str(loci), correct=str(correct),
+                claim_boundary=round3 + "duplicate reference rows intersected instead of "
+                                        "united; sensitivity only",
+            ))
+    gap = ADJUDICATION / "g_over_p_gap_posthoc.tsv"
+    for item in read_rows(gap):
+        rows.append(exploratory_row(
+            result_id=f"DEV_G_OVER_P_GAP_{item['modality'].upper()}_{slug(item['caller'])}",
+            cohort="1000G-development-set-valued-truth", modality=item["modality"],
+            method=item["caller"], analysis_status="exploratory_diagnostic",
+            endpoint="g_compatible_not_p_compatible", artifact=gap,
+            result_kind="categorical-summary", estimate=item["g_compatible_not_p_compatible"],
+            unit="count", correct=item["of_which_null_suffix"],
+            claim_boundary=round3 + "correct column counts loci whose call carries a null "
+                                    "(N) suffix",
+        ))
+    historical = RERUN_PROVENANCE / "historical_result_registry_pre_v350.tsv"
+    archived = next(r for r in read_rows(historical)
+                    if r["result_id"] == "DEV_CORRECTED_WES_CALLER_POLYSOLVER")
+    rows.append(exploratory_row(
+        result_id="DEV_ARCHIVED_WES_CALLER_POLYSOLVER", cohort=cohort, modality="wes",
+        method="Caller:POLYSOLVER", analysis_status="exploratory_descriptive",
+        endpoint="exact_concordance_archived_outputs", artifact=historical,
+        result_kind="concordance", estimate=archived["accuracy"], unit="proportion",
+        loci=archived["loci"], correct=archived["correct"],
+        claim_boundary=round3 + "archived outputs of an unrecorded deployment; provenance, "
+                                "not a study-run result",
+    ))
+    relatedness = ADJUDICATION / "relatedness_pairs_posthoc.tsv"
+    clustered = ADJUDICATION / "family_clustered_signflip_posthoc.tsv"
+    if relatedness.is_file() and clustered.is_file():
+        tests = read_rows(clustered)
+        for item in read_rows(relatedness):
+            pairs = sum(int(item[k]) for k in ("parent_offspring", "siblings",
+                                               "second_order", "third_order"))
+            rows.append(exploratory_row(
+                result_id=f"DEV_RELATED_PAIRS_{item['modality'].upper()}",
+                cohort=cohort, modality=item["modality"],
+                method="public IGSR pedigree (20130606_g1k.ped)",
+                analysis_status="exploratory_diagnostic", endpoint="related_subject_pairs",
+                artifact=relatedness, result_kind="categorical-summary", estimate=str(pairs),
+                unit="count", subjects=item["subjects"],
+                claim_boundary=round3 + "first- to third-degree pairs among retained "
+                                        f"subjects; {item['family_clusters']} family clusters; "
+                                        "truth-free",
+            ))
+            members = [t for t in tests if t["modality"] == item["modality"]]
+            rows.append(exploratory_row(
+                result_id=f"DEV_FAMILY_CLUSTERED_{item['modality'].upper()}_VERDICTS_CHANGED",
+                cohort=cohort, modality=item["modality"],
+                method="sign-flip clustered by pedigree family",
+                analysis_status="exploratory_sensitivity",
+                endpoint="signflip_holm_verdicts_changed_by_family_clustering",
+                artifact=clustered, result_kind="categorical-summary",
+                estimate=str(sum(int(t["verdict_changed"]) for t in members)), unit="count",
+                loci=str(len(members)),
+                claim_boundary=round3 + f"{len(members)} comparisons; same seeds and Holm "
+                                        "families as the primary analysis",
+            ))
+    allele = ADJUDICATION / "allele_level_vote_posthoc.tsv"
+    for item in read_rows(allele):
+        loci, correct = int(item["loci"]), int(item["allele_vote_correct"])
+        rows.append(exploratory_row(
+            result_id=f"DEV_ALLELE_LEVEL_VOTE_{item['modality'].upper()}",
+            cohort=cohort, modality=item["modality"], method="allele-level vote",
+            analysis_status="exploratory_sensitivity", endpoint="exact_concordance",
+            artifact=allele, result_kind="concordance", estimate=f"{correct / loci:.6f}",
+            unit="proportion", loci=str(loci), correct=str(correct),
+            claim_boundary=round3 + "labelled post hoc row, not a candidate primary",
+        ))
+    tradeoff = ADJUDICATION / "vote_abstention_tradeoff_posthoc.tsv"
+    for item in read_rows(tradeoff):
+        rows.append(exploratory_row(
+            result_id=(f"DEV_ABSTENTION_{item['modality'].upper()}_SUPPORT_"
+                       f"{item['minimum_support']}"),
+            cohort=cohort, modality=item["modality"],
+            method=f"ChampHLA-Consensus abstaining below support {item['minimum_support']}",
+            analysis_status="exploratory_descriptive", endpoint="callability_tradeoff",
+            artifact=tradeoff, result_kind="concordance",
+            estimate=f"{int(item['correct']) / int(item['loci']):.6f}", unit="proportion",
+            loci=item["loci"], correct=item["correct"], callable_n=item["called"],
+            claim_boundary=round3 + "every threshold reported; a callability trade-off, "
+                                    "not a candidate rule",
+        ))
 
 
 def append_nomenclature_rows(rows: list[dict[str, str]]) -> None:
@@ -1040,6 +1016,136 @@ def append_ambiguity_paired_rows(rows: list[dict[str, str]]) -> None:
         })
 
 
+def append_round4_rows(rows: list[dict[str, str]]) -> None:
+    """Rows from decisions/20261106_posthoc_round4_amendment.json (C1, run stability)."""
+    round4 = ("POST HOC (decisions/20261106_posthoc_round4_amendment.json); archived outputs "
+              "and study runs scored with the current rule at the current exact loci; ")
+    cohort = "1000G-development-unique-truth"
+    per_method = ADJUDICATION / "run_stability_posthoc.tsv"
+    for item in read_rows(per_method):
+        loci, correct = int(item["loci"]), int(item["archived_correct"])
+        rows.append(exploratory_row(
+            result_id=f"DEV_RUN_STABILITY_{item['modality'].upper()}_{slug(item['method'])}",
+            cohort=cohort, modality=item["modality"], method=item["method"],
+            analysis_status="exploratory_descriptive", endpoint="archived_output_exact_correct",
+            artifact=per_method, result_kind="concordance",
+            estimate=f"{correct / loci:.6f}", unit="proportion",
+            loci=str(loci), correct=str(correct),
+            claim_boundary=round4 + (
+                f"study runs {item['study_run_correct']}/{loci}, change {item['change']}; "
+                "two runs of one deployment, not a reproducibility estimate"),
+        ))
+    summary = ADJUDICATION / "run_stability_summary_posthoc.tsv"
+    for item in read_rows(summary):
+        modality = item["modality"]
+        rows.append(exploratory_row(
+            result_id=f"DEV_RUN_STABILITY_{modality.upper()}_VOTE_CALLS_CHANGED",
+            cohort=cohort, modality=modality, method="ChampHLA-Consensus",
+            analysis_status="exploratory_descriptive", endpoint="vote_calls_changed_between_runs",
+            artifact=summary, result_kind="categorical-summary",
+            estimate=item["vote_calls_changed"], unit="count", loci=item["loci"],
+            correct=item["vote_calls_changed"],
+            claim_boundary=round4 + (
+                f"vote {item['vote_archived_correct']} archived and "
+                f"{item['vote_study_run_correct']} study-run correct loci"),
+        ))
+        rows.append(exploratory_row(
+            result_id=f"DEV_RUN_STABILITY_{modality.upper()}_LARGEST_CALLER_CHANGE",
+            cohort=cohort, modality=modality, method=item["largest_change_caller"],
+            analysis_status="exploratory_descriptive",
+            endpoint="largest_caller_change_between_runs", artifact=summary,
+            result_kind="categorical-summary", estimate=item["largest_caller_change"],
+            unit="count", loci=item["loci"], correct=item["largest_caller_change"],
+            claim_boundary=round4 + "absolute change in correct loci; descriptive",
+        ))
+        rows.append(exploratory_row(
+            result_id=f"DEV_RUN_STABILITY_{modality.upper()}_LEADING_CALLER",
+            cohort=cohort, modality=modality,
+            method=(f"archived {item['leading_caller_archived']}; "
+                    f"study runs {item['leading_caller_study_run']}"),
+            analysis_status="exploratory_descriptive", endpoint="leading_caller_by_run",
+            artifact=summary, result_kind="categorical-summary",
+            estimate=item["leading_caller_study_run_correct"], unit="count",
+            loci=item["loci"], correct=item["leading_caller_study_run_correct"],
+            claim_boundary=round4 + (
+                f"archived leader {item['leading_caller_archived_correct']}/{item['loci']}; "
+                "ties go to the alphabetically last caller; descriptive"),
+        ))
+
+
+def append_round5_rows(rows: list[dict[str, str]]) -> None:
+    """Rows from decisions/20261106_roihu_descriptions_round5.json (R1-R4), truth-free."""
+    round5 = ("ROUND 5 (decisions/20261106_roihu_descriptions_round5.json); truth-free "
+              "description of the 236 study runs, measured once on CSC Roihu; ")
+    cohort = "1000G-development"
+
+    def spread_row(result_id, modality, method, endpoint, artifact, item, field, unit, note,
+                   n):
+        return exploratory_row(
+            result_id=result_id, cohort=cohort, modality=modality, method=method,
+            analysis_status="exploratory_descriptive", endpoint=endpoint, artifact=artifact,
+            result_kind="categorical-summary", estimate=item[f"{field}_median"],
+            ci_low=item[f"{field}_min"], ci_high=item[f"{field}_max"], unit=unit,
+            subjects=str(n), interval_method="range across runs",
+            claim_boundary=round5 + note)
+
+    deployment = ADJUDICATION / "round5_caller_deployment.tsv"
+    for item in read_rows(deployment):
+        if item["caller"] != "T1K":
+            continue
+        runs = item["runs"] if item["t1k_index_in_task_logs"].endswith("/hla_dna.fa") else "0"
+        rows.append(exploratory_row(
+            result_id=f"DEV_DEPLOYMENT_{item['modality'].upper()}_T1K_DNA_INDEX_RUNS",
+            cohort=cohort, modality=item["modality"], method="T1K",
+            analysis_status="exploratory_descriptive", endpoint="t1k_index_in_task_logs",
+            artifact=deployment, result_kind="categorical-summary", estimate=runs,
+            unit="count", subjects=item["runs"],
+            claim_boundary=round5 + "runs whose T1K task logs name the genomic (DNA) index "
+                                    "hla_dna.fa; R1"))
+    inputs = ADJUDICATION / "round5_input_read_depth_summary.tsv"
+    if inputs.is_file():
+        for item in read_rows(inputs):
+            modality, n = item["modality"], int(item["inputs"])
+            rows.append(spread_row(
+                f"DEV_INPUT_{modality.upper()}_READ_LENGTH", modality, "input alignments",
+                "median_read_length_over_class_i_exons_2_3", inputs, item, "read_length", "bp",
+                f"per-input median read length; layouts {item['layouts']}; R2", n))
+            rows.append(spread_row(
+                f"DEV_INPUT_{modality.upper()}_EXON_DEPTH", modality, "input alignments",
+                "mean_depth_over_class_i_exons_2_3", inputs, item, "exon_depth", "mean depth",
+                "per-input mean depth over HLA-A, -B and -C exons 2 and 3 on primary chromosome "
+                f"6 of each file's build ({item['detected_builds']}), before read rescue; R2", n))
+    rescue = ADJUDICATION / "round5_rescue_totals.tsv"
+    for item in read_rows(rescue):
+        for field in ("selected_records", "realigned_pairs", "output_records"):
+            rows.append(spread_row(
+                f"DEV_RESCUE_WES_{field.upper()}", "wes", "RESCUE_HLA_READS",
+                f"rescue_{field}_per_run", rescue, item, field, "count",
+                f"per-run counts from the rescue tables; total {item[f'{field}_total']}; the "
+                "tables record no read class; R3", int(item["runs"])))
+    cost = ADJUDICATION / "round5_run_cost.tsv"
+    failed: dict[str, int] = {}
+    for item in read_rows(cost):
+        modality, caller = item["modality"], item["caller"]
+        failed[modality] = failed.get(modality, 0) + int(item["failed_task_attempts"])
+        note = ("execution traces of the final launch of each run; cached tasks keep the "
+                "measurements of the launch that ran them; R4")
+        rows.append(spread_row(
+            f"DEV_RUN_COST_{modality.upper()}_{slug(caller)}_CPU_HOURS", modality, caller,
+            "cpu_hours_per_run", cost, item, "cpu_hours", "CPU hours",
+            "realtime x %cpu summed over the caller's tasks; " + note, int(item["runs"])))
+        rows.append(spread_row(
+            f"DEV_RUN_COST_{modality.upper()}_{slug(caller)}_PEAK_RSS", modality, caller,
+            "peak_rss_per_run", cost, item, "peak_rss_gib", "GiB",
+            "largest task peak_rss; " + note, int(item["runs"])))
+    for modality, count in sorted(failed.items()):
+        rows.append(exploratory_row(
+            result_id=f"DEV_RUN_COST_{modality.upper()}_FAILED_TASK_ATTEMPTS", cohort=cohort,
+            modality=modality, method="all tasks", analysis_status="exploratory_descriptive",
+            endpoint="failed_task_attempts", artifact=cost, result_kind="categorical-summary",
+            estimate=str(count), unit="count",
+            claim_boundary=round5 + "failed or aborted task attempts in the final launch of "
+                                    "each run; earlier launches are not in the traces; R4"))
 
 
 def append_protocol_change_ledger_row(rows: list[dict[str, str]]) -> None:
@@ -1454,10 +1560,12 @@ def main() -> int:
     append_tie_break_rows(rows)
     append_single_allele_rows(rows)
     append_adjudication_rows(rows)
+    append_round3_rows(rows)
+    append_round4_rows(rows)
+    append_round5_rows(rows)
     append_protocol_change_ledger_row(rows)
     append_mutually_available_rows(rows)
     append_representability_rows(rows)
-    append_exploratory_rows(rows)
     append_restored_rows(rows)
     append_extension_rows(rows)
     for row in rows:

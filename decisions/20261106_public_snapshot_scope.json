@@ -1,0 +1,36 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261106_public_snapshot_scope",
+  "date": "2026-11-06",
+  "status": "SIGNED - author approved the public-snapshot scope as drafted in the Claude Code session of 2026-11-06; no filtered file existed and the gate had not been rerun when it was signed",
+  "relates_to": [
+    "decisions/20261105_patient_cohorts_removed.json",
+    "decisions/20261106_rerun_registry_delta_approved_round4.json",
+    "reports/author_decisions_20261106.md",
+    "scripts/publish_snapshot.sh"
+  ],
+  "discovery_path": {
+    "what_happened": "Preparing the hold-back list for the public snapshot (journal-panel finding JP-038) found that four provenance files still hold the 99 FIMM and VenEx aggregate rows that the 5 November removal took out of the current registry. The author chose the recommended options in the Claude Code session of 6 November ('we can continue with best options, and with p2').",
+    "truth_derived_information_seen": "None new. The rows were found by their cohort labels; no value in them was read or used.",
+    "firewall": "No extension or NCI-60 data, prediction or truth is read. No patient-level file is opened: data/fimm/, *.SECURE.tsv, workbooks and artifacts/fimm/tier*/sample_plurality.tsv stay closed."
+  },
+  "procedure": "Each item is fixed as written before any script for it exists. The filter script is tested on synthetic data, then run once. The pipeline is then rerun once; its registry delta goes to the author gate for a separate approval. Values that differ from the expected values are reported as computed.",
+  "truth_free_changes": {
+    "S1_hold_back_list (JP-038)": "Add to HOLD_BACK in scripts/publish_snapshot.sh: AUTHOR_FIELDS_TO_COMPLETE.md, AUTHOR_REQUEST_20261008.md, reports/AUTHOR_REQUEST_20261027.md, COAUTHOR_REVIEW_CHECKLIST.md, RECOVERY_STATUS.md, reports/AUTHOR_INPUT_REQUIRED_SCIENTIFIC_REPORTS.md, reports/ChampHLA_Scientific_Reports_Cover_Letter.md, reports/author_decisions_20261106.md, reports/coauthor_update_20261106.md, reports/drive_v3_changes_since_20261006.md, reports/pre_submission_review_20261008.md, reports/scientific_review_20261012.md, reports/champhla_scientific_reports_review_20261019.md, manuscripts/historical/, manuscripts/source_original/ and manuscripts/benchmark/PanelHLA_Manuscript_v2.docx. decisions/ and CITATIONS_TO_VERIFY.md stay in the snapshot.",
+    "S2_cohort_rows_withheld (P2)": "Move the four files provenance/development_rerun_v350/historical_result_registry_pre_v350.tsv, provenance/development_rerun_v350/result_registry_delta.tsv, provenance/development_rerun_v350_superseded_20261025/historical_result_registry_pre_v350.tsv and provenance/development_rerun_v350_superseded_20261025/result_registry_delta.tsv unchanged to provenance/cohort_rows_withheld_20261106/ under the same relative paths, and hold that folder back from the snapshot. In their place write filtered copies: a registry drops every row whose cohort is FIMM_AML_MDS, VENEX_WES, FIMM-AML-BulkRNA, FIMM-AML-SCRNA or FIMM-AML-WES; a delta drops every row whose result_id is one of those registry rows. Nothing else in the files changes, including row order, columns and line endings. A public manifest, provenance/cohort_rows_withheld_20261106.json, gives for each file its path, the rule, and the row counts and SHA-256 before and after, so the hashes pinned by the activation reports (a5747655... for the historical registry) stay checkable against the private originals. The activation reports themselves are not edited.",
+    "S2_expected": "Each historical registry 631 to 532 rows; the superseded delta 631 to 532; the current delta 813 to 714 before regeneration and 714 after. Registry gate after one rerun: old_rows 532, new_rows 712; unchanged 34, changed 496, added 182, removed 2; the 25 approval reasons unchanged. In result_registry.tsv only the artifact_sha256 of DEV_ARCHIVED_WES_CALLER_POLYSOLVER and the protocol-ledger row change, so the registry SHA-256 changes and needs a new approval. No manuscript or supplement number changes.",
+    "S2_ledger": "Add a protocol-change ledger row, change_id cohort_rows_withheld: 'Withhold the FIMM and VenEx aggregate rows from the published provenance copies'; size 'No result changed; the gate's archived registry has 532 of its 631 rows'; effect 'None; the unfiltered files stay in the private repository'.",
+    "S3_referee_access (R1, JP-035)": "At submission, build the snapshot with scripts/publish_snapshot.sh (no --push) and deposit it with a reviewer-access link, made public at acceptance. The Data availability and cover-letter sentences naming the link are added only once the link exists; until then the manuscript is unchanged."
+  },
+  "not_included": {
+    "public_push": "Nothing is pushed to any remote and no deposit is created by this record.",
+    "local_pipeline_repository": "Archiving uoozcan/local_pipeline or adding a README pointer is a change to a public GitHub repository and is left to the author.",
+    "release_freeze": "artifacts/release_freeze.json names held-back cohort folders with their hashes but holds no values; it is unchanged."
+  },
+  "boundary": "No result, endpoint, panel, rule, threshold or fitted policy changes. Nothing here selects a method.",
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-06, explicit author statement: 'Sign as drafted'",
+    "mechanism": "Claude Code session"
+  }
+}

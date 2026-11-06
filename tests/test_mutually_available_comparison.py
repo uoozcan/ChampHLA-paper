@@ -64,8 +64,8 @@ def test_reader_facing_text_does_not_invent_historical_task_state():
         ROOT / "manuscripts/benchmark/supplementary.md"
     ).read_text(encoding="utf-8")
     if _rerun_inputs():
-        assert "In the v3.5.0 rerun every panel caller returned a row" in main
-        assert "In the v3.5.0 rerun no panel caller row is absent." in supplement
+        assert "In the ChampHLA runs, every panel caller returned a row" in main
+        assert "In the study runs no panel caller row is absent." in supplement
     else:
         assert "On the 115 loci with an HLA-HD row, both" in main
         assert "methods were correct at 110" in main

@@ -89,7 +89,7 @@ def test_fitted_scores_never_reselect_the_primary():
         assert rows[("rnaseq", method)]["analysis_scope"] == "exploratory_fitted"
     assert rows[("rnaseq", "MVFlooredCC")]["analysis_scope"] == "exploratory_fitted"
     assert rows[("rnaseq", "SimplePluralityLex")]["analysis_scope"] == "primary"
-    assert "were not used\nto reselect the primary rule" in SUPPLEMENT.read_text(encoding="utf-8")
+    assert "The refitted policies did not change the primary rule" in SUPPLEMENT.read_text(encoding="utf-8")
 
 
 def test_adjusted_interval_and_holm_decision_are_coherent():

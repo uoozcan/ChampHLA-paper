@@ -35,8 +35,9 @@ def test_main_table_is_exact_generator_output():
     # (decisions/20261013_corrected_reference_presentation.json) when it exists.
     sensitivity = ROOT / "artifacts" / "development_characterisation" / "reference_agreement_sensitivity.tsv"
     reference = module.read(sensitivity) if sensitivity.is_file() else None
+    p_group = ROOT / "artifacts" / "development_characterisation" / "exact_locus_p_group_agreement_posthoc.tsv"
     assert block(MANUSCRIPT.read_text(encoding="utf-8"), "MAIN TABLE") == module.main_table(
-        rows, reference)
+        rows, reference, module.read(p_group) if p_group.is_file() else None)
 
 
 def test_supplement_tables_are_exact_generator_outputs():
@@ -75,15 +76,21 @@ def test_supplement_tables_are_exact_generator_outputs():
         "REFERENCE AGREEMENT TABLE": module.reference_agreement_table(
             module.read(characterised / "reference_agreement_sensitivity.tsv")
         ),
+        "FLAGGED LOCI EVIDENCE TABLE": module.flagged_loci_evidence_table(
+            module.read(characterised / "flagged_loci_evidence_posthoc.tsv")
+        ),
+        "LEAVE ONE CALLER OUT TABLE": module.leave_one_caller_out_table(
+            module.read(characterised / "leave_one_caller_out_posthoc.tsv")
+        ),
+        "REFERENCE SUBSTITUTION TABLE": module.reference_substitution_table(
+            module.read(characterised / "reference_substitution_posthoc.tsv")
+        ),
         "REFERENCE AGREEMENT PHI TABLE": module.reference_agreement_phi_table(
             module.read(characterised / "reference_agreement_error_phi.tsv"),
             module.read(characterised / "caller_error_correlation.tsv"),
         ),
         "REFERENCE AGREEMENT CORRECTION TABLE": module.reference_agreement_correction_table(
             module.read(characterised / "reference_agreement_vote_correction.tsv")
-        ),
-        "POWER TABLE": module.power_table(
-            module.read(ROOT / "artifacts" / "development_limits" / "power_curve.tsv")
         ),
         "STRATIFIED TABLE": module.stratified_table(module.read(characterised / "stratified_primary_results.tsv")),
         "MISSINGNESS TABLE": module.missingness_table(module.read(characterised / "caller_missingness.tsv")),
@@ -117,7 +124,7 @@ def test_compute_smoke_claims_preserve_actual_input_and_scope():
     assert "WGS-derived mate-aware HLA BAM" in normalised
     assert "does not estimate WES runtime" in normalised
     assert "not monetary" in normalised
-    assert "historical caller resource use remain unavailable" in normalised
+    assert "resource use of that run remain unavailable" in normalised
 
 
 def test_every_cited_repository_path_exists():

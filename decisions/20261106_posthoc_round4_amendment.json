@@ -1,0 +1,38 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261106_posthoc_round4_amendment",
+  "date": "2026-11-06",
+  "status": "SIGNED - author approved the round 4 post hoc amendment as drafted in the Claude Code session of 2026-11-06; nothing below had been computed when it was signed",
+  "relates_to": [
+    "decisions/20261106_posthoc_round3_amendment.json",
+    "decisions/20261106_roihu_descriptions_round5.json",
+    "reports/author_decisions_20261106.md",
+    "reports/manuscript_fatal_fixes_20261105.md"
+  ],
+  "discovery_path": {
+    "what_happened": "The simulated journal-panel review of 3-4 November 2026 asked for the items below (JP-004, JP-006, JP-014, JP-039). Round 3 left them out because they need figure rebuilds or the author's JP-014 framing. On 6 November the author chose framing option C ('C: keep, add stability') in the Claude Code session. The items needing the Roihu cluster are in a separate draft, decisions/20261106_roihu_descriptions_round5.json.",
+    "truth_derived_information_seen": "All development results, including the archived-versus-study-run comparison that the panel computed and the 13 October ledger row records. Item C1 restates numbers already computed against the reference typing and is post hoc. Items A1 to A3 use no reference typing: they come from figure code and the truth-free cell ledger.",
+    "firewall": "Development subjects only. No extension or NCI-60 data, prediction or truth is read."
+  },
+  "procedure": "Each item is fixed as written before any repository script for it exists. The C1 script is tested on synthetic data, then run once on the development tables. Values that differ from the expected values are reported as computed, with the difference stated in the change record, and the C1 sentence then carries the computed values. Nothing is re-run to move a value. New numbers enter the registry, which then goes to the author gate for a separate approval.",
+  "truth_free_corrections": {
+    "A1_figure_1a_text (JP-004)": "scripts/generate_figures.py, Figure 1A footer: replace 'Each caller runs as its own Nextflow process and container; the assay panel is the default caller set.' with 'Each caller runs as its own Nextflow process, in a container except SpecHLA, which ran natively here; the assay panel is the default caller set.' The legend already carries this correction. Expected: only Figure 1 changes.",
+    "A2_arcashla_marking (JP-006)": "In Figures 2 and 3, label arcasHLA as 'arcasHLA†' and add to both legends: '† Defective deployment: paired-end reads processed as single-end (Limitations).' Expected: only Figures 2 and 3 and their legends change; no plotted value changes.",
+    "A3_s6_category_labels (JP-039)": "Show the Figure S6 categories and the Table S10.2 cell states with one set of reader labels: identical; call changed; non-call to callable; callable to non-call; non-call state changed; present only in the study run; present only in the archived outputs. The artifact values (new_rerun_cell and so on) are unchanged. Change the S6 legend's 'present only in the run' to 'present only in the study run'. Expected: Figure S6, its legend and the Table S10.2 labels change; no count changes."
+  },
+  "posthoc_rows": {
+    "C1_run_stability (JP-014, option C)": "Add registry rows computed from the archived normalized caller table (provenance/development_rerun_v350/historical_inputs_pre_v350/normalized_caller_calls.tsv) and the study-run table, scored with the current rule and call-state handling at the current exact-endpoint loci (153 WES, 118 RNA-seq): the vote's correct loci in each run; each panel caller's correct loci in each run; the largest absolute change in any panel caller's correct loci between runs, and that caller; the leading WES caller in each run; and the number of exact loci at which the vote's call differs between runs. Expected (panel and the 13 October ledger row): vote 143/153 WES and 113/118 RNA-seq in both runs; largest change arcasHLA, 51 loci (109 to 58); leading WES caller POLYSOLVER in the archived outputs (143/153) and OptiType in the study runs (142/153); vote calls changed at 2 of 153 WES and 0 of 118 RNA-seq loci.",
+    "C1_sentence": "Added after 'Its value is operational: users need not choose a caller in advance, and every reported genotype remains traceable to the calls that support it.' in Limitations, with the C1 result tags: 'Between the archived outputs and the study runs, single callers moved by up to 51 loci and the leading exome caller changed, while the vote stayed at 143/153 and 113/118 (post hoc).' If a value differs from the expected value, the sentence carries the computed value; if the vote's score differs between runs, 'stayed at' becomes the two scores."
+  },
+  "not_included": {
+    "mean_panel_caller_rows (JP-014, option B)": "Option C uses no mean-caller margin, so these rows are not computed.",
+    "run_cost (JP-014)": "Cost from the run traces needs Roihu; it is item R4 of the round 5 draft. The paper makes no cost claim.",
+    "arcashla_paired_rerun (JP-006)": "Rerunning arcasHLA with paired reads changes a scored caller and needs its own signed amendment."
+  },
+  "boundary": "The primary endpoint, panels, rule, thresholds and fitted policies are unchanged. Nothing here is a candidate primary or selects a method.",
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-06, explicit author statement: 'Sign as drafted'",
+    "mechanism": "Claude Code session"
+  }
+}

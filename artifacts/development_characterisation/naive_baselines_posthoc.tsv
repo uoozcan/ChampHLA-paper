@@ -1,0 +1,5 @@
+modality	baseline	exact_correct	exact_loci	set_valued_correct	set_valued_loci	excluded_correct	excluded_loci
+rnaseq	most_common_genotype	11	118	14	263	3	145
+rnaseq	two_most_common_alleles	3	118	16	263	13	145
+wes	most_common_genotype	8	153	12	335	4	182
+wes	two_most_common_alleles	3	153	13	335	10	182

@@ -40,17 +40,6 @@ SOURCES = {
     "p_group": CHAR / "p_group_compatibility.tsv",
 }
 # Aggregate-only exploratory cohorts (Supplementary S9); no row-level patient data.
-EXPLORATORY_SOURCES = {
-    "fimm_cross": ROOT / "artifacts/fimm_consensus/cross_modality/cross_modality_agreement.tsv",
-    "fimm_flow": ROOT / "artifacts/fimm_consensus/cohort_flow.tsv",
-    "fimm_wes_composition": ROOT / "artifacts/fimm_consensus/FIMM-AML-WES/panel3/panel_composition.tsv",
-    "fimm_bulk_composition": ROOT / "artifacts/fimm_consensus/FIMM-AML-BulkRNA/panel3/panel_composition.tsv",
-    "fimm_scrna_composition": ROOT / "artifacts/fimm_consensus/FIMM-AML-SCRNA/panel3/panel_composition.tsv",
-    "fimm_bb72": ROOT / "artifacts/fimm/tierC/bb72_metrics.tsv",
-    "venex_validation": ROOT / "artifacts/venex/caller_validation_summary.tsv",
-    "venex_dissent": ROOT / "artifacts/venex/plurality_vs_caller.tsv",
-}
-
 ASSAYS = ("wes", "rnaseq")
 LABEL = {"wes": "WES", "rnaseq": "RNA-seq"}
 DISPLAY = {
@@ -95,6 +84,16 @@ RERUN_CHANGE_ORDER = (
     "identical", "call_changed", "noncall_to_callable", "callable_to_noncall",
     "noncall_state_changed", "new_rerun_cell", "stored_cell_missing_from_rerun",
 )
+# Reader labels shared with Supplementary Table S10.2 (round 4 amendment, A3).
+RERUN_CHANGE_LABELS = {
+    "identical": "identical",
+    "call_changed": "call changed",
+    "noncall_to_callable": "non-call to callable",
+    "callable_to_noncall": "callable to non-call",
+    "noncall_state_changed": "non-call state changed",
+    "new_rerun_cell": "present only in the study run",
+    "stored_cell_missing_from_rerun": "present only in the archived outputs",
+}
 RERUN_CHANGE_COLOURS = {
     "identical": "#999999",
     "call_changed": "#0072B2",
@@ -139,6 +138,12 @@ def read_tsv(path: Path) -> list[dict[str, str]]:
 def pretty(method: str) -> str:
     method = method[7:] if method.startswith("Caller:") else method
     return DISPLAY.get(method, method)
+
+
+def marked(method: str) -> str:
+    """Figures 2 and 3 flag the defective arcasHLA deployment (round 4 amendment, A2)."""
+    label = pretty(method)
+    return label + "†" if label == "arcasHLA" else label
 
 
 def slug(value: str) -> str:
@@ -226,8 +231,8 @@ def _pipeline_panel(ax) -> None:
     for left, right in zip(steps[:-1], steps[1:]):
         _arrow(ax, (left[0] + width + 0.012, 0.52), (right[0] - 0.012, 0.52))
     ax.text(0.50, 0.06,
-            "Each caller runs as its own Nextflow process and container; the assay "
-            "panel is the default caller set.",
+            "Each caller runs as its own Nextflow process, in a container except SpecHLA, "
+            "which ran natively here; the assay panel is the default caller set.",
             ha="center", va="center", fontsize=7, color=DARK)
 
 
@@ -392,7 +397,7 @@ def figure2(performance: list[dict[str, str]], out_dir: Path) -> tuple[dict, dic
         label_ax.set_ylim(-0.6, len(rows) - 0.4)
         label_ax.axis("off")
         for yi, item in zip(y, rows):
-            label = pretty(item["method"])
+            label = marked(item["method"])
             if item["method"] == "BestSingleTool_nestedCV":
                 label = "Best caller\n(nested cross-validation)"
             label_ax.text(0.98, yi, label, ha="right", va="center", fontsize=7.5,
@@ -501,7 +506,7 @@ def figure3(comparisons: list[dict[str, str]], out_dir: Path) -> tuple[dict, dic
                        s=30, edgecolor=DARK if significant else "white",
                        linewidth=0.7 if significant else 0.3, zorder=2)
             ticks.append(y)
-            labels.append(pretty(row["comparator"]) + ("" if fitted else ""))
+            labels.append(marked(row["comparator"]))
             ax.text(1.03, y, f"{row['wins']}/{row['losses']}", transform=ax.get_yaxis_transform(),
                     ha="left", va="center", fontsize=7, clip_on=False)
             p_label = _format_p(row["signflip_holm_adjusted_p"]) + ("*" if significant else "")
@@ -671,8 +676,9 @@ def supplementary_figure2(performance: list[dict[str, str]], out_dir: Path) -> t
         yerr = [[value - 100 * float(row["genotype_ci_lo"]) for value, row in zip(y, rows)],
                 [100 * float(row["genotype_ci_hi"]) - value for value, row in zip(y, rows)]]
         ax.plot(x, y, color=LIGHT_GREY, linewidth=1, zorder=1)
+        # Unclipped, so a bar that ends at 100% callability is drawn in full.
         ax.errorbar(x, y, xerr=xerr, yerr=yerr, fmt="none", ecolor=LIGHT_GREY,
-                    elinewidth=0.8, capsize=2, zorder=1)
+                    elinewidth=0.8, capsize=2, zorder=1, clip_on=False)
         coincident = x[1] == x[2] and y[1] == y[2]
         styles = ((BLUE, "o"), (DARK, "s"), (GREY, "D"))
         for method, xi, yi, (colour, marker) in zip(THRESHOLD_ORDER, x, y, styles):
@@ -910,269 +916,7 @@ def supplementary_figure5(out_dir: Path) -> tuple[dict, dict]:
     return spec, save(fig, out_dir, "supplementary_figure_s5_champion_challenger")
 
 
-def supplementary_figure6_fimm(
-    cross: list[dict[str, str]], flow: list[dict[str, str]],
-    compositions: dict[str, list[dict[str, str]]],
-    out_dir: Path,
-) -> tuple[dict, dict]:
-    pooled = [row for row in cross if row["pairing"] == "specimen" and row["gene"] == "ALL"]
-    pair_order = (
-        ("FIMM-AML-BulkRNA", "FIMM-AML-WES", "Bulk RNA–WES", "BULKRNA_WES"),
-        ("FIMM-AML-SCRNA", "FIMM-AML-WES", "scRNA-seq–WES", "SCRNA_WES"),
-        ("FIMM-AML-BulkRNA", "FIMM-AML-SCRNA", "Bulk RNA–scRNA-seq", "BULKRNA_SCRNA"),
-    )
-    ordered = {
-        eligibility: [
-            next(row for row in pooled
-                 if row["left_cohort"] == left and row["right_cohort"] == right
-                 and row["eligibility"] == eligibility)
-            for left, right, _, _ in pair_order
-        ]
-        for eligibility in ("all_callable", "contested_both")
-    }
-    fig, axes = plt.subplots(1, 2, figsize=(DOUBLE, 3.4),
-                             gridspec_kw={"width_ratios": (1.05, 1.25)})
-    ax = axes[0]
-    y = np.arange(len(pair_order))[::-1]
-    styles = (
-        ("all_callable", -0.10, "o", BLUE, "All callable"),
-        ("contested_both", 0.10, "s", ORANGE, "≥2 callers in both assays"),
-    )
-    for eligibility, offset, marker, colour, legend in styles:
-        rows = ordered[eligibility]
-        estimates = [100 * float(row["estimate"]) for row in rows]
-        lo = [value - 100 * float(row["ci_lo"])
-              for value, row in zip(estimates, rows)]
-        hi = [100 * float(row["ci_hi"]) - value
-              for value, row in zip(estimates, rows)]
-        ax.errorbar(estimates, y + offset, xerr=[lo, hi], fmt=marker,
-                    color=colour, ecolor=colour, capsize=2, markersize=4,
-                    label=legend)
-    labels = [
-        (f"{label}\nall {all_row['agreement']}/{all_row['overlap']}; "
-         f"≥2 {contested_row['agreement']}/{contested_row['overlap']}")
-        for all_row, contested_row, (_, _, label, _) in zip(
-            ordered["all_callable"], ordered["contested_both"], pair_order)
-    ]
-    ax.set_yticks(y, labels)
-    ax.set_xlim(60, 100)
-    ax.set_xlabel("Exact pair agreement (%)")
-    ax.set_title("A  Agreement under two eligibility rules", fontweight="bold")
-    ax.grid(axis="x", color="#E5E5E5", linewidth=0.5)
-    ax.legend(frameon=False, fontsize=7, loc="upper center", ncol=2,
-              bbox_to_anchor=(0.5, -0.17))
-    flow_counts = {row["stage"]: int(row["count"]) for row in flow}
-    fig.text(
-        0.02, 0.015,
-        "Recorded exclusions/no-calls: "
-        f"{flow_counts['replicate_conflicts']} replicate conflicts; "
-        f"{flow_counts['locus_cells_numeric_artefact']} numeric artefacts; "
-        f"{flow_counts['locus_rows_partial']} partial; "
-        f"{flow_counts['locus_rows_missing']:,} missing.",
-        ha="left", va="bottom", fontsize=7,
-    )
-
-    ax = axes[1]
-    assay_order = ("WES", "Bulk RNA", "scRNA-seq")
-    keys = ("wes", "bulk_rna", "scrna")
-    colours = ("#B8B8B8", "#D8A200", "#56B4E9", "#009E73")
-    left = np.zeros(3)
-    composition_counts = {}
-    for caller_count, colour in zip(range(4), colours):
-        values, counts = [], []
-        for key in keys:
-            row = next((item for item in compositions[key]
-                        if int(item["callable_tools"]) == caller_count), None)
-            values.append(100 * float(row["share"]) if row else 0)
-            counts.append(int(row["loci"]) if row else 0)
-        bars = ax.barh(np.arange(3), values, left=left, color=colour, height=0.65,
-                       label=f"{caller_count} valid caller{'s' if caller_count != 1 else ''}")
-        for bar, count in zip(bars, counts):
-            if count and bar.get_width() >= 5:
-                ax.text(bar.get_x() + bar.get_width() / 2,
-                        bar.get_y() + bar.get_height() / 2, str(count),
-                        ha="center", va="center", fontsize=7,
-                        color="white" if caller_count == 3 else DARK)
-        left += values
-        composition_counts[str(caller_count)] = dict(zip(keys, counts))
-    ax.set_yticks(np.arange(3), assay_order)
-    ax.invert_yaxis()
-    ax.set_xlim(0, 100)
-    ax.set_xlabel("Locus rows (%)")
-    ax.set_title("B  Eligibility by valid-caller count", fontweight="bold")
-    ax.legend(frameon=False, fontsize=7, loc="upper center", bbox_to_anchor=(0.5, -0.17),
-              ncol=4)
-    fig.subplots_adjust(left=0.19, right=0.98, top=0.88, bottom=0.30, wspace=0.38)
-    result_ids = [f"FIMM_PANEL_SPECIMEN_{label}_EXACT_PAIR" for *_, label in pair_order]
-    result_ids += [f"FIMM_PANEL_SPECIMEN_CONTESTED_{label}_EXACT_PAIR"
-                   for *_, label in pair_order]
-    result_ids += [
-        "FIMM_PANEL_FLOW_REPLICATE_CONFLICTS",
-        "FIMM_PANEL_FLOW_LOCUS_CELLS_NUMERIC_ARTEFACT",
-        "FIMM_PANEL_FLOW_LOCUS_ROWS_PARTIAL",
-        "FIMM_PANEL_FLOW_LOCUS_ROWS_MISSING",
-    ]
-    result_ids += [f"FIMM_PANEL_{assay}_CALLABLE_CALLERS_{count}"
-                   for assay in ("WES", "BULKRNA", "SCRNA") for count in range(4)
-                   if any(int(row["callable_tools"]) == count
-                          for row in compositions[assay.lower() if assay != "BULKRNA" else "bulk_rna"])]
-    spec = {
-        "figure_id": "Supplementary Figure S6", "caption_key": "fimm_cross_modality",
-        "render_profile": "exploratory_300dpi_three_format",
-        "panels": ["coequal_specimen_concordance", "valid_caller_composition"],
-        "axis_limits": {"concordance": [60, 100], "percentage": [0, 100]},
-        "result_ids": result_ids, "composition_counts": composition_counts,
-        "eligibility_definitions": {
-            "all_callable": "complete plurality calls in both assays",
-            "contested_both": "complete plurality calls and >=2 valid callers in both assays",
-        },
-        "exclusion_counts": {
-            key: flow_counts[key] for key in (
-                "replicate_conflicts", "locus_cells_numeric_artefact",
-                "locus_rows_partial", "locus_rows_missing")
-        },
-        "suppression_rule": None,
-    }
-    return spec, save_exploratory(fig, out_dir, "supplementary_figure_s6_fimm_concordance")
-
-
-def supplementary_figure7_bb72(bb72: list[dict[str, str]], out_dir: Path) -> tuple[dict, dict]:
-    modalities = (("scrna", "scRNA-seq"), ("bulk_rna", "Bulk RNA"), ("wes", "WES"))
-    mappings = (("A*02", "A*02"), ("A*02/A*68/A*69", "A*02/A*68/A*69"))
-    fig = plt.figure(figsize=(DOUBLE, 6.0))
-    grid = fig.add_gridspec(2, 3, hspace=0.48, wspace=0.42)
-    confusion = {}
-    for column, (modality, display) in enumerate(modalities):
-        ax = fig.add_subplot(grid[0, column])
-        row = next(item for item in bb72 if item["modality"] == modality
-                   and item["mapping"] == "A*02" and item["metric"] == "accuracy")
-        matrix = np.array([[int(row["tp"]), int(row["fn"])],
-                           [int(row["fp"]), int(row["tn"])]])
-        ax.imshow(matrix, cmap="Blues", vmin=0, vmax=max(7, int(matrix.max())))
-        for (i, j), value in np.ndenumerate(matrix):
-            ax.text(j, i, str(value), ha="center", va="center", fontsize=9,
-                    color="white" if value >= 5 else DARK)
-        ax.set_xticks((0, 1), ("HLA+", "HLA−"))
-        ax.set_yticks((0, 1), ("Flow+", "Flow−"))
-        # Linkage is shown with the estimate: informative linked donors of all flow records.
-        ax.set_title(f"{display}\nA*02 primary; {row['informative']} of "
-                     f"{row['flow_records_total']} flow records", fontsize=8)
-        confusion[modality] = {key: int(row[key]) for key in ("tp", "tn", "fp", "fn")}
-        if column == 0:
-            panel_label(ax, "A")
-
-        ax = fig.add_subplot(grid[1, column])
-        y_positions, labels = [], []
-        offset = 0
-        for mapping, mapping_label in mappings:
-            for metric in ("sensitivity", "specificity", "accuracy"):
-                item = next(candidate for candidate in bb72
-                            if candidate["modality"] == modality
-                            and candidate["mapping"] == mapping
-                            and candidate["metric"] == metric)
-                y_pos = 6 - offset
-                value = 100 * float(item["estimate"])
-                ax.errorbar(value, y_pos,
-                            xerr=[[value - 100 * float(item["ci_lo"])],
-                                  [100 * float(item["ci_hi"]) - value]],
-                            fmt="o" if mapping == "A*02" else "s",
-                            color=BLUE if mapping == "A*02" else ORANGE,
-                            ecolor=LIGHT_GREY, capsize=2, markersize=4)
-                y_positions.append(y_pos)
-                labels.append(
-                    f"{mapping_label} {'agreement' if metric == 'accuracy' else metric}")
-                offset += 1
-        ax.set_yticks(y_positions, labels if column == 0 else [])
-        ax.set_xlim(0, 100)
-        ax.set_xlabel("Agreement metric (%)")
-        ax.grid(axis="x", color="#E5E5E5", linewidth=0.5)
-        if column == 0:
-            panel_label(ax, "B")
-    fig.subplots_adjust(left=0.28, right=0.98, top=0.93, bottom=0.10)
-    result_ids = []
-    for modality, _ in modalities:
-        for mapping, _ in mappings:
-            mapping_id = "A02" if mapping == "A*02" else "A02_A68_A69"
-            result_ids.extend(
-                f"FIMM_BB72_{slug(modality)}_{mapping_id}_{slug('agreement' if metric == 'accuracy' else metric)}"
-                for metric in ("sensitivity", "specificity", "accuracy")
-            )
-    spec = {
-        "figure_id": "Supplementary Figure S7", "caption_key": "fimm_bb72",
-        "render_profile": "exploratory_300dpi_three_format",
-        "panels": ["primary_confusion_matrices", "mapping_interval_estimates"],
-        "axis_limits": {"percentage": [0, 100]}, "result_ids": result_ids,
-        "confusion_matrices": confusion, "suppression_rule": None,
-    }
-    return spec, save_exploratory(fig, out_dir, "supplementary_figure_s7_fimm_bb72")
-
-
-def supplementary_figure8_venex(validation: list[dict[str, str]],
-                          dissent: list[dict[str, str]], out_dir: Path) -> tuple[dict, dict]:
-    callers = ("HLA-HD", "OptiType", "POLYSOLVER", "SpecHLA", "T1K")
-    statuses = ("ok", "empty", "missing")
-    colours = {"ok": "#009E73", "empty": "#D8A200", "missing": "#999999"}
-    fig, axes = plt.subplots(1, 2, figsize=(DOUBLE, 3.5))
-    ax = axes[0]
-    left = np.zeros(len(callers))
-    availability = {}
-    for status in statuses:
-        counts = []
-        for caller in callers:
-            row = next((item for item in validation
-                        if item["caller"] == caller and item["status"] == status), None)
-            counts.append(int(row["samples"]) if row else 0)
-        values = 100 * np.array(counts) / 86
-        bars = ax.barh(np.arange(len(callers)), values, left=left, color=colours[status],
-                       label=status.capitalize())
-        for bar, count in zip(bars, counts):
-            if count and bar.get_width() >= 7:
-                ax.text(bar.get_x() + bar.get_width() / 2,
-                        bar.get_y() + bar.get_height() / 2, str(count),
-                        ha="center", va="center", fontsize=7,
-                        color="white" if status != "empty" else DARK)
-        left += values
-        availability[status] = dict(zip(callers, counts))
-    ax.set_yticks(np.arange(len(callers)), callers)
-    ax.invert_yaxis()
-    ax.set_xlim(0, 100)
-    ax.set_xlabel("Samples (%)")
-    ax.set_title("A  Native caller-output availability", fontweight="bold")
-    ax.legend(frameon=False, ncol=3, loc="lower center", bbox_to_anchor=(0.5, -0.33))
-
-    ax = axes[1]
-    estimable = [next(row for row in dissent if row["caller"] == caller)
-                 for caller in callers if caller != "POLYSOLVER"]
-    y = np.arange(len(estimable))[::-1]
-    values = [100 * float(row["contested_dissent_rate"]) for row in estimable]
-    lo = [value - 100 * float(row["contested_dissent_ci_lo"])
-          for value, row in zip(values, estimable)]
-    hi = [100 * float(row["contested_dissent_ci_hi"]) - value
-          for value, row in zip(values, estimable)]
-    ax.errorbar(values, y, xerr=[lo, hi], fmt="o", color=BLUE, ecolor=GREY, capsize=2)
-    ax.set_yticks(y, [f"{row['caller']}\n{row['contested_dissents']}/{row['contested_mutually_callable_loci']}"
-                      for row in estimable])
-    ax.set_xlim(0, 20)
-    ax.set_xlabel("Contested-locus dissent (%)")
-    ax.set_title("B  Dissent from inclusive plurality", fontweight="bold")
-    ax.grid(axis="x", color="#E5E5E5", linewidth=0.5)
-    ax.text(0.0, -0.27, "POLYSOLVER: non-estimable (0 mutually callable loci)",
-            transform=ax.transAxes, fontsize=7, ha="left")
-    fig.subplots_adjust(left=0.15, right=0.98, top=0.88, bottom=0.25, wspace=0.42)
-    result_ids = [f"VENEX_WES_{slug(row['caller'])}_{slug(row['status'])}"
-                  for row in validation]
-    result_ids += [f"VENEX_WES_{slug(row['caller'])}_CONTESTED_DISSENT" for row in dissent]
-    spec = {
-        "figure_id": "Supplementary Figure S8", "caption_key": "venex_diagnostics",
-        "render_profile": "exploratory_300dpi_three_format",
-        "panels": ["caller_availability", "contested_locus_dissent"],
-        "axis_limits": {"percentage": [0, 100], "dissent_percentage": [0, 20]},
-        "result_ids": result_ids, "availability_counts": availability,
-        "suppression_rule": "POLYSOLVER dissent is non-estimable at zero overlap",
-    }
-    return spec, save_exploratory(fig, out_dir, "supplementary_figure_s8_venex_diagnostics")
-
-def supplementary_figure9(
+def supplementary_figure_rerun_changes(
     cell_changes: list[dict[str, str]], out_dir: Path
 ) -> tuple[dict, dict]:
     """Aggregate historical-to-v3.5.0 caller-cell changes; never expose subjects."""
@@ -1199,7 +943,7 @@ def supplementary_figure9(
 
     fig, axes = plt.subplots(1, 2, figsize=(DOUBLE, 4.4), sharex=True)
     aggregate_counts: dict[str, dict[str, dict[str, int]]] = {}
-    for ax, modality in zip(axes, ASSAYS):
+    for index, (ax, modality) in enumerate(zip(axes, ASSAYS)):
         callers = [caller for caller in CALLER_ORDER if (modality, caller) in grouped]
         y = np.arange(len(callers))
         left = np.zeros(len(callers))
@@ -1216,21 +960,21 @@ def supplementary_figure9(
             ax.barh(
                 y, values, left=left, color=RERUN_CHANGE_COLOURS[change],
                 edgecolor="white", linewidth=0.25,
-                label=change.replace("_", " "),
+                label=RERUN_CHANGE_LABELS[change],
             )
             left += np.asarray(values)
         ax.set_yticks(y, [pretty(caller) for caller in callers])
         ax.invert_yaxis()
         ax.set_xlim(0, 100)
         ax.set_xlabel("Caller–gene cells (%)")
-        ax.set_title(LABEL[modality])
+        ax.set_title(f"{chr(65 + index)}  {LABEL[modality]}", fontweight="bold")
         ax.grid(axis="x", color="#E5E5E5", linewidth=0.5)
     handles, labels = axes[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=3, frameon=False,
                bbox_to_anchor=(0.5, -0.01))
     fig.subplots_adjust(left=0.13, right=0.98, top=0.90, bottom=0.27, wspace=0.30)
     spec = {
-        "figure_id": "Supplementary Figure S9",
+        "figure_id": "Supplementary Figure S6",
         "caption_key": "stored_to_v350_caller_cell_changes",
         "panels": ["wes", "rnaseq"],
         "axis_limits": {"percentage_lower": 0, "percentage_upper": 100},
@@ -1241,7 +985,7 @@ def supplementary_figure9(
         "aggregate_counts": aggregate_counts,
         "suppression_rule": None,
     }
-    return spec, save(fig, out_dir, "supplementary_figure_s9_rerun_cell_changes")
+    return spec, save(fig, out_dir, "supplementary_figure_s6_rerun_cell_changes")
 
 
 def write_manifest(out_dir: Path, records: list[tuple[dict, dict]],
@@ -1309,25 +1053,13 @@ def main(argv: list[str]) -> int:
         ),
         supplementary_figure5(out_dir),
     ]
-    exploratory = {name: read_tsv(path) for name, path in EXPLORATORY_SOURCES.items()}
-    records += [
-        supplementary_figure6_fimm(
-            exploratory["fimm_cross"], exploratory["fimm_flow"],
-            {"wes": exploratory["fimm_wes_composition"],
-             "bulk_rna": exploratory["fimm_bulk_composition"],
-             "scrna": exploratory["fimm_scrna_composition"]},
-            out_dir),
-        supplementary_figure7_bb72(exploratory["fimm_bb72"], out_dir),
-        supplementary_figure8_venex(exploratory["venex_validation"],
-                                    exploratory["venex_dissent"], out_dir),
-    ]
     rerun_cells = (
         ROOT / "provenance/development_rerun_v350/truth_free_collection/"
         "stored_vs_rerun_cells.tsv"
     )
-    extra_sources = dict(EXPLORATORY_SOURCES)
+    extra_sources: dict[str, Path] = {}
     if rerun_cells.is_file():
-        records.append(supplementary_figure9(read_tsv(rerun_cells), out_dir))
+        records.append(supplementary_figure_rerun_changes(read_tsv(rerun_cells), out_dir))
         extra_sources["stored_vs_rerun_cells"] = rerun_cells
     write_manifest(out_dir, records, extra_sources)
     return 0

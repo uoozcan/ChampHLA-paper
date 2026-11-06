@@ -175,12 +175,19 @@ def test_no_literal_carets_survive(built: Path):
     assert "^" not in _text(built)
 
 
-def test_escaped_asterisks_render_as_allele_names(built: Path):
+def test_escaped_asterisks_render_as_allele_names(built: Path, tmp_path: Path):
     r"""PSR-036: ``HLA-B\*57:01`` used to render as ``HLA-B\57:01``."""
     text = _text(built)
-    assert "HLA-B*57:01" in text and "HLA*LA" in text
+    assert "HLA-B*57:01" in text
     # Shell line continuations in code blocks are a backslash before a space.
     assert not re.search(r"\\(?=[A-Za-z0-9*])", text)
+    # Exercise the tool-name case without requiring an unused tool in the paper.
+    source = _md(tmp_path, "# T\n\n" + r"HLA-B\*57:01 and HLA\*LA." + "\n")
+    out = tmp_path / "escaped.docx"
+    render_combined_docx(source, out)
+    sample_text = _text(out)
+    assert "HLA-B*57:01 and HLA*LA." in sample_text
+    assert not re.search(r"\\(?=[A-Za-z0-9*])", sample_text)
 
 
 def test_tokenize_keeps_escaped_asterisks_literal():
@@ -203,7 +210,10 @@ def test_no_rendered_allele_loses_its_asterisk(built: Path):
 def test_unconfirmed_author_metadata_is_kept_outside_the_reader_copy(built: Path):
     text = _text(built)
     assert "PROVISIONAL" not in text and "TO CONFIRM BEFORE SUBMISSION" not in text
-    checklist = (ROOT / "AUTHOR_FIELDS_TO_COMPLETE.md").read_text(encoding="utf-8")
+    path = ROOT / "AUTHOR_FIELDS_TO_COMPLETE.md"
+    if not path.is_file():  # held back from the public snapshot (publish_snapshot.sh)
+        return
+    checklist = path.read_text(encoding="utf-8")
     assert "PROVISIONAL AUTHOR METADATA" in checklist
     assert "TO CONFIRM BEFORE SUBMISSION" in checklist
 
@@ -243,22 +253,20 @@ def test_inlining_is_optional_and_off_leaves_legends_collected(tmp_path: Path):
     result = render_combined_docx(
         MANUSCRIPT, output, supplementary_path=SUPPLEMENTARY,
         figures_dir=FIGURES, inline_figures=False)
-    assert result["figures_embedded"] == 13
+    assert result["figures_embedded"] == 10
     headings = [p.text.strip().lower() for p in docx.Document(str(output)).paragraphs
                 if p.style.name.startswith("Heading")]
     assert "figure legends" in headings
 
 
-def test_all_thirteen_figures_are_embedded_in_order(built: Path):
+def test_all_ten_figures_are_embedded_in_order(built: Path):
     result = docx.Document(str(built))
     captions = [p.text for p in result.paragraphs if p.style.name == "Caption"]
-    assert len(captions) == 13
+    assert len(captions) == 10
     expected = ["Figure 1.", "Figure 2.", "Figure 3.", "Figure 4.",
                 "Supplementary Figure S1.", "Supplementary Figure S2.",
                 "Supplementary Figure S3.", "Supplementary Figure S4.",
-                "Supplementary Figure S5.", "Supplementary Figure S6.",
-                "Supplementary Figure S7.", "Supplementary Figure S8.",
-                "Supplementary Figure S9."]
+                "Supplementary Figure S5.", "Supplementary Figure S6."]
     for caption, prefix in zip(captions, expected):
         assert caption.startswith(prefix), caption[:60]
 
@@ -278,11 +286,12 @@ def test_every_table_renders(built: Path):
     # plus the three S10 v3.5.0 rerun tables (caller task states, stored-to-rerun
     # cells, truth-free character of the changed cells)
     rerun = (ROOT / "provenance/development_rerun_v350/truth_free_collection").is_dir()
-    # S9 restored (decisions/20261026_fimm_venex_s9_restored.json): the consolidated
-    # table became four (caller counts, cross-modality, BB7.2, VenEx).
-    assert len(tables) == (43 if rerun else 40)
-    # the performance table gains the corrected-reference column on rerun inputs
-    assert sorted(len(table.columns) for table in tables[:2]) == ([5, 8] if rerun else [5, 7])
+    # decisions/20261105_patient_cohorts_removed.json removed the four S9 cohort tables;
+    # decisions/20261106_roihu_descriptions_round5.json added Tables S10.4-S10.6.
+    assert len(tables) == (48 if rerun else 45)
+    # the performance table gains the corrected-reference column on rerun inputs; Table 1
+    # gained the study-run version and settings column (round 5, R1)
+    assert sorted(len(table.columns) for table in tables[:2]) == ([6, 9] if rerun else [6, 8])
     assert max(len(t.columns) for t in tables) == 13
 
 
@@ -305,7 +314,7 @@ def test_the_outline_has_one_title_and_a_supplementary_appendix(built: Path):
     result = docx.Document(str(built))
     titles = [p.text for p in result.paragraphs if p.style.name == "Title"]
     assert len(titles) == 1, "a second Title would split the document outline"
-    assert titles[0].startswith("Benchmarking consensus HLA class I")
+    assert titles[0].startswith("An auditable plurality vote for HLA class I")
     headings = [p.text for p in result.paragraphs if p.style.name == "Heading 1"]
     assert "Appendix: Supplementary material" in headings
     # The supplement's own top heading IS the appendix heading, renamed. A bare

@@ -9,5 +9,5 @@
   "external_validation_complete": false,
   "rna_locked_minimum_met": false,
   "historical_wgs_valid": false,
-  "abstract_numeric_performance_allowed": false
+  "abstract_numeric_performance_allowed": true
 }

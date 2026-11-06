@@ -28,6 +28,5 @@ OUTPUT=manuscripts/benchmark/ChampHLA_manuscript_COMBINED_DRIVE.docx
   --title "ChampHLA manuscript" \
   --note "REVIEW DRAFT - NOT FOR SUBMISSION. Generated ${GENERATED} from ${MANUSCRIPT} and ${SUPPLEMENT}." \
   --note "Author declarations and submission details await confirmation; see AUTHOR_FIELDS_TO_COMPLETE.md." \
-  --note "FIMM governance and secure source-provenance fields remain submission blockers; see COAUTHOR_REVIEW_CHECKLIST.md." \
   --note "Scientific results are retrospective development evidence; no external validation is claimed." \
   --note "Inline provenance citations are stripped from this rendering; they remain in the markdown source."

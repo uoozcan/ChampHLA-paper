@@ -1,8 +1,13 @@
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROMPT = ROOT / "FINAL_PUBLICATION_REVIEW_PROMPT.md"
+pytestmark = pytest.mark.skipif(
+    not PROMPT.is_file(), reason="internal prompts are held back from the public snapshot"
+)
 
 
 def test_final_review_requires_collector_chain_and_fitted_refits():

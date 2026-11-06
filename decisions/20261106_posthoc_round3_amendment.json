@@ -1,0 +1,45 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261106_posthoc_round3_amendment",
+  "date": "2026-11-06",
+  "status": "SIGNED - author approved the round 3 post hoc amendment as drafted in the Claude Code session of 2026-11-06; nothing below had been computed when it was signed",
+  "relates_to": [
+    "decisions/20261105_posthoc_round2_amendment.json",
+    "decisions/20261009_reference_adjudication.json",
+    "reports/manuscript_fatal_fixes_20261105.md"
+  ],
+  "discovery_path": {
+    "what_happened": "The simulated journal-panel review of 3-4 November 2026 (findings JP-019 to JP-040) recomputed statistics and baselines from the development tables, read the code, and proposed the additions and corrections below. Its own numbers are quoted here as the expected values.",
+    "truth_derived_information_seen": "All development results and per-locus scores, and the panel's recomputations, which used the development reference typing. Items B1 to B8 are post hoc. Items A1 to A3 are truth-free corrections found by reading code and figures.",
+    "firewall": "Development subjects only. No extension or NCI-60 data or truth is read. Whether the panel's recomputations count as contamination is the author's judgement."
+  },
+  "procedure": "Each analysis below is fixed as written before any repository script for it exists. Scripts are tested on synthetic data, then run once on the development tables. Values that differ from the expected values are reported as computed, with the difference stated in the change record. Nothing is re-run to move a value, and no definition is changed after the run. The registry then goes to the author gate for a separate approval.",
+  "truth_free_corrections": {
+    "A1_hg00096_rows (JP-033)": "scripts/compare_hg00096_rerun.py reads data/development/normalized_caller_calls.tsv, which now holds the study-run calls, as the stored calls. Point STORED at provenance/development_rerun_v350/historical_inputs_pre_v350/normalized_caller_calls.tsv and regenerate. Expected: the registry rows change to the values the S10 prose already gives (11/15 WES and 11/12 and 12/12 RNA-seq), and the prose does not change.",
+    "A2_s12_truth_free_tables (JP-027, part)": "Regenerate S12.1 (disagreement among caller outputs) and S12.2 (cross-assay agreement) from the study-run calls, and move the archived values to a provenance TSV with a one-paragraph summary of what changed. No expected values: these tables use no reference typing.",
+    "A3_figure_presentation (JP-040)": "Supplementary Figure S2: widen the axis so the vote bar is not clipped. Supplementary Figure S3: make the legend match the minimum stratum size the figure prints. Supplementary Figure S6: add panel letters. Expected: no plotted value changes; only figure hashes change."
+  },
+  "posthoc_analyses": {
+    "B1_remove_noninferiority_and_power (JP-019)": "Remove the post hoc two-point non-inferiority analysis (Methods, Results, Discussion Statistics, S3) and the generated power-projection table (S7), whose normal approximation overstates power against the exact test. The Discussion's statement that the extension comparison will be underpowered is then supported by the exact detectability rule already in S3: a significant result with no losses needs at least 9 discordant WES or 8 RNA-seq subjects, against 2 and 1 observed. The ledger keeps the 24 September row as history. No new number.",
+    "B2_error_dependence_counts (JP-021)": "In the S7 error-dependence table, add for each caller pair: both wrong, the number expected under independence (errors of caller 1 times errors of caller 2 over loci), and both wrong with the same wrong genotype. Print phi as undefined where either caller has no error, and give no median. Remove the medians from the main text. Expected: RNA-seq HLA-HD-OptiType on the fixed denominator is 5 both wrong, 1 and 1 single, 111 both right; 3 of the 6 RNA-seq pairs on the subset where the typings agree have undefined phi.",
+    "B3_naive_baselines (JP-022)": "Leave one subject out. For each held-out subject, assay and gene, the pool is the exact-resolved reference genotypes of all other subjects in that assay and gene. Baseline 1 predicts the pool's most common unordered genotype. Baseline 2 predicts the pool's two most common alleles, counted over both alleles of each genotype. Ties go to the alphabetically first. Score on the exact endpoint, the set-valued endpoint and the excluded loci. Report in S1 as post hoc descriptive rows, not as comparators. Expected, from the panel: baseline 1 exact 8/153 and 11/118; baseline 2 exact 3/153 and 3/118; set-valued 12/335 and 14/263; excluded loci 4/182 and 3/145. The panel's tie and pool rules were not recorded, so small differences are possible.",
+    "B4_duplicate_rows_and_g_over_p (JP-023)": "(a) Recompute set-valued compatibility with each locus's candidate set as the intersection, not the union, of its reference rows; a locus whose intersection is empty is excluded. Report vote and caller counts beside the union results in S1. Expected: vote 320/335 WES and 256/263 RNA-seq, one locus fewer in each; on RNA-seq excluded loci the vote ties OptiType. (b) For T1K and arcasHLA, count loci that are G-compatible but not P-compatible and how many involve a null-allele designation. Expected: all of them. Add one S1 sentence.",
+    "B5_relatedness (JP-024)": "Fetch the public IGSR 1000 Genomes pedigree file, recording its URL and SHA-256 (asks the author before downloading). Truth-free: count first-, second- and third-degree relative pairs among retained subjects. Post hoc: repeat the sign-flip comparisons clustering by family identifier, with subjects without one as their own cluster. Expected: no relative pairs; clusters 63 to 46 WES and 51 to 40 RNA-seq; no verdict changes. Main text gets one Methods sentence.",
+    "B6_s12_per_gene_on_study_run (JP-027, part)": "Regenerate S12.3 (per-gene caller concordance) and S12.4 from the study-run calls, with archived values moved to the provenance TSV of A2. Expected: arcasHLA 17/38, 27/40 and 14/40 at HLA-A, -B and -C (summing to the registered 58/118); HLA-HD leads at HLA-B.",
+    "B7_archived_polysolver (JP-029)": "Add a registry row for POLYSOLVER's exact-endpoint WES score on the archived outputs, so the main text can say that POLYSOLVER led WES in archived outputs and scored 138/153 in the study run. Expected: 143/153, the highest archived single-caller WES score. The panel's counterfactual vote with POLYSOLVER's archived calls restored (144/153) is not added, because it selects calls after seeing results.",
+    "B8_allele_level_vote_and_abstention (JP-036)": "(a) Allele-level vote: each callable caller contributes two allele copies, a homozygote two of one allele. With n callable callers and c(a) the copies of allele a, a1 is the allele with most copies; the call is a1 homozygous if c(a1) minus n is at least the largest c(b) for b other than a1, and otherwise a1 with the next allele. Ties go to the alphabetically first. Report as a labelled post hoc row, not a candidate primary. Expected, from the panel, whose rule was not recorded: WES 142/153, RNA-seq 113/118. (b) Abstention trade-off: for every support threshold from 1 to the panel size, the loci called and correct when the vote abstains below that support. Expected: WES at 4, 141 called and 134 correct; at 5, 104 and 103; RNA-seq at 3, 110 and 106; at 4, 53 and 51. Report every threshold, as a callability trade-off."
+  },
+  "not_included": {
+    "exact_intervals_in_table_2 (JP-019)": "Clopper-Pearson intervals ignore subject clustering; the subject-cluster bootstrap stays. Can be added if the author wants both.",
+    "score_intervals_for_paired_contrasts (JP-019)": "Replacing CR1 intervals with score intervals changes Figure 3 and the inference method. The Methods caveat on few discordant subjects stays. This is the author's choice.",
+    "mean_caller_and_fixed_optitype_rows (JP-022, JP-014)": "They belong to the JP-014 framing decision, which is the author's.",
+    "abstract_wording (JP-023, JP-032)": "The abstract is signed; any change is a separate author decision.",
+    "roihu_items (JP-025, JP-029)": "Read length, depth and the read-class check of the rescue need the cluster."
+  },
+  "boundary": "The primary endpoint, panels, rule, thresholds and fitted policies are unchanged. Nothing here is a candidate primary or selects a method.",
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-06, explicit author statement: 'Sign as drafted'",
+    "mechanism": "Claude Code session"
+  }
+}

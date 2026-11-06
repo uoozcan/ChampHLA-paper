@@ -1,0 +1,60 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261105_rerun_registry_delta_approved_post_fixes",
+  "date": "2026-11-05",
+  "status": "SIGNED - author approved the post-fix registry delta in the Claude Code session of 2026-11-05",
+  "supersedes": [
+    "decisions/20261025_rerun_registry_delta_approved_corrected.json"
+  ],
+  "relates_to": [
+    "decisions/20261105_reference_presentation_amendment.json",
+    "decisions/20261025_rerun_native_homozygote_collection.json",
+    "reports/manuscript_fatal_fixes_20261105.md"
+  ],
+  "decision": {
+    "approval": "Approves result_registry.tsv with two additions to the approved registry 6fd741d6e4427ef84268cd6b114df098ac982370262ba448e0bd185ca0be9f2a: 27 post hoc DEV_REFERENCE_SUBSTITUTION rows, and the protocol-change ledger row updated for a twelfth change (the 25 October collector fix) and the wording 'Record and run'. No other registry row changed.",
+    "approved_registry_sha256": "00ce7f014925a004519f1f2c490992cb9ecf7fe4c5c25078a79233f5fbf4df2a",
+    "approved_delta_summary": {
+      "old_rows": 631,
+      "new_rows": 657,
+      "status_counts": {
+        "unchanged": 209,
+        "changed": 421,
+        "added": 27,
+        "removed": 1
+      }
+    },
+    "approved_reasons": [
+      "fitted-policy conclusion changed",
+      "fitted-policy ranking changed",
+      "headline direction changed: DEV_PAIRED_RNASEQ_METACONSENSUS",
+      "headline direction changed: DEV_PAIRED_WES_BESTSINGLETOOL_NESTEDCV",
+      "headline direction changed: DEV_PAIRED_WES_CALLER_POLYSOLVER",
+      "headline direction changed: DEV_PAIRED_WES_METACONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_BESTSINGLETOOL_NESTEDCV",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (adjusted_p): DEV_AMBIGUITY_PAIRED_WES_CALLER_POLYSOLVER",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_CALLER_ARCASHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_FAMILYGATEDCC",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLESTRICTMAJORITY",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_RNASEQ_SIMPLETWOTHIRDSCONSENSUS",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_CALLER_SPECHLA",
+      "significance interpretation changed (sensitivity_adjusted_p): DEV_SINGLETON_ABSTAIN_PAIRED_WES_SIMPLETWOTHIRDSCONSENSUS",
+      "strongest-caller identity changed"
+    ]
+  },
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "signed": "2026-11-05, explicit author statement: 'I approve both'",
+    "mechanism": "Claude Code session"
+  }
+}

@@ -1,0 +1,12 @@
+modality	left_out	loci	plurality_correct	strict_majority_callable	strict_majority_correct	analysis_status
+rnaseq	none	118	113	110	106	post_hoc_after_results
+rnaseq	ArcasHLA	118	113	118	113	post_hoc_after_results
+rnaseq	HLA-HD	118	110	111	107	post_hoc_after_results
+rnaseq	OptiType	118	110	110	106	post_hoc_after_results
+rnaseq	T1K	118	113	117	112	post_hoc_after_results
+wes	none	153	143	150	141	post_hoc_after_results
+wes	HLA-HD	153	141	147	138	post_hoc_after_results
+wes	OptiType	153	140	145	136	post_hoc_after_results
+wes	POLYSOLVER	153	143	146	138	post_hoc_after_results
+wes	SpecHLA	153	143	147	139	post_hoc_after_results
+wes	T1K	153	140	147	139	post_hoc_after_results

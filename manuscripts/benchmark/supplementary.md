@@ -1,12 +1,12 @@
 # Supplementary material
 
-Supporting methods and complete development results for *Benchmarking consensus HLA class I genotyping from exome and RNA sequencing with ChampHLA*. Tables report results from the accompanying versioned data files.
+Supporting methods and complete development results for *An auditable plurality vote for HLA class I genotyping from exome and RNA sequencing: a development benchmark*. Tables report results from the accompanying versioned data files.
 Numerical citations continue the reference numbering of the main manuscript.
 
 ## S1. Cohort and reference-source audit
 
-The documented v3.5.0 rerun roster had 390 WES loci from 130 subjects and 318
-RNA-seq loci from 106 subjects. The roster excludes NA07000 RNA-seq because the historical input was absent from the official assay manifest and failed cross-assay identity checks (Methods; decisions/20261008_identity_check_na07000.json). Every rerun input is in the manifest. `artifacts/development_characterisation/identity_check.tsv` contains identity evidence for every rerun subject. `provenance/development_rerun_v350/historical_artifacts/` retains the withheld input's historical evidence. The public reference-genotype parser retained a locus only when all
+The study roster had 390 WES loci from 130 subjects and 318
+RNA-seq loci from 106 subjects. The roster excludes NA07000 RNA-seq because the archived input was absent from the official assay manifest and failed cross-assay identity checks (Methods; decisions/20261008_identity_check_na07000.json). Every run input is in the manifest. `artifacts/development_characterisation/identity_check.tsv` contains identity evidence for every run subject. `provenance/development_rerun_v350/historical_artifacts/` retains the withheld input's archived evidence. The public reference-genotype parser retained a locus only when all
 reported ambiguity alternatives collapsed to one unordered two-field genotype.
 Excluding loci with any ambiguous, invalid or conflicting reference record retained 153 WES loci from 63 subjects and 118 RNA-seq loci from 51 subjects. The filtered sets shared 50 subjects. The set-valued secondary endpoint retained
 335 WES and 263 RNA-seq loci with at least one parseable candidate genotype.
@@ -190,10 +190,36 @@ Two-field compatibility counts a call when it equals any allowed unordered
 candidate genotype. The P- and G-group sensitivities map each two-field designation to all compatible official IPD-IMGT/HLA 3.65.0 groups of that kind. They test a bijective set intersection across the two alleles. They are
 compatibility analyses under a two-field mapping, not exact P- or G-group calls.
 Two reference loci per assay could not be mapped for either endpoint; these exclusions remain explicit. Every method is reported for all three set-valued endpoints.
+For T1K and arcasHLA the G-group score exceeds the P-group score because a null allele belongs to a G group but to no P group. Every locus that is G- but not P-compatible carries a null (N) call: 9 T1K and 7 arcasHLA RNA-seq loci and 3 T1K WES loci (post hoc; `decisions/20261106_posthoc_round3_amendment.json`).
+[RESULT:DEV_G_OVER_P_GAP_RNASEQ_T1K]
+[RESULT:DEV_G_OVER_P_GAP_RNASEQ_ARCASHLA]
+[RESULT:DEV_G_OVER_P_GAP_WES_T1K]
+
+Where a subject–gene pair has more than one reference row, the set-valued endpoints take the union of their candidates. Post hoc, intersecting the rows instead removed no locus and lowered the vote by one locus in each assay, to 320/335 WES and 256/263 RNA-seq; on RNA-seq excluded loci the vote then ties OptiType at 143/145.
+[RESULT:DEV_INTERSECTION_WES_SET_VALUED_SIMPLEPLURALITYLEX]
+[RESULT:DEV_INTERSECTION_RNASEQ_SET_VALUED_SIMPLEPLURALITYLEX]
+[RESULT:DEV_INTERSECTION_RNASEQ_EXCLUDED_SIMPLEPLURALITYLEX]
+[RESULT:DEV_INTERSECTION_RNASEQ_EXCLUDED_CALLER_OPTITYPE]
+
+<!-- BEGIN GENERATED INTERSECTION TABLE -->
+| Assay | Method | Set-valued, union | Set-valued, intersection | Excluded loci, union | Excluded loci, intersection |
+|---|---|---:|---:|---:|---:|
+| WES | ChampHLA-Consensus | 321/335 | 320/335 | 178/182 | 177/182 |
+| WES | HLA-HD | 282/335 | 281/335 | 151/182 | 150/182 |
+| WES | OptiType | 318/335 | 318/335 | 176/182 | 176/182 |
+| WES | POLYSOLVER | 306/335 | 306/335 | 168/182 | 168/182 |
+| WES | SpecHLA | 291/335 | 290/335 | 157/182 | 156/182 |
+| WES | T1K | 285/335 | 284/335 | 160/182 | 159/182 |
+| RNA-seq | ChampHLA-Consensus | 257/263 | 256/263 | 144/145 | 143/145 |
+| RNA-seq | arcasHLA | 114/263 | 113/263 | 56/145 | 55/145 |
+| RNA-seq | HLA-HD | 254/263 | 253/263 | 142/145 | 141/145 |
+| RNA-seq | OptiType | 255/263 | 255/263 | 143/145 | 143/145 |
+| RNA-seq | T1K | 230/263 | 229/263 | 129/145 | 128/145 |
+<!-- END GENERATED INTERSECTION TABLE -->
 
 Subject-level paired inference for the set-valued two-field endpoint used the
 same fixed locus denominator as the compatibility estimates. Positive
-differences favour ChampHLA-Consensus. We enumerated two-sided sign assignments exactly through 25 nonzero subjects, otherwise sampling 1,000,000 plus-one-corrected assignments. We applied Holm adjustment within each assay and predeclared descriptive or fitted comparator family.
+differences favour ChampHLA-Consensus. We enumerated two-sided sign assignments exactly through 25 nonzero subjects, otherwise sampling 1,000,000 plus-one-corrected assignments. We applied Holm adjustment within each assay and within each descriptive or fitted comparator family, fixed on 28 September 2026 after results.
 
 <!-- BEGIN GENERATED AMBIGUITY PAIRED TABLE -->
 | Assay | Comparator | Family | ChampHLA compatible | Comparator compatible | Difference, points | Wins/losses | Raw sign-flip p | Holm p | Test |
@@ -272,6 +298,21 @@ loci is lenient, because any allowed candidate counts.
 | RNA-seq | excluded (ambiguous) | 145 | 59 | 14 (9.7) | 49 (33.8) | 8.0 |
 <!-- END GENERATED TRUTH SELECTION PROFILE TABLE -->
 
+Two post hoc baselines that use no reads show how lenient each endpoint is. For each held-out subject, assay and gene, they predict the most common exact-resolved genotype, or the two most common alleles, among the other subjects; ties go to the alphabetically first. The most common genotype was compatible with 4/182 WES and 3/145 RNA-seq excluded candidate sets, so the set-valued endpoint is not trivially lenient (`decisions/20261106_posthoc_round3_amendment.json`).
+[RESULT:DEV_NAIVE_WES_MOST_COMMON_GENOTYPE_EXACT]
+[RESULT:DEV_NAIVE_RNASEQ_MOST_COMMON_GENOTYPE_EXACT]
+[RESULT:DEV_NAIVE_WES_MOST_COMMON_GENOTYPE_EXCLUDED]
+[RESULT:DEV_NAIVE_RNASEQ_MOST_COMMON_GENOTYPE_EXCLUDED]
+
+<!-- BEGIN GENERATED NAIVE BASELINES TABLE -->
+| Assay | Baseline | Exact endpoint | Set-valued | Excluded loci |
+|---|---|---:|---:|---:|
+| WES | Most common genotype | 8/153 | 12/335 | 4/182 |
+| WES | Two most common alleles | 3/153 | 13/335 | 10/182 |
+| RNA-seq | Most common genotype | 11/118 | 14/263 | 3/145 |
+| RNA-seq | Two most common alleles | 3/118 | 16/263 | 13/145 |
+<!-- END GENERATED NAIVE BASELINES TABLE -->
+
 ## S2. Complete method performance
 
 Scope is one of `primary`, `descriptive_comparator`, or `exploratory_fitted`.
@@ -310,7 +351,7 @@ concordance use the same fixed truth denominator. Intervals are 95% subject-clus
 | WES | Two-thirds-guarded champion–challenger | exploratory fitted | 153/153 (97.6–100.0) | 141/153 | 92.2 (88.3–95.9) | 92.2 (88.3–95.9) | 294/306 | 96.1 (94.1–97.9) |
 <!-- END GENERATED PERFORMANCE TABLE -->
 
-**Singleton sensitivity.** The table repeats the analysis with every single-allele output abstaining, including HLA-HD, arcasHLA and v3.5.0 rerun T1K homozygous declarations completed in primary scoring (decisions/20261008_singleton_native_homozygosity.json). It
+**Singleton sensitivity.** The table repeats the analysis with every single-allele output abstaining, including the HLA-HD, arcasHLA and T1K homozygous declarations completed in primary scoring (decisions/20261008_singleton_native_homozygosity.json). It
 reproduces the scoring rule used before that decision.
 
 <!-- BEGIN GENERATED SINGLETON SENSITIVITY TABLE -->
@@ -350,14 +391,15 @@ reproduces the scoring rule used before that decision.
 Every delta is `ChampHLA-Consensus − comparator`. Missing or non-callable
 comparator predictions score incorrect. The two-sided subject sign-flip test of the locus-weighted difference governs significance, with Holm correction. It is exact through 20 nonzero subject aggregates and Monte Carlo above that. The "Significant" column marks Holm-adjusted *p*<0.05 (decisions/20261009_signflip_governs.json). Intervals and cluster-*t* *p* values are descriptive. They use a CR1 (finite-cluster-corrected cluster-robust) subject-clustered standard error, a Student *t* distribution and `G−1` degrees of freedom; this is anti-conservative with few discordant subjects. Bonferroni-adjusted intervals and cluster-*t* Holm *p* values use the same active family. Descriptive comparators and exploratory
 fitted policies form separate families; zero-discordance rows are displayed but
-excluded from multiplicity. A descriptive interval can exclude zero while the governing sign-flip test is not significant. In the v3.5.0 rerun, this occurs for RNA-seq strict-majority and two-thirds consensus; neither comparison is called significant.
-The two-percentage-point non-inferiority analysis is post hoc, not confirmatory.
-The sign-flip seed for each row is a deterministic SHA-256 derivation from base
+excluded from multiplicity. A descriptive interval can exclude zero while the governing sign-flip test is not significant. In the study runs, this occurs for RNA-seq strict-majority and two-thirds consensus; neither comparison is called significant.The sign-flip seed for each row is a deterministic SHA-256 derivation from base
 seed 20260831 and is recorded with the assignment count in the source TSV.
 Exact rows enumerate all 2^d assignments for d nonzero subject aggregates;
 rows with d>20 use 1,000,000 assignments and the plus-one correction.
-Some comparators return identical genotypes. Each still counts in its prespecified testing family, because we fixed the families before checking for duplicates. In WES, the vote-support-restricted and logistic meta-consensus policies return the plurality genotype at every locus, and the three champion–challenger variants return identical genotypes. The refitted best-caller policy selected OptiType in every WES fold. In RNA-seq, strict majority and two-thirds consensus return identical genotypes for a four-caller panel. Removing the duplicates would only lower
-m and changes no significance verdict here.
+Post hoc, we checked relatedness with the public IGSR pedigree file. All retained subjects appear in it, and none are first-, second- or third-degree relatives. Re-running every multiplicity-included comparison with clusters formed by pedigree family identifier (46 WES and 40 RNA-seq clusters, against 63 and 51 subjects), with the same seeds and Holm families, changed none of the 20 verdicts (`artifacts/development_characterisation/family_clustered_signflip_posthoc.tsv`; `decisions/20261106_posthoc_round3_amendment.json`).
+[RESULT:DEV_FAMILY_CLUSTERED_WES_VERDICTS_CHANGED]
+[RESULT:DEV_FAMILY_CLUSTERED_RNASEQ_VERDICTS_CHANGED]
+
+Some comparators return identical genotypes. Each still counts in its prespecified testing family, because we fixed the families before checking for duplicates. In WES, the vote-support-restricted policy returns the plurality genotype at every locus, logistic meta-consensus differs from it at three exact loci, and the three champion–challenger variants return identical genotypes. The refitted best-caller policy selected OptiType in every WES fold. In RNA-seq, strict majority and two-thirds consensus return identical genotypes for a four-caller panel. Removing the duplicate RNA-seq threshold row would lower RNA-seq strict majority to Holm *p*=0.047 (our calculation), which would change that verdict.
 
 <!-- BEGIN GENERATED COMPARISON TABLE -->
 | Assay | Comparator | Comparator correct | Delta, points | Family | m | Pointwise cluster-t 95% CI | Bonferroni-adjusted cluster-t 95% CI | Wins/losses | Sign-flip raw p | Sign-flip Holm p | Significant | Cluster-t Holm p |
@@ -424,7 +466,7 @@ nonzero subject favours one method. Rows with more than 20
 nonzero subject aggregates were tested with 1,000,000 Monte Carlo assignments,
 whose attainable floor is about 1.0×10⁻⁶ before multiplicity adjustment.
 
-The families were fixed on 28 September 2026 after development results had been seen (Supplementary S14). The table compares sign-flip verdicts under the primary families (within assay, descriptive and fitted separately), one family per assay and one family pooling both assays. The same four comparisons are significant under every definition. Only WES two-thirds consensus would additionally be significant without any correction.
+The families were fixed on 28 September 2026 after development results had been seen (Supplementary S14). The table compares sign-flip verdicts under the primary families (within assay, descriptive and fitted separately), one family per assay and one family pooling both assays. The same four comparisons are significant under every definition. Four rows would additionally be significant without correction: WES SpecHLA and two-thirds consensus, and RNA-seq strict majority and two-thirds consensus.
 
 <!-- BEGIN GENERATED FAMILY SENSITIVITY TABLE -->
 | Assay | Comparator | Family | Raw sign-flip p | Holm: assay and family (primary) | Holm: assay | Holm: both assays pooled | p<0.05 under |
@@ -515,7 +557,7 @@ The support profiles below and error-correlation tables in S7 summarize caller d
 | RNA-seq | T1K | 118 | 118 | 118 | 0 | 0 | 0 | 0 |
 <!-- END GENERATED MISSINGNESS TABLE -->
 
-In the v3.5.0 rerun no panel caller row is absent. The historical table lacked HLA-HD, OptiType and T1K rows at NA19130's HLA-A, -B and -C loci. Its plurality at those loci was an arcasHLA-only 1/1 vote. Historical task reports, traces and raw outputs were not preserved. Stored artifacts cannot distinguish tasks that ran without retained output, failed or were never submitted. The rerun records task states explicitly (Supplementary Table S10.1), so the mutually available comparison below equals the fixed-denominator comparison.
+In the study runs no panel caller row is absent. The archived table lacked HLA-HD, OptiType and T1K rows at NA19130's HLA-A, -B and -C loci. Its plurality at those loci was an arcasHLA-only 1/1 vote. Archived task reports, traces and raw outputs were not preserved. Stored artifacts cannot distinguish tasks that ran without retained output, failed or were never submitted. The run records task states explicitly (Supplementary Table S10.1), so the mutually available comparison below equals the fixed-denominator comparison.
 
 <!-- BEGIN GENERATED MUTUALLY AVAILABLE TABLE -->
 | Assay | Caller | Plurality, fixed | Caller, fixed | Plurality, mutually available | Caller, mutually available | Plurality wins/losses, mutually available | Absent stored rows |
@@ -549,6 +591,30 @@ These are descriptive concordance strata, not calibrated probabilities.
 | WES | 5/5 | 0 | 103/104 | 99.0 (94.8–100.0) |
 <!-- END GENERATED SUPPORT TABLE -->
 
+Abstaining below a minimum support trades callability for precision. The table gives every threshold (post hoc; `decisions/20261106_posthoc_round3_amendment.json`); it describes a trade-off and is not a candidate rule.
+[RESULT:DEV_ABSTENTION_WES_SUPPORT_4]
+[RESULT:DEV_ABSTENTION_WES_SUPPORT_5]
+[RESULT:DEV_ABSTENTION_RNASEQ_SUPPORT_3]
+[RESULT:DEV_ABSTENTION_RNASEQ_SUPPORT_4]
+
+<!-- BEGIN GENERATED ABSTENTION TABLE -->
+| Assay | Minimum support | Called | Correct | Correct among called |
+|---|---:|---:|---:|---:|
+| WES | 1 | 153/153 | 143 | 143/153 |
+| WES | 2 | 153/153 | 143 | 143/153 |
+| WES | 3 | 150/153 | 141 | 141/150 |
+| WES | 4 | 141/153 | 134 | 134/141 |
+| WES | 5 | 104/153 | 103 | 103/104 |
+| RNA-seq | 1 | 118/118 | 113 | 113/118 |
+| RNA-seq | 2 | 118/118 | 113 | 113/118 |
+| RNA-seq | 3 | 110/118 | 106 | 106/110 |
+| RNA-seq | 4 | 53/118 | 51 | 51/53 |
+<!-- END GENERATED ABSTENTION TABLE -->
+
+An allele-level vote, defined post hoc in the same record (each callable caller contributes two allele copies; a homozygote is called only when the leading allele's surplus over one copy per caller is at least the next allele's count), scored 143/153 WES and 113/118 RNA-seq and gave the genotype vote's call at every exact-endpoint locus. It is a labelled post hoc row, not a candidate primary.
+[RESULT:DEV_ALLELE_LEVEL_VOTE_WES]
+[RESULT:DEV_ALLELE_LEVEL_VOTE_RNASEQ]
+
 No locus was tied in either assay, so lexicographic tie-breaking did not affect either result.  A
 production implementation should route ties to review or validate a prespecified
 biologically informed rule on independent data.
@@ -564,20 +630,20 @@ biologically informed rule on independent data.
 | SpecHLA | WES | alignment/local assembly | 3.38.0 + 3.51.0 | heterogeneous bundled components | unavailable |
 | T1K | WES, RNA-seq | alignment/expectation maximization | 3.63.0 | deployment declaration plus content audit | unavailable |
 
-HLA\*LA and HISAT-genotype were not run. Historical off-panel outputs exist for Kourami on WES, seq2HLA on RNA-seq, arcasHLA on WES and SpecHLA on RNA-seq (`src/champhla_confirmation/panels.py`). Kourami and seq2HLA outputs are incomplete. They are not part of the released normalized table and are excluded
+Archived outputs outside the evaluated caller–assay panels exist for Kourami on WES, seq2HLA on RNA-seq, arcasHLA on WES and SpecHLA on RNA-seq (`src/champhla_confirmation/panels.py`). Kourami and seq2HLA outputs are incomplete. They are not part of the released normalized table and are excluded
 from benchmark comparisons. seq2HLA was also run in the current single-sample
 test workflow (S10), under different conditions from the development run. No
 comparative claim about any of these callers is made here.
 
-The historical stored calls carried IPD-IMGT/HLA 3.59.0 metadata, but their
+The archived calls carried IPD-IMGT/HLA 3.59.0 metadata, but their
 normalization was syntactic two-field reduction and did not verify release
 membership. In WES,
-the historical exact-concordance ordering—POLYSOLVER, OptiType, HLA-HD,
+the archived exact-concordance ordering—POLYSOLVER, OptiType, HLA-HD,
 SpecHLA and T1K—also orders the audited bundled database releases from oldest
 (3.11.0) to newest (3.63.0). This descriptive ordering is not evidence that an
 older database improves accuracy.
 
-Neither normalization maps renamed or deleted alleles. The rerun collector records each allele's IPD-IMGT/HLA 3.65.0 membership and compares its reported first two fields. Results are syntax-normalized rather than database-harmonized. The historical caller run only partly records what reads each caller received. At the workflow revision of 7 April 2026, POLYSOLVER and SpecHLA received whole input alignments. FASTQ-based callers received HLA-region reads only if region extraction was enabled; the run did not record that setting. In the release 3.5.0 rerun, WES reads on HLA-allele and alternate contigs are realigned to primary chromosome 6 before every DNA caller. Each sample records inputs, container digests and workflow files (S10).
+Apart from the one SpecHLA cell noted in Methods, neither normalization maps renamed or deleted alleles. The collector records each allele's IPD-IMGT/HLA 3.65.0 membership and compares its reported first two fields. Results are syntax-normalized rather than database-harmonized. The archived caller run only partly records what reads each caller received. At the workflow revision of 7 April 2026, POLYSOLVER and SpecHLA received whole input alignments. FASTQ-based callers received HLA-region reads only if region extraction was enabled; the run did not record that setting. In the study run, WES reads on HLA-allele and alternate contigs are realigned to primary chromosome 6 before every DNA caller. Each sample records inputs, container digests and workflow files (S10).
 
 We checked membership using checksum-verified allele lists from the current deployment, restricted to intended-use assay panels. Every exact
 reference genotype and allele copy was present in every applicable list.
@@ -653,14 +719,14 @@ outputs, not an implementable method.
 <!-- END GENERATED HEADROOM TABLE -->
 
 **Second-typing adjudication.** The second typing is the in silico retyping of
-the same exomes by Abi-Rached *et al.* [37], specified by SHA-256
+the same exomes by Abi-Rached *et al.* [31], specified by SHA-256
 (decisions/20261009_reference_adjudication.json). The specified rule treats any
 value that is not two or more colon-separated numeric fields as unavailable.
 Some values carry a trailing asterisk. The README distributed with the file
 does not explain it, but the source article does: an asterisk marks a typing
 that disagreed with the previously published type and that the authors kept
 after verification (legend and footnote of their S1 Table; their S3 Fig lists
-each case with the published type it replaced and how it was confirmed) [37].
+each case with the published type it replaced and how it was confirmed) [31].
 Under the specified rule, asterisked values are unavailable. The second typing is therefore available only where its source retained no disagreement with the earlier published type. Agreement with the reference at available loci follows from that rule. The corrected-value column strips the asterisk. We added it after seeing the earlier results (decisions/20261009_reference_adjudication_posthoc.json); decisions/20261012_second_typing_asterisk_documented.json records the asterisk's documented meaning. The G column is
 the lenient compatibility result obtained by mapping each two-field allele to
 every compatible official IPD-IMGT/HLA 3.65.0 G group; it is not exact
@@ -723,6 +789,83 @@ any method.
 | RNA-seq | arcasHLA | 58/118 | 58/112 |
 <!-- END GENERATED REFERENCE AGREEMENT TABLE -->
 
+We added the next table on 5 November 2026, after all results were known, when an internal pre-submission review computed it from these development tables (`decisions/20261105_reference_presentation_amendment.json`). It scores every method on all exact loci, with the corrected value substituted at each asterisk-flagged locus (10 WES, 6 RNA-seq) and the 2014 type kept elsewhere. The corrected values derive from the same exome data, and T1K and SpecHLA were evaluated against them in their original publications, so this table is not independent and does not rank methods. In WES the vote scored 153/153. In RNA-seq HLA-HD scored 118/118 and the vote 117/118; the vote's one miss is the asterisked HLA-C locus where it matches the 2014 type.
+[RESULT:DEV_REFERENCE_SUBSTITUTION_WES_SIMPLEPLURALITYLEX]
+[RESULT:DEV_REFERENCE_SUBSTITUTION_RNASEQ_SIMPLEPLURALITYLEX]
+[RESULT:DEV_REFERENCE_SUBSTITUTION_RNASEQ_CALLER_HLA_HD]
+
+<!-- BEGIN GENERATED REFERENCE SUBSTITUTION TABLE -->
+| Assay | Method | All exact loci, correct | Corrected values substituted at flagged loci, correct |
+|---|---|---:|---:|
+| WES | ChampHLA-Consensus | 143/153 | 153/153 |
+| WES | Algorithm-family-restricted champion–challenger | 141/153 | 151/153 |
+| WES | Best single caller (nested CV) | 142/153 | 150/153 |
+| WES | Champion–challenger | 141/153 | 151/153 |
+| WES | Logistic meta-consensus | 140/153 | 150/153 |
+| WES | Strict majority | 141/153 | 150/153 |
+| WES | Two-thirds consensus | 136/153 | 144/153 |
+| WES | Two-thirds-guarded champion–challenger | 141/153 | 151/153 |
+| WES | Vote-support-restricted champion–challenger | 143/153 | 153/153 |
+| WES | HLA-HD | 131/153 | 138/153 |
+| WES | OptiType | 142/153 | 150/153 |
+| WES | POLYSOLVER | 138/153 | 145/153 |
+| WES | SpecHLA | 134/153 | 136/153 |
+| WES | T1K | 125/153 | 132/153 |
+| RNA-seq | ChampHLA-Consensus | 113/118 | 117/118 |
+| RNA-seq | Algorithm-family-restricted champion–challenger | 109/118 | 112/118 |
+| RNA-seq | Best single caller (nested CV) | 111/118 | 117/118 |
+| RNA-seq | Champion–challenger | 113/118 | 117/118 |
+| RNA-seq | Logistic meta-consensus | 113/118 | 117/118 |
+| RNA-seq | Strict majority | 106/118 | 110/118 |
+| RNA-seq | Two-thirds consensus | 106/118 | 110/118 |
+| RNA-seq | Two-thirds-guarded champion–challenger | 113/118 | 117/118 |
+| RNA-seq | Vote-support-restricted champion–challenger | 113/118 | 117/118 |
+| RNA-seq | HLA-HD | 112/118 | 118/118 |
+| RNA-seq | OptiType | 112/118 | 116/118 |
+| RNA-seq | T1K | 101/118 | 104/118 |
+| RNA-seq | arcasHLA | 58/118 | 60/118 |
+<!-- END GENERATED REFERENCE SUBSTITUTION TABLE -->
+
+The next table sets published typings beside the 10 distinct loci of the 15 vote errors. We assembled it on 5 November 2026, after all results were known (`decisions/20261105_posthoc_round2_amendment.json`), and checked only loci already flagged, so it cannot show that loci without a flag are correct. Erlich *et al.* [45] typed class I exons 2 and 3 by 454 sequencing, and Buchkovich *et al.* [33] retyped discordant samples with TruSight HLA. That study gives the vote's type at nine of the ten. At the tenth, C\*07:01 and C\*07:18 are identical in exons 2 and 3, so neither that assay nor the 2014 typing can separate them. TruSight gives the vote's type at all five loci that are vote errors in RNA-seq. The 2014 type and the vote differ in P group at five of the ten. The source of the second typing has no per-sample list of its targeted confirmations: one locus was certainly targeted, three rest on read inspection alone and six cannot be determined. The HPRC entries come from published assembly annotations. The HGSVC3 entry is our own provisional check at one diagnostic site, not a published typing.
+[RESULT:DEV_FLAGGED_LOCI_ERLICH_GIVES_VOTE]
+[RESULT:DEV_FLAGGED_LOCI_TRUSIGHT_GIVES_VOTE]
+[RESULT:DEV_FLAGGED_LOCI_P_GROUP_DIFFERS]
+
+<!-- BEGIN GENERATED FLAGGED LOCI EVIDENCE TABLE -->
+| Subject | Gene | Population | 2014 type | ChampHLA-Consensus | Vote error in | Same P group | Erlich 2011 (454, exons 2-3) | TruSight (Buchkovich 2017) | Assembly | Abi-Rached confirmation |
+|---|---|---|---|---|---|---|---|---|---|---|
+| NA10847 | HLA-C | CEU | C*07:02+C*12:03 | C*07:01+C*12:03 | WES and RNA-seq | no | vote | vote | none | targeted NGS and manual review |
+| NA11840 | HLA-B | CEU | B*27:03+B*57:01 | B*27:05+B*57:01 | WES and RNA-seq | no | vote | vote | none | read inspection only |
+| NA18504 | HLA-C | YRI | C*02:02+C*12:03 | C*02:10+C*12:03 | WES | yes | vote | no row | none | undetermined |
+| NA18505 | HLA-C | YRI | C*02:02+C*07:01 | C*02:10+C*07:01 | WES and RNA-seq | yes | vote | vote | HPRC: vote | undetermined |
+| NA18507 | HLA-C | YRI | C*02:02+C*17:01 | C*02:10+C*17:01 | WES | yes | vote | no row | none | undetermined |
+| NA18522 | HLA-C | YRI | C*02:02+C*07:01 | C*02:10+C*07:01 | WES | yes | vote | no row | HPRC: vote | undetermined |
+| NA18537 | HLA-A | CHB | A*02:01+A*11:01 | A*02:07+A*11:01 | WES | no | vote | no row | none | undetermined |
+| NA19116 | HLA-B | YRI | B*07:02+B*39:03 | B*07:02+B*39:24 | WES and RNA-seq | no | vote | vote | none | read inspection only |
+| NA19129 | HLA-C | YRI | C*07:01+C*07:02 | C*07:02+C*07:18 | WES | yes | reference; cannot separate at exons 2-3 | no row | HGSVC3: vote, provisional | undetermined |
+| NA19131 | HLA-A | YRI | A*66:02+A*68:02 | A*66:03+A*68:02 | WES and RNA-seq | no | vote | vote | none | read inspection only |
+<!-- END GENERATED FLAGGED LOCI EVIDENCE TABLE -->
+
+The next table repeats the plurality and strict-majority votes with each panel caller left out in turn. We added it on 5 November 2026, after all results were known. It describes how much each row depends on one caller, changes no panel and selects nothing. Without arcasHLA, an RNA-seq strict majority called all 118 loci and scored 113/118, against 106/118 with 110 called on the full panel. Without any one caller, the plurality scored 140–143/153 in WES and 110–113/118 in RNA-seq.
+[RESULT:DEV_LEAVE_ONE_OUT_RNASEQ_ARCASHLA_STRICT]
+[RESULT:DEV_LEAVE_ONE_OUT_RNASEQ_NONE_STRICT]
+
+<!-- BEGIN GENERATED LEAVE ONE CALLER OUT TABLE -->
+| Assay | Caller left out | Plurality correct | Strict majority callable | Strict majority correct |
+|---|---|---:|---:|---:|
+| WES | none | 143/153 | 150/153 | 141/153 |
+| WES | HLA-HD | 141/153 | 147/153 | 138/153 |
+| WES | OptiType | 140/153 | 145/153 | 136/153 |
+| WES | POLYSOLVER | 143/153 | 146/153 | 138/153 |
+| WES | SpecHLA | 143/153 | 147/153 | 139/153 |
+| WES | T1K | 140/153 | 147/153 | 139/153 |
+| RNA-seq | none | 113/118 | 110/118 | 106/118 |
+| RNA-seq | arcasHLA | 113/118 | 118/118 | 113/118 |
+| RNA-seq | HLA-HD | 110/118 | 111/118 | 107/118 |
+| RNA-seq | OptiType | 110/118 | 110/118 | 106/118 |
+| RNA-seq | T1K | 113/118 | 117/118 | 112/118 |
+<!-- END GENERATED LEAVE ONE CALLER OUT TABLE -->
+
 The next table repeats caller-error φ on the same subset. In WES it ranged from −0.08 to 0.31 over the ten caller pairs (median
 0.02), against 0.28 to 0.59 on all exact loci. OptiType and POLYSOLVER were the most correlated WES pair across all loci (φ=0.59, eight joint-error loci). The pair had no joint error on this subset. In RNA-seq, φ ranged from −0.09 to 0.01 (median 0.00), against 0.11 to 0.82 across all exact loci. HLA-HD and OptiType were the most correlated pair overall (φ=0.82) but shared no error on this subset, nor did arcasHLA and HLA-HD. Only arcasHLA and T1K were wrong together on the subset. These values rest
 on few errors (two for OptiType in WES; none for HLA-HD and one for OptiType in
@@ -754,13 +897,53 @@ RNA-seq) and carry no intervals. The subset also requires a further exome-based 
 | WES | POLYSOLVER | SpecHLA | 0.48 (9/153) | 143 | 128/9/3/3 | 0.31 |
 | WES | POLYSOLVER | T1K | 0.30 (8/153) | 143 | 118/19/6/0 | -0.08 |
 | WES | SpecHLA | T1K | 0.28 (9/153) | 143 | 115/16/9/3 | 0.10 |
-| RNA-seq | arcasHLA | HLA-HD | 0.23 (6/118) | 112 | 58/0/54/0 | 0.00 |
+| RNA-seq | arcasHLA | HLA-HD | 0.23 (6/118) | 112 | 58/0/54/0 | undefined |
 | RNA-seq | arcasHLA | OptiType | 0.15 (5/118) | 112 | 57/1/54/0 | -0.09 |
 | RNA-seq | arcasHLA | T1K | 0.11 (11/118) | 112 | 52/6/48/6 | 0.01 |
-| RNA-seq | HLA-HD | OptiType | 0.82 (5/118) | 112 | 111/1/0/0 | 0.00 |
-| RNA-seq | HLA-HD | T1K | 0.45 (5/118) | 112 | 100/12/0/0 | 0.00 |
+| RNA-seq | HLA-HD | OptiType | 0.82 (5/118) | 112 | 111/1/0/0 | undefined |
+| RNA-seq | HLA-HD | T1K | 0.45 (5/118) | 112 | 100/12/0/0 | undefined |
 | RNA-seq | OptiType | T1K | 0.45 (5/118) | 112 | 99/12/1/0 | -0.03 |
 <!-- END GENERATED REFERENCE AGREEMENT PHI TABLE -->
+
+φ is undefined where a caller made no error on the subset; those cells are marked and no median is given. The counts below show the joint errors behind each φ, the number expected if the two callers erred independently, and how many joint errors returned the same wrong genotype (post hoc; `decisions/20261106_posthoc_round3_amendment.json`). On all exact loci, HLA-HD and OptiType in RNA-seq erred together at 5 loci against 0.31 expected; each erred alone once.
+[RESULT:DEV_ERROR_COUNTS_RNASEQ_FIXED_DENOMINATOR_HLA_HD_OPTITYPE]
+
+<!-- BEGIN GENERATED ERROR DEPENDENCE COUNTS TABLE -->
+| Assay | Loci | Caller 1 | Caller 2 | N | Both wrong | Expected if independent | Same wrong genotype |
+|---|---|---|---|---:|---:|---:|---:|
+| WES | All exact loci | HLA-HD | OptiType | 153 | 9 | 1.58 | 7 |
+| WES | All exact loci | HLA-HD | POLYSOLVER | 153 | 10 | 2.16 | 5 |
+| WES | All exact loci | HLA-HD | SpecHLA | 153 | 9 | 2.73 | 3 |
+| WES | All exact loci | HLA-HD | T1K | 153 | 13 | 4.03 | 6 |
+| WES | All exact loci | OptiType | POLYSOLVER | 153 | 8 | 1.08 | 7 |
+| WES | All exact loci | OptiType | SpecHLA | 153 | 6 | 1.37 | 4 |
+| WES | All exact loci | OptiType | T1K | 153 | 8 | 2.01 | 7 |
+| WES | All exact loci | POLYSOLVER | SpecHLA | 153 | 9 | 1.86 | 5 |
+| WES | All exact loci | POLYSOLVER | T1K | 153 | 8 | 2.75 | 6 |
+| WES | All exact loci | SpecHLA | T1K | 153 | 9 | 3.48 | 5 |
+| WES | Both typings agree | HLA-HD | OptiType | 143 | 0 | 0.17 | 0 |
+| WES | Both typings agree | HLA-HD | POLYSOLVER | 143 | 1 | 0.50 | 0 |
+| WES | Both typings agree | HLA-HD | SpecHLA | 143 | 2 | 1.01 | 0 |
+| WES | Both typings agree | HLA-HD | T1K | 143 | 4 | 1.59 | 0 |
+| WES | Both typings agree | OptiType | POLYSOLVER | 143 | 0 | 0.08 | 0 |
+| WES | Both typings agree | OptiType | SpecHLA | 143 | 0 | 0.17 | 0 |
+| WES | Both typings agree | OptiType | T1K | 143 | 0 | 0.27 | 0 |
+| WES | Both typings agree | POLYSOLVER | SpecHLA | 143 | 3 | 0.50 | 2 |
+| WES | Both typings agree | POLYSOLVER | T1K | 143 | 0 | 0.80 | 0 |
+| WES | Both typings agree | SpecHLA | T1K | 143 | 3 | 1.59 | 0 |
+| RNA-seq | All exact loci | arcasHLA | HLA-HD | 118 | 6 | 3.05 | 2 |
+| RNA-seq | All exact loci | arcasHLA | OptiType | 118 | 5 | 3.05 | 2 |
+| RNA-seq | All exact loci | arcasHLA | T1K | 118 | 11 | 8.64 | 2 |
+| RNA-seq | All exact loci | HLA-HD | OptiType | 118 | 5 | 0.31 | 5 |
+| RNA-seq | All exact loci | HLA-HD | T1K | 118 | 5 | 0.86 | 4 |
+| RNA-seq | All exact loci | OptiType | T1K | 118 | 5 | 0.86 | 4 |
+| RNA-seq | Both typings agree | arcasHLA | HLA-HD | 112 | 0 | 0.00 | 0 |
+| RNA-seq | Both typings agree | arcasHLA | OptiType | 112 | 0 | 0.48 | 0 |
+| RNA-seq | Both typings agree | arcasHLA | T1K | 112 | 6 | 5.79 | 0 |
+| RNA-seq | Both typings agree | HLA-HD | OptiType | 112 | 0 | 0.00 | 0 |
+| RNA-seq | Both typings agree | HLA-HD | T1K | 112 | 0 | 0.00 | 0 |
+| RNA-seq | Both typings agree | OptiType | T1K | 112 | 0 | 0.11 | 0 |
+<!-- END GENERATED ERROR DEPENDENCE COUNTS TABLE -->
 
 The last table counts each caller's errors on this subset and those the vote corrects. In WES the vote was correct at all 12
 of HLA-HD's errors, all 12 of SpecHLA's and all 19 of T1K's, and it made no
@@ -787,8 +970,7 @@ error on the subset in either assay. Where the typings agree, the vote removes i
 | RNA-seq | T1K | 112 | 12 | 12 | 0 | 0 |
 <!-- END GENERATED REFERENCE AGREEMENT CORRECTION TABLE -->
 
-We retain previously fitted policies for transparency, labelled `exploratory_fitted` because development labels or performance informed their construction. Their results were not used
-to reselect the primary rule:
+We retain previously fitted policies for transparency, labelled `exploratory_fitted` because development labels or performance informed their construction. The refitted policies did not change the primary rule, but the failure of an earlier fitted primary on these data led to the adoption of the vote (Supplementary S14):
 
 - Best single caller (nested CV) uses the ten subject-level outer folds
   recovered with the earlier predictions. For each assay and fold, it selects the panel caller with the most exact correct calls on truth-retained loci in the other nine folds, breaking ties alphabetically. It applies that caller to the held-out fold, so a subject's truth never informs its own prediction. It was refitted under the current truth and call-state rules
@@ -804,10 +986,10 @@ to reselect the primary rule:
 - Logistic meta-consensus is an L2-regularized candidate scorer using vote,
   caller, assay, gene and confidence features.
 - Algorithm-family-restricted champion–challenger requires support from at least two
-  caller families before an override. Its families are those fixed in
-  decisions/20260918_family_gate_measurement.json: alignment (OptiType, HLA-HD,
-  POLYSOLVER), assembly or graph (Kourami, SpecHLA, T1K) and k-mer (arcasHLA,
-  seq2HLA). This grouping is specific to this rule and differs from the per-caller
+  caller families before an override. Among the evaluated callers, the families fixed in
+  decisions/20260918_family_gate_measurement.json are alignment (OptiType, HLA-HD,
+  POLYSOLVER), assembly or graph (SpecHLA, T1K) and k-mer (arcasHLA).
+  This grouping is specific to this rule and differs from the per-caller
   descriptions of inference in S6.
 
 The refitted best single caller chose OptiType in every WES fold and HLA-HD or
@@ -824,38 +1006,6 @@ precludes a superiority claim in either direction.
 [RESULT:DEV_FROZEN_NESTEDCV_LEGACY_WES]
 [RESULT:DEV_FROZEN_NESTEDCV_LEGACY_RNASEQ]
 
-The power projection resamples development subjects with replacement to each cohort size. It applies Holm step-down within each comparison's family to comparisons differing from the vote, as in the observed analysis. The projection assumes observed subject-level differences are true. It shows what a larger cohort would detect under that assumption; with few discordant subjects, the differences are themselves imprecise. It uses a normal approximation to the subject sign-flip
-statistic inside simulation, whereas observed tests are exact. Entries are the proportion of replicates with a significant comparison. This is a conditional sensitivity analysis, not a sample-size guarantee.
-
-<!-- BEGIN GENERATED POWER TABLE -->
-| Assay | Comparator | Family | 130 subjects | 200 subjects | 300 subjects | 500 subjects | 1000 subjects |
-|---|---|---|---:|---:|---:|---:|---:|
-| WES | HLA-HD | descriptive comparator | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
-| WES | OptiType | descriptive comparator | 0.020 | 0.068 | 0.135 | 0.192 | 0.429 |
-| WES | POLYSOLVER | descriptive comparator | 0.661 | 0.905 | 0.985 | 1.000 | 1.000 |
-| WES | SpecHLA | descriptive comparator | 0.875 | 0.984 | 0.999 | 1.000 | 1.000 |
-| WES | T1K | descriptive comparator | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
-| WES | Strict majority | descriptive comparator | 0.223 | 0.619 | 0.922 | 0.999 | 1.000 |
-| WES | Two-thirds consensus | descriptive comparator | 0.995 | 1.000 | 1.000 | 1.000 | 1.000 |
-| WES | Best single caller (nested CV) | exploratory fitted | 0.003 | 0.038 | 0.111 | 0.199 | 0.418 |
-| WES | Champion–challenger | exploratory fitted | 0.101 | 0.451 | 0.835 | 0.997 | 1.000 |
-| WES | Algorithm-family-restricted champion–challenger | exploratory fitted | 0.101 | 0.451 | 0.835 | 0.997 | 1.000 |
-| WES | Vote-support-restricted champion–challenger | exploratory fitted | identical | identical | identical | identical | identical |
-| WES | Logistic meta-consensus | exploratory fitted | 0.090 | 0.455 | 0.881 | 0.998 | 1.000 |
-| WES | Two-thirds-guarded champion–challenger | exploratory fitted | 0.101 | 0.451 | 0.835 | 0.997 | 1.000 |
-| RNA-seq | arcasHLA | descriptive comparator | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
-| RNA-seq | HLA-HD | descriptive comparator | 0.059 | 0.271 | 0.712 | 0.988 | 1.000 |
-| RNA-seq | OptiType | descriptive comparator | 0.056 | 0.279 | 0.709 | 0.988 | 1.000 |
-| RNA-seq | T1K | descriptive comparator | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
-| RNA-seq | Strict majority | descriptive comparator | 0.999 | 1.000 | 1.000 | 1.000 | 1.000 |
-| RNA-seq | Two-thirds consensus | descriptive comparator | 0.999 | 1.000 | 1.000 | 1.000 | 1.000 |
-| RNA-seq | Best single caller (nested CV) | exploratory fitted | 0.756 | 0.957 | 0.997 | 1.000 | 1.000 |
-| RNA-seq | Champion–challenger | exploratory fitted | identical | identical | identical | identical | identical |
-| RNA-seq | Algorithm-family-restricted champion–challenger | exploratory fitted | 0.965 | 1.000 | 1.000 | 1.000 | 1.000 |
-| RNA-seq | Vote-support-restricted champion–challenger | exploratory fitted | identical | identical | identical | identical | identical |
-| RNA-seq | Logistic meta-consensus | exploratory fitted | identical | identical | identical | identical | identical |
-| RNA-seq | Two-thirds-guarded champion–challenger | exploratory fitted | identical | identical | identical | identical | identical |
-<!-- END GENERATED POWER TABLE -->
 
 ### Analysis choices and their interpretation
 
@@ -870,15 +1020,23 @@ outperform the vote on the current scoring definition.
 |---|---|---|---|---|
 | 2026-08-31 | Specify the two-thirds-guarded rule as primary; require it to outperform; Holm across WGS/WES/RNA-seq | Historical stored-output endpoint: guarded 142/153 versus plurality 143/153 WES; tied 113/118 RNA-seq | Previous primary failed to outperform: WES Holm p=1.0 against plurality; RNA-seq exact tie | Before the confirmation protocol comparison with reference typing, but not before analysts first saw truth: earlier truth on these caller outputs fitted champions and weights |
 | 2026-09-08 (recorded 2026-09-18) | Make equal-weight plurality primary; Holm within assay; exclude invalid WGS | Changed the primary method after per-method accuracy was inspected; exact WES +1 correct versus previous primary, RNA-seq unchanged | Primary claim changed from superiority of a fitted rule to audited performance of plurality | After development truth and method accuracies had been seen |
-| 2026-09-18 | Pre-register and run abstention on every singleton caller output | Lowered concordance; result not adopted at that time | No primary change; retained as sensitivity | After development results had been seen |
-| 2026-09-24 | Adopt singleton abstention as then implemented; add post hoc 2-point non-inferiority margin | RNA-seq plurality 110/118 on current truth-retained loci under abstain-all scoring | Lowered the RNA-seq headline; non-inferiority remained sensitivity-only | After development results had been seen |
-| 2026-09-28 | Exclude unresolved reference genotypes; finalize predictions; CR1 cluster-t test; separate descriptive/fitted Holm families | Exact denominators became 153 WES and 120 RNA-seq before later identity withholding | Four comparisons significant under the declared family structure; development status remained post hoc | After earlier analyses had joined truth to the same caller outputs |
-| 2026-10-08 | Implement caller-native homozygous completion; keep abstain-all sensitivity | RNA-seq plurality 110 to 113; HLA-HD RNA-seq 97 to 110; arcasHLA 95 to 109; HLA-HD WES 110 to 126 | Raised RNA-seq headline and changed strongest RNA-seq caller from OptiType to HLA-HD | Rule implementation corrected after consequences were known |
-| 2026-10-08 | Withhold NA07000 RNA-seq after truth-free sample-identity failure | RNA-seq plurality 113/120 to 113/118; both removed loci were errors | Raised RNA-seq proportion by reducing the denominator; numerator unchanged | Identity decision used truth-free cross-assay calls, but development outcomes were already known |
-| 2026-10-09 | Refit nested-CV best-caller comparator under current truth and call-state rules | RNA-seq comparator 99/118 to 106/118 | Comparison became non-significant after Holm adjustment (p=0.188 in the recorded analysis) | Post hoc refit using development truth within training folds |
+| 2026-09-18 | Record and run abstention on every singleton caller output | Lowered concordance; result not adopted at that time | No primary change; retained as sensitivity | After development results had been seen |
+| 2026-09-24 | Adopt singleton abstention as then implemented; add post hoc 2-point non-inferiority margin | Historical stored outputs: RNA-seq plurality 110/118 on current truth-retained loci under abstain-all scoring | Lowered the RNA-seq headline; non-inferiority remained sensitivity-only | After development results had been seen |
+| 2026-09-28 | Exclude unresolved reference genotypes; finalize predictions; CR1 cluster-t test; separate descriptive/fitted Holm families | Historical stored outputs: exact denominators became 153 WES and 120 RNA-seq before later identity withholding | Four comparisons significant under the declared family structure; development status remained post hoc | After earlier analyses had joined truth to the same caller outputs |
+| 2026-10-08 | Implement caller-native homozygous completion; keep abstain-all sensitivity | Historical stored outputs: RNA-seq plurality 110 to 113; HLA-HD RNA-seq 97 to 110; arcasHLA 95 to 109; HLA-HD WES 110 to 126 | Raised RNA-seq headline and changed strongest RNA-seq caller from OptiType to HLA-HD | Rule implementation corrected after consequences were known |
+| 2026-10-08 | Withhold NA07000 RNA-seq after truth-free sample-identity failure | Historical stored outputs: RNA-seq plurality 113/120 to 113/118; both removed loci were errors | Raised RNA-seq proportion by reducing the denominator; numerator unchanged | Identity decision used truth-free cross-assay calls, but development outcomes were already known |
+| 2026-10-09 | Refit nested-CV best-caller comparator under current truth and call-state rules | Historical stored outputs: RNA-seq comparator 99/118 to 106/118 | Comparison became non-significant after Holm adjustment (p=0.188 in the recorded analysis) | Post hoc refit using development truth within training folds |
 | 2026-10-09 | Make subject sign-flip, rather than CR1 cluster-t, govern significance | No result count changed | Same four comparisons significant under both tests at the time | Adopted after development results and both test outputs were available |
 | 2026-10-09 to 2026-10-12 | Add recorded second-typing adjudication, then correct the documented asterisk interpretation | No registered primary count changed; historical corrected-reference vote checksums 142/143 WES and 112/112 RNA-seq | Reference-corrected sensitivity must accompany exact results; it does not replace the primary endpoint | Rules and correction recorded after development discordances and source values were inspected |
 | 2026-10-13 | Correct T1K deployment and make the full reproducible v3.5.0 rerun the primary development evidence | v3.5.0 rerun endpoint: guarded 141/153 versus plurality 143/153 WES; guarded 113/118 versus plurality 113/118 RNA-seq; historical 142/143 and 112/112 remain checksums only | The reproducible v3.5.0 rerun replaced the historical stored outputs as the primary development evidence; extension and final headlines follow | Specified after all historical development and adjudication results were known; extension reference genotypes have not been used for scoring |
+| 2026-10-13 to 2026-10-25 | Replace archived caller outputs with the v3.5.0 rerun as the scored calls | Historical to rerun, correct loci: arcasHLA 109 to 58; HLA-HD WES 126 to 131 and RNA-seq 110 to 112; OptiType WES 140 to 142 and RNA-seq 109 to 112; POLYSOLVER 143 to 138; SpecHLA 123 to 134; T1K WES 113 to 125 and RNA-seq 91 to 101 | Vote unchanged at 143/153 and 113/118; the strongest WES caller changed from POLYSOLVER to OptiType; the arcasHLA fall created one of the four significant comparisons | Scores from the archived outputs were known before the rerun; the rerun's scores were first seen at the registry delta |
+| 2026-10-25 | Correct the collector so caller-declared homozygotes are completed; repeat collection and regeneration once | RNA-seq vote 112/118 to 113/118; HLA-HD 98/118 to 112/118; arcasHLA 55/118 to 58/118; vote margin over OptiType 0 to +1 locus | Restores the recorded 8 October singleton policy; no rule changed; the earlier activation is kept as superseded provenance | Truth-derived singleton-sensitivity rows prompted the inspection; the defect was then confirmed from caller-output fields |
+| 2026-10-25 | Report the arcasHLA deployment as run; make no module change | No result changed; arcasHLA stays at 58/118 in the primary registry | The estimate describes that deployment rather than the caller; any later change needs a recorded amendment and a labelled sensitivity | Diagnosed only after the truth-derived registry delta had been seen; the diagnosis used container contents, module code and caller outputs |
+| 2026-11-05 | Remove the FIMM and VenEx patient cohorts from the paper | No development result changed; aggregate agreement and dissent results no longer reported | The cohorts supported no claim; removal reverses the recorded choice to block submission rather than remove them, and the S8 table records it | Their aggregate results were known when they were removed; the removal does not rest on their direction |
+| 2026-11-06 | Remove the post hoc non-inferiority margin and power projection; add post hoc error counts, naive baselines, intersected duplicate rows, a pedigree relatedness check with family-clustered tests, allele-level vote and abstention trade-off; recompute S12.1-S12.3 on study-run calls; correct three HG00096 rows | No primary or comparator result changed; HG00096 rows now match the S10 text; S12 per-gene totals now equal Table 2 | None; the additions are descriptive and select nothing | Proposed by a review that had recomputed these from development truth; the expected values were stated before one run |
+| 2026-11-06 | Add post hoc run-stability rows (archived outputs against study runs) behind one Limitations sentence; correct the Figure 1A text, mark arcasHLA in Figures 2-3 and align the Figure S6 and Table S10.2 labels | No primary or comparator result changed; the vote scored 143/153 and 113/118 in both runs | None; the rows are descriptive and select nothing | The archived-versus-study-run scores had been seen in the ledger and the review; the expected values were stated before one run |
+| 2026-11-06 | Withhold the FIMM and VenEx aggregate rows from the published provenance copies | No result changed; the gate's archived registry has 532 of its 631 rows | None; the unfiltered files stay in the private repository | None new; the rows were found by their cohort labels and no value in them was used |
+| 2026-11-06 | Describe the study runs' caller deployment, input read length and exon depth, read rescue counts and compute from their archived records | No result changed; every T1K task in both assays used the genomic index | None; the descriptions are truth-free and select nothing | None; requested by a review that had seen all development results, and no reference typing was read |
 <!-- END GENERATED PROTOCOL CHANGE TABLE -->
 
 ### S7.1 Rule definitions
@@ -935,7 +1093,7 @@ champion–challenger results on the same subjects are optimistic and are
 reported only as exploratory comparisons.
 
 The logistic meta-consensus refit is seeded, but it is not guaranteed to be
-bit-for-bit reproducible across processes. In one verification run, a prediction at a WES locus outside the exact endpoint differed from the approved run because two candidate pairs were nearly tied. No reported result changed; the next run reproduced the approved registry exactly (`decisions/20261026_metaconsensus_floating_point_drift.json`). The fitted
+bit-for-bit reproducible across processes. Its fitted coefficients varied between repeated refits on identical inputs, and the selected penalty changed in one fold. In 17 refits on the primary inputs, one changed a call, at a WES locus outside the exact endpoint, and no reported result changed. In 26 refits on the abstain-all inputs, three changed a call, and one of these lowered the abstain-all WES score from 143/153 to 142/153; the RNA-seq score did not change (`decisions/20261105_metaconsensus_variation.json`). The vote and single callers use no fitted model, and other fitted policies did not change. The fitted
 comparators should therefore be read as approximate as well as exploratory.
 
 ## S8. Earlier analyses excluded from evidence
@@ -958,204 +1116,15 @@ combined several distinct study aims. The table records how each earlier compone
 | WGS performance and rankings | Excluded; provenance only | HLA-relevant alternate-contig and mate evidence was not preserved. |
 | Champion–challenger and MV-floor headline claims | Exploratory methods; limited definitions and development results retained in S7 | The policies were fitted or selected using the development resource and have no unseen validation. |
 | Locityper/Immuannot pangenome “silver truth” | Excluded from evidence | The components act on the same selected haplotypes and do not provide independent biological truth; required databases and complete call-level provenance are unavailable. |
-| NCI-60, GIAB and IHWG “external validation” | Excluded from active validation claims; NCI-60 estimates withdrawn (S9.6) | The arms are small, mixed-resolution, partly summary-only and lack a consistent call-level provenance chain. |
-| Fingerprint-paired FIMM cross-modality concordance | Withdrawn and replaced by the identity-linked analysis in S9 | The earlier workbook lacked specimen identifiers and paired records by HLA allele fingerprint, making the endpoint circular. |
-| FIMM WES LOH, HED and survival analyses | Excluded | The imbalance input was non-informative, and the clinical endpoints lack the evidence and governance required for this benchmark paper. |
+| NCI-60, GIAB and IHWG “external validation” | Excluded from active validation claims; NCI-60 estimates withdrawn (S9) | The arms are small, mixed-resolution, partly summary-only and lack a consistent call-level provenance chain. |
+| Aggregate FIMM AML/MDS and VenEx patient-cohort analyses | Analysed, not reported | Agreement among callers without reference typing supports no accuracy claim, and cohort governance fields were incomplete at submission. The earlier fingerprint-paired analysis was withdrawn, and LOH, HED and survival analyses were excluded. |
+| Post hoc two-point non-inferiority margin and power projection | Analysed, not reported | The projection's normal approximation overstated power against the exact sign-flip test, and the margin was read from the descriptive cluster-*t* limits, which are unreliable when one or two subjects differ. The detectability rule in S3 states what the comparisons could detect (`decisions/20261106_posthoc_round3_amendment.json`). |
 | HPC/local installation tutorials and cohort-scale resource claims | Kept in versioned software documentation, not as manuscript evidence | The current single-sample test runs do not reconstruct the original execution or establish cohort-scale cost, runtime or reproducibility. |
 
-## S9. Aggregate-only exploratory FIMM, VenEx and NCI-60 applications
-
-### S9.1 Data scope and access
-
-<!-- Registry mapping for the S9 aggregate tables, in original row order: 21; 48; `FIMM_PANEL_SPECIMEN_BULKRNA_WES_EXACT_PAIR`; `FIMM_PANEL_SPECIMEN_SCRNA_WES_EXACT_PAIR`; `FIMM_PANEL_SPECIMEN_BULKRNA_SCRNA_EXACT_PAIR`; `FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_WES_EXACT_PAIR`; `FIMM_PANEL_SPECIMEN_CONTESTED_SCRNA_WES_EXACT_PAIR`; `FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_SCRNA_EXACT_PAIR`; `FIMM_PANEL_DONOR_BULKRNA_WES_EXACT_PAIR_SENSITIVITY`; `FIMM_PANEL_DONOR_SCRNA_WES_EXACT_PAIR_SENSITIVITY`; `FIMM_PANEL_DONOR_BULKRNA_SCRNA_EXACT_PAIR_SENSITIVITY`; `FIMM_PANEL_DONOR_CONTESTED_BULKRNA_WES_EXACT_PAIR_SENSITIVITY`; `FIMM_PANEL_DONOR_CONTESTED_SCRNA_WES_EXACT_PAIR_SENSITIVITY`; `FIMM_PANEL_DONOR_CONTESTED_BULKRNA_SCRNA_EXACT_PAIR_SENSITIVITY`; `FIMM_BB72_SCRNA_A02_{SENSITIVITY,SPECIFICITY,PPV,NPV,AGREEMENT}`; `FIMM_BB72_SCRNA_A02_A68_A69_{SENSITIVITY,SPECIFICITY,PPV,NPV,AGREEMENT}`; `FIMM_BB72_BULK_RNA_A02_{SENSITIVITY,SPECIFICITY,PPV,NPV,AGREEMENT}`; `FIMM_BB72_BULK_RNA_A02_A68_A69_{SENSITIVITY,SPECIFICITY,PPV,NPV,AGREEMENT}`; `FIMM_BB72_WES_A02_{SENSITIVITY,SPECIFICITY,PPV,NPV,AGREEMENT}`; `FIMM_BB72_WES_A02_A68_A69_{SENSITIVITY,SPECIFICITY,PPV,NPV,AGREEMENT}`; `VENEX_WES_HLA_HD_CONTESTED_DISSENT`; `VENEX_WES_OPTITYPE_CONTESTED_DISSENT`; `VENEX_WES_SPECHLA_CONTESTED_DISSENT`; `VENEX_WES_T1K_CONTESTED_DISSENT`; `VENEX_WES_POLYSOLVER_CONTESTED_DISSENT` -->
-
-These post hoc applications are retained only to show that agreement and
-within-panel dissent do not establish accuracy. They are ineligible for
-accuracy, external-validation, clinical-utility or abstract claims.
-`FIMM_AML_MDS` and `VENEX_WES` are separate exploratory datasets. The FIMM
-three-caller deviation applies only to this cohort and to non-accuracy
-reporting; it does not change the specified 1000 Genomes panels. The source
-workbooks, row-level calls and specimen–donor mappings remain in controlled
-storage. Public release is limited to privacy-reviewed aggregate artifacts,
-their SHA-256 manifest and the figures derived from them.
-
-The controlled source files remain restricted; the public release contains only aggregate results.
-
-### S9.2 Withdrawal of the fingerprint-paired analysis and FIMM import rules
-
-The earlier FIMM concordance analysis is withdrawn. A stripped workbook lacked specimen identifiers. Specimens were paired by HLA allele fingerprint before calculating HLA concordance, making the endpoint circular. Its figures and
-numbers are not evidence. The empty WES allele-imbalance screen is also
-withdrawn; no LOH claim is made. HLA evolutionary divergence, survival and
-clinical-utility analyses remain out of scope.
-
-The importer used here requires an explicit specimen identifier. Repeated rows for one specimen, assay and caller are collapsed only if their genotypes agree. A disagreement becomes a caller no-call. Singleton alleles are partial
-calls, bare integers are invalid and missing tokens are no-calls. Of 2,642 source rows, 2,610 were imported. Replicate collapse left 7,179 caller-level locus rows (one per specimen, assay, caller and gene). There
-were 81 replicate conflicts and 89 numeric-allele artefacts. The consensus
-unit used below is coarser: one specimen–assay–gene locus, which combines the
-caller-level rows of up to three callers.
-[RESULT:FIMM_PANEL_FLOW_ROWS_READ]
-[RESULT:FIMM_PANEL_FLOW_ROWS_IMPORTED]
-[RESULT:FIMM_PANEL_FLOW_LOCUS_ROWS_AFTER_REPLICATE_COLLAPSE]
-[RESULT:FIMM_PANEL_FLOW_REPLICATE_CONFLICTS]
-[RESULT:FIMM_PANEL_FLOW_LOCUS_CELLS_NUMERIC_ARTEFACT]
-
-The cross-modality unit is the specimen. Two eligibility definitions are
-coequal:
-- `all_callable` requires a complete unordered two-field plurality pair in
-  both assays;
-- `contested_both` additionally requires at least two valid callers in each
-  assay.
-
-The denominator difference therefore reflects caller availability rather than
-selection of different specimens. Donor collapse is sensitivity-only. All
-complete longitudinal calls must agree; otherwise the donor–modality locus is
-a `longitudinal_conflict` and is excluded. A collapsed donor call meets
-`contested_both` only when every contributing callable longitudinal specimen
-had at least two valid callers.
-
-<!-- Registry mapping for panel-composition counts: FIMM_PANEL_WES_CALLABLE_CALLERS_3; FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_3; FIMM_PANEL_WES_CALLABLE_CALLERS_0; FIMM_PANEL_WES_CALLABLE_CALLERS_1; FIMM_PANEL_WES_CALLABLE_CALLERS_2; FIMM_PANEL_WES_CALLABLE_CALLERS_3; FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_0; FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_1; FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_2; FIMM_PANEL_BULKRNA_CALLABLE_CALLERS_3; FIMM_PANEL_SCRNA_CALLABLE_CALLERS_1; FIMM_PANEL_SCRNA_CALLABLE_CALLERS_2 -->
-
-Specimen–assay–gene loci by the number of valid callers:
-
-| Assay | 0 valid callers | 1 valid caller | 2 valid callers | 3 valid callers |
-| --- | ---: | ---: | ---: | ---: |
-| WES | 344 | 2,211 | 466 | 21 |
-| Bulk RNA | 207 | 696 | 330 | 48 |
-| scRNA-seq | 0 | 18 | 75 | 0 |
-
-The zero cells in the scRNA-seq row are structural absences from the released
-aggregate, not suppressed observations. Supplementary Figure S6 shows the
-panel composition next to the specimen-level endpoint.
-
-### S9.3 FIMM cross-modality results
-
-Specimen-level Wilson intervals [44] are unadjusted for donor clustering,
-because several specimens can come from one donor. The donor-collapsed rows
-give the donor-level view.
-
-When both assays had at least two valid callers, exact-pair agreement was:
-- bulk RNA–WES: 62/70 (88.6%; Wilson 95% CI 79.0–94.1%);
-- scRNA-seq–WES: 21/24 (87.5%; 69.0–95.7%);
-- bulk RNA–scRNA-seq: 18/21 (85.7%; 65.4–95.0%).
-
-Across all complete callable pairs, the results were 854/958 (89.1%;
-87.0–91.0%), 85/93 (91.4%; 83.9–95.6%) and 84/93 (90.3%; 82.6–94.8%) in the
-same order. The denominator difference reflects caller availability, not
-selection of a different biological cohort.
-[RESULT:FIMM_PANEL_SPECIMEN_BULKRNA_WES_EXACT_PAIR]
-[RESULT:FIMM_PANEL_SPECIMEN_SCRNA_WES_EXACT_PAIR]
-[RESULT:FIMM_PANEL_SPECIMEN_BULKRNA_SCRNA_EXACT_PAIR]
-[RESULT:FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_WES_EXACT_PAIR]
-[RESULT:FIMM_PANEL_SPECIMEN_CONTESTED_SCRNA_WES_EXACT_PAIR]
-[RESULT:FIMM_PANEL_SPECIMEN_CONTESTED_BULKRNA_SCRNA_EXACT_PAIR]
-
-| Pairing | Eligibility | Assay pair | Agreement/overlap | Estimate, % (Wilson 95% CI) |
-| --- | --- | --- | ---: | ---: |
-| Specimen, coequal | All callable | Bulk RNA–WES | 854/958 | 89.1 (87.0–91.0) |
-| Specimen, coequal | All callable | scRNA-seq–WES | 85/93 | 91.4 (83.9–95.6) |
-| Specimen, coequal | All callable | Bulk RNA–scRNA-seq | 84/93 | 90.3 (82.6–94.8) |
-| Specimen, coequal | Contested in both | Bulk RNA–WES | 62/70 | 88.6 (79.0–94.1) |
-| Specimen, coequal | Contested in both | scRNA-seq–WES | 21/24 | 87.5 (69.0–95.7) |
-| Specimen, coequal | Contested in both | Bulk RNA–scRNA-seq | 18/21 | 85.7 (65.4–95.0) |
-| Donor, sensitivity | All callable | Bulk RNA–WES | 340/350 | 97.1 (94.8–98.4) |
-| Donor, sensitivity | All callable | scRNA-seq–WES | 58/63 | 92.1 (82.7–96.6) |
-| Donor, sensitivity | All callable | Bulk RNA–scRNA-seq | 72/80 | 90.0 (81.5–94.8) |
-| Donor, sensitivity | Contested in both | Bulk RNA–WES | 2/2 | 100.0 (34.2–100.0) |
-| Donor, sensitivity | Contested in both | scRNA-seq–WES | 0/0 | non-estimable |
-| Donor, sensitivity | Contested in both | Bulk RNA–scRNA-seq | 0/0 | non-estimable |
-
-The donor collapse removed 233 WES and 28 bulk-RNA donor–loci with conflicting
-longitudinal calls, so the donor estimates are not promoted over the specimen
-analysis. [RESULT:FIMM_PANEL_WES_LONGITUDINAL_CONFLICTS]
-[RESULT:FIMM_PANEL_BULKRNA_LONGITUDINAL_CONFLICTS]
-All assay pairs use overlapping caller sets. Removing the shared callers leaves
-zero overlap for each pair, so the caller-disjoint sensitivity is explicitly
-non-estimable. [RESULT:FIMM_PANEL_DISJOINT_BULKRNA_WES_NON_ESTIMABLE]
-[RESULT:FIMM_PANEL_DISJOINT_SCRNA_WES_NON_ESTIMABLE]
-[RESULT:FIMM_PANEL_DISJOINT_BULKRNA_SCRNA_NON_ESTIMABLE]
-
-All-callable pairs include many loci with a single valid caller (2,211 of 3,042 WES locus rows). The contested-in-both rows require at least two valid callers in each assay; both eligibility definitions are coequal exploratory views. Within WES, dissent from the panel plurality at contested loci was:
-- arcasHLA: 167/486 (34.4%; Wilson 95% CI 30.3–38.7%);
-- OptiType: 36/391 (9.2%; 6.7–12.5%);
-- SpecHLA: 13/118 (11.0%; 6.6–17.9%).
-
-This is within-panel dissent, not error against truth.
-[RESULT:FIMM_PANEL_WES_CALLABLE_CALLERS_1]
-[RESULT:FIMM_PANEL_WES_ARCASHLA_CONTESTED_DISSENT]
-[RESULT:FIMM_PANEL_WES_OPTITYPE_CONTESTED_DISSENT]
-[RESULT:FIMM_PANEL_WES_SPECHLA_CONTESTED_DISSENT]
-
-These estimates measure agreement between related caller panels on different assay inputs. They do not measure accuracy, and shared callers can
-raise agreement through correlated decisions.
-
-### S9.4 FIMM BB7.2 serogroup agreement
-
-BB7.2 flow status was joined by donor identity. The antibody was first
-characterized as an HLA-A2 typing reagent that also recognizes an HLA-A28
-variant [32]. On single-antigen beads it is specific for HLA-A\*02 and A\*69
-at low concentration, and cross-reacts with A\*68, A\*23 and A\*24 only at high
-concentration [33]. A\*02 is therefore the primary mapping. The
-A\*02/A\*68/A\*69 sensitivity mapping is a deliberately broad,
-high-concentration bound; an A\*02/A\*69 mapping alone was not computed.
-
-The metrics use the flow-linked subset (analysis tier C). They use donor-collapsed plurality calls from every caller available in that subset, rather than the three-caller FIMM panel of S9.1.
-- Only 16 of 53 flow records linked to the sequenced subset.
-- The informative linked donors were 8 for scRNA-seq, 14 for bulk RNA and 13
-  for WES.
-- All unlinked records remain in the source aggregate.
-
-These are serogroup agreement metrics, not allele-level accuracy. The table
-reports every confusion matrix and interval estimate.
-
-| Modality | Mapping | TP/TN/FP/FN | Sensitivity | Specificity | PPV | NPV | Agreement |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| scRNA-seq | A*02 | 4/3/0/1 | 0.800 (0.376–0.964) | 1.000 (0.439–1.000) | 1.000 (0.510–1.000) | 0.750 (0.301–0.954) | 0.875 (0.529–0.978) |
-| scRNA-seq | A*02/A*68/A*69 | 5/2/1/0 | 1.000 (0.566–1.000) | 0.667 (0.208–0.939) | 0.833 (0.436–0.970) | 1.000 (0.342–1.000) | 0.875 (0.529–0.978) |
-| Bulk RNA | A*02 | 7/7/0/0 | 1.000 (0.646–1.000) | 1.000 (0.646–1.000) | 1.000 (0.646–1.000) | 1.000 (0.646–1.000) | 1.000 (0.785–1.000) |
-| Bulk RNA | A*02/A*68/A*69 | 7/6/1/0 | 1.000 (0.646–1.000) | 0.857 (0.487–0.974) | 0.875 (0.529–0.978) | 1.000 (0.610–1.000) | 0.929 (0.685–0.987) |
-| WES | A*02 | 7/4/2/0 | 1.000 (0.646–1.000) | 0.667 (0.300–0.903) | 0.778 (0.453–0.937) | 1.000 (0.510–1.000) | 0.846 (0.578–0.957) |
-| WES | A*02/A*68/A*69 | 7/3/3/0 | 1.000 (0.646–1.000) | 0.500 (0.188–0.812) | 0.700 (0.397–0.892) | 1.000 (0.439–1.000) | 0.769 (0.497–0.918) |
-
-Supplementary Figure S7 shows the primary
-confusion matrices and Wilson intervals for the primary and cross-reactivity
-mappings.
-
-Under the strict A\*02 mapping, the WES row has two false positives (specificity 0.667). WES plurality assigned an A\*02 allele to two BB7.2-negative donors. With only two such donors, no caller- or assay-specific
-conclusion is drawn. Under the primary mapping, bulk RNA had no false
-positives (specificity 1.000).
-
-### S9.5 Separate VenEx WES diagnostic cohort
-
-VenEx contains 86 WES samples and 258 class I sample–gene loci. Dissent is
-measured against a plurality that includes the caller being compared, so it is
-not error against truth. POLYSOLVER had no usable output: 64 samples had no
-file and 22 had an empty output.
-[RESULT:VENEX_WES_POLYSOLVER_MISSING]
-[RESULT:VENEX_WES_POLYSOLVER_EMPTY]
-It therefore had no mutually callable loci, and its dissent rate is
-non-estimable. [RESULT:VENEX_WES_POLYSOLVER_CONTESTED_DISSENT]
-
-| Caller | Contested loci | Dissents | Dissent, % (Wilson 95% CI) | Note |
-| --- | ---: | ---: | ---: | --- |
-| HLA-HD | 230 | 0 | 0.0 (0.0–1.6) | Within-panel dissent, not error |
-| OptiType | 256 | 2 | 0.8 (0.2–2.8) | Within-panel dissent, not error |
-| SpecHLA | 231 | 26 | 11.3 (7.8–16.0) | Within-panel dissent, not error |
-| T1K | 230 | 1 | 0.4 (0.1–2.4) | Historical deployment only; excluded from the corrected main development analysis |
-| POLYSOLVER | 0 | 0 | non-estimable | No usable output in 86 samples (64 missing, 22 empty) |
-
-[RESULT:VENEX_WES_HLA_HD_CONTESTED_DISSENT]
-[RESULT:VENEX_WES_OPTITYPE_CONTESTED_DISSENT]
-[RESULT:VENEX_WES_SPECHLA_CONTESTED_DISSENT]
-[RESULT:VENEX_WES_T1K_CONTESTED_DISSENT]
-
-SpecHLA's 11.3% measures within-panel dissent. Neither it nor any other VenEx
-diagnostic establishes HLA accuracy. Supplementary Figure S8 presents caller
-availability and contested-locus dissent together.
-
-### S9.6 NCI-60 cell-line application (legacy analysis withdrawn; regeneration under way)
+## S9. NCI-60 cell-line application (legacy analysis withdrawn; regeneration under way)
 
 HLA class I genotypes of the NCI-60 cancer cell lines have been published from
-sequence-based typing of exons 2 and 3 [34]. An earlier analysis ran callers on
+sequence-based typing of exons 2 and 3 [28]. An earlier analysis ran callers on
 42 NCI-60 cell lines, before the current singleton rule and the revised
 reference parser existed:
 - WES: HLA-HD, OptiType, SpecHLA and T1K (no POLYSOLVER);
@@ -1170,9 +1139,10 @@ reported, the analysis would have to be regenerated under the current rules,
 with the current workflow release and registry rows. In no case is it external
 validation.
 
-That regeneration is under way under a decision documented on 26 October 2026,
-before any NCI-60 prediction existed
-(`decisions/20261026_nci60_v350_regeneration.json`). Every cell line in the
+That regeneration is under way under a decision documented on 26 October 2026
+(`decisions/20261026_nci60_v350_regeneration.json`), before any prediction from
+this regenerated analysis existed; an earlier 42-line analysis was scored and
+withdrawn (above). Every cell line in the
 class I table of the published typing that has public paired reads is run once
 per assay with workflow release 3.5.0 and the development panels: 57 WES and 58
 RNA-seq lines (`cohorts/nci60_v350_manifest.tsv`). One line has no paired WES
@@ -1193,7 +1163,7 @@ application with registry rows and binomial intervals.
 **Supplementary Figure S1. Caller call-state composition.** WES (A) and RNA-seq
 (B) bars partition each fixed assay–locus denominator into callable,
 singleton/partial, missing/failed-output, absent-row and invalid states; segment
-labels are counts. The normalized development table does not separate runtime failure from empty or missing output. No independent runtime-failure rate is inferred; Supplementary Table S10.1 gives rerun task dispositions.
+labels are counts. The normalized development table does not separate runtime failure from empty or missing output. No independent runtime-failure rate is inferred; Supplementary Table S10.1 gives run task dispositions.
 
 **Supplementary Figure S2. Vote-threshold callability–concordance trade-off.**
 WES (A) and RNA-seq (B) show ChampHLA-Consensus, strict majority and two-thirds
@@ -1229,40 +1199,15 @@ reliability-weighted consensus is reported only if it is untied and clears
 fixed support and margin thresholds. Weights and champions were fitted in the
 earlier analysis on the superseded development denominators.
 
-**Supplementary Figure S6. Exploratory FIMM cross-modality agreement and
-eligibility.** (A) Specimen-level exact unordered two-field agreement with
-Wilson 95% intervals for two coequal definitions: all complete callable pairs,
-and pairs with at least two valid callers in both assays. Counts are
-agreement/overlap; their denominator difference reflects caller availability,
-not biological sample selection. (B) Locus-row composition by the number of
-valid callers. Zero valid callers means missing consensus evidence, and one
-valid caller is not a vote. Because the callers are shared, panel agreement is
-not independent HLA truth. The recorded replicate-conflict, numeric-artefact,
-partial and missing counts are printed below the endpoint panel.
-
-**Supplementary Figure S7. Exploratory FIMM BB7.2 serogroup agreement.** (A)
-Primary A*02 confusion matrices for scRNA-seq, bulk RNA and WES; panel titles
-give the informative linked donors out of all 53 flow records. (B)
-Sensitivity, specificity and overall agreement with Wilson 95% intervals, under
-the A*02 primary mapping and the A*02/A*68/A*69 cross-reactivity sensitivity
-mapping. BB7.2 supplies serogroup-level evidence only; linkage is incomplete,
-and the endpoint is not allele-level accuracy.
-
-**Supplementary Figure S8. Exploratory VenEx WES diagnostics.** (A) Native
-caller-output availability across 86 samples. (B) Contested-locus dissent from
-the inclusive ChampHLA plurality, with Wilson 95% intervals. POLYSOLVER is
-shown as non-estimable at zero mutually callable loci. Dissent is not error
-against truth.
-
-**Supplementary Figure S9. Stored-to-v3.5.0 caller-cell changes.** WES (A) and
+**Supplementary Figure S6. Changes between archived and study caller outputs.** WES (A) and
 RNA-seq (B) bars partition each panel caller's caller–gene cells by how the
-v3.5.0 rerun call relates to the historical stored call. Categories are identical, call changed, non-call to callable, callable to non-call, and present only in the rerun. Values are percentages of that caller's cells, and
+call from this study relates to the archived call. Categories are identical, call changed, non-call to callable, callable to non-call, and present only in the study run. Values are percentages of that caller's cells, and
 the counts are in Supplementary Table S10.2. The figure is aggregate-only and
 uses no reference typing.
 
 ## S10. Reproducibility and software details
 
-### Full-cohort v3.5.0 rerun audit tables
+### Full-cohort run audit tables
 
 These aggregate tables are populated only after the documented 236-run roster has
 passed checks of file checksums, workflow provenance and caller coverage. They contain no
@@ -1284,22 +1229,22 @@ subject identifiers and are not used as interim performance evidence.
 | WES | T1K | outputs present | 130 |
 <!-- END GENERATED RERUN TASK STATE TABLE -->
 
-**Supplementary Table S10.2. Stored-to-v3.5.0 caller-cell changes by assay and caller.**
+**Supplementary Table S10.2. Changes between archived and study caller outputs by assay and caller.**
 
 <!-- BEGIN GENERATED RERUN CELL COMPARISON TABLE -->
-| Assay | Caller | Stored-to-rerun cell state | Caller–gene cells |
+| Assay | Caller | Archived-to-study-run cell state | Caller–gene cells |
 |---|---|---|---:|
 | RNA-seq | arcasHLA | call changed | 176 |
 | RNA-seq | arcasHLA | identical | 142 |
 | RNA-seq | HLA-HD | call changed | 7 |
 | RNA-seq | HLA-HD | identical | 305 |
-| RNA-seq | HLA-HD | new rerun cell | 6 |
+| RNA-seq | HLA-HD | present only in the study run | 6 |
 | RNA-seq | OptiType | identical | 312 |
-| RNA-seq | OptiType | new rerun cell | 6 |
+| RNA-seq | OptiType | present only in the study run | 6 |
 | RNA-seq | T1K | call changed | 6 |
 | RNA-seq | T1K | identical | 278 |
-| RNA-seq | T1K | new rerun cell | 6 |
-| RNA-seq | T1K | noncall to callable | 28 |
+| RNA-seq | T1K | present only in the study run | 6 |
+| RNA-seq | T1K | non-call to callable | 28 |
 | WES | HLA-HD | call changed | 31 |
 | WES | HLA-HD | identical | 359 |
 | WES | OptiType | call changed | 5 |
@@ -1309,30 +1254,30 @@ subject identifiers and are not used as interim performance evidence.
 | WES | SpecHLA | call changed | 47 |
 | WES | SpecHLA | identical | 343 |
 | WES | T1K | call changed | 23 |
-| WES | T1K | callable to noncall | 7 |
+| WES | T1K | callable to non-call | 7 |
 | WES | T1K | identical | 332 |
-| WES | T1K | noncall to callable | 28 |
+| WES | T1K | non-call to callable | 28 |
 <!-- END GENERATED RERUN CELL COMPARISON TABLE -->
 
-Supplementary Figure S9 shows the same counts as proportions of each caller's
+Supplementary Figure S6 shows the same counts as proportions of each caller's
 cells. Supplementary Table S10.3 classifies every changed cell without the reference
-typing. We classify cells by zygosity transition, replacement of one or both alleles, change in allele group (first field) and, for T1K, agreement with a release 3.5.0 parser rule in the sample's checksummed audit. The classification also records whether another caller changed at the locus and whether more other panel callers' rerun genotypes match the stored or rerun pair.
-Cells present only in the rerun are excluded.
+typing. We classify cells by zygosity transition, replacement of one or both alleles, change in allele group (first field) and, for T1K, agreement with a T1K parser rule in the sample's checksummed audit. The classification also records whether another caller changed at the locus and whether more other panel callers' run genotypes match the archived or study-run pair.
+Cells present only in the run are excluded.
 
 In WES, OptiType changed least. Most changed allele pairs in the other callers
 replace one allele of a heterozygous pair. Only a minority change homozygous calls to heterozygous ones. Most changes therefore lack the haplotype-loss pattern repaired by read rescue. Most changed WES cells are the only change at their locus. That points to caller-specific responses rather than a
 swapped sample input.
 
-Most T1K changes of call state follow a release 3.5.0 parser rule: either a
+Most T1K changes of call state follow a T1K parser rule: either a
 partial call became a native homozygous declaration, or the quality filter
-reduced a pair. For HLA-HD, SpecHLA, T1K and OptiType in WES, the rerun call
-more often matches the other callers; for POLYSOLVER, the stored call more often
-does. In RNA-seq, the stored arcasHLA call matched more of the other callers in
+reduced a pair. For HLA-HD, SpecHLA, T1K and OptiType in WES, the run call
+more often matches the other callers; for POLYSOLVER, the archived call more often
+does. In RNA-seq, the archived arcasHLA call matched more of the other callers in
 almost every changed cell, consistent with the deployment defect described in
 the main-text Limitations.
 
-The historical run recorded neither its read handling nor its caller
-executables and databases. We therefore cannot separate effects of the rerun's read route (HLA-read rescue and realignment to primary chr6) from caller-version or database differences. This classification is
+The archived run recorded neither its read handling nor its caller
+executables and databases. We therefore cannot separate effects of the run's read route (HLA-read rescue and realignment to primary chr6) from caller-version or database differences. This classification is
 descriptive and was not used to choose any input, caller or rule.
 
 **Supplementary Table S10.3. Changes in caller outputs classified without reference genotypes.**
@@ -1357,14 +1302,13 @@ descriptive and was not used to choose any input, caller or rule.
   predictions; and
 - a downloaded public truth file whose checksum must match the specified value.
 
-One command (`scripts/run_local_verification.sh`) regenerates selected truth, primary and secondary predictions, the comparison with reference genotypes, statistics, S12 restored analyses (given the recovered caller table), tables, figures, claim audit and DOCX. The exploratory FIMM and VenEx aggregates are
-regenerated only inside the controlled environment that holds the patient data. Release mode fails if scientific stages are skipped, artifacts are stale, prediction inputs contain truth columns, active artifacts contain WGS results or scientific placeholders remain unresolved.
+One command (`scripts/run_local_verification.sh`) regenerates selected truth, primary and secondary predictions, the comparison with reference genotypes, statistics, S12 restored analyses (given the recovered caller table), tables, figures, claim audit and DOCX. Release mode fails if scientific stages are skipped, artifacts are stale, prediction inputs contain truth columns, active artifacts contain WGS results or scientific placeholders remain unresolved.
 Outstanding author declarations and archival details are recorded separately in the author completion checklist.
 
-The raw-read-to-caller Nextflow workflow is an external dependency outside this verified analysis. For the historical caller run, exact caller
+The raw-read-to-caller Nextflow workflow is an external dependency outside this verified analysis. For the archived caller run, exact caller
 executable versions, container digests, scheduler job identifiers and measured
-historical caller resource use remain unavailable; historical costs were neither
-reconstructed nor estimated. The v3.5.0 rerun that supplies the primary inputs
+resource use of that run remain unavailable; its costs were neither
+reconstructed nor estimated. The study run that supplies the primary inputs
 records the following for every sample
 (`provenance/development_rerun_v350/truth_free_collection/sample_run_provenance.tsv`):
 
@@ -1373,44 +1317,110 @@ records the following for every sample
 - checksummed manifests of its inputs, container images, workflow files and
   result files.
 
-Two later single-sample test runs on HG00096 provide current workflow,
+Two single-sample diagnostic runs on HG00096 provide workflow,
 container and scheduler evidence. These operational measurements do not reconstruct development-cohort use or establish cohort requirements. The analysis used Python 3.11.15, NumPy
-1.26.4, SciPy 1.14.1, Matplotlib 3.9.2 and python-docx 1.2.0. The analysis can be reproduced from normalized outputs. Regenerating those outputs requires re-running the workflow from reads, outside the verified analysis.
+1.26.4, SciPy 1.14.1, Matplotlib 3.9.2 and python-docx 1.2.0. The analysis can be reproduced from normalized outputs. Regenerating those outputs requires running the workflow from reads, outside the verified analysis.
+
+### Study-run deployment, inputs and compute
+
+These descriptions were added after review. They come from the per-sample records of the 236 study runs, read back once from their archive and checked against the hashes in `sample_run_provenance.tsv`, and from the workflow at commit `66d949d`, whose `main.nf`, `nextflow.config` and site parameter file match the hashes every run recorded. None of them uses reference genotypes.
+
+Supplementary Table S10.4 gives each caller's deployment. Versions are given as the runs recorded them: OptiType wrote usage text and arcasHLA an empty field. In both assays, every T1K task used the index built from genomic sequences (`hla_dna.fa`), not the coding-sequence index built beside it (`_rna_seq.fa`). The index was built from an `hla.dat` whose entries were last updated in IPD-IMGT/HLA 3.63.1.
+[RESULT:DEV_DEPLOYMENT_WES_T1K_DNA_INDEX_RUNS]
+[RESULT:DEV_DEPLOYMENT_RNASEQ_T1K_DNA_INDEX_RUNS]
+
+**Supplementary Table S10.4. Caller deployment in the study runs.**
+
+<!-- BEGIN GENERATED ROUND5 DEPLOYMENT TABLE -->
+| Assay | Caller | Image | SHA-256 (first 12) | Version recorded by the runs | Database source | Parameters | Input route |
+|---|---|---|---|---|---|---|---|
+| WES | HLA-HD | hlahd.sif | 8fb9fa5ec339 | 1.4.0 | database inside the image (/app/hlahd.1.4.0; conf/roihu_params.yaml) | -c 0.95; -m half the read length, at most 50 (modules/hlahd.nf) | CRAM; reads in chr6:28,000,000-34,000,000, on HLA-allele and alternate contigs and unplaced, realigned to primary chr6 with BWA-MEM (RESCUE_HLA_READS); then the same window as FASTQ (EXTRACT_HLA_AND_CONVERT) |
+| WES | OptiType | optitype.sif | 7f3f32904a25 | not recorded | reference bundled in the image | --dna (nextflow.config) | CRAM; reads in chr6:28,000,000-34,000,000, on HLA-allele and alternate contigs and unplaced, realigned to primary chr6 with BWA-MEM (RESCUE_HLA_READS); then the same window as FASTQ |
+| WES | POLYSOLVER | polysolver.sif | b4f39a6dd86d | v4 | allele list bundled in the image | race Unknown, includeFreq 0, insertCalc 0 (modules/polysolver.nf) | CRAM; reads in chr6:28,000,000-34,000,000, on HLA-allele and alternate contigs and unplaced, realigned to primary chr6 with BWA-MEM (RESCUE_HLA_READS); BAM |
+| WES | SpecHLA | native installation | – | 1.0.7 (native installation at git 6165bff) | database of the native installation (/projappl/project_2008084/SpecHLAx) | -u 1, exon reads only (--spechla_exon_only 1 on the command line) | CRAM; reads in chr6:28,000,000-34,000,000, on HLA-allele and alternate contigs and unplaced, realigned to primary chr6 with BWA-MEM (RESCUE_HLA_READS); BAM |
+| WES | T1K | t1k.sif | e34c4433021c | v1.0.9-r251 | index built from hla.dat (t1k_hlaidx; conf/roihu_params.yaml); task logs name `hla_dna.fa` | run-t1k defaults; index named in the task logs | CRAM; reads in chr6:28,000,000-34,000,000, on HLA-allele and alternate contigs and unplaced, realigned to primary chr6 with BWA-MEM (RESCUE_HLA_READS); then the same window as FASTQ |
+| RNA-seq | arcasHLA | arcashla.sif | 60c42737ccb8 | not recorded | database inside the image | genotype --min_count 75 (modules/arcashla.nf, RNA) | GRCh37 BAM as distributed; no rescue; arcasHLA extract on the whole BAM |
+| RNA-seq | HLA-HD | hlahd.sif | 8fb9fa5ec339 | 1.4.0 | database inside the image (/app/hlahd.1.4.0) | -c 0.95; -m half the read length, at most 50; reads first filtered with Bowtie2 against the HLA-HD dictionary (modules/hlahd.nf) | GRCh37 BAM as distributed; no rescue; whole BAM |
+| RNA-seq | OptiType | optitype.sif | 7f3f32904a25 | not recorded | reference bundled in the image | --rna (--optitype_seq_type rna on the command line) | GRCh37 BAM as distributed; no rescue; chr6:28,000,000-34,000,000 as FASTQ (EXTRACT_HLA_AND_CONVERT) |
+| RNA-seq | T1K | t1k.sif | e34c4433021c | v1.0.9-r251 | index built from hla.dat (t1k_hlaidx; conf/roihu_params.yaml); task logs name `hla_dna.fa` | run-t1k defaults; index named in the task logs | GRCh37 BAM as distributed; no rescue; chr6:28,000,000-34,000,000 as FASTQ |
+<!-- END GENERATED ROUND5 DEPLOYMENT TABLE -->
+
+Supplementary Table S10.5 describes the inputs over exons 2 and 3 of HLA-A, -B and -C. The exons were placed on primary chromosome 6 of each build by matching the IPD-IMGT/HLA genomic sequences of A\*01:01:01:01, B\*07:02:01:01 and C\*01:02:01:01 (`artifacts/development_characterisation/round5_exon_coordinates.tsv`), and each file's build was read from its own header. Depth counts only reads aligned to primary chromosome 6, so for WES it leaves out the reads on HLA-allele and alternate contigs that the read rescue recovers. Depth was not related to caller errors.
+[RESULT:DEV_INPUT_WES_READ_LENGTH]
+[RESULT:DEV_INPUT_WES_EXON_DEPTH]
+[RESULT:DEV_INPUT_RNASEQ_READ_LENGTH]
+[RESULT:DEV_INPUT_RNASEQ_EXON_DEPTH]
+
+**Supplementary Table S10.5. Input alignments over exons 2 and 3 of HLA-A, -B and -C.**
+
+<!-- BEGIN GENERATED ROUND5 INPUT TABLE -->
+| Assay | Inputs | Build read from the header | Read layout | Median read length, bp (range) | Mean exon depth, median (range) |
+|---|---:|---|---|---:|---:|
+| RNA-seq | 106 | GRCh37 106 | paired 106 | 75 (75–76) | 3926.7 (222.4–12113.5) |
+| WES | 130 | GRCh38 130 | mixed 2; paired 128 | 100 (68–101) | 20.4 (3.8–79.3) |
+<!-- END GENERATED ROUND5 INPUT TABLE -->
+
+Supplementary Table S10.6 gives the compute each caller used per run on Roihu, from the Nextflow execution traces. CPU hours are task real time multiplied by CPU use, summed over the caller's tasks; peak memory is the largest peak resident set of those tasks. Shared steps are the read rescue, region extraction, voting and report. The traces cover the final launch of each run: tasks reused from an earlier launch keep that launch's measurements, and failed attempts in earlier launches are not recorded. These are measurements on one cluster, not costs on other systems.
+[RESULT:DEV_RUN_COST_WES_FAILED_TASK_ATTEMPTS]
+[RESULT:DEV_RUN_COST_RNASEQ_FAILED_TASK_ATTEMPTS]
+[RESULT:DEV_RUN_COST_WES_POLYSOLVER_CPU_HOURS]
+[RESULT:DEV_RUN_COST_RNASEQ_HLA_HD_CPU_HOURS]
+[RESULT:DEV_RUN_COST_RNASEQ_HLA_HD_PEAK_RSS]
+
+**Supplementary Table S10.6. Compute per study run by assay and caller.**
+
+<!-- BEGIN GENERATED ROUND5 COST TABLE -->
+| Assay | Caller | Runs | CPU hours per run, median (range) | Peak memory per run, GiB, median (range) | Failed task attempts |
+|---|---|---:|---:|---:|---:|
+| WES | HLA-HD | 130 | 0.092 (0.028–0.226) | 1.40 (0.70–3.70) | 0 |
+| WES | OptiType | 130 | 0.007 (0.005–0.015) | 0.49 (0.25–1.40) | 0 |
+| WES | POLYSOLVER | 130 | 0.599 (0.370–1.178) | 3.90 (2.80–6.20) | 0 |
+| WES | SpecHLA | 130 | 0.185 (0.102–0.523) | 0.99 (0.68–1.30) | 0 |
+| WES | T1K | 130 | 0.129 (0.056–0.243) | 4.00 (3.20–6.00) | 0 |
+| WES | shared steps | 130 | 0.079 (0.032–0.566) | 1.70 (0.39–8.50) | 0 |
+| RNA-seq | arcasHLA | 106 | 0.071 (0.034–0.160) | 1.40 (0.85–2.40) | 0 |
+| RNA-seq | HLA-HD | 106 | 2.403 (0.135–12.209) | 10.70 (3.60–24.00) | 1 |
+| RNA-seq | OptiType | 106 | 0.093 (0.006–0.330) | 6.75 (0.29–19.40) | 0 |
+| RNA-seq | T1K | 106 | 0.562 (0.145–1.301) | 10.10 (5.10–18.60) | 0 |
+| RNA-seq | shared steps | 106 | 0.011 (0.005–0.021) | 0.45 (0.02–0.90) | 0 |
+<!-- END GENERATED ROUND5 COST TABLE -->
+
+`provenance/development_rerun_v350/representative_sample/` holds the complete per-sample provenance files of HG00096, the first subject in manifest order with both assays. For each assay these are the input checksums and provenance, the container manifest, the workflow-file manifest, the execution trace and the result inventory, each matching its recorded hash.
 
 ### Caller-run and current-workflow provenance
 
-The development callers were run in April and May 2026 with an unarchived
-pre-release ChampHLA deployment on CSC – IT Center for Science (CSC)
+The archived caller outputs were generated in April and May 2026 with an
+unarchived workflow deployment on CSC – IT Center for Science (CSC)
 infrastructure, by inference the Puhti cluster, since no job of this project on
-its successor system predates July 2026. The stored T1K representation is
+its successor system predates July 2026. The archived T1K representation is
 consistent with a parser change made on 18 April 2026 (commit `304abfc`), so the
-whole caller run cannot be assigned to the earlier 7 April tree. The stored development calls lack the read-loss pattern described below. POLYSOLVER, the most affected caller, matched the vote's WES total in those outputs, but its historical read route is unrecorded. The
-v3.5.0 rerun includes the read rescue, and there POLYSOLVER scored 138/153.
+whole caller run cannot be assigned to the earlier 7 April tree. The archived development calls lack the read-loss pattern described below. POLYSOLVER, the most affected caller, matched the vote's WES total in those outputs (143/153, the highest single-caller score), but its read route in that run is unrecorded. The
+study run includes the read rescue, and there POLYSOLVER scored 138/153.
+[RESULT:DEV_ARCHIVED_WES_CALLER_POLYSOLVER]
 [RESULT:DEV_CORRECTED_WES_CALLER_POLYSOLVER]
 
-The current workflow (release 3.5.0, differing from release 3.4.1 only in the T1K parser) uses SAMtools 1.21 and BWA 0.7.19 from CSC's Roihu software-module collection (bio-apps release v202603). Caller images are Singularity conversions of public Docker and BioContainers images, specified by SHA-256 in `configs/caller_resources_v2.json`; SpecHLA uses a native installation. The official IPD-IMGT/HLA 3.65.0 resources used for the G-group
+The workflow uses SAMtools 1.21 and BWA 0.7.19 from CSC's Roihu software-module collection (bio-apps release v202603). Caller images are Singularity conversions of public Docker and BioContainers images, specified by SHA-256 in `configs/caller_resources_v2.json`; SpecHLA uses a native installation. The official IPD-IMGT/HLA 3.65.0 resources used for the G-group
 and nomenclature sensitivity analyses are identified by their upstream release tag
-and locally checksummed. The single-sample task measurements below do not reconstruct historical development-run resource use or establish cost or scaling.
+and locally checksummed. The single-sample task measurements below do not reconstruct the resource use of the archived development run or establish cost or scaling.
 
-### HG00096 re-run against the stored development calls
+### Single-sample diagnostic comparison with archived calls
 
-On 19 September 2026, HG00096 was run with pre-release revision
+On 19 September 2026, HG00096 was run with diagnostic revision
 `91f035f6f0`. All 12 RNA-seq caller–gene calls from the Geuvadis BAM matched the
-stored calls, whereas 4 of 12 WES calls from an HLA-region pre-extract matched;
+archived calls, whereas 4 of 12 WES calls from an HLA-region pre-extract matched;
 the WES denominator was four callers by three genes because SpecHLA was absent.
-On 9 October 2026, release 3.3.0 (tag `v3.3.0`, commit `360a449`) was run on the
-whole-exome CRAM and matched 5 of 15 stored calls. These two WES routes lost
+On 9 October 2026, diagnostic revision `360a449` was run on the
+whole-exome CRAM and matched 5 of 15 archived calls. These two WES routes lost
 reads: the GRCh38 alignments place many reads from non-reference HLA alleles on
 HLA-allele and chromosome 6 alternate-haplotype contigs, so the second
 haplotype disappeared.
 
-Also on 9 October, the release-3.4.0-equivalent WES tree `15f45cf` collected
-those reads and realigned them to chromosome 6. Release tag `v3.4.0` (commit
-`2a72a4b`) differs from that run tree only by version strings and the changelog.
+Also on 9 October, diagnostic revision `15f45cf` collected
+those reads and realigned them to chromosome 6. The archived commit
+`2a72a4b` differs from that run tree only in software metadata.
 All five callers then reported the same genotype at all three genes and 11 of 15
-calls matched the stored calls. The four differences were HLA-HD at HLA-B and
-HLA-C, SpecHLA at HLA-C and T1K at HLA-B. The 9 October RNA-seq run used release
-3.4.0 on the Geuvadis BAM and matched 11 of 12 stored calls; arcasHLA reported a
+calls matched the archived calls. The four differences were HLA-HD at HLA-B and
+HLA-C, SpecHLA at HLA-C and T1K at HLA-B. The 9 October RNA-seq run used the diagnostic workflow on the Geuvadis BAM and matched 11 of 12 archived calls; arcasHLA reported a
 different HLA-C allele. These one-subject diagnostics did not explain the four old/new WES differences through read rescue.
 [RESULT:DEV_HG00096_RERUN_RNASEQ]
 [RESULT:DEV_HG00096_RERUN_WES]
@@ -1419,7 +1429,7 @@ different HLA-C allele. These one-subject diagnostics did not explain the four o
 [RESULT:DEV_HG00096_WES_V3_4_0_CALLERS_UNANIMOUS_GENES]
 [RESULT:DEV_HG00096_RNASEQ_V3_4_0_GEUVADIS_BAM]
 
-**Current single-sample workflow test measurements.** Two successful HG00096 runs on the CSC Roihu cluster are reported. Both used pre-release revisions that break exact ties toward the last-sorting pair, unlike release 3.4.0. The RNA-seq run also used a locally modified seq2HLA module; the table gives revisions and image hashes. The DNA caller route
+**Single-sample diagnostic workflow measurements.** Two successful HG00096 diagnostic runs on the CSC Roihu cluster are reported. Kourami and seq2HLA appear only in these operational measurements and archived outputs; neither contributes to the WES/RNA-seq benchmark comparisons. Both diagnostic runs used revisions that break exact ties toward the last-sorting pair, unlike the evaluated rule. The RNA-seq run also used a locally modified seq2HLA module; the table gives revisions and image hashes. The DNA caller route
 used a WGS-derived mate-aware HLA BAM, not WES reads; it therefore does not
 estimate WES runtime. The RNA-seq route used paired FASTQ. Nextflow `realtime`
 and `peak_rss` are task-level trace fields. Slurm `Elapsed`, `TotalCPU` and
@@ -1453,8 +1463,8 @@ recorded in `artifacts/compute_smoke_benchmark.tsv`.
 ## S11. Practical guide to running ChampHLA
 
 This section describes the workflow release in the pipeline repository (Data
-and software availability). The commands below were checked against that
-release's parameter definitions; they are usage guidance, not part of the
+and software availability). The commands in S11.2 passed a Nextflow stub run at that
+release, in which no caller runs; they are usage guidance, not part of the
 verified evidence chain of this paper.
 
 ### S11.1 Requirements and inputs
@@ -1469,7 +1479,7 @@ database path is not set. Input is either a directory (`--input` with
 `sample_id,cram_path` or `sample_id,fastq_1,fastq_2`. CRAM input also needs
 `--reference_fasta`.
 
-The workflow wraps eight callers (main Table 1), each with its own process, container, preprocessing, invocation and parser. A
+Each evaluated caller has its own workflow process, container, preprocessing, invocation and parser. Main Table 1 defines the evaluated panels. A
 sequencing mode (DNA, bulk RNA-seq, PacBio HiFi or Oxford Nanopore) and the
 resolved assay determine which callers run. Unless a caller list is given, the
 workflow runs the assay's reference panel, declared in one configuration file
@@ -1477,36 +1487,57 @@ so that a partial installation can be detected. DNA-only callers are skipped
 for RNA-seq input. The long-read modes currently run T1K only and, like WGS
 (Supplementary S8), are not evaluated here. Each run also writes an HTML report.
 
-From release 3.4.0, every DNA BAM or CRAM passes through a read-rescue step
+Every DNA BAM or CRAM passes through a read-rescue step
 before any caller. In one streaming pass, it collects reads from the chromosome 6 MHC window, every HLA-allele and chromosome 6 alternate-haplotype contig, and unplaced reads. It keeps complete pairs and realigns them to primary chromosome 6 with bwa. This needs `--hla_rescue_reference`, a primary
 chromosome 6 FASTA with a bwa index, built by the workflow's
-`build_hla_rescue_reference.sh` script. Release 3.3.0 lacked this step and lost the
-second haplotype on GRCh38 alignments that carry such contigs (main Methods,
-Study design). Alignments without those contigs keep their alignments.
+`build_hla_rescue_reference.sh` script. Alignments without those contigs keep their alignments.
+In the 130 WES study runs, the rescue selected a median of 4.94 million records per run (range 2.06–46.0 million) and realigned a median of 403,455 pairs (range 166,084–15,457,131). Its tables record counts only, and the realigned alignments were not kept, so how many rescued reads came from HLA-allele contigs, alternate contigs or unplaced reads, and where they landed, is not known.
+[RESULT:DEV_RESCUE_WES_SELECTED_RECORDS]
+[RESULT:DEV_RESCUE_WES_REALIGNED_PAIRS]
+[RESULT:DEV_RESCUE_WES_OUTPUT_RECORDS]
 
 ### S11.2 Reproducing the evaluated rule
 
-The consensus step is off by default. When enabled, it defaults to calibrated weighting and a gene list including class II genes. The `paper` profile enables the evaluated rule: equal weights, the assay's reference panel (`--tools` unset), HLA-A, -B and -C voting, and Methods call states (`--mv_call_states paper`). Combine it with an execution profile:
+The consensus step is off by default. When enabled, it defaults to calibrated weighting and a gene list including class II genes. The `paper` profile enables the evaluated rule: equal weights, the assay's reference panel (`--tools` unset), HLA-A, -B and -C voting, and Methods call states (`--mv_call_states paper`). The commands below are the study's own, from `scripts/roihu_run_development_sample.sbatch`, with site paths replaced by placeholders and the values from the site parameter file written out. Files at tag `v3.5.0` still use the earlier project name PanelHLA.
 
 ```text
-# WES, BAM samplesheet, Slurm cluster with Singularity
+# WES as evaluated: CRAM samplesheet, GRCh38 alignments
 nextflow run main.nf \
-    --input_samplesheet samples.csv \
+    --input_samplesheet samples.csv --input_type cram \
     --seq_type dna --run_modality wes \
-    --extract_hla_region \
+    --reference_build hg38 --spechla_exon_only 1 \
+    --reference_fasta /path/to/GRCh38_full_analysis_set_plus_decoy_hla.fa \
+    --hla_rescue_reference /path/to/chr6.fa \
+    --hlahd_db /app/hlahd.1.4.0 --t1k_hlaidx /path/to/t1k_hlaidx \
+    --use_local_spechla true --spechla_path /path/to/SpecHLA \
     --singularity_cache_dir /path/to/cache \
+    --require_full_panel true \
+    --release_commit 66d949da90861da6cf60cf1d4bee2f094f2518bd \
     --outdir results_wes \
-    -profile slurm,singularity,paper -resume
+    -profile roihu,singularity,paper
 
-# Bulk RNA-seq, paired FASTQ samplesheet, local Docker
+# Bulk RNA-seq as evaluated: BAM samplesheet, GRCh37 alignments
 nextflow run main.nf \
-    --input_samplesheet rna_samples.csv \
-    --seq_type rna --optitype_seq_type rna \
+    --input_samplesheet rna_samples.csv --input_type bam \
+    --seq_type rna --run_modality rnaseq \
+    --reference_build hg19 --optitype_seq_type rna \
+    --reference_fasta /path/to/GRCh38_full_analysis_set_plus_decoy_hla.fa \
+    --hla_rescue_reference /path/to/chr6.fa \
+    --hlahd_db /app/hlahd.1.4.0 --t1k_hlaidx /path/to/t1k_hlaidx \
+    --singularity_cache_dir /path/to/cache \
+    --require_full_panel true \
+    --release_commit 66d949da90861da6cf60cf1d4bee2f094f2518bd \
     --outdir results_rna \
-    -profile docker,paper
+    -profile roihu,singularity,paper
 ```
 
-The workflow parity test (<https://github.com/uoozcan/ChampHLA/blob/71f037d/tests/test_paper_parity.py>) feeds stored raw development outputs through consensus with these settings. It requires the ChampHLA-Consensus call, including abstentions, at all 708 loci (workflow commit `71f037d`; release tag under Data availability). Earlier workflow revisions broke exact ties in the
+The study also passed the workflow's site parameter file (`roihu_params.yaml`), its Slurm account and a work directory. Only these routes were evaluated, and other choices change what runs:
+- FASTQ input takes a different arcasHLA process, without the single-end extraction described under Limitations in the main text.
+- `-profile docker,paper` resolves arcasHLA to 0.5.0, not the evaluated 0.2.0.
+- `-profile slurm,singularity,paper` resolves SpecHLA to an image with no public source.
+- Docker images are not checked against their checksums.
+
+The workflow parity test (<https://github.com/uoozcan/ChampHLA/blob/71f037d/tests/test_paper_parity.py>) feeds archived raw development outputs through consensus with these settings. It requires the ChampHLA-Consensus call, including abstentions, at all 708 loci (workflow commit `71f037d`; release tag under Data availability). Earlier workflow revisions broke exact ties in the
 opposite lexicographic order and abstained on caller-declared homozygotes; both
 are corrected in that commit.
 
@@ -1540,9 +1571,7 @@ files below, and `report/` contains an HTML run report.
 
 ## S12. Disagreement classes, cross-assay agreement, per-gene concordance and caller calibration
 
-These analyses appeared in earlier drafts. They describe historical stored outputs, not the v3.5.0 rerun. `scripts/restored_analyses.py` computed them from exact-endpoint loci in the historical joined development table and wrote `artifacts/restored_analyses/` with an input-checksum manifest. They are not recomputed from rerun inputs. Their numbers are reconciled against the archived historical result
-registry (`provenance/development_rerun_v350/`) and are reported as provenance
-only. All four are post hoc and descriptive. S12.4 is also exploratory: its probabilities were calibrated on superseded 390-locus WES and 321-locus RNA-seq sets, including WGS rows, not current exact loci.
+S12.1 to S12.3 use the study-run calls. `scripts/restored_analyses.py` computes them from exact-endpoint loci in the joined development table and writes `artifacts/restored_analyses/` with an input-checksum manifest. The earlier values, computed from archived outputs, are kept in `provenance/development_rerun_v350/historical_artifacts/restored_analyses/` (`decisions/20261106_posthoc_round3_amendment.json`). Against them, the study run raised WES unanimity from 93 to 104 loci and lowered RNA-seq unanimity from 102 to 53, mostly through the arcasHLA calls, and the per-gene totals now equal Table 2 of the main text. S12.4 still describes archived outputs, because the study-run calls have no calibrated probabilities. All four are post hoc and descriptive. S12.4 is also exploratory: its probabilities were calibrated on superseded 390-locus WES and 321-locus RNA-seq sets, including WGS rows, not current exact loci.
 
 ### S12.1 Disagreement among caller outputs
 
@@ -1555,29 +1584,29 @@ heterozygous genotype is under-sampled. Intervals are exact Clopper–Pearson 95
 |---|---|---:|---:|---|
 | WES | No callable caller | 0 | — | — |
 | WES | Single callable caller | 0 | — | — |
-| WES | Unanimous | 93 | 90 | 96.8 (90.9–99.3) |
-| WES | One-allele conflict | 57 | 51 | 89.5 (78.5–96.0) |
-| WES | Two-allele conflict | 3 | 2 | 66.7 (9.4–99.2) |
+| WES | Unanimous | 104 | 103 | 99.0 (94.8–100.0) |
+| WES | One-allele conflict | 44 | 36 | 81.8 (67.3–91.8) |
+| WES | Two-allele conflict | 5 | 4 | 80.0 (28.4–99.5) |
 | RNA-seq | No callable caller | 0 | — | — |
-| RNA-seq | Single callable caller | 3 | 3 | 100.0 (29.2–100.0) |
-| RNA-seq | Unanimous | 102 | 98 | 96.1 (90.3–98.9) |
-| RNA-seq | One-allele conflict | 13 | 12 | 92.3 (64.0–99.8) |
-| RNA-seq | Two-allele conflict | 0 | — | — |
+| RNA-seq | Single callable caller | 0 | — | — |
+| RNA-seq | Unanimous | 53 | 51 | 96.2 (87.0–99.5) |
+| RNA-seq | One-allele conflict | 39 | 37 | 94.9 (82.7–99.4) |
+| RNA-seq | Two-allele conflict | 26 | 25 | 96.2 (80.4–99.9) |
 <!-- END GENERATED S12 DISAGREEMENT TABLE -->
 
-In WES, all callable callers agreed at 93 of 153 loci, where ChampHLA-Consensus
-was correct at 90 (96.8%). At the 57 loci where every dissenting caller differed
-from the reported genotype at one allele, it was correct at 51 (89.5%), and 3
-loci had a dissenting genotype sharing no allele with it. In RNA-seq, callers
-agreed unanimously at 102 of 118 loci (98 correct; 96.1%), one-allele conflicts
-occurred at 13 loci with 12 correct (92.3%), and 3 loci had a single callable
-caller, all of which were correct.
+In WES, all callable callers agreed at 104 of 153 loci, where ChampHLA-Consensus
+was correct at 103 (99.0%). At the 44 loci where every dissenting caller differed
+from the reported genotype at one allele, it was correct at 36 (81.8%), and 5
+loci had a dissenting genotype sharing no allele with it (4 correct). In RNA-seq, callers
+agreed unanimously at 53 of 118 loci (51 correct; 96.2%), one-allele conflicts
+occurred at 39 loci with 37 correct (94.9%), and two-allele conflicts at 26 loci
+with 25 correct; no locus had a single callable caller.
 [RESULT:DEV_DISCORDANCE_WES_UNANIMOUS]
 [RESULT:DEV_DISCORDANCE_WES_ONE_ALLELE_CONFLICT]
 [RESULT:DEV_DISCORDANCE_WES_TWO_ALLELE_CONFLICT]
 [RESULT:DEV_DISCORDANCE_RNASEQ_UNANIMOUS]
 [RESULT:DEV_DISCORDANCE_RNASEQ_ONE_ALLELE_CONFLICT]
-[RESULT:DEV_DISCORDANCE_RNASEQ_SINGLE_CALLER]
+[RESULT:DEV_DISCORDANCE_RNASEQ_TWO_ALLELE_CONFLICT]
 
 ### S12.2 Cross-assay agreement
 
@@ -1589,17 +1618,17 @@ shown for comparison only.
 <!-- BEGIN GENERATED S12 CROSS-ASSAY TABLE -->
 | Stratum | Loci | WES consensus correct | RNA-seq consensus correct | Pooled vote correct |
 |---|---:|---:|---:|---:|
-| All shared loci | 116 | 110 | 111 | 111 |
+| All shared loci | 116 | 110 | 111 | 110 |
 | WES and RNA-seq calls agree | 115 | 110 | 110 | 110 |
-| WES and RNA-seq calls disagree | 1 | 0 | 1 | 1 |
+| WES and RNA-seq calls disagree | 1 | 0 | 1 | 0 |
 | HLA-A | 38 | 37 | 37 | 37 |
 | HLA-B | 39 | 37 | 37 | 37 |
-| HLA-C | 39 | 36 | 37 | 37 |
+| HLA-C | 39 | 36 | 37 | 36 |
 <!-- END GENERATED S12 CROSS-ASSAY TABLE -->
 
 The WES and RNA-seq consensus calls agreed at 115 of the 116 loci, of which 110
 were correct. At the one locus where they disagreed, the RNA-seq call was
-correct and the WES call was not. The pooled vote was correct at 111 of 116
+correct and the WES call was not. The pooled vote was correct at 110 of 116
 loci, compared with 110 for WES and 111 for RNA-seq consensus alone. Both panels share callers, and the pooled rule was examined post hoc. Cross-assay agreement is therefore a consistency check, not independent truth; the pooled vote is not validated.
 [RESULT:DEV_CROSS_ASSAY_ALL_WES]
 [RESULT:DEV_CROSS_ASSAY_ALL_RNASEQ]
@@ -1616,38 +1645,41 @@ incorrect; cells give correct/loci (percent).
 <!-- BEGIN GENERATED S12 PER-GENE TABLE -->
 | Assay | Method | HLA-A | HLA-B | HLA-C | All |
 |---|---|---:|---:|---:|---:|
-| WES | HLA-HD | 40/50 (80.0) | 45/52 (86.5) | 41/51 (80.4) | 126/153 (82.4) |
-| WES | OptiType | 48/50 (96.0) | 48/52 (92.3) | 44/51 (86.3) | 140/153 (91.5) |
-| WES | POLYSOLVER | 47/50 (94.0) | 50/52 (96.2) | 46/51 (90.2) | 143/153 (93.5) |
-| WES | SpecHLA | 46/50 (92.0) | 33/52 (63.5) | 44/51 (86.3) | 123/153 (80.4) |
-| WES | T1K | 37/50 (74.0) | 43/52 (82.7) | 33/51 (64.7) | 113/153 (73.9) |
+| WES | HLA-HD | 41/50 (82.0) | 48/52 (92.3) | 42/51 (82.4) | 131/153 (85.6) |
+| WES | OptiType | 48/50 (96.0) | 49/52 (94.2) | 45/51 (88.2) | 142/153 (92.8) |
+| WES | POLYSOLVER | 46/50 (92.0) | 47/52 (90.4) | 45/51 (88.2) | 138/153 (90.2) |
+| WES | SpecHLA | 46/50 (92.0) | 43/52 (82.7) | 45/51 (88.2) | 134/153 (87.6) |
+| WES | T1K | 38/50 (76.0) | 48/52 (92.3) | 39/51 (76.5) | 125/153 (81.7) |
 | WES | ChampHLA-Consensus | 48/50 (96.0) | 50/52 (96.2) | 45/51 (88.2) | 143/153 (93.5) |
-| RNA-seq | arcasHLA | 35/38 (92.1) | 38/40 (95.0) | 36/40 (90.0) | 109/118 (92.4) |
-| RNA-seq | HLA-HD | 36/38 (94.7) | 37/40 (92.5) | 37/40 (92.5) | 110/118 (93.2) |
-| RNA-seq | OptiType | 36/38 (94.7) | 36/40 (90.0) | 37/40 (92.5) | 109/118 (92.4) |
-| RNA-seq | T1K | 29/38 (76.3) | 31/40 (77.5) | 31/40 (77.5) | 91/118 (77.1) |
+| RNA-seq | arcasHLA | 17/38 (44.7) | 27/40 (67.5) | 14/40 (35.0) | 58/118 (49.2) |
+| RNA-seq | HLA-HD | 37/38 (97.4) | 38/40 (95.0) | 37/40 (92.5) | 112/118 (94.9) |
+| RNA-seq | OptiType | 37/38 (97.4) | 37/40 (92.5) | 38/40 (95.0) | 112/118 (94.9) |
+| RNA-seq | T1K | 35/38 (92.1) | 32/40 (80.0) | 34/40 (85.0) | 101/118 (85.6) |
 | RNA-seq | ChampHLA-Consensus | 37/38 (97.4) | 38/40 (95.0) | 38/40 (95.0) | 113/118 (95.8) |
 <!-- END GENERATED S12 PER-GENE TABLE -->
 
 In WES the least concordant caller was T1K for HLA-A and HLA-C and SpecHLA for
-HLA-B, whereas in RNA-seq no caller led for every gene: HLA-HD and OptiType tied
-for HLA-A and HLA-C, and arcasHLA led for HLA-B.
+HLA-B. In RNA-seq no caller led for every gene: HLA-HD and OptiType tied for
+HLA-A, HLA-HD led for HLA-B and OptiType for HLA-C. arcasHLA, with the deployment
+defect described in the main text, was least concordant for every gene (17/38, 27/40 and 14/40).
 [RESULT:DEV_PER_GENE_WES_T1K_A]
 [RESULT:DEV_PER_GENE_WES_SPECHLA_B]
 [RESULT:DEV_PER_GENE_WES_T1K_C]
 [RESULT:DEV_PER_GENE_RNASEQ_HLA_HD_A]
 [RESULT:DEV_PER_GENE_RNASEQ_OPTITYPE_A]
-[RESULT:DEV_PER_GENE_RNASEQ_ARCASHLA_B]
-[RESULT:DEV_PER_GENE_RNASEQ_HLA_HD_C]
+[RESULT:DEV_PER_GENE_RNASEQ_HLA_HD_B]
 [RESULT:DEV_PER_GENE_RNASEQ_OPTITYPE_C]
+[RESULT:DEV_PER_GENE_RNASEQ_ARCASHLA_A]
+[RESULT:DEV_PER_GENE_RNASEQ_ARCASHLA_B]
+[RESULT:DEV_PER_GENE_RNASEQ_ARCASHLA_C]
 
 ### S12.4 Caller calibration (exploratory)
 
-Out-of-fold calibrated probabilities from the recovered caller table were scored against exact correctness at current loci. The table reports scored loci over callable loci. We excluded six of 115 callable HLA-HD RNA-seq loci because their calibrated probabilities were not preserved. ECE is the
+Out-of-fold calibrated probabilities from the archived caller table were scored against exact correctness at current loci. The table reports scored loci over callable loci. We excluded six of 115 callable HLA-HD RNA-seq loci because their calibrated probabilities were not preserved. ECE is the
 expected calibration error over five equal-width probability bins. POLYSOLVER
 and SpecHLA report no confidence value. The calibration models were fitted
 against earlier development labels, so these values describe agreement between
-stated confidence and observed concordance on this resource only. The original caller table is checksum-verified but absent from this checkout. We retain the calibration table as a checksum-verified historical artifact; other S12 tables were computed from the historical joined locus table.
+stated confidence and observed concordance on this resource only. The original caller table is checksum-verified but absent from this checkout. We retain the calibration table as a checksum-verified archived artifact, because the study-run calls carry no calibrated probabilities; S12.1 to S12.3 use the study-run calls.
 
 <!-- BEGIN GENERATED S12 CALIBRATION TABLE -->
 | Assay | Caller | Scored/callable loci | Mean probability | Observed concordance | Brier score | ECE |
@@ -1726,7 +1758,7 @@ abstain-all alternative beside it (Supplementary S2).
 ### S13.4 Why "no significant difference" is not equivalence
 
 A criterion phrased as the absence of a significant improvement passes
-automatically wherever a comparison is underpowered. In some comparisons, too few subjects had nonzero score differences for the sign-flip test to reach significance at any effect size (detectability table in Supplementary S3; power table in Supplementary S7). The development
+automatically wherever a comparison is underpowered. In some comparisons, too few subjects had nonzero score differences for the sign-flip test to reach significance at any effect size (detectability table in Supplementary S3). The development
 results therefore support "could not be distinguished from" and never
 "equivalent to". Equivalence would need a pre-specified margin and a test
 designed for it.
@@ -1739,7 +1771,7 @@ but it confounds the comparison. Database vintage can contribute to apparent cal
 is not symmetric across callers. Rankings therefore describe deployed tools, not algorithms. Rebuilding all callers against one database release would be a different study.
 
 For the same reason, every step that compares alleles uses declared
-nomenclature resources [8, 40]:
+nomenclature resources [8, 34]:
 - truth normalization, call normalization and the G-group and P-group sensitivity mappings each use a checksummed release;
 - concordance is scored on the unordered genotype, not on two independent
   alleles, so partial credit cannot hide an ambiguous or failed call;
@@ -1749,12 +1781,13 @@ nomenclature resources [8, 40]:
 ### S13.6 Workflow engineering as part of the method
 
 Reproducibility contributes to the method.
-- Each caller runs as its own containerized process with a checksummed image.
+- Each caller runs as its own process, in a checksummed container except for
+  SpecHLA, which ran from a native installation in this study (Supplementary S10).
 - Inputs are defined by manifests.
 - The release, the panel and the consensus rule are declared in versioned
   configuration (Supplementary S10 and S11).
 
-Other groups can run the same release on the same public inputs or a new cohort without changing workflow code. The documented rerun
+Other groups can run the same release on the same public inputs or a new cohort without changing workflow code. The documented run
 manifests record what was executed for every development sample.
 
 ### S13.7 Scope and outlook
@@ -1775,7 +1808,7 @@ evaluation awaits suitable reference typing. The same applies to:
 ### Why the development results are exploratory
 
 The analysis plan changed after development results had been seen.
-Each change is recorded in a dated decision file in the paper repository, and Supplementary S7 tabulates the direction and size of every change.
+Each change is recorded in a dated decision file in the paper repository, and Supplementary S7 tabulates the main changes.
 
 An analysis plan specified on 31 August 2026, before the planned comparison of predictions with reference genotypes, named a two-thirds-guarded champion–challenger rule as the primary method, corrected for multiplicity across WGS, WES and RNA-seq together, and required the primary method to outperform its comparators.
 This was not the analysts' first sight of truth: an earlier analysis had already joined truth to these caller outputs to fit the champions and weights.
@@ -1784,12 +1817,12 @@ On the current scoring definition the previous primary method did not outperform
 The equal-weight plurality vote was then made primary, with multiplicity corrected within each assay and invalid WGS excluded (8 September; documented 18 September).
 Single-allele handling was revised three times, ending with caller-declared homozygotes completed (18 September to 8 October).
 After a structured review, the reference parser was changed to exclude unresolved reference genotypes and predictions were finalized before reference genotypes were selected for evaluation (28 September).
-We then withheld the RNA-seq input that failed identity checks, refitted the nested-CV comparator and made the exact sign-flip test govern significance instead of the cluster-*t* test (8–9 October). The significant comparisons did not change.
-The full rerun followed (13–25 October). A corrected T1K parser was released in workflow release 3.5.0, and every development caller was re-run with it. The collector was corrected to complete caller-declared homozygotes before activation; the revised results were checked before manuscript revision.
+We then withheld the RNA-seq input that failed identity checks, refitted the nested-CV comparator and made the exact sign-flip test govern significance instead of the cluster-*t* test (8–9 October). The significant comparisons did not change at that date; on the October run the cluster-*t* test would also flag WES two-thirds consensus and RNA-seq strict majority and two-thirds consensus.
+The development runs took place on 13–25 October using the workflow identified in Code availability, including its T1K parser. The first activation of these results contained a collector defect that left caller-declared homozygotes partial. Truth-derived singleton-sensitivity rows prompted the inspection, and the defect was then confirmed from caller-output fields. The collector was corrected and collection and regeneration repeated once (25 October; `decisions/20261025_rerun_native_homozygote_collection.json`); this moved the RNA-seq vote from 112/118 to 113/118, HLA-HD from 98/118 to 112/118 and arcasHLA from 55/118 to 58/118, and the vote's margin over OptiType from 0 to +1 locus.
 The arcasHLA deployment defect found afterwards was reported as it stands rather than corrected.
 These safeguards document the history but cannot undo prior exposure to development truth. None of the development results is confirmatory.
-A separate extension cohort with no overlapping subjects was specified with its analysis plan before any comparison with reference genotypes; an amendment specifying release 3.5.0, the analysis code and the input manifest was documented on 26 October, and the roster is being processed, with the one-time comparison with reference genotypes deferred until the documented plan is publicly deposited.
-The NCI-60 application is being regenerated under a separate decision documented the same day (Supplementary S9.6).
+A separate extension cohort with no overlapping subjects was specified with its analysis plan before any comparison with reference genotypes; an amendment specifying release 3.5.0, the analysis code and the input manifest was documented on 26 October, and the roster was partly processed and then paused, with the one-time comparison with reference genotypes deferred until the documented plan is publicly deposited.
+The NCI-60 application is being regenerated under a separate decision documented the same day (Supplementary S9).
 
 ### Applying the method to a new dataset
 

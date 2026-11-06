@@ -1,10 +1,10 @@
 # ChampHLA result-registry delta
 
-Old rows: 631; new rows: 630.
+Old rows: 532; new rows: 745.
 
 | Unchanged | Changed | Added | Removed |
 |---:|---:|---:|---:|
-| 209 | 421 | 0 | 1 |
+| 34 | 496 | 215 | 2 |
 
 ## Author-approval gate
 

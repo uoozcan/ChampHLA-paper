@@ -19,7 +19,7 @@ def _sha256(path: Path) -> str:
 
 def test_protocol_change_ledger_is_complete_and_every_record_resolves():
     rows = _rows(LEDGER)
-    assert len(rows) == 11
+    assert len(rows) == 19
     assert len({row["change_id"] for row in rows}) == len(rows)
     for row in rows:
         assert row["direction_and_size"]
@@ -53,4 +53,4 @@ def test_protocol_change_ledger_is_registry_backed():
     assert row["artifact_path"] == "artifacts/protocol_change_ledger.tsv"
     assert row["artifact_sha256"] == _sha256(LEDGER)
     assert row["record_type"] == "protocol_change_ledger"
-    assert row["estimate"] == "11"
+    assert row["estimate"] == "19"

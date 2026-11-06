@@ -200,7 +200,7 @@ def test_committed_supplementary_draft_matches_and_embeds_all_figures():
     assert report["failures"] == [], report["failures"]
     with zipfile.ZipFile(docx) as archive:
         media = [name for name in archive.namelist() if name.startswith("word/media/")]
-    assert len(media) == 9  # Supplementary Figures S1-S9
+    assert len(media) == 6  # Supplementary Figures S1-S6
     text = _docx_text(docx)
     assert not re.search(r"\[RESULT:[A-Z]", text)
     assert "NOT FOR SUBMISSION" in text
