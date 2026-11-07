@@ -263,6 +263,8 @@ The release freeze and the in-gate tests did not run, because the gate stops fir
 
 **Recorded, 7 November.** After the fix, snapshot `bf7cd66` was built from `c9f0e9b`. The author then chose to record the last-digit difference and fix the README ("Record and fix README (Recommended)"): `decisions/20261107_linux_last_digit_pvalues.json` lists the 14 rows and the hashes. The registry, values and code are unchanged, and no approval is added for the Linux registry. Recording it found that the README's check could not be made: `result_registry_delta.md` compares with the pre-v3.5.0 registry, not the approved one. The README now points to `git diff result_registry.tsv`, keeps the rerun advice for meta-consensus variation, and says a Linux run stops at the gate on these 14 rows every time.
 
+**Published, 7 November.** Snapshot `8e6f6f1`, built from `ecde960`, reached `main` of `github.com/uoozcan/ChampHLA-paper` at 23:55 UTC on 6 November. The session that built it did not push it. The author then made the repository public ("Make it public"). It holds one branch, `main` at `8e6f6f1`. Signed S3 said the snapshot would go public at acceptance, so `decisions/20261107_public_repository_visibility.json` records the change; S3 itself is not edited. The manuscript's Data availability sentence is unchanged, and no deposit was made.
+
 ## Meta-consensus variation: S7.1 corrected and signed
 
 The author signed `decisions/20261105_metaconsensus_variation.json` in the Claude Code session of 5 November ("Sign the correction"). The 26 October record is kept unedited.

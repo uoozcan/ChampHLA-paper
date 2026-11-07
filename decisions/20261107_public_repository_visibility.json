@@ -1,0 +1,30 @@
+{
+  "schema_version": "champhla-decision-1",
+  "decision_id": "20261107_public_repository_visibility",
+  "date": "2026-11-07",
+  "status": "RECORDED - the author made github.com/uoozcan/ChampHLA-paper public in the Claude Code session of 2026-11-07 ('Make it public') and asked for this record ('Yes, record it')",
+  "updates": "decisions/20261106_public_snapshot_scope.json, item S3 (that record is not edited)",
+  "relates_to": [
+    "decisions/20261106_public_snapshot_scope.json",
+    "decisions/20261107_linux_last_digit_pvalues.json",
+    "reports/manuscript_fatal_fixes_20261105.md",
+    "scripts/publish_snapshot.sh"
+  ],
+  "what_changed": {
+    "s3_as_signed": "At submission, build the snapshot without --push and deposit it with a reviewer-access link, made public at acceptance.",
+    "push": "Snapshot 8e6f6f16cc4d367fc8e8972efae8996fb3f820ef (built from ecde960) reached main of github.com/uoozcan/ChampHLA-paper at 2026-11-06T23:55:54Z, as GitHub reports. The Claude Code session that built it did not push it; when the author chose to push it, main already held it, so it was not pushed again.",
+    "visibility": "On 2026-11-07 the repository was changed from private to public at the author's instruction ('Make it public'), with gh repo edit --visibility public. Afterwards it held one branch, main at 8e6f6f1, and no tags or other refs.",
+    "departure": "The snapshot is public before acceptance, not at acceptance as S3 says."
+  },
+  "unchanged": {
+    "snapshot_content": "The published tree is the scanned snapshot built by scripts/publish_snapshot.sh: the forbidden-path and identifier scans passed, the hold-back list was applied, and the snapshot shares no commit with the development history.",
+    "manuscript": "The Data availability and cover-letter sentences are not changed by this record.",
+    "deposit": "No Zenodo or other archive deposit is created by this record."
+  },
+  "boundary": "No result, endpoint, panel, rule, threshold or fitted policy changes. No extension or NCI-60 data, prediction or truth is read, and no patient-level file is opened.",
+  "authorization": {
+    "required": "Umut Onur Özcan",
+    "given": "2026-11-07, author's statements in the Claude Code session: 'Make it public'; 'Yes, record it'",
+    "mechanism": "Claude Code session"
+  }
+}
